@@ -1,6 +1,7 @@
 ---
-permalink: /contact/
+layout: archive
 title: "Contact"
+permalink: /contact/
 author_profile: true
 ---
 School of Engineering, Sun Yat-sen University<br>
