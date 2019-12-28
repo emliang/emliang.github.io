@@ -1,9 +1,8 @@
 ---
-permalink: /markdown/
+permalink: /contact/
 title: "Contact"
 author_profile: true
-redirect_from: 
 ---
-Transportation Engineering, Sun Yat-sen University<br>
+School of Engineering, Sun Yat-sen University<br>
 East campus, Panyu District, Guangzhou, Guangdong, China<br>
 Email: liangenm [at] mail2.sysu.edu.cn
