@@ -13,6 +13,6 @@ Education
 ======
 * B.Eng. in Transportation Engineering, Sun Yat-sen University, 2020
 
-Work experience
+Details
 ======
 [Click to View My Up-to-date Curriculum Vitae [PDF]]
