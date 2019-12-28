@@ -4,5 +4,5 @@ title: "Contact"
 author_profile: true
 ---
 School of Engineering, Sun Yat-sen University<br>
-East campus, Panyu District, Guangzhou, Guangdong, China<br>
+East Campus, Panyu District, Guangzhou, Guangdong, China<br>
 Email: liangenm [at] mail2.sysu.edu.cn
