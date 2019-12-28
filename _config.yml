@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Enming Liang"
 title_separator          : "-"
 name                     : &name "Enming Liang"
-description              : &description "personal description"
+description              : &description "Senior student, Transportation Engineering, Sun Yat-sen University"
 url                      : https://emliang.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "emliang/emliang.github.io"
@@ -82,13 +82,13 @@ analytics:
 author:
   name             : "Enming Liang"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  bio              : "Senior student, Transportation Engineering, Sun Yat-sen University"
+  location         : "Guangzhou, China"
   employer         :
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  email            :  "liangenm@mail2.sysu.edu.cn"
+  researchgate     :  
   uri              :
   bitbucket        :
   codepen          :
