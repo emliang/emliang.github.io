@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Enming Liang (梁恩明)"
+title: "Enming Liang"
 permalink: /cv/
 author_profile: true
 redirect_from:
