@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "梁恩明 <br>
                       Enming Liang"
-  avatar           : "IMG_6549.JPG"
+  avatar           : #"IMG_6549.JPG"
   bio              : "Senior student, Transportation Engineering, Sun Yat-sen University"
   location         : "Guangzhou, China"
   employer         :
