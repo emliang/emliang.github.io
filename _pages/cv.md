@@ -11,8 +11,6 @@ redirect_from:
 
 Education
 ======
-* B.Eng. in Transportation Engineering, Sun Yat-sen University, 2020
 
 Details
 ======
-[Click to View My Up-to-date Curriculum Vitae [PDF]]
