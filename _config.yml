@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Enming Liang"
 title_separator          : "-"
 name                     : &name "Enming Liang"
-description              : &description "Senior student, Transportation Engineering, Sun Yat-sen University"
+description              : &description "Sun Yat-sen University"
 url                      : https://emliang.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "emliang/emliang.github.io"
@@ -82,8 +82,8 @@ analytics:
 author:
   name             : "梁恩明 <br>
                       Enming Liang"
-  avatar           : #"IMG_6549.JPG"
-  bio              : "Senior student, Transportation Engineering, Sun Yat-sen University"
+  avatar           : 
+  bio              : "Sun Yat-sen University"
   location         : "Guangzhou, China"
   employer         :
   pubmed           : 
