@@ -76,8 +76,6 @@ INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/fontawesomesymbol
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-generic.tex
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pdftex.tex
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/fontawesomesymbols-pdftex.tex
-INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/pdftex/glyphtounicode.tex
-INPUT /usr/local/texlive/2019/texmf-dist/tex/generic/pdftex/glyphtounicode.tex
 INPUT cv.aux
 INPUT cv.aux
 OUTPUT cv.aux
