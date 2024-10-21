@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.17)  10 SEP 2024 23:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.17)  18 OCT 2024 17:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -302,19 +302,19 @@ This may cause the page layout to be inconsistent, however.
 [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 404.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 405.
  [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 404.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 405.
  (./cv.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 404.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 404.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 405.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 405.
 Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: 7EC80578227C8CA8526F945FCBA9D1A4;427.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 404.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 405.
  ) 
 Here is how much of TeX's memory you used:
  8084 strings out of 492616
