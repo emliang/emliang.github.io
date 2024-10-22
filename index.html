@@ -34,6 +34,18 @@
         color: #06c;
         text-decoration: none;
       }
+      /* Link colors */
+      .paper-link {
+          color: rgb(22, 102, 172); /* Home link color */
+      }
+
+      .competition-link {
+          color: rgb(167, 38, 38); /* About link color */
+      }
+
+      .project-link {
+          color: rgb(207, 137, 57); /* Projects link color */
+      }
       a:hover {
         text-decoration: underline;
       }
@@ -199,12 +211,12 @@
     <h6 id="Feasibility">NN Solution Feasibility</h6>
     <ul>
       <li> 
-        <a href="/projects/1.Homeomorphic_Projection">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
+        <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
         <br><span style="text-decoration:underline">Enming Liang</span>, Minghua Chen, and Steven Low. <b>ICML 2023</b>.
       </li>
 
       <li>
-        <a href="https://www.mhchen.com/papers/HP.JMLR.2024.pdf">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
+        <a href="https://www.mhchen.com/papers/HP.JMLR.2024.pdf" class="paper-link">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
         <br><span style="text-decoration: underline;">Enming Liang</span>, Minghua Chen, and Steven Low. <b>JMLR 2024</b>.
       </li>
     </ul>
@@ -212,7 +224,7 @@
     <h6 id="Multi-valued">Multi-valued Solution Mapping</h6>
     <ul>
       <li>
-        <a href="https://openreview.net/pdf?id=3tM1l5tSbv">Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.</a>
+        <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.</a>
         <br><span style="text-decoration:underline">Enming Liang</span> and Minghua Chen. <b>ICLR 2024</b>.
       </li>
     </ul>
@@ -220,7 +232,7 @@
     <h6 id="ResNet">NN Approximation Ability</h6>
     <ul>
       <li>
-        <a href="https://openreview.net/forum?id=z7zHsNFXHc">Characterizing ResNet's Universal Approximation Capability.</a>
+        <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">Characterizing ResNet's Universal Approximation Capability.</a>
         <br>Chenghao Liu, <span style="text-decoration:underline">Enming Liang</span>, and Minghua Chen. <b>ICML 2024</b>.
       </li>
     </ul>
@@ -229,26 +241,7 @@
     <h5 id="AI">AI for Mobility, Energy, and Climate</h5>
     <hr />
 
-    <h6 id="Extreme">Extreme Weather</h6>
-    <ul>
-      <li>
-        <a>Can European Electricity Grids Exhibit Temperature-induced Capacity Bottlenecks During Heatwaves?</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, Minghua Chen, and Srinivasan Keshav. 2024
-      </li>
-    </ul>
-    
-
-    <h6 id="OPF">Power Grid Operation</h6>
-    <ul>
-      <li>
-        <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb">AI for Optimal Power Flow Tutorial</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, Priya L. Donti, and Minghua Chen. Climate Change AI Summer School 2024 
-      </li>
-      <li>
-        <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki">DeepOPF: Machine Learning for Solving Optimal Power Flow Problems</a>
-        <br>DeepOPF Team
-      </li>
-    </ul>
+ 
     
     <!-- <hr />
     <h5 id="RL-TS">Reinforcement Learning for Transportation System</h5>
@@ -257,11 +250,11 @@
     <h6 id="Ride-sourcing">Ride-Sourcing Optimization</h6>
     <ul>
       <li>
-        <a href="https://ieeexplore.ieee.org/document/9366995">An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, Kexin Wen, William Lam, Agachai Sumalee, and Renxin Zhong. IEEE TNNLS 2021.
+        <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.</a>
+        <br><span style="text-decoration:underline">Enming Liang</span>, Kexin Wen, William Lam, Agachai Sumalee, and Renxin Zhong. <b>IEEE TNNLS 2021</b>.
       </li>
       <li>
-        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/"><b>KDD CUP 2020</b>.: Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
+        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="competition-link"><b>KDD CUP 2020</b>: Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
         <br><span style="text-decoration:underline">Enming Liang</span> (Solo winner; 2nd place for track 1; 5th place for track 2)
       </li>
     </ul>
@@ -269,11 +262,35 @@
     <h6 id="Traffic-signal">Traffic Signal Control</h6>
     <ul>
       <li>
-        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378">OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, Zicheng Su, Chilin Fang, and Renxin Zhong. AAAI 2022.
+        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control</a>
+        <br><span style="text-decoration:underline">Enming Liang</span>, Zicheng Su, Chilin Fang, and Renxin Zhong. <b >AAAI 2022</b>.
       </li>
     </ul>
     
+
+    
+
+    <h6 id="OPF">Power Grid Operation</h6>
+    <ul>
+      <li>
+        <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="project-link">AI for Optimal Power Flow Tutorial</a>
+        <br><span style="text-decoration:underline">Enming Liang</span>, Priya L. Donti, and Minghua Chen. Climate Change AI Summer School 2024 
+      </li>
+      <li>
+        <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF: Machine Learning for Solving Optimal Power Flow Problems</a>
+        <br>DeepOPF Team
+      </li>
+    </ul>
+
+
+    <h6 id="Extreme">Extreme Weather</h6>
+    <ul>
+      <li>
+        <a href="" class="paper-link">Can European Electricity Grids Exhibit Temperature-induced Capacity Bottlenecks During Heatwaves?</a>
+        <br><span style="text-decoration:underline">Enming Liang</span>, Minghua Chen, and Srinivasan Keshav. 2024
+      </li>
+    </ul>
+
     </body>
 
 
