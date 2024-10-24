@@ -20,6 +20,10 @@
         margin-top: 20px;
         margin-bottom: 10px;
       }
+      h6:before {
+        content: "◆ ";
+        color: rgb(20, 139, 182);
+      }
       ul{
         list-style-type: circle;
       }
@@ -45,6 +49,9 @@
 
       .project-link {
           color: rgb(207, 137, 57); /* Projects link color */
+      }
+      .foldable-content {
+        display: none;
       }
       a:hover {
         text-decoration: underline;
@@ -202,26 +209,24 @@
 
     <body>
     
-    <h4 id="ongoing-project">Research & Projects</h3>
+    <h4 id="ongoing-project">Research & Projects & Competitions</h3>
     
     <hr />
     <h5 id="ML-OPT">ML for Constrained Optimization</h5>
     <hr />
     
-    <h6 id="Feasibility">NN Solution Feasibility</h6>
-    <ul>
-      <li> 
-        <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, Minghua Chen, and Steven Low. <b>ICML 2023</b>.
-      </li>
-
-      <li>
-        <a href="https://www.mhchen.com/papers/HP.JMLR.2024.pdf" class="paper-link">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
-        <br><span style="text-decoration: underline;">Enming Liang</span>, Minghua Chen, and Steven Low. <b>JMLR 2024</b>.
-      </li>
-    </ul>
-    
-    <h6 id="Multi-valued">Multi-valued Solution Mapping</h6>
+    <h6 id="Feasibility" onclick="toggleContent(this)">Ensuring NN Solution Feasibility</h6>
+      <ul>
+        <li> 
+          <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
+          <br><span style="text-decoration:underline">Enming Liang</span>, Minghua Chen, and Steven Low. <b>ICML 2023</b>.
+        </li>
+        <li>
+          <a href="https://www.mhchen.com/papers/HP.JMLR.2024.pdf" class="paper-link">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
+          <br><span style="text-decoration: underline;">Enming Liang</span>, Minghua Chen, and Steven Low. <b>JMLR 2024.</b> (to be published).
+        </li>
+      </ul>
+    <h6 id="Multi-valued">Learning Multi-valued Mapping</h6>
     <ul>
       <li>
         <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.</a>
@@ -229,7 +234,7 @@
       </li>
     </ul>
     
-    <h6 id="ResNet">NN Approximation Ability</h6>
+    <h6 id="ResNet">NN Approximation Capability</h6>
     <ul>
       <li>
         <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">Characterizing ResNet's Universal Approximation Capability.</a>
@@ -243,10 +248,6 @@
 
  
     
-    <!-- <hr />
-    <h5 id="RL-TS">Reinforcement Learning for Transportation System</h5>
-    <hr /> -->
-    
     <h6 id="Ride-sourcing">Ride-Sourcing Optimization</h6>
     <ul>
       <li>
@@ -254,11 +255,11 @@
         <br><span style="text-decoration:underline">Enming Liang</span>, Kexin Wen, William Lam, Agachai Sumalee, and Renxin Zhong. <b>IEEE TNNLS 2021</b>.
       </li>
       <li>
-        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="competition-link"><b>KDD CUP 2020</b>: Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
-        <br><span style="text-decoration:underline">Enming Liang</span> (Solo winner; 2nd place for track 1; 5th place for track 2)
+        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="competition-link">Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
+        <br><span style="text-decoration:underline">Enming Liang</span> (Solo winner; 2nd place for track 1; 5th place for track 2). <b>KDD CUP 2020</b>
       </li>
     </ul>
-    
+
     <h6 id="Traffic-signal">Traffic Signal Control</h6>
     <ul>
       <li>
@@ -266,9 +267,6 @@
         <br><span style="text-decoration:underline">Enming Liang</span>, Zicheng Su, Chilin Fang, and Renxin Zhong. <b >AAAI 2022</b>.
       </li>
     </ul>
-    
-
-    
 
     <h6 id="OPF">Power Grid Operation</h6>
     <ul>
@@ -282,8 +280,7 @@
       </li>
     </ul>
 
-
-    <h6 id="Extreme">Extreme Weather</h6>
+    <h6 id="Extreme">Extreme Weather Impact</h6>
     <ul>
       <li>
         <a href="" class="paper-link">Can European Electricity Grids Exhibit Temperature-induced Capacity Bottlenecks During Heatwaves?</a>
