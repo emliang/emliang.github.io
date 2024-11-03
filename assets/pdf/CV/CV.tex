@@ -21,6 +21,7 @@
 \usepackage{fontawesome}
 % \usepackage[colorlinks = true, urlcolor  = blue]{hyperref}
 % \input{glyphtounicode}
+\usepackage{datetime} %日期
 
 
 %---------- FONT OPTIONS ----------
@@ -56,7 +57,7 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+  \vspace{-4pt}\scshape\raggedright\LARGE
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
@@ -123,6 +124,7 @@
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\renewcommand{\today}{\number\year-\number\month-\number\day }
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,35 +135,33 @@
 %---------- HEADING ----------
 
 \begin{center}
-    \textbf{\Huge \scshape Enming Liang} \\ \vspace{5pt}
-    \small
+    \textbf{\Huge \scshape Enming Liang} \\ 
+    \vspace{6pt}
     \faMobile \hspace{.5pt} \href{tel:85254958047}{+852-54958047}
     $|$
     \faAt \hspace{.5pt} \href{eliang4-c@my.cityu.edu.hk}{eliang4-c@my.cityu.edu.hk}
     $|$
     \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/enming-liang-95b5b216a/}{LinkedIn}
-    % $|$
-    % \faGithub \hspace{.5pt} \href{https://github.com/arasgungore}{GitHub}
-    % $|$
-    % \faGlobe \hspace{.5pt} \href{https://arasgungore.github.io}{Portfolio}
     $|$
-    \faMapMarker \hspace{.5pt} \href{d}{Hong Kong}
+    \vspace{3pt}
+    \faMapMarker \hspace{.5pt} \href{d}{Hong Kong} \\
+     Updated: \today
 \end{center}
 
 
 
 %----------- EDUCATION -----------
 
-\section{\Large Education}
+\section{\LARGE Education}
   \vspace{3pt}
   \resumeSubHeadingListStart
     
     \resumeEducationHeading
       {City University of Hong Kong}{Hong Kong}
-      {Ph.D. Candidate $|$ School of Data Science}{2021/09 \textbf{--} 2024/09}
+      {Ph.D. Candidate $|$ School of Data Science}{2021/09 \textbf{--} 2024/10}
       {Supervisor: Prof. Minghua Chen}{}
 
-      % \resumeEducationHeading
+      \vspace{3pt}
 
     \resumeEducationHeading
     {Sun Yat-sen University}{Guangzhou}
@@ -171,7 +171,7 @@
     
   \resumeSubHeadingListEnd
 
-\section{\Large Research Interest}
+\section{\LARGE Research Interest}
   \vspace{3pt}
   % \hspace{4pt}
     {Machine Learning for Constrained Optimization, with applications in Mobility, Energy, and Climate.}{}
@@ -185,7 +185,7 @@
 
 
 %----------- Publication -----------
-\section{\Large Conference Publications}
+\section{\LARGE Conference Publications}
 \vspace{3pt}
 \resumeSubHeadingListStart
     \small{\item{
@@ -199,23 +199,45 @@
   \resumeSubHeadingListEnd
 
 
-\section{\Large Journal Publications}
+\section{\LARGE Journal Publications}
 \vspace{3pt}
 \resumeSubHeadingListStart
   \small{\item{
-    {\underline{\textbf{Enming Liang}}, Minghua Chen, Steven H. Low. (2024). Homeomorphic Projection to Ensure Neural-Network Solution Feasibility for Constrained Optimization. Journal of Machine Learning Research.}\\ \vspace{5pt}
-    Zicheng Su, Andy H.F. Chow, Chilin Fang, \underline{\textbf{Enming Liang}}, Renxin Zhong. (2023). Hierarchical Control for Stochastic Network Traffic with Reinforcement Learning. Transportation Research Part B: Methodological, 167, 196-216. \\ \vspace{5pt}
-    {\underline{\textbf{Enming Liang}}, Kexin Wen, William H.K. Lam, Agachai Sumalee, Renxin Zhong. (2021). An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching. IEEE Transactions on Neural Networks and Learning Systems, 33(9), 4742-4756.} \\\vspace{5pt}
-    {Andy H.F. Chow, Zicheng Su, \underline{\textbf{Enming Liang}}, Renxin Zhong. (2021). Adaptive Signal Control for Bus Service Reliability with Connected Vehicle Technology via Reinforcement Learning. Transportation Research Part C: Emerging Technologies, 129, 103264.} \\ \vspace{5pt}
-    {Zicheng Su, Andy H.F. Chow, Nan Zheng, Yunping Huang, \underline{\textbf{Enming Liang}}, Renxin Zhong. (2020). Neuro-Dynamic Programming for Optimal Control of Macroscopic Fundamental Diagram Systems. Transportation Research Part C: Emerging Technologies, 116, 102628.} \\\vspace{5pt}
+    {\underline{\textbf{Enming Liang}}, Minghua Chen, Steven H. Low. Homeomorphic Projection to Ensure Neural-Network Solution Feasibility for Constrained Optimization. Journal of Machine Learning Research. 2024}\\ \vspace{5pt}
+    Zicheng Su, Andy H.F. Chow, Chilin Fang, \underline{\textbf{Enming Liang}}, Renxin Zhong. Hierarchical Control for Stochastic Network Traffic with Reinforcement Learning. Transportation Research Part B: Methodological, 167, 196-216. 2023. \\ \vspace{5pt}
+    {\underline{\textbf{Enming Liang}}, Kexin Wen, William H.K. Lam, Agachai Sumalee, Renxin Zhong. An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching. IEEE Transactions on Neural Networks and Learning Systems, 33(9), 4742-4756. 2021.} \\\vspace{5pt}
+    {Andy H.F. Chow, Zicheng Su, \underline{\textbf{Enming Liang}}, Renxin Zhong. Adaptive Signal Control for Bus Service Reliability with Connected Vehicle Technology via Reinforcement Learning. Transportation Research Part C: Emerging Technologies, 129, 103264. 2021.} \\ \vspace{5pt}
+    {Zicheng Su, Andy H.F. Chow, Nan Zheng, Yunping Huang, \underline{\textbf{Enming Liang}}, Renxin Zhong. Neuro-Dynamic Programming for Optimal Control of Macroscopic Fundamental Diagram Systems. Transportation Research Part C: Emerging Technologies, 116, 102628. 2020.} \\\vspace{5pt}
   }}
 \resumeSubHeadingListEnd
 
 
 
+
+
+% \section{\LARGE Preprints \& working papers}
+% \vspace{3pt}
+% \resumeSubHeadingListStart
+%   \small{\item{
+%     {\underline{\textbf{Enming Liang}} and Minghua Chen. Efficient Bisection Projection to Ensure Neural-Network Solution Feasibility for Constrained Optimization over General Set. 2024.}\\ \vspace{5pt}
+%   }}
+%   \small{\item{
+%     {\underline{\textbf{Enming Liang}}, Minghua Chen, and Srinivasan Keshav. European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks. 2024.}\\ \vspace{5pt}
+%   }}
+%   \small{\item{
+%     Min Zhou, {\underline{\textbf{Enming Liang}}, Minghua Chen, and Steven Low. Partially Permutation-Invariant Neural Network for Solving Two-Stage Stochastic AC-OPF Problem. 2024.}\\ \vspace{5pt}
+%   }}
+% \resumeSubHeadingListEnd
+
+
+
+
+
+
+
+
 %----------- RESEARCH EXPERIENCE -----------
-\newpage
-\section{\Large Intern \& Visiting Experience}
+\section{\LARGE Intern \& Visiting Experience}
   \vspace{3pt}
   \resumeSubHeadingListStart
   
@@ -263,25 +285,28 @@
 
 
 
-%----------- AWARDS & ACHIEVEMENTS -----------
 
-\section{\Large Awards \& Honors}
+
+
+
+\section{\LARGE Teaching \& Tutorials}
 \vspace{3pt}
 \resumeSubHeadingListStart
-  \small{\item{
-      \textbf{ICAPS Competition 2021 $|$ Silver prize (0.2\%)}{ $|$ Dynamic Pickup and Delivery Problem Competition} \\ \vspace{5pt}
-      \textbf{KDD CUP 2020 $|$ Top 2 (0.1\%)}{ $|$ Task 1 in Learning to Dispatch and Reposition on a Mobility-on-Demand Platform} \\ \vspace{5pt}
-      \textbf{KDD CUP 2020 $|$ Top 5 (0.2\%)}{ $|$ Task 2 in Learning to Dispatch and Reposition on a Mobility-on-Demand Platform} \\ \vspace{5pt}
-      \textbf{Research Tuition Scholarship 2022 \& 2023} $|$ CityU \\  \vspace{5pt}
-      \textbf{Outstanding Undergraduate Thesis 2020 $|$ (Top 5\%)}{} \\ \vspace{5pt}
-      \textbf{National Scholarship 2020 $|$ (Top 1\%)}{} \\ \vspace{3pt}
-  }}
+\resumeSubheading
+{\hyperlink{https://www.climatechange.ai/tutorials?}{Climate Change AI Summer School 2024}}{}
+{Contributor $|$ working with Prof. Pariay Donti}{2024/07 \textbf{--} 2024/08}
+  \resumeItemListStart
+      \resumeItem{\hyperlink{https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb}{AI for Optimal Power Flow Tutorial}}
+\resumeItemListEnd
 \resumeSubHeadingListEnd
 
 
+
+
+
 %----------- AWARDS & ACHIEVEMENTS -----------
 
-\section{\Large Projects \& Funds}
+\section{\LARGE Projects \& Funds}
   \vspace{3pt}
   \resumeSubHeadingListStart
 
@@ -303,32 +328,26 @@
 
 
 
-\section{\Large Activities}
+
+%----------- AWARDS & ACHIEVEMENTS -----------
+
+\section{\LARGE Awards \& Honors}
 \vspace{3pt}
 \resumeSubHeadingListStart
-\resumeSubheading
-{\hyperlink{https://www.climatechange.ai/tutorials?}{Climate Change AI Summer School 2024}}{}
-{Contributor $|$ working with Prof. Pariay Donti}{2024/07 \textbf{--} 2024/08}
-  \resumeItemListStart
-      \resumeItem{\hyperlink{https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb}{AI for Optimal Power Flow Tutorial}}
-\resumeItemListEnd
+  \small{\item{
+      \textbf{ICAPS Competition 2021 $|$ Silver prize (0.2\%)}{ $|$ Dynamic Pickup and Delivery Problem Competition} \\ \vspace{5pt}
+      \textbf{KDD CUP 2020 $|$ Top 2 (0.1\%)}{ $|$ Task 1 in Learning to Dispatch and Reposition on a Mobility-on-Demand Platform} \\ \vspace{5pt}
+      \textbf{KDD CUP 2020 $|$ Top 5 (0.2\%)}{ $|$ Task 2 in Learning to Dispatch and Reposition on a Mobility-on-Demand Platform} \\ \vspace{5pt}
+      \textbf{Research Tuition Scholarship 2022 \& 2023} $|$ CityU \\  \vspace{5pt}
+      \textbf{Outstanding Undergraduate Thesis 2020 $|$ (Top 5\%)}{} \\ \vspace{5pt}
+      \textbf{National Scholarship 2020 $|$ (Top 1\%)}{} \\ \vspace{3pt}
+  }}
 \resumeSubHeadingListEnd
 
 
 
 
-  %----------- Publication -----------
-% \section{Conference Talks}
-% \vspace{2pt}
-% \resumeSubHeadingListStart
-%   \small{\item{
-%     \textbf{Enming Liang}, Zicheng Su, Chilin Fang, Renxin Zhong. OAM: An Option-Action Reinforcement Learning Framework for Uni-versal Multi-Intersection Control. In Proceedings of the AAAI Conference on Artificial Intelligence (AAAI 2022).
-%     \\ \vspace{3pt}
-%     \textbf{Enming Liang}. Learning to Dispatch and Reposition on a Mobility-on-Demand Platform.  Reinforcement Learning Compe-tition, ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD 2020).
-%     \\ \vspace{3pt}
-%     \textbf{Enming Liang}, Renxin Zhong. An Efficient Reinforcement Learning Based Approach for On-line Vehicle Routing Problem. The 24th International Conference of Hong Kong Society for Transportation Studies (HKSTS 2019).
-%   }}
-% \resumeSubHeadingListEnd
+
 
 
 
