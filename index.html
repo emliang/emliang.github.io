@@ -60,6 +60,40 @@
         text-decoration: underline;
       }
     </style>
+
+<style>
+  .collapsible {
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+  
+  /* 添加折叠指示箭头 */
+  .collapsible:after {
+    content: '\02795'; /* Unicode 加号 */
+    font-size: 13px;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode 减号 */
+  }
+  </style>
+
     </head>
   <head>
 
@@ -204,26 +238,31 @@
         </div>
     </div>
     <div class="clearfix">
-      <p>This is Enming Liang (梁恩明). 
+      <font size="4">  
+      <p>
+        This is Enming Liang (梁恩明). 
         I received Ph.D. (2021-2024) in Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
         I received my bachelor degree (2016-2020) in School of Intelligent Systems Engineering from Sun Yat-sen University, supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
         My research interests include Machine Learning for Optimization, and its application for Mobility, Energy, and Climate.
-<p><br />
+      <p>
+      </font>  
   <br /></p>
-  
+  <br/>
 
 
     <body>
       <hr />
     
     <h4 id="ongoing-project">
-      Research & Projects & Competitions</h3>
+      Research & Tutorials & Competitions</h3>
     
     <hr />
     <h5 id="ML-OPT">ML for Constrained Optimization</h5>
     <hr />
     
-    <h6 id="Feasibility" onclick="toggleContent(this)">Ensuring NN Solution Feasibility</h6>
+
+    <h6 class="collapsible" id="Feasibility">Ensuring NN Solution Feasibility</h6>
+    <div class="content">
       <ul>
         <li> 
           <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
@@ -231,6 +270,8 @@
           <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and 
           <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>. <b>ICML 2023</b>.
         </li>
+      </ul>
+      <ul>
         <li>
           <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
           <br><span style="text-decoration: underline;">Enming Liang</span>, 
@@ -238,6 +279,9 @@
           <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>. <b>JMLR 2024.</b>.
         </li>
       </ul>
+    </div>
+
+
     <h6 id="Multi-valued">Learning Multi-valued Mapping</h6>
     <ul>
       <li>
@@ -272,14 +316,15 @@
         <a href=" https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
         <b>IEEE TNNLS 2021</b>.
       </li>
+    </ul>
 
-     
-
+    <ul>
       <li>
         <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="competition-link">Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
         <br><span style="text-decoration:underline">Enming Liang</span> (Solo winner; 2nd place for track 1; 5th place for track 2). <b>KDD CUP 2020</b>
       </li>
     </ul>
+
 
     <h6 id="Traffic-signal">Traffic Signal Control</h6>
     <ul>
@@ -292,6 +337,7 @@
       </li>
     </ul>
 
+
     <h6 id="OPF">Power Grid Operation</h6>
     <ul>
       <li>
@@ -301,6 +347,9 @@
         <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
         Climate Change AI Summer School 2024 
       </li>
+    </ul>
+
+    <ul>
       <li>
         <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF: Machine Learning for Solving Optimal Power Flow Problems</a>
         <br>DeepOPF Team
