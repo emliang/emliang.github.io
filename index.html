@@ -192,6 +192,109 @@
 </p>
 
 
+<style>
+  .topic-section {
+      margin-bottom: 1rem;
+  }
+
+  .topic-title {
+      position: relative;
+      padding-left: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+      font-size: 1.1rem;
+      /* font-weight: 600; */
+  }
+
+  .topic-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #3498db;
+      border-radius: 2px;
+  }
+
+  .paper-list {
+      padding-left: 1rem;
+  }
+
+  .paper-item {
+      position: relative;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem 0.5rem;
+      border-left: 3px solid #eee;
+      transition: all 0.3s ease;
+  }
+
+  .paper-item:hover {
+      border-left-color: #3498db;
+      background-color: #f8f9fa;
+      transform: translateX(5px);
+  }
+
+  .paper-link {
+      display: block;
+      color: #2c3e50;
+      text-decoration: none;
+      /* margin-bottom: 0.5rem; */
+      font-weight: 400;
+      transition: color 0.3s ease;
+  }
+
+  .paper-link:hover {
+      color: #3498db;
+  }
+
+  .authors {
+      font-size: 0.9rem;
+      color: #666;
+  }
+
+  .author-self {
+      text-decoration: underline;
+      font-weight: 300;
+  }
+  .notes{
+      font-weight: 300;
+  }
+  .venue{
+      font-weight: 400;
+      position: absolute;
+      margin-right: 0.5rem;
+        right: 0;
+        /* top: 0; */
+  }
+  .name-link {
+      color: #34495e;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+
+  .name-link:hover {
+      color: #3498db;
+  }
+
+
+  /* 可选：添加阴影效果 */
+  .paper-item:hover {
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  /* 可选：添加渐变背景 */
+  .paper-item:hover {
+      background: linear-gradient(to right, #f8f9fa, white);
+  }
+</style>
+
+
+
+
+
+
+
     <body>
       <hr />
     
@@ -202,7 +305,70 @@
     <h5 id="ML-OPT">ML for Constrained Optimization</h5>
     <hr />
 
-    <h6 id="Feasibility">Ensuring NN Solution Feasibility</h6>
+    <div class="topic-section">
+      <h6 class="topic-title">Ensuring NN Solution Feasibility</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
+                  Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span>,
+                  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                  <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                  <span class="venue">ICML 2023</span>
+              </div>
+          </div>
+    
+          <div class="paper-item">
+              <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
+                  Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span>,
+                  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                  <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                  <span class="venue">JMLR 2024</span>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <div class="topic-section">
+      <h6 class="topic-title">Learning Multi-valued Mapping</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">
+                  Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span> and
+                  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                  <span class="venue">ICLR 2024</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="topic-section">
+      <h6 class="topic-title">NN Approximation Capability</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
+                  Characterizing ResNet's Universal Approximation Capability.
+              </a>
+              <div class="authors">
+                  Chenghao Liu,
+                  <span class="author-self">Enming Liang</span>, and
+                  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                  <span class="venue">ICML 2024</span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+    <!-- <h6 id="Feasibility">Ensuring NN Solution Feasibility</h6>
       <ul>
         <li> 
           <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
@@ -238,16 +404,118 @@
         <span style="text-decoration:underline">Enming Liang</span>, and 
         <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>. <b>ICML 2024</b>.
       </li>
-    </ul>
+    </ul> -->
 
-    </font>  
 
 
 
     <hr />
     <h5 id="AI">AI for Mobility, Energy, and Climate</h5>
     <hr />    
-    <h6 id="Ride-sourcing">Ride-Sourcing Optimization</h6>
+
+    <div class="topic-section">
+      <h6 class="topic-title">Ride-Sourcing Optimization</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
+                  An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span>,
+                  Kexin Wen,
+                  <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>,
+                  Agachai Sumalee, and
+                  <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                  <span class="venue">IEEE TNNLS 2021</span>
+              </div>
+          </div>
+  
+          <div class="paper-item">
+              <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                  Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span>. 
+                  <!-- (Solo winner; 2nd place for track 1; 5th place for track 2) -->
+                  <span class="notes">(solo winner; 2nd place).</span>
+                  <span class="venue">KDD CUP 2020</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="topic-section">
+      <h6 class="topic-title">Traffic Signal Control</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">
+                  OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control
+              </a>
+              <div class="authors">
+                  <span class="author-self">Enming Liang</span>,
+                  <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
+                  Chilin Fang, and
+                  <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                  <span class="venue">AAAI 2022 (<a>Oral</a>)</span>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+  <div class="topic-section">
+    <h6 class="topic-title">Power Grid Operation</h6>
+    <div class="paper-list">
+        <div class="paper-item">
+            <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="paper-link">
+                AI for Optimal Power Flow Tutorial
+            </a>
+            <div class="authors">
+                <span class="author-self">Enming Liang</span>,
+                <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
+                <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                <span class="venue">Climate Change AI Summer School 2024</span>
+            </div>
+        </div>
+
+        <!-- <div class="paper-item">
+            <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="paper-link">
+                DeepOPF: Machine Learning for Solving Optimal Power Flow Problems
+            </a>
+            <div class="authors">
+                <span>DeepOPF Team</span>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<div class="topic-section">
+    <h6 class="topic-title">Extreme Weather Impact</h6>
+    <div class="paper-list">
+        <div class="paper-item">
+            <a href="" class="paper-link">
+                European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks
+            </a>
+            <div class="authors">
+                <span class="author-self">Enming Liang</span>,
+                <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
+                <span class="venue">(under review) 2024</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- <h6 id="Ride-sourcing">Ride-Sourcing Optimization</h6>
     <ul>
       <li>
         <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.</a>
@@ -276,9 +544,9 @@
         Chilin Fang, and 
         <a href=" https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>. <b >AAAI 2022</b> (<a href="https://aaai-2022.virtualchair.net/papers?filter=keywords&search=Oral+Session+6&cluster=Red+6" class="paper-link">Oral</a>).
       </li>
-    </ul>
+    </ul> -->
 
-
+<!-- 
     <h6 id="OPF">Power Grid Operation</h6>
     <ul>
       <li>
@@ -306,7 +574,7 @@
         <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
         2024. (under review)
       </li>
-    </ul>
+    </ul> -->
 
     </body>
 
