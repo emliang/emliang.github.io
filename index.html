@@ -38,41 +38,6 @@
         content: "◆ ";
         color: rgb(20, 139, 182);
       }
-      ul{
-        list-style-type: circle;
-      }
-      hr {
-        margin-top: 20px;
-        margin-bottom: 20px;
-      }
-      ul {
-        margin-top: 0;
-      }
-      a {
-        color: #06c;
-        text-decoration: none;
-      }
-      /* Link colors */
-      .paper-link {
-          color: rgb(22, 102, 172); /* Home link color */
-      }
-
-      .competition-link {
-          color: rgb(167, 38, 38); /* About link color */
-      }
-
-      .project-link {
-          color: rgb(207, 137, 57); /* Projects link color */
-      }
-      .name-link {
-          color: rgb(2, 8, 93); /* Projects link color */
-      }
-      .foldable-content {
-        display: none;
-      }
-      a:hover {
-        text-decoration: underline;
-      }
     </style>
 
     <!-- External CSS -->
@@ -193,19 +158,42 @@
 
 
 <style>
+    /* body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    } */
+    .section-divider {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 10px 0;
+    }
+    .main-heading {
+        color: #2c3e50;
+        font-size: 1.5em;
+        margin: 10px 0;
+        /* border-bottom: 2px solid #3498db; */
+    }
+    .category-heading {
+        color: #34495e;
+        font-size: 1.4em;
+        margin: 15px 0 15px 0;
+        /* padding-bottom: 10px; */
+        /* border-bottom: 2px solid #3498db; */
+    }
   .topic-section {
       margin-bottom: 1rem;
   }
-
   .topic-title {
       position: relative;
       padding-left: 0.5rem;
       margin-bottom: 0.5rem;
       color: #2c3e50;
-      font-size: 1.1rem;
-      /* font-weight: 600; */
+      font-size: 1.2rem;
+      font-weight: 300;
   }
-
   .topic-title::before {
       content: "";
       position: absolute;
@@ -216,11 +204,9 @@
       background: #3498db;
       border-radius: 2px;
   }
-
   .paper-list {
       padding-left: 1rem;
   }
-
   .paper-item {
       position: relative;
       margin-bottom: 0.5rem;
@@ -228,31 +214,28 @@
       border-left: 3px solid #eee;
       transition: all 0.3s ease;
   }
-
   .paper-item:hover {
       border-left-color: #3498db;
       background-color: #f8f9fa;
       transform: translateX(5px);
   }
-
   .paper-link {
       display: block;
       color: #2c3e50;
       text-decoration: none;
-      /* margin-bottom: 0.5rem; */
+      font-style: italic;
+      font-size: 0.88rem;
+      margin-bottom: 0.5rem;
       font-weight: 400;
       transition: color 0.3s ease;
   }
-
   .paper-link:hover {
       color: #3498db;
   }
-
   .authors {
       font-size: 0.9rem;
       color: #666;
   }
-
   .author-self {
       text-decoration: underline;
       font-weight: 300;
@@ -272,17 +255,13 @@
       text-decoration: none;
       transition: color 0.3s ease;
   }
-
   .name-link:hover {
       color: #3498db;
   }
-
-
   /* 可选：添加阴影效果 */
   .paper-item:hover {
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
-
   /* 可选：添加渐变背景 */
   .paper-item:hover {
       background: linear-gradient(to right, #f8f9fa, white);
@@ -296,14 +275,16 @@
 
 
     <body>
-      <hr />
     
-    <h4 id="ongoing-project">
-      Research & Tutorials & Competitions</h3>
+
+      <h4 class="main-heading" id="ongoing-project">
+        Research & Tutorials & Competitions
+    </h4>
     
-    <hr />
-    <h5 id="ML-OPT">ML for Constrained Optimization</h5>
-    <hr />
+    <hr class="section-divider" />
+    <h5 class="category-heading" id="ML-OPT">ML for Constrained Optimization</h5>
+    <hr class="section-divider" />
+
 
     <div class="topic-section">
       <h6 class="topic-title">Ensuring NN Solution Feasibility</h6>
@@ -368,52 +349,14 @@
   </div>
 
 
-    <!-- <h6 id="Feasibility">Ensuring NN Solution Feasibility</h6>
-      <ul>
-        <li> 
-          <a href="/projects/1.Homeomorphic_Projection" class="paper-link">Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.</a>
-          <br><span style="text-decoration:underline">Enming Liang</span>, 
-          <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and 
-          <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>. <b>ICML 2023</b>.
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.</a>
-          <br><span style="text-decoration: underline;">Enming Liang</span>, 
-          <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and 
-          <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>. <b>JMLR 2024.</b>.
-        </li>
-      </ul>
 
 
-    <h6 id="Multi-valued">Learning Multi-valued Mapping</h6>
-    <ul>
-      <li>
-        <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.</a>
-        <br><span style="text-decoration:underline">Enming Liang</span> and 
-        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>. <b>ICLR 2024</b>.
-      </li>
-    </ul>
-    
-    <h6 id="ResNet">NN Approximation Capability</h6>
-    <ul>
-      <li>
-        <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">Characterizing ResNet's Universal Approximation Capability.</a>
-        <br>Chenghao Liu, 
-        <span style="text-decoration:underline">Enming Liang</span>, and 
-        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>. <b>ICML 2024</b>.
-      </li>
-    </ul> -->
+    <hr class="section-divider" />
+    <h5 class="category-heading" id="AI-Sci">AI for Mobility, Energy, and Climate</h5>
+    <hr class="section-divider" />
 
 
-
-
-    <hr />
-    <h5 id="AI">AI for Mobility, Energy, and Climate</h5>
-    <hr />    
-
-    <div class="topic-section">
+  <div class="topic-section">
       <h6 class="topic-title">Ride-Sourcing Optimization</h6>
       <div class="paper-list">
           <div class="paper-item">
@@ -511,70 +454,6 @@
 
 
 
-
-
-
-
-    <!-- <h6 id="Ride-sourcing">Ride-Sourcing Optimization</h6>
-    <ul>
-      <li>
-        <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, 
-        Kexin Wen, 
-        <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>, Agachai Sumalee, and       
-        <a href=" https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
-        <b>IEEE TNNLS 2021</b>.
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="competition-link">Learning to Dispatch and Reposition on a Mobility-on-Demand Platform</a>
-        <br><span style="text-decoration:underline">Enming Liang</span> (Solo winner; 2nd place for track 1; 5th place for track 2). <b>KDD CUP 2020</b>
-      </li>
-    </ul>
-
-
-    <h6 id="Traffic-signal">Traffic Signal Control</h6>
-    <ul>
-      <li>
-        <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, 
-        <a href="https://magic.tongji.edu.cn/info/1102/2521.htm " class="name-link">Zicheng Su</a>, 
-        Chilin Fang, and 
-        <a href=" https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>. <b >AAAI 2022</b> (<a href="https://aaai-2022.virtualchair.net/papers?filter=keywords&search=Oral+Session+6&cluster=Red+6" class="paper-link">Oral</a>).
-      </li>
-    </ul> -->
-
-<!-- 
-    <h6 id="OPF">Power Grid Operation</h6>
-    <ul>
-      <li>
-        <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="project-link">AI for Optimal Power Flow Tutorial</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, 
-        <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and 
-        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-        Climate Change AI Summer School 2024 
-      </li>
-    </ul>
-
-    <ul>
-      <li>
-        <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF: Machine Learning for Solving Optimal Power Flow Problems</a>
-        <br>DeepOPF Team
-      </li>
-    </ul>
-
-    <h6 id="Extreme">Extreme Weather Impact</h6>
-    <ul>
-      <li>
-        <a href="" class="paper-link">European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks</a>
-        <br><span style="text-decoration:underline">Enming Liang</span>, 
-        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and 
-        <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
-        2024. (under review)
-      </li>
-    </ul> -->
 
     </body>
 
