@@ -23,21 +23,119 @@
         line-height: 1.6;
         margin: 20px;
       }
-      h3 {
+        h3 {
         text-align: center;
         color: #333;
         margin-bottom: 0.5em;
       }
-      h5 {
+        h5 {
         text-align: center;
         color: #555;
         margin-top: 20px;
         margin-bottom: 10px;
-      }
-      h6:before {
-        content: "◆ ";
-        color: rgb(20, 139, 182);
-      }
+        }
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 10px 0;
+        }
+        .main-heading {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 10px 0;
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .category-heading {
+            color: #34495e;
+            font-size: 1.4em;
+            margin: 15px 0 15px 0;
+            /* padding-bottom: 10px; */
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .topic-section {
+            margin-bottom: 1rem;
+        }
+        .topic-title {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .topic-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .paper-list {
+            padding-left: 1rem;
+        }
+        .paper-item {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            border-left: 3px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .paper-item:hover {
+            border-left-color: #3498db;
+            background-color: #f8f9fa;
+            transform: translateX(5px);
+        }
+        .paper-link {
+            display: block;
+            color: #2c3e50;
+            text-decoration: none;
+            font-style: italic;
+            font-size: 0.88rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+        .paper-link:hover {
+            color: #3498db;
+        }
+        .authors {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .author-self {
+            text-decoration: underline;
+            font-weight: 300;
+        }
+        .notes{
+            font-weight: 300;
+        }
+        .venue{
+            font-weight: 400;
+            position: absolute;
+            margin-right: 0.5rem;
+                right: 0;
+                /* top: 0; */
+        }
+        .name-link {
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .name-link:hover {
+            color: #3498db;
+        }
+        /* 可选：添加阴影效果 */
+        .paper-item:hover {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        /* 可选：添加渐变背景 */
+        .paper-item:hover {
+            background: linear-gradient(to right, #f8f9fa, white);
+        }
     </style>
 
     <!-- External CSS -->
@@ -136,10 +234,9 @@
     <div class="clearfix">
       <div class="profile float-right">
         <br/>
-        <br/>
         <img class="img-fluid z-depth-1 rounded" src="/assets/img/lem.jpg" width="200" height="200">
-          <div class="address">
-          </div>
+          <!-- <div class="address">
+          </div> -->
       </div>
 
       <br/>
@@ -148,148 +245,31 @@
         This is Enming Liang (梁恩明). 
         I received Ph.D. (2021-2024) in Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
         I received my bachelor degree (2016-2020) in School of Intelligent Systems Engineering from Sun Yat-sen University, supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
-        <br>
-        I had worked as a research intern in MSRA (Beijing), Huawei Noah's Ark Lab (Shenzhen), and DiDi-SYSU Research Project (Guangzhou). I had been a visit student to department of CST, University of Cambridge, supervised by <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>.
-        <br>
+        <br/>
+        I had worked as a research intern in MSRA (Beijing), Huawei Noah's Ark Lab (Shenzhen), and DiDi-SYSU Research Project (Guangzhou). 
+        I had been a visiting student to department of CST, University of Cambridge, supervised by <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>.
+        <br/>
         My research interests include Machine Learning for Constrained Optimization, and its application for Mobility, Energy, and Climate.
       <p>
       </font>  
-  <br />
+  <br/>
 </p>
 
 
-<style>
-    /* body {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        font-family: Arial, sans-serif;
-    } */
-    .section-divider {
-        border: 0;
-        height: 1px;
-        background: #ddd;
-        margin: 10px 0;
-    }
-    .main-heading {
-        color: #2c3e50;
-        font-size: 1.5em;
-        margin: 10px 0;
-        /* border-bottom: 2px solid #3498db; */
-    }
-    .category-heading {
-        color: #34495e;
-        font-size: 1.4em;
-        margin: 15px 0 15px 0;
-        /* padding-bottom: 10px; */
-        /* border-bottom: 2px solid #3498db; */
-    }
-  .topic-section {
-      margin-bottom: 1rem;
-  }
-  .topic-title {
-      position: relative;
-      padding-left: 0.5rem;
-      margin-bottom: 0.5rem;
-      color: #2c3e50;
-      font-size: 1.2rem;
-      font-weight: 300;
-  }
-  .topic-title::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: #3498db;
-      border-radius: 2px;
-  }
-  .paper-list {
-      padding-left: 1rem;
-  }
-  .paper-item {
-      position: relative;
-      margin-bottom: 0.5rem;
-      padding: 0.5rem 0.5rem;
-      border-left: 3px solid #eee;
-      transition: all 0.3s ease;
-  }
-  .paper-item:hover {
-      border-left-color: #3498db;
-      background-color: #f8f9fa;
-      transform: translateX(5px);
-  }
-  .paper-link {
-      display: block;
-      color: #2c3e50;
-      text-decoration: none;
-      font-style: italic;
-      font-size: 0.88rem;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-      transition: color 0.3s ease;
-  }
-  .paper-link:hover {
-      color: #3498db;
-  }
-  .authors {
-      font-size: 0.9rem;
-      color: #666;
-  }
-  .author-self {
-      text-decoration: underline;
-      font-weight: 300;
-  }
-  .notes{
-      font-weight: 300;
-  }
-  .venue{
-      font-weight: 400;
-      position: absolute;
-      margin-right: 0.5rem;
-        right: 0;
-        /* top: 0; */
-  }
-  .name-link {
-      color: #34495e;
-      text-decoration: none;
-      transition: color 0.3s ease;
-  }
-  .name-link:hover {
-      color: #3498db;
-  }
-  /* 可选：添加阴影效果 */
-  .paper-item:hover {
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  /* 可选：添加渐变背景 */
-  .paper-item:hover {
-      background: linear-gradient(to right, #f8f9fa, white);
-  }
-</style>
 
+<body>
 
-
-
-
-
-
-    <body>
-    
-
-      <h4 class="main-heading" id="ongoing-project">
+    <h4 class="main-heading" id="ongoing-project">
         Research & Tutorials & Competitions
     </h4>
     
     <hr class="section-divider" />
-    <h5 class="category-heading" id="ML-OPT">ML for Constrained Optimization</h5>
+        <h5 class="category-heading" id="ML-OPT">ML for Constrained Optimization</h5>
     <hr class="section-divider" />
-
 
     <div class="topic-section">
       <h6 class="topic-title">Ensuring NN Solution Feasibility</h6>
-      <div class="paper-list">
+    <div class="paper-list">
           <div class="paper-item">
               <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
                   Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
@@ -360,7 +340,20 @@
   <div class="topic-section">
       <h6 class="topic-title">Ride-Sourcing Optimization</h6>
       <div class="paper-list">
-          <div class="paper-item">
+
+        <div class="paper-item">
+            <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
+            </a>
+            <div class="authors">
+                <span class="author-self">Enming Liang</span>. 
+                <!-- (Solo winner; 2nd place for track 1; 5th place for track 2) -->
+                <span class="notes">(solo winner).</span>
+                <span class="venue">KDD CUP 2020 (2<sup>nd</sup> place)</span>
+            </div>
+        </div>
+
+        <div class="paper-item">
               <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
                   An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
               </a>
@@ -372,19 +365,9 @@
                   <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
                   <span class="venue">IEEE TNNLS 2021</span>
               </div>
-          </div>
+        </div>
   
-          <div class="paper-item">
-              <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
-                  Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
-              </a>
-              <div class="authors">
-                  <span class="author-self">Enming Liang</span>. 
-                  <!-- (Solo winner; 2nd place for track 1; 5th place for track 2) -->
-                  <span class="notes">(solo winner).</span>
-                  <span class="venue">KDD CUP 2020 (2<sup>nd</sup> place)</span>
-              </div>
-          </div>
+
       </div>
   </div>
   
