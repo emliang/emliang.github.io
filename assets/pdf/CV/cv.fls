@@ -136,6 +136,9 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
 INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/ufontawesomeone.fd
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/fontawesome/FontAwesome--fontawesomeone.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/ufontawesomethree.fd
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/fontawesome/ufontawesomethree.fd
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/fontawesome/FontAwesome--fontawesomethree.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
@@ -143,10 +146,12 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
 INPUT cv.aux
 INPUT ./cv.out
 INPUT ./cv.out
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pfb
