@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1734076771 "cv.tex" "cv.pdf" "cv" 1734076771
+["pdflatex"] 1734076933 "cv.tex" "cv.pdf" "cv" 1734076933
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc" 1463430686 1687 f004baecce60175c6453d0e3f808cf20 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc" 1463430686 2437 443c81fb50993bacedc5f9a206c322b0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc" 1463430686 2679 32dd8ae231bf4a0752b98f62dc097183 ""
@@ -93,11 +93,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1558070331 4259636 1ee2d95f481daca56e49b053bbfecc8c ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "cv.aux" 1734076771 2397 9412e86889e5ac7562093dbfff555a40 "pdflatex"
-  "cv.out" 1734076771 575 c13f9467a94e43c9c262e59a824e5ee1 "pdflatex"
-  "cv.tex" 1734076771 17645 5a94020553bf02759f2556f4c823c53d ""
+  "cv.aux" 1734076933 2397 9412e86889e5ac7562093dbfff555a40 "pdflatex"
+  "cv.out" 1734076933 575 c13f9467a94e43c9c262e59a824e5ee1 "pdflatex"
+  "cv.tex" 1734076932 17609 9cf61080422ca01e8d9dbc74849f3e2e ""
   (generated)
+  "cv.log"
   "cv.pdf"
   "cv.out"
-  "cv.log"
   "cv.aux"
