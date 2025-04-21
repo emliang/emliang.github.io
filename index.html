@@ -26,17 +26,12 @@
         margin: 0 auto;
         padding: 0px;
     }
-      /* body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        margin: 20px;
-      } */
       .post-header {
         flex: 1;
         padding-right: 0px;
     }
     .post-title {
-        font-size: 2.7em;
+        font-size: 1.1em;
         margin: 0;
         font-family: Verdana, Arial, Helvetica, sans-serif;
     }
@@ -110,7 +105,7 @@
             line-height: 1.4;
         }
         .authors {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
             margin-bottom: 0.3rem;
             line-height: 1.3;
@@ -142,6 +137,44 @@
             text-decoration: none;
             transition: color 0.3s ease;
             font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        .profile {
+            text-align: center;
+            padding: 1rem;
+            margin-left: 1rem;
+            width: 200px; /* Fixed width for profile section */
+        }
+        .profile-image {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            /* margin-bottom: 0.8rem; */
+        }
+        .social-link {
+            color: #080db3;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30%;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
         }
     </style>
 
@@ -176,7 +209,7 @@
         <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
             <div class="container">
                 <div class="navbar-brand social">
-                    <a href="mailto:eliang4-c@my.cityu.edu.hk" title="Email">
+                    <!-- <a href="mailto:eliang4-c@my.cityu.edu.hk" title="Email">
                         <i class="fas fa-envelope"></i>
                     </a>
                     <a href="https://github.com/emliang" target="_blank" title="GitHub">
@@ -184,7 +217,10 @@
                     </a>
                     <a href="https://www.linkedin.com/in/enming-liang-95b5b216a/" target="_blank" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
-                    </a>
+                    </a> -->
+                    <h1 class="post-title">
+                        LIANG Enming (梁恩明)               
+                    </h1>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                     <span class="sr-only">Toggle navigation</span>
@@ -200,16 +236,16 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link" href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&hl=zh-CN">
                                 Google Scholar
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/assets/pdf/CV/cv.pdf">
-                                Curriculum Vitae
+                                CV
                             </a>
-                        </li>
+                        </li> -->
                         </li>
                     </ul>
                 </div>
@@ -223,35 +259,39 @@
   <div class="container mt-5">
   <div class="post">
 
-    <header class="post-header">
-        <h1 class="post-title">
-            Enming Liang                
-        </h1>
-    </header>
 
     <div class="clearfix">
       <div class="profile float-right">
-        <br/>
-        <img class="img-fluid z-depth-1 rounded" src="/assets/img/lem.jpg" width="100" height="200">
+        <div class="profile-image-container">
+            <img class="profile-image" 
+                 src="/assets/img/lem.jpg" 
+                 alt="Enming Liang">
+        </div>
       </div>
 
       <br/>
-      <font size="3">  
+      <font size="3.5">  
       <p>
-        This is Enming Liang (梁恩明). 
+        <!-- This is Enming Liang.  -->
+        <!-- <br/> -->
         Currently, I am a Research Assistant Professor at City University of Hong Kong. 
+        My research interests include Machine Learning for Constrained Optimization, and its application for Mobility, Energy, and Climate.
+        <br/>
         <br/>
         I received Ph.D. (2021-2024) at Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
         I received bachelor degree (2016-2020) at School of Intelligent Systems Engineering, Sun Yat-sen University.
          supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
         <br/>
-        <!-- I have been a member of the <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a> team, working with <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>, focusing on applying machine learning approach for power gird operation.  -->
-        <!-- I had been a visiting student to department of CST, University of Cambridge, supervised by <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>. -->
-        <!-- <br/> -->
-        I had worked as a research intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/' class="project-link">MSRA</a> (Beijing), <a href='http://dev3.noahlab.com.hk/' class="project-link">Huawei Noah's Ark Lab</a> (Shenzhen), and DiDi-SYSU Research Project (Guangzhou). 
-        <!-- I had contributed to tutorials for the <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a> summer school, working with <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>. -->
         <br/>
-        My research interests include Machine Learning for Constrained Optimization, and its application for Mobility, Energy, and Climate.
+        I have been a member of the <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a> team, working with <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>. 
+        <!-- focusing on applying machine learning approach for power gird operation.  -->
+        I had visited department of CST, University of Cambridge, supervised by <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>.
+        <!-- <br/> -->
+        I had contributed to tutorials for the <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a> summer school, working with <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+        <br/>
+        <br/>
+        I had worked as a research intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/' class="project-link">MSRA</a> (Beijing, 2022), <a href='http://dev3.noahlab.com.hk/' class="project-link">Huawei Noah's Ark Lab</a> (Shenzhen, 2021), and DiDi-SYSU Research Program (Guangzhou, 2020). 
+        <!-- <br/> -->
 
         <br/>
         <br/>
@@ -265,6 +305,42 @@
 
       <p>
       </font>  
+
+      <div class="profile-links">
+        <!-- Combined Social and Nav Links -->
+        <div class="social-links">
+            <a href="mailto:eliang4-c@my.cityu.edu.hk" 
+               title="Email" 
+               class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/emliang" 
+               target="_blank" 
+               title="GitHub" 
+               class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/enming-liang-95b5b216a/" 
+               target="_blank" 
+               title="LinkedIn" 
+               class="social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&hl=zh-CN"
+               target="_blank" 
+               title="Google Scholar" 
+               class="social-link">
+                <i class="ai ai-google-scholar"></i>
+            </a>
+            <a href="/assets/pdf/CV/cv.pdf"
+               target="_blank" 
+               title="Curriculum Vitae" 
+               class="social-link">
+                <i class="fas fa-file-pdf"></i> 
+            </a>
+        </div>
+    </div>
+
   <br/>
 </p>
 
