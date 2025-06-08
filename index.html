@@ -319,32 +319,63 @@
         .navbar {
             background-color: #ffffff;
             border-bottom: 1px solid #e9ecef;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
         }
 
         .navbar-nav {
             display: flex;
             flex-direction: row;
             align-items: center;
+            gap: 1.5rem;
         }
 
         .nav-item {
             margin: 0 0.5rem;
+            position: relative;
         }
 
         .nav-link {
-            color: #333;
+            color: #2c3e50;
             text-decoration: none;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            position: relative;
         }
 
         .nav-link:hover {
-            color: #007bff;
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
         @media screen and (max-width: 768px) {
             .navbar {
-                padding: 0.5rem;
+                padding: 0.6rem 1rem;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
             }
 
             .navbar-nav {
@@ -352,15 +383,26 @@
                 justify-content: center;
                 flex-wrap: wrap;
                 width: 100%;
+                gap: 0.8rem;
             }
 
             .nav-item {
-                margin: 0.25rem;
+                margin: 0.2rem;
             }
 
             .nav-link {
-                font-size: 0.9rem;
-                padding: 0.25rem 0.5rem;
+                font-size: 0.95rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 4px;
+            }
+
+            .nav-link:hover {
+                transform: translateY(-1px);
+            }
+
+            .nav-link.active::after {
+                width: 20px;
+                height: 2px;
             }
 
             /* Remove the collapse functionality */
@@ -372,6 +414,21 @@
             /* Hide the toggle button */
             .navbar-toggler {
                 display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .navbar-nav {
+                gap: 0.5rem;
             }
         }
 
