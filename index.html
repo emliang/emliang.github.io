@@ -180,10 +180,11 @@
         .topic-title {
             position: relative;
             padding-left: 0.5rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
             color: #2c3e50;
-            font-size: 1.rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 400;
         }
         .topic-title::before {
             content: "";
@@ -210,14 +211,14 @@
         }
         .paper-image {
             width: 120px;
-            min-width: 280px;
+            min-width: 300px;
             height: auto;
             max-height: 120px;
             object-fit: contain;
             border-radius: 4px;
             flex-shrink: 0;
             /* background-color: #f8f9fa; */
-            padding: 1px;
+            padding: 0.5px;
         }
         .paper-content {
             flex: 1;
@@ -283,7 +284,7 @@
         .profile-links {
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.5rem;
             align-items: center;
         }
         .social-links {
@@ -294,13 +295,13 @@
         }
         .social-link {
             color: #0b6b8d;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             width: 50px;
             height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 30%;
+            border-radius: 40%;
             background-color: #f8f9fa;
             transition: all 0.3s ease;
         }
@@ -328,7 +329,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 1.5rem;
+            gap: 5rem;
         }
 
         .nav-item {
@@ -431,48 +432,6 @@
                 gap: 0.5rem;
             }
         }
-
-        /* Category Navigation Styles */
-        .category-nav {
-            background-color: #ffffff;
-            padding: 0.5rem 0.5rem;
-            margin: -1.3rem 0.5rem 0.5rem 0.5rem;
-            border-bottom: 1px solid #e9ecef;
-        }
-        .category-nav .nav {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-        .category-nav .nav-item {
-            color: #34495e;
-            font-size: 0.9em;
-            font-family: inherit;
-            padding: 0.5rem 2.5rem;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 400;
-            white-space: nowrap;
-            background: transparent;
-        }
-        .category-nav .nav-item:not(:last-child)::after {
-            content: '';
-            display: inline-block;
-            position: absolute;
-            right: 0;
-            top: 25%;
-            height: 50%;
-            width: 1px;
-            background: #e0e4ea;
-        }
-        .category-nav .nav-item:hover {
-            color: #3498db;
-            background-color: rgba(52, 152, 219, 0.07);
-            font-weight: 500;
-        }
     </style>
 
     <!-- External CSS -->
@@ -563,7 +522,7 @@
         <!-- This is Enming Liang.  -->
         <!-- <br/> -->
         Currently, I am a Research Assistant Professor at City University of Hong Kong. 
-        My research interests include Machine Learning for Constrained Optimization, and its application for Mobility, Energy, and Climate.
+        My research interests include Machine Learning for Constrained Optimization, Generative Models, and its application for Mobility, Energy, and Climate.
         <br/>
         <br/>
         I received Ph.D. (2021-2024) at Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
@@ -582,14 +541,12 @@
         <!-- <br/> -->
 
         <br/>
-        <br/>
-        
-
         <div class="paper-item">
             <span style="font-size: 1.em; color: #570882; font-weight: 500;">
                 We have 25/26 PhD/RA positions, please mail your CV if interested.
             </span>
         </div>
+        <br/>
 
       <p>
       </font>  
@@ -645,7 +602,7 @@
             <div class="collapse navbar-collapse" id="pageNavbar">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">AI + Optimization</a>
+                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">ML + Optimization</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="switchPage('ai-sci'); return false;">AI for Sustainability</a>
@@ -694,21 +651,9 @@
 
     <div id="ml-opt" class="research-section active">
 
-        
-        <!-- <div class="category-nav">
-            <div class="container">
-                <div class="nav">
-                    <div class="nav-item">Neural-Network Feasibility</div>
-                    <div class="nav-item">Generative Learning</div>
-                    <div class="nav-item">Decision-Focused Learning</div>
-                    <div class="nav-item">Learning Theory</div>
-                </div>
-            </div>
-        </div> -->
-
         <!-- AI + Optimization content -->
         <div class="topic-section">
-            <h6 class="topic-title">Neural-Network Feasibility</h6>
+            <h6 class="topic-title">Learning with Hard Constraints</h6>
             <div class="paper-list">
                 <div class="paper-item">
                     <img src="/assets/img/papers/ball_homeo.png" alt="Homeomorphic Projection" class="paper-image">
@@ -758,7 +703,7 @@
 
             
     <div class="topic-section">
-        <h6 class="topic-title">Generative Learning</h6>
+        <h6 class="topic-title">Generative Modeling</h6>
           <div class="paper-list">
             <div class="paper-item">
                 <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
@@ -781,9 +726,10 @@
                         Gauge Flow Matching for Efficient Constrained Generative Modeling over General Convex Set.
                     </a>
                     <div class="authors">
-                        Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang<sup>*</sup></span>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                        Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
                     </div>
-                    <span class="venue">ICLR 2025 DeLTa Workshop</span>.
+                    <span class="venue">ICLR 2025 DeLTa Workshop</span>
+                    <br/>
                     <span class="notes">Oral & Outstanding Paper Award</span>.
                 </div>
             </div>
@@ -795,7 +741,7 @@
 
         
     <div class="topic-section">
-        <h6 class="topic-title">Learning Theory</h6>
+        <h6 class="topic-title">Learning & Approximation Theory</h6>
         <div class="paper-list">
             <div class="paper-item">
                 <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
@@ -826,9 +772,10 @@
                       DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
                   </a>
                   <div class="authors">
-                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang<sup>*</sup></span>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
                   </div>
-                  <span class="venue">AAAI 2025</span>.
+                  <span class="venue">AAAI 2025</span>
+                  <br/>
                   <span class="notes">Oral. Deployed in DiDi Chuxing.</span>
               </div>
           </div>
@@ -842,19 +789,7 @@
     </div>
 
     <div id="ai-sci" class="research-section">
-        <!-- <hr class="section-divider" />
-        <h5 class="category-heading" id="AI-Sci">AI for Mobility, Energy, and Climate</h5>
-        <hr class="section-divider" /> -->
-
-        <!-- <div class="category-nav">
-            <div class="container">
-                <div class="nav">
-                    <div class="nav-item">Ride-Sourcing Optimization</div>
-                    <div class="nav-item">Traffic Signal Control</div>
-                    <div class="nav-item">Power Grid Operation</div>
-                </div>
-            </div>
-        </div> -->
+   
 
         <!-- AI for Sustainability content -->
         <div class="topic-section">
@@ -869,7 +804,8 @@
                         <div class="authors">
                             <span class="author-self">Enming Liang</span>. 
                         </div>
-                        <span class="venue">KDD CUP 2020</span>.
+                        <span class="venue">KDD CUP 2020</span>
+                        <br/>
                         <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
 
                     </div>
@@ -925,11 +861,12 @@
                     Sovling Chance-Constrained AC-OPF Problems by Neural Network with Bisection-based Projection.
                 </a>
                 <div class="authors">
-                    <span class="author-self">Enming Liang<sup>*</sup></span>,
+                    <span class="author-self">Enming Liang</span><sup>*</sup>,
                     Min Zhou<sup>*</sup>,
                     Jiawei Zhao, and  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
                 </div>
-                <span class="venue">ACM E-energy 2025, EnergySP workshop</span>.
+                <span class="venue">ACM E-energy 2025, EnergySP workshop</span>
+                <br/>
                 <span class="notes">Invited Paper</span>.
             </div>
         </div>
@@ -965,7 +902,8 @@
                       Chilin Fang, and
                       <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
                   </div>
-                  <span class="venue">AAAI 2022</span>.
+                  <span class="venue">AAAI 2022</span>
+                  <br/>
                   <span class="notes">Oral</span>.
               </div>
           </div>
@@ -974,11 +912,7 @@
 
 
 
-</div>
-
-</div>
-
-<!-- <div class="topic-section">
+  <div class="topic-section">
     <h6 class="topic-title">Extreme Weather Impact</h6>
     <div class="paper-list">
         <div class="paper-item">
@@ -993,7 +927,17 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
 
 
 
