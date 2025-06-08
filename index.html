@@ -428,6 +428,7 @@
     .navbar-toggler {
         border: 1px solid #e9ecef;
         padding: 0.25rem 0.5rem;
+        margin-right: 1rem;
     }
     
     .navbar-toggler:focus {
@@ -440,21 +441,53 @@
     
     @media (max-width: 768px) {
         .navbar-collapse {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             border-top: 1px solid #e9ecef;
+            margin-top: 0.5rem;
         }
         
         .navbar-nav {
             gap: 0.5rem !important;
+            padding: 0.5rem 0;
         }
         
         .nav-item {
             text-align: center;
+            margin: 0.25rem 0;
         }
         
         .nav-link {
             padding: 0.5rem 1rem !important;
             font-size: 1rem !important;
+            display: block;
+            width: 100%;
+        }
+
+        /* Make the navigation more visible on mobile */
+        .navbar-collapse.show {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            height: auto !important;
+        }
+
+        /* Improve the toggle button visibility */
+        .navbar-toggler {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    }
+
+    /* Ensure the navigation is always visible on desktop */
+    @media (min-width: 769px) {
+        .navbar-collapse {
+            display: flex !important;
+            flex-basis: auto;
+        }
+        
+        .navbar-toggler {
+            display: none;
         }
     }
     </style>
@@ -662,10 +695,10 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4" style="border-bottom: 1px solid #e9ecef;">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="pageNavbar">
+            <div class="collapse navbar-collapse show" id="pageNavbar">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-page="ml-opt">AI + Optimization</a>
