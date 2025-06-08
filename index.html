@@ -18,13 +18,100 @@
 
     <!-- Styles -->
     <style>
+    /* Base styles */
     .container {
-        /* display: flex;
-        align-items: center;
-        justify-content: space-between; */
         max-width: 1000px;
         margin: 0 auto;
-        padding: 0px;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Responsive breakpoints */
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 0 10px;
+        }
+        
+        .profile {
+            width: 100%;
+            margin: 0;
+            padding: 1rem 0;
+        }
+        
+        .profile-image {
+            width: 200px;
+            max-width: 100%;
+        }
+        
+        .paper-item {
+            flex-direction: column;
+            padding: 0.5rem 0;
+        }
+        
+        .paper-image {
+            width: 100%;
+            min-width: 100%;
+            max-height: none;
+            margin-bottom: 1rem;
+        }
+        
+        .paper-content {
+            width: 100%;
+        }
+        
+        .social-links {
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .main-heading {
+            font-size: 1.3em;
+        }
+        
+        .category-heading {
+            font-size: 1.1em;
+        }
+        
+        .paper-link {
+            font-size: 0.85rem;
+        }
+        
+        .authors {
+            font-size: 0.8rem;
+        }
+        
+        .venue {
+            font-size: 0.85rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 0 5px;
+        }
+        
+        .profile-image {
+            width: 150px;
+        }
+        
+        .social-link {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .main-heading {
+            font-size: 1.2em;
+        }
+        
+        .category-heading {
+            font-size: 1em;
+        }
     }
       .post-header {
         flex: 1;
