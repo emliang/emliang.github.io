@@ -24,7 +24,7 @@
         justify-content: space-between; */
         max-width: 1000px;
         margin: 0 auto;
-        padding: 0 15px;
+        padding: 0px;
     }
       .post-header {
         flex: 1;
@@ -286,107 +286,6 @@
             background-color: rgba(52, 152, 219, 0.07);
             font-weight: 500;
         }
-
-        /* Mobile-first responsive design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 10px;
-            }
-            .profile {
-                float: none;
-                width: 100%;
-                margin: 0 auto;
-                text-align: left;
-            }
-            .profile-image {
-                width: 200px;
-                margin: 1rem auto;
-            }
-            .paper-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 1rem 0;
-            }
-            .paper-image {
-                width: 100%;
-                min-width: 100%;
-                max-width: 280px;
-                margin-bottom: 1rem;
-            }
-            .paper-content {
-                width: 100%;
-            }
-            .navbar-nav {
-                gap: 1rem;
-            }
-            .nav-link {
-                font-size: 1em;
-                padding: 0.5rem !important;
-            }
-            .social-links {
-                gap: 1rem;
-            }
-            .social-link {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-            .topic-title {
-                font-size: 1.1em;
-            }
-            .paper-link {
-                font-size: 0.85rem;
-            }
-            .authors {
-                font-size: 0.8rem;
-            }
-            .venue {
-                font-size: 0.8rem;
-            }
-            .navbar-brand {
-                width: 100%;
-                text-align: center;
-                margin-bottom: 0.5rem;
-            }
-            .navbar-collapse {
-                background: white;
-                padding: 1rem;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .navbar-nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav-item {
-                width: 100%;
-                text-align: center;
-                margin: 0.5rem 0;
-            }
-            .category-nav .nav {
-                flex-direction: column;
-                align-items: center;
-            }
-            .category-nav .nav-item {
-                width: 100%;
-                text-align: center;
-                padding: 0.5rem;
-                border-bottom: 1px solid #eee;
-            }
-            .category-nav .nav-item:not(:last-child)::after {
-                display: none;
-            }
-            .paper-item {
-                border-left: none;
-                border-bottom: 1px solid #eee;
-                margin-bottom: 1rem;
-            }
-            .notes {
-                display: block;
-                margin-top: 0.5rem;
-            }
-        }
     </style>
 
     <!-- External CSS -->
@@ -553,7 +452,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
         <div class="container">
-            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="pageNavbar">
@@ -569,147 +468,39 @@
         </div>
     </nav>
 
-    <style>
-    /* Updated mobile navigation styles */
-    @media (max-width: 768px) {
-        .navbar {
-            position: relative;
-            z-index: 1030;
-            padding: 0.5rem 1rem;
-        }
-        
-        .navbar-toggler {
-            display: block !important;
-            margin-right: 0;
-            border: 1px solid #ddd;
-            padding: 0.25rem 0.5rem;
-        }
-        
-        .navbar-toggler:not(.collapsed) {
-            background-color: #f8f9fa;
-        }
-        
-        .navbar-collapse {
-            position: fixed;
-            top: 56px; /* Height of navbar */
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            max-height: calc(100vh - 56px);
-            overflow-y: auto;
-            z-index: 1020;
-        }
-        
-        .navbar-collapse.collapsing {
-            height: auto;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-collapse.show {
-            display: block;
-        }
-        
-        .navbar-nav {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .nav-item {
-            margin: 0.5rem 0;
-            width: 100%;
-        }
-        
-        .nav-link {
-            padding: 0.75rem 1rem !important;
-            display: block;
-            text-align: center;
-            border-radius: 4px;
-        }
-        
-        .nav-link:hover {
-            background-color: #f8f9fa;
-        }
-        
-        .nav-link.active {
-            background-color: #e9ecef;
-        }
-    }
-    </style>
-
     <script>
-    function switchPage(pageId) {
-        // Update navigation active state
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-        event.target.classList.add('active');
+        function switchPage(pageId) {
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
 
-        // Hide all sections
-        document.querySelectorAll('.research-section').forEach(section => {
-            section.classList.remove('active');
-        });
-
-        // Show selected section
-        if (pageId === 'all') {
+            // Hide all sections
             document.querySelectorAll('.research-section').forEach(section => {
-                section.classList.add('active');
+                section.classList.remove('active');
             });
-        } else {
-            const selectedSection = document.getElementById(pageId);
-            if (selectedSection) {
-                selectedSection.classList.add('active');
+
+            // Show selected section
+            if (pageId === 'all') {
+                document.querySelectorAll('.research-section').forEach(section => {
+                    section.classList.add('active');
+                });
+            } else {
+                const selectedSection = document.getElementById(pageId);
+                if (selectedSection) {
+                    selectedSection.classList.add('active');
+                }
             }
         }
 
-        // Close mobile menu after selection
-        if (window.innerWidth <= 768) {
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-            if (navbarToggler && navbarCollapse) {
-                navbarToggler.classList.add('collapsed');
-                navbarCollapse.classList.remove('show');
-            }
-        }
-    }
-
-    // Initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-        // Set initial active state for navigation
-        document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
-        // Show AI + Optimization section
-        switchPage('ml-opt');
-
-        const navbarToggler = document.querySelector('.navbar-toggler');
-        const navbarCollapse = document.querySelector('.navbar-collapse');
-        
-        if (navbarToggler && navbarCollapse) {
-            // Toggle menu
-            navbarToggler.addEventListener('click', function() {
-                this.classList.toggle('collapsed');
-                navbarCollapse.classList.toggle('show');
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!navbarToggler.contains(event.target) && 
-                    !navbarCollapse.contains(event.target) && 
-                    navbarCollapse.classList.contains('show')) {
-                    navbarToggler.classList.add('collapsed');
-                    navbarCollapse.classList.remove('show');
-                }
-            });
-
-            // Close menu when window is resized to desktop view
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 768 && navbarCollapse.classList.contains('show')) {
-                    navbarToggler.classList.add('collapsed');
-                    navbarCollapse.classList.remove('show');
-                }
-            });
-        }
-    });
+        // Initialize on page load to show AI + Optimization section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active state for navigation
+            document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
+            // Show AI + Optimization section
+            switchPage('ml-opt');
+        });
     </script>
 
 
