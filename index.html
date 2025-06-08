@@ -94,6 +94,25 @@
             margin-bottom: 0.5rem;
             padding: 0.5rem 0.5rem;
             border-left: 4px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .paper-image {
+            width: 120px;
+            min-width: 260px;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 4px;
+            flex-shrink: 0;
+            /* background-color: #f8f9fa; */
+            padding: 1px;
+        }
+        .paper-content {
+            flex: 1;
+            min-width: 0;
         }
         .paper-link {
             display: block;
@@ -112,7 +131,7 @@
         }
         .author-self {
             text-decoration: underline;
-            font-weight: 400;
+            font-weight: 500;
         }
         .venue {
             font-size: 0.9rem;
@@ -379,11 +398,11 @@
         <br/>
         
 
-        <!-- <div class="paper-item">
-            <span style="font-size: 1.em; color: #dc6e25; font-weight: 500;">
+        <div class="paper-item">
+            <span style="font-size: 1.em; color: #570882; font-weight: 500;">
                 We have 25/26 PhD/RA positions, please mail your CV if interested.
             </span>
-        </div> -->
+        </div>
 
       <p>
       </font>  
@@ -429,13 +448,13 @@
 
 <body>
 
-    <!-- <h4 class="main-heading" id="ongoing-project">
-        Recent Highlights
-    </h4> -->
-    
+  
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
         <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="pageNavbar">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
@@ -492,8 +511,8 @@
                 <div class="nav">
                     <div class="nav-item">Neural-Network Feasibility</div>
                     <div class="nav-item">Generative Learning</div>
-                    <div class="nav-item">Decision-Focused Learning</div>
-                    <!-- <div class="nav-item">NN Approximation Theory</div> -->
+                    <!-- <div class="nav-item">Decision-Focused Learning</div> -->
+                    <div class="nav-item">Learning Theory</div>
                 </div>
             </div>
         </div>
@@ -503,41 +522,48 @@
             <h6 class="topic-title">Neural-Network Feasibility</h6>
             <div class="paper-list">
                 <div class="paper-item">
-                    <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
-                        Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span>,
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                        <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    <img src="/assets/img/papers/ball_homeo.png" alt="Homeomorphic Projection" class="paper-image">
+                    <div class="paper-content">
+                        <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
+                            Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>,
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                        </div>
+                        <span class="venue">ICML 2023</span>
                     </div>
-                    <span class="venue">ICML 2023</span>
                 </div>
             
                 <div class="paper-item">
-                    <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
-                        Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span>,
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                        <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
+                    <div class="paper-content">
+                        <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
+                            Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>,
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                        </div>
+                        <span class="venue">JMLR 2024</span>
                     </div>
-                    <span class="venue">JMLR 2024</span>
                 </div>
 
                 <div class="paper-item">
-                  <a href="" class="paper-link">
-                      Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
-                  </a>
-                  <div class="authors">
-                      <span class="author-self">Enming Liang</span> and
-                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
-                  </div>
-                  <span class="venue">ICML 2025</span>
-              </div>
-                
-
+                    <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
+                    <div class="paper-content">
+                        <a href="" class="paper-link">
+                            Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span> and
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
+                        </div>
+                        <span class="venue">ICML 2025</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -546,68 +572,83 @@
         <h6 class="topic-title">Generative Learning</h6>
           <div class="paper-list">
             <div class="paper-item">
-                <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">
-                    Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.
-                </a>
-                <div class="authors">
-                    <span class="author-self">Enming Liang</span> and
-                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">
+                        Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.
+                    </a>
+                    <div class="authors">
+                        <span class="author-self">Enming Liang</span> and
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICLR 2024</span>
                 </div>
-                <span class="venue">ICLR 2024</span>
-          </div>
+            </div>
   
-  
-          <div class="paper-item">
-              <a href="https://openreview.net/forum?id=QyIlskgko9&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2025%2FWorkshop%2FDeLTa%2FAuthors%23your-submissions)" class="paper-link">
-                  Gauge Flow Matching for Efficient Constrained Generative Modeling over General Convex Set.
-              </a>
-                  <div class="authors">
-                      Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-              </div>
-              <span class="venue">ICLR 2025 DeLTa Workshop</span>.
-              <span class="notes">Oral & Outstanding Paper Award</span>.
-          </div>
+            <div class="paper-item">
+                <img src="/assets/img/papers/gauge.png" alt="Gauge Flow Matching" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=QyIlskgko9&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2025%2FWorkshop%2FDeLTa%2FAuthors%23your-submissions)" class="paper-link">
+                        Gauge Flow Matching for Efficient Constrained Generative Modeling over General Convex Set.
+                    </a>
+                    <div class="authors">
+                        Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang<sup>*</sup></span>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICLR 2025 DeLTa Workshop</span>.
+                    <span class="notes">Oral & Outstanding Paper Award</span>.
+                </div>
+            </div>
   
         </div>
     </div>
     
   
+
+        
+    <div class="topic-section">
+        <h6 class="topic-title">Learning Theory</h6>
+        <div class="paper-list">
+            <div class="paper-item">
+                <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
+                        Characterizing ResNet's Universal Approximation Capability.
+                    </a>
+                    <div class="authors">
+                        Chenghao Liu,
+                        <span class="author-self">Enming Liang</span>, and
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICML 2024</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
   
     <div class="topic-section">
       <h6 class="topic-title">Decision-Focused Learning</h6>
       <div class="paper-list">
           <div class="paper-item">
-              <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
-                  DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
-              </a>
-              <div class="authors">
-                  Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+              <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
+              <div class="paper-content">
+                  <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                      DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
+                  </a>
+                  <div class="authors">
+                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang<sup>*</sup></span>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+                  </div>
+                  <span class="venue">AAAI 2025</span>.
+                  <span class="notes">Oral</span>.
               </div>
-              <span class="venue">AAAI 2025</span>.
-              <span class="notes">Oral</span>.
           </div>
       </div>
   </div>
   
   
   
-    
-    <!-- <div class="topic-section">
-        <h6 class="topic-title">NN Approximation Theory</h6>
-        <div class="paper-list">
-            <div class="paper-item">
-                <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
-                    Characterizing ResNet's Universal Approximation Capability.
-                </a>
-                <div class="authors">
-                    Chenghao Liu,
-                    <span class="author-self">Enming Liang</span>, and
-                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-                </div>
-                <span class="venue">ICML 2024</span>
-            </div>
-        </div>
-    </div> -->
+
 
     </div>
 
@@ -631,54 +672,41 @@
             <h6 class="topic-title">Ride-Sourcing Optimization</h6>
             <div class="paper-list">
                 <div class="paper-item">
-                    <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
-                        Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span>. 
-                        <!-- (Solo winner; 2nd place for track 1; 5th place for track 2) -->
-                    </div>
-                    <span class="venue">KDD CUP 2020</span>.
-                    <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
+                    <img src="/assets/img/papers/kdd.png" alt="KDD Cup 2020" class="paper-image">
+                    <div class="paper-content">
+                        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                            Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>. 
+                        </div>
+                        <span class="venue">KDD CUP 2020</span>.
+                        <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
 
+                    </div>
                 </div>
 
                 <div class="paper-item">
-                      <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
-                          An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
-                      </a>
-                      <div class="authors">
-                          <span class="author-self">Enming Liang</span>,
-                          Kexin Wen,
-                          <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>,
-                          Agachai Sumalee, and
-                          <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
-                      </div>
-                      <span class="venue">IEEE TNNLS 2021</span>
-                </div>
-          
+                      <img src="/assets/img/papers/RLCP.png" alt="Taxi Dispatching" class="paper-image">
+                      <div class="paper-content">
+                          <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
+                              An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
+                          </a>
+                          <div class="authors">
+                              <span class="author-self">Enming Liang</span>,
+                              Kexin Wen,
+                              <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>,
+                              Agachai Sumalee, and
+                              <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                          </div>
+                          <span class="venue">IEEE TNNLS 2021</span>
+                    </div>
+              
 
+                </div>
             </div>
         </div>
 
-    <div class="topic-section">
-      <h6 class="topic-title">Traffic Signal Control</h6>
-      <div class="paper-list">
-          <div class="paper-item">
-              <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">
-                  OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control
-              </a>
-              <div class="authors">
-                  <span class="author-self">Enming Liang</span>,
-                  <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
-                  Chilin Fang, and
-                  <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
-              </div>
-              <span class="venue">AAAI 2022</span>.
-              <span class="notes">Oral</span>.
-          </div>
-      </div>
-  </div>
 
 
 
@@ -686,29 +714,35 @@
     <h6 class="topic-title">Power Grid Operation</h6>
     <div class="paper-list">
         <div class="paper-item">
-            <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="paper-link">
-                AI for Optimal Power Flow Tutorial
-            </a>
-            <div class="authors">
-                <span class="author-self">Enming Liang</span>,
-                <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
-                <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-            </div>
-            <span class="venue">Climate Change AI Summer School 2024</span>
+            <img src="/assets/img/papers/ccai.png" alt="AI for OPF Tutorial" class="paper-image">
+            <div class="paper-content">
+                <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="paper-link">
+                    AI for Optimal Power Flow Tutorial
+                </a>
+                <div class="authors">
+                    <span class="author-self">Enming Liang</span>,
+                    <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
+                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                </div>
+                <span class="venue">Climate Change AI Summer School 2024</span>
 
+            </div>
         </div>
 
         <div class="paper-item">
-            <a href="" class="paper-link">
-                Sovling Chance-Constrained AC-OPF Problems by Neural Network with Bisection-based Projection.
-            </a>
-            <div class="authors">
-                <span class="author-self">Enming Liang</span><sup>*</sup>,
-                Min Zhou<sup>*</sup>,
-                Jiawei Zhao, and  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+            <img src="/assets/img/papers/chance.png" alt="Chance-Constrained AC-OPF" class="paper-image">
+            <div class="paper-content">
+                <a href="" class="paper-link">
+                    Sovling Chance-Constrained AC-OPF Problems by Neural Network with Bisection-based Projection.
+                </a>
+                <div class="authors">
+                    <span class="author-self">Enming Liang<sup>*</sup></span>,
+                    Min Zhou<sup>*</sup>,
+                    Jiawei Zhao, and  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                </div>
+                <span class="venue">ACM E-energy 2025, EnergySP workshop</span>.
+                <span class="notes">Invited Paper</span>.
             </div>
-            <span class="venue">ACM E-energy 2025, EnergySP workshop</span>.
-            <span class="notes">Invited Paper</span>.
         </div>
         <!-- <div class="paper-item">
             <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="paper-link">
@@ -720,6 +754,37 @@
         </div> -->
 
     </div>
+
+
+
+
+
+
+
+    <div class="topic-section">
+      <h6 class="topic-title">Traffic Signal Control</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <img src="/assets/img/papers/oam.png" alt="OAM Framework" class="paper-image">
+              <div class="paper-content">
+                  <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">
+                      OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control
+                  </a>
+                  <div class="authors">
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
+                      Chilin Fang, and
+                      <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                  </div>
+                  <span class="venue">AAAI 2022</span>.
+                  <span class="notes">Oral</span>.
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
 </div>
 
 </div>
