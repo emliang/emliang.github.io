@@ -417,6 +417,46 @@
         background-color: #3498db;
         border-radius: 3px;
     }
+
+    /* Navigation Bar Styles */
+    .navbar {
+        padding: 0.5rem 0;
+        position: relative;
+        z-index: 1000;
+    }
+    
+    .navbar-toggler {
+        border: 1px solid #e9ecef;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .navbar-toggler:focus {
+        outline: none;
+    }
+    
+    .navbar-collapse {
+        background-color: white;
+    }
+    
+    @media (max-width: 768px) {
+        .navbar-collapse {
+            padding: 1rem 0;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .navbar-nav {
+            gap: 0.5rem !important;
+        }
+        
+        .nav-item {
+            text-align: center;
+        }
+        
+        .nav-link {
+            padding: 0.5rem 1rem !important;
+            font-size: 1rem !important;
+        }
+    }
     </style>
 
     <!-- External CSS -->
@@ -620,7 +660,7 @@
 
   
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4" style="border-bottom: 1px solid #e9ecef;">
         <div class="container">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
