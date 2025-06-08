@@ -296,7 +296,7 @@
                 float: none;
                 width: 100%;
                 margin: 0 auto;
-                text-align: center;
+                text-align: left;
             }
             .profile-image {
                 width: 200px;
@@ -553,7 +553,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="pageNavbar">
@@ -570,48 +570,70 @@
     </nav>
 
     <style>
-    /* Add these new styles for mobile navigation */
+    /* Updated mobile navigation styles */
     @media (max-width: 768px) {
         .navbar {
             position: relative;
-            z-index: 1000;
+            z-index: 1030;
+            padding: 0.5rem 1rem;
         }
+        
         .navbar-toggler {
             display: block !important;
             margin-right: 0;
             border: 1px solid #ddd;
+            padding: 0.25rem 0.5rem;
         }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        
+        .navbar-toggler:not(.collapsed) {
+            background-color: #f8f9fa;
         }
+        
         .navbar-collapse {
-            position: absolute;
-            top: 100%;
+            position: fixed;
+            top: 56px; /* Height of navbar */
             left: 0;
             right: 0;
             background: white;
             padding: 1rem;
-            border-radius: 0 0 8px 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-height: calc(100vh - 56px);
+            overflow-y: auto;
+            z-index: 1020;
         }
+        
         .navbar-collapse.collapsing {
             height: auto;
             transition: all 0.3s ease;
         }
+        
         .navbar-collapse.show {
             display: block;
         }
+        
         .navbar-nav {
             margin: 0;
             padding: 0;
         }
+        
         .nav-item {
             margin: 0.5rem 0;
+            width: 100%;
         }
+        
         .nav-link {
-            padding: 0.5rem 1rem !important;
+            padding: 0.75rem 1rem !important;
             display: block;
             text-align: center;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .nav-link.active {
+            background-color: #e9ecef;
         }
     }
     </style>
@@ -643,7 +665,12 @@
 
         // Close mobile menu after selection
         if (window.innerWidth <= 768) {
-            document.querySelector('.navbar-collapse').classList.remove('show');
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            if (navbarToggler && navbarCollapse) {
+                navbarToggler.classList.add('collapsed');
+                navbarCollapse.classList.remove('show');
+            }
         }
     }
 
@@ -654,18 +681,30 @@
         // Show AI + Optimization section
         switchPage('ml-opt');
 
-        // Initialize Bootstrap's collapse functionality
-        var navbarToggler = document.querySelector('.navbar-toggler');
-        var navbarCollapse = document.querySelector('.navbar-collapse');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
         
         if (navbarToggler && navbarCollapse) {
+            // Toggle menu
             navbarToggler.addEventListener('click', function() {
+                this.classList.toggle('collapsed');
                 navbarCollapse.classList.toggle('show');
             });
 
-            // Close navbar when clicking outside
+            // Close menu when clicking outside
             document.addEventListener('click', function(event) {
-                if (!navbarToggler.contains(event.target) && !navbarCollapse.contains(event.target)) {
+                if (!navbarToggler.contains(event.target) && 
+                    !navbarCollapse.contains(event.target) && 
+                    navbarCollapse.classList.contains('show')) {
+                    navbarToggler.classList.add('collapsed');
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+
+            // Close menu when window is resized to desktop view
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && navbarCollapse.classList.contains('show')) {
+                    navbarToggler.classList.add('collapsed');
                     navbarCollapse.classList.remove('show');
                 }
             });
