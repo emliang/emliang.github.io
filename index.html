@@ -47,6 +47,7 @@
         .paper-item {
             flex-direction: column;
             padding: 0.5rem 0;
+            align-items: center;
         }
         
         .paper-image {
@@ -54,10 +55,31 @@
             min-width: 100%;
             max-height: none;
             margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .paper-image img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
         }
         
         .paper-content {
             width: 100%;
+            text-align: left;
+        }
+        
+        .paper-link {
+            text-align: left;
+        }
+        
+        .authors {
+            text-align: left;
+        }
+        
+        .venue {
+            text-align: left;
         }
         
         .social-links {
@@ -295,41 +317,62 @@
 
         /* Enhanced Navigation Bar Styles */
         .navbar {
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.5rem 1rem;
         }
+
         .navbar-nav {
-            gap: 6rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
         }
+
+        .nav-item {
+            margin: 0 0.5rem;
+        }
+
         .nav-link {
-            color: #34495e !important;
-            font-size: 1.2em;
-            font-family: inherit;
-            padding: 0.5rem 1rem !important;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 400;
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem;
         }
+
         .nav-link:hover {
-            color: #3498db !important;
-            background-color: rgba(52, 152, 219, 0.1);
+            color: #007bff;
         }
-        .nav-link.active {
-            color: #3498db !important;
-            background-color: rgba(52, 152, 219, 0.1);
-            font-weight: 500;
-        }
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 3px;
-            background-color: #3498db;
-            border-radius: 3px;
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .navbar-nav {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .nav-item {
+                margin: 0.25rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.25rem 0.5rem;
+            }
+
+            /* Remove the collapse functionality */
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+            }
+
+            /* Hide the toggle button */
+            .navbar-toggler {
+                display: none;
+            }
         }
 
         /* Category Navigation Styles */
