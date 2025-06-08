@@ -569,39 +569,108 @@
         </div>
     </nav>
 
+    <style>
+    /* Add these new styles for mobile navigation */
+    @media (max-width: 768px) {
+        .navbar {
+            position: relative;
+            z-index: 1000;
+        }
+        .navbar-toggler {
+            display: block !important;
+            margin-right: 0;
+            border: 1px solid #ddd;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .navbar-collapse.collapsing {
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        .navbar-collapse.show {
+            display: block;
+        }
+        .navbar-nav {
+            margin: 0;
+            padding: 0;
+        }
+        .nav-item {
+            margin: 0.5rem 0;
+        }
+        .nav-link {
+            padding: 0.5rem 1rem !important;
+            display: block;
+            text-align: center;
+        }
+    }
+    </style>
+
     <script>
-        function switchPage(pageId) {
-            // Update navigation active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
+    function switchPage(pageId) {
+        // Update navigation active state
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        event.target.classList.add('active');
 
-            // Hide all sections
+        // Hide all sections
+        document.querySelectorAll('.research-section').forEach(section => {
+            section.classList.remove('active');
+        });
+
+        // Show selected section
+        if (pageId === 'all') {
             document.querySelectorAll('.research-section').forEach(section => {
-                section.classList.remove('active');
+                section.classList.add('active');
             });
-
-            // Show selected section
-            if (pageId === 'all') {
-                document.querySelectorAll('.research-section').forEach(section => {
-                    section.classList.add('active');
-                });
-            } else {
-                const selectedSection = document.getElementById(pageId);
-                if (selectedSection) {
-                    selectedSection.classList.add('active');
-                }
+        } else {
+            const selectedSection = document.getElementById(pageId);
+            if (selectedSection) {
+                selectedSection.classList.add('active');
             }
         }
 
-        // Initialize on page load to show AI + Optimization section
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set initial active state for navigation
-            document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
-            // Show AI + Optimization section
-            switchPage('ml-opt');
-        });
+        // Close mobile menu after selection
+        if (window.innerWidth <= 768) {
+            document.querySelector('.navbar-collapse').classList.remove('show');
+        }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set initial active state for navigation
+        document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
+        // Show AI + Optimization section
+        switchPage('ml-opt');
+
+        // Initialize Bootstrap's collapse functionality
+        var navbarToggler = document.querySelector('.navbar-toggler');
+        var navbarCollapse = document.querySelector('.navbar-collapse');
+        
+        if (navbarToggler && navbarCollapse) {
+            navbarToggler.addEventListener('click', function() {
+                navbarCollapse.classList.toggle('show');
+            });
+
+            // Close navbar when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navbarToggler.contains(event.target) && !navbarCollapse.contains(event.target)) {
+                    navbarCollapse.classList.remove('show');
+                }
+            });
+        }
+    });
     </script>
 
 
