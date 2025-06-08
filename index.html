@@ -18,108 +18,15 @@
 
     <!-- Styles -->
     <style>
-    /* Base styles */
-    body {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-    
-    /* Responsive typography */
-    @media (max-width: 768px) {
-        body {
-            font-size: 14px;
-        }
-        .post-title {
-            font-size: 1.2em;
-        }
-        .paper-link {
-            font-size: 0.95rem;
-        }
-        .authors {
-            font-size: 0.9rem;
-        }
-        .venue {
-            font-size: 0.85rem;
-        }
-    }
-
-    /* Improved navigation for mobile */
-    @media (max-width: 768px) {
-        .navbar-nav {
-            gap: 1rem;
-        }
-        .nav-link {
-            font-size: 1em;
-            padding: 0.5rem !important;
-        }
-        .category-nav {
-            margin: 0.5rem 0;
-            padding: 0.5rem;
-        }
-        .category-nav .nav-item {
-            padding: 0.5rem 1rem;
-            font-size: 0.85em;
-        }
-    }
-
-    /* Better paper item layout for mobile */
-    @media (max-width: 768px) {
-        .paper-item {
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .paper-image {
-            max-width: 100%;
-            margin-bottom: 0.5rem;
-        }
-        .paper-content {
-            padding: 0;
-        }
-    }
-
-    /* Improved social links for mobile */
-    @media (max-width: 768px) {
-        .social-links {
-            gap: 0.75rem;
-        }
-        .social-link {
-            width: 35px;
-            height: 35px;
-            font-size: 1.1rem;
-        }
-    }
-
-    /* Better spacing for mobile */
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 10px;
-        }
-        .topic-section {
-            margin-bottom: 1.5rem;
-        }
-        .topic-title {
-            font-size: 1.1em;
-            margin-bottom: 0.75rem;
-        }
-    }
-
-    /* Improved profile section for mobile */
-    @media (max-width: 768px) {
-        .profile {
-            margin: 1rem auto;
-            padding: 0.5rem;
-        }
-        .profile-image {
-            margin: 0.5rem auto;
-        }
-    }
     .container {
+        /* display: flex;
+        align-items: center;
+        justify-content: space-between; */
         max-width: 1000px;
         margin: 0 auto;
-        padding: 0 15px;
-        width: 100%;
+        padding: 0px;
     }
-    .post-header {
+      .post-header {
         flex: 1;
         padding-right: 0px;
     }
@@ -128,368 +35,257 @@
         margin: 0;
         font-family: Verdana, Arial, Helvetica, sans-serif;
     }
-    .profile {
-        text-align: center;
-        padding: 1rem;
-        margin: 0 auto;
-        width: 100%;
-        max-width: 300px;
-    }
-    .profile-image {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 5px;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
-    }
-    .paper-item {
-        position: relative;
-        margin-bottom: 0.5rem;
-        padding: 0.5rem;
-        border-left: 4px solid #eee;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .paper-image {
-        width: 100%;
-        max-width: 280px;
-        height: auto;
-        max-height: 120px;
-        object-fit: contain;
-        border-radius: 4px;
-        margin: 0 auto;
-    }
-    .paper-content {
-        flex: 1;
-        min-width: 0;
-    }
-    .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        flex-wrap: wrap;
-    }
-    .social-link {
-        color: #0b6b8d;
-        font-size: 1.25rem;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 30%;
-        background-color: #f8f9fa;
-        transition: all 0.3s ease;
-    }
-    .category-nav .nav {
-        display: flex;
-        justify-content: center;
-        gap: 0;
-        flex-wrap: wrap;
-        white-space: normal;
-    }
-    .category-nav .nav-item {
-        padding: 0.5rem 1rem;
-        font-size: 0.9em;
-    }
-    @media (min-width: 768px) {
-        .paper-item {
-            flex-direction: row;
-            align-items: flex-start;
-        }
-        .paper-image {
-            margin: 0;
-        }
-        .profile {
-            float: right;
-            width: 200px;
-        }
-        .social-links {
-            gap: 2rem;
-        }
-        .social-link {
-            width: 50px;
-            height: 50px;
-        }
-        .category-nav .nav {
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-        .category-nav .nav-item {
-            padding: 0.5rem 2.5rem;
-        }
-    }
-    h3 {
+        h3 {
         text-align: center;
         color: #333;
         margin-bottom: 0.5em;
-    }
-    h5 {
+      }
+        h5 {
         text-align: center;
         color: #555;
         margin-top: 20px;
         margin-bottom: 10px;
-    }
-    .section-divider {
-        border: 0;
-        height: 1px;
-        background: #ddd;
-        margin: 10px 0;
-    }
-    .main-heading {
-        color: #2c3e50;
-        font-size: 1.5em;
-        margin: 10px 0;
-    }
-    .category-heading {
-        color: #34495e;
-        font-size: 1.2em;
-        margin: 15px 0 15px 0;
-    }
-    .topic-section {
-        margin-bottom: 1rem;
-    }
-    .topic-title {
-        position: relative;
-        padding-left: 0.5rem;
-        margin-bottom: 0.5rem;
-        color: #2c3e50;
-        font-size: 1.rem;
-        font-weight: 500;
-    }
-    .topic-title::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        width: 4px;
-        background: #3498db;
-        border-radius: 2px;
-    }
-    .paper-list {
-        padding-left: 1rem;
-    }
-    .paper-link {
-        display: block;
-        color: #2c3e50;
-        font-style: italic;
-        font-size: 0.9rem;
-        margin-bottom: 0.5rem;
-        font-weight: 400;
-        line-height: 1.4;
-    }
-    .authors {
-        font-size: 0.85rem;
-        color: #666;
-        margin-bottom: 0.3rem;
-        line-height: 1.3;
-    }
-    .author-self {
-        text-decoration: underline;
-        font-weight: 500;
-    }
-    .venue {
-        font-size: 0.9rem;
-        color: #032034;
-        font-weight: 400;
-        position: static;
-        margin-right: 0;
-        right: auto;
-    }
-    .notes{
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: #c24242;
-    }
-    .name-link {
-        color: #115e91;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    .project-link {
-        color: #34495e;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-    }
-    .profile-links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.8rem;
-        align-items: center;
-    }
-    .profile-links .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-    .nav-link.active {
-        color: #3498db !important;
-        font-weight: bold;
-    }
-
-    /* Enhanced Navigation Bar Styles */
-    .navbar {
-        padding: 1rem 0;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .navbar-nav {
-        gap: 6rem;
-    }
-    .nav-link {
-        color: #34495e !important;
-        font-size: 1.2em;
-        font-family: inherit;
-        padding: 0.5rem 1rem !important;
-        border-radius: 6px;
-        transition: all 0.3s ease;
-        position: relative;
-        font-weight: 400;
-    }
-    .nav-link:hover {
-        color: #3498db !important;
-        background-color: rgba(52, 152, 219, 0.1);
-    }
-    .nav-link.active {
-        color: #3498db !important;
-        background-color: rgba(52, 152, 219, 0.1);
-        font-weight: 500;
-    }
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 3px;
-        background-color: #3498db;
-        border-radius: 3px;
-    }
-
-    /* Category Navigation Styles */
-    .category-nav {
-        background-color: #ffffff;
-        padding: 0.5rem 0.5rem;
-        margin: -1.3rem 0.5rem 0.5rem 0.5rem;
-        border-bottom: 1px solid #e9ecef;
-    }
-    .category-nav .nav-item:not(:last-child)::after {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        right: 0;
-        top: 25%;
-        height: 50%;
-        width: 1px;
-        background: #e0e4ea;
-    }
-    .category-nav .nav-item:hover {
-        color: #3498db;
-        background-color: rgba(52, 152, 219, 0.07);
-        font-weight: 500;
-    }
-
-    /* Research section visibility */
-    .research-section {
-        display: none;
-    }
-    .research-section.active {
-        display: block;
-    }
-    .nav-link.active {
-        color: #3498db !important;
-        font-weight: bold;
-        background-color: rgba(52, 152, 219, 0.1);
-    }
-    .nav-link.active::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 30px;
-        height: 3px;
-        background-color: #3498db;
-        border-radius: 3px;
-    }
-
-    /* Navigation Bar Styles */
-    .navbar {
-        padding: 0.5rem 0;
-        position: relative;
-        z-index: 1000;
-    }
-    
-    .navbar-toggler {
-        border: 1px solid #e9ecef;
-        padding: 0.25rem 0.5rem;
-        margin-right: 1rem;
-    }
-    
-    .navbar-toggler:focus {
-        outline: none;
-    }
-    
-    .navbar-collapse {
-        background-color: white;
-    }
-    
-    @media (max-width: 768px) {
-        .navbar-collapse {
-            padding: 0.5rem 0;
-            border-top: 1px solid #e9ecef;
-            margin-top: 0.5rem;
         }
-        
-        .navbar-nav {
-            gap: 0.5rem !important;
-            padding: 0.5rem 0;
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 10px 0;
         }
-        
-        .nav-item {
-            text-align: center;
-            margin: 0.25rem 0;
+        .main-heading {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 10px 0;
+            /* border-bottom: 2px solid #3498db; */
         }
-        
-        .nav-link {
-            padding: 0.5rem 1rem !important;
-            font-size: 1rem !important;
+        .category-heading {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 15px 0;
+            /* padding-bottom: 10px; */
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .topic-section {
+            margin-bottom: 1rem;
+        }
+        .topic-title {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-size: 1.rem;
+            font-weight: 500;
+        }
+        .topic-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .paper-list {
+            padding-left: 1rem;
+        }
+        .paper-item {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            border-left: 4px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .paper-image {
+            width: 120px;
+            min-width: 280px;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 4px;
+            flex-shrink: 0;
+            /* background-color: #f8f9fa; */
+            padding: 1px;
+        }
+        .paper-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .paper-link {
             display: block;
-            width: 100%;
+            color: #2c3e50;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.4;
         }
-
-        /* Make the navigation more visible on mobile */
-        .navbar-collapse.show {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
-            height: auto !important;
+        .authors {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
         }
-
-        /* Improve the toggle button visibility */
-        .navbar-toggler {
-            display: block !important;
-            visibility: visible !important;
-            opacity: 1 !important;
+        .author-self {
+            text-decoration: underline;
+            font-weight: 500;
         }
-    }
-
-    /* Ensure the navigation is always visible on desktop */
-    @media (min-width: 769px) {
-        .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
+        .venue {
+            font-size: 0.9rem;
+            color: #032034;
+            font-weight: 400;
+            position: static;
+            margin-right: 0;
+            right: auto;
         }
-        
-        .navbar-toggler {
+        .notes{
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #c24242;
+        }
+        .name-link {
+            color: #115e91;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .project-link {
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        .profile {
+            text-align: center;
+            padding: 1rem;
+            margin-left: 1rem;
+            width: 200px; /* Fixed width for profile section */
+        }
+        .profile-image {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            /* margin-bottom: 0.8rem; */
+        }
+        .social-link {
+            color: #0b6b8d;
+            font-size: 1.25rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 30%;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .research-section {
             display: none;
         }
-    }
+        .research-section.active {
+            display: block;
+        }
+        .nav-link.active {
+            color: #3498db !important;
+            font-weight: bold;
+        }
+
+        /* Enhanced Navigation Bar Styles */
+        .navbar {
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .navbar-nav {
+            gap: 6rem;
+        }
+        .nav-link {
+            color: #34495e !important;
+            font-size: 1.2em;
+            font-family: inherit;
+            padding: 0.5rem 1rem !important;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 400;
+        }
+        .nav-link:hover {
+            color: #3498db !important;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+        .nav-link.active {
+            color: #3498db !important;
+            background-color: rgba(52, 152, 219, 0.1);
+            font-weight: 500;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 3px;
+        }
+
+        /* Category Navigation Styles */
+        .category-nav {
+            background-color: #ffffff;
+            padding: 0.5rem 0.5rem;
+            margin: -1.3rem 0.5rem 0.5rem 0.5rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .category-nav .nav {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: nowrap;
+            white-space: nowrap;
+        }
+        .category-nav .nav-item {
+            color: #34495e;
+            font-size: 0.9em;
+            font-family: inherit;
+            padding: 0.5rem 2.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 400;
+            white-space: nowrap;
+            background: transparent;
+        }
+        .category-nav .nav-item:not(:last-child)::after {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: #e0e4ea;
+        }
+        .category-nav .nav-item:hover {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.07);
+            font-weight: 500;
+        }
     </style>
 
     <!-- External CSS -->
@@ -513,45 +309,6 @@
     </script>
     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
     <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Function to switch between research sections
-            function switchPage(pageId) {
-                // Update navigation active state
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
-                event.target.classList.add('active');
-
-                // Hide all sections
-                document.querySelectorAll('.research-section').forEach(section => {
-                    section.classList.remove('active');
-                });
-
-                // Show selected section
-                const selectedSection = document.getElementById(pageId);
-                if (selectedSection) {
-                    selectedSection.classList.add('active');
-                }
-            }
-
-            // Add click event listeners to navigation links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('data-page');
-                    if (pageId) {
-                        switchPage(pageId);
-                    }
-                });
-            });
-
-            // Set initial active state
-            const initialPage = 'ml-opt';
-            document.querySelector(`[data-page="${initialPage}"]`).classList.add('active');
-            document.getElementById(initialPage).classList.add('active');
-        });
-    </script>
   </head>
 
 
@@ -693,23 +450,58 @@
 
   
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white mb-4" style="border-bottom: 1px solid #e9ecef;">
+    <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="true" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse show" id="pageNavbar">
+            <div class="collapse navbar-collapse" id="pageNavbar">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="ml-opt">AI + Optimization</a>
+                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">AI + Optimization</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-page="ai-sci">AI for Sustainability</a>
+                        <a class="nav-link" href="#" onclick="switchPage('ai-sci'); return false;">AI for Sustainability</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
+    <script>
+        function switchPage(pageId) {
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all sections
+            document.querySelectorAll('.research-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            if (pageId === 'all') {
+                document.querySelectorAll('.research-section').forEach(section => {
+                    section.classList.add('active');
+                });
+            } else {
+                const selectedSection = document.getElementById(pageId);
+                if (selectedSection) {
+                    selectedSection.classList.add('active');
+                }
+            }
+        }
+
+        // Initialize on page load to show AI + Optimization section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active state for navigation
+            document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
+            // Show AI + Optimization section
+            switchPage('ml-opt');
+        });
+    </script>
 
 
 
@@ -864,8 +656,8 @@
         <!-- <hr class="section-divider" />
         <h5 class="category-heading" id="AI-Sci">AI for Mobility, Energy, and Climate</h5>
         <hr class="section-divider" /> -->
-
-        <!-- <div class="category-nav">
+<!-- 
+        <div class="category-nav">
             <div class="container">
                 <div class="nav">
                     <div class="nav-item">Ride-Sourcing Optimization</div>
