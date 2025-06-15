@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEM</title>
+
+    <!-- Meta tags -->
+    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.">
+    <meta property="og:site_name" content="A simple, whitespace theme for academics">
+    <meta property="og:type" content="object">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/">
+    <meta property="og:description" content="About">
+    <meta property="og:image" content="">
+
+    <!-- Styles -->
+    <style>
+    /* Base styles */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Responsive breakpoints */
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 0 10px;
+        }
+        
+        .profile {
+            width: 100%;
+            margin: 0;
+            padding: 1rem 0;
+        }
+        
+        .profile-image {
+            width: 200px;
+            max-width: 100%;
+        }
+        
+        .paper-item {
+            flex-direction: column;
+            padding: 0.5rem 0;
+            align-items: center;
+        }
+        
+        .paper-image {
+            width: 100%;
+            min-width: 100%;
+            max-height: none;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .paper-image img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        .paper-content {
+            width: 100%;
+            text-align: left;
+        }
+        
+        .paper-link {
+            text-align: left;
+        }
+        
+        .authors {
+            text-align: left;
+        }
+        
+        .venue {
+            text-align: left;
+        }
+        
+        .social-links {
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .main-heading {
+            font-size: 1.3em;
+        }
+        
+        .category-heading {
+            font-size: 1.1em;
+        }
+        
+        .paper-link {
+            font-size: 0.85rem;
+        }
+        
+        .authors {
+            font-size: 0.8rem;
+        }
+        
+        .venue {
+            font-size: 0.85rem;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 0 5px;
+        }
+        
+        .profile-image {
+            width: 150px;
+        }
+        
+        .social-link {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .main-heading {
+            font-size: 1.2em;
+        }
+        
+        .category-heading {
+            font-size: 1em;
+        }
+    }
+      .post-header {
+        flex: 1;
+        padding-right: 0px;
+    }
+    .post-title {
+        font-size: 1.1em;
+        margin: 0;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+        h3 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 0.5em;
+      }
+        h5 {
+        text-align: center;
+        color: #555;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        }
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 10px 0;
+        }
+        .main-heading {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 10px 0;
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .category-heading {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 15px 0;
+            /* padding-bottom: 10px; */
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .topic-section {
+            margin-bottom: 1rem;
+        }
+        .topic-title {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .topic-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .paper-list {
+            padding-left: 1rem;
+        }
+        .paper-item {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            border-left: 4px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .paper-image {
+            width: 120px;
+            min-width: 300px;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 4px;
+            flex-shrink: 0;
+            /* background-color: #f8f9fa; */
+            padding: 0.5px;
+        }
+        .paper-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .paper-link {
+            display: block;
+            color: #2c3e50;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .authors {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+        .author-self {
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .venue {
+            font-size: 0.9rem;
+            color: #032034;
+            font-weight: 400;
+            position: static;
+            margin-right: 0;
+            right: auto;
+        }
+        .notes{
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #c24242;
+        }
+        .name-link {
+            color: #115e91;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .project-link {
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        .profile {
+            text-align: center;
+            padding: 1rem;
+            margin-left: 1rem;
+            width: 200px; /* Fixed width for profile section */
+        }
+        .profile-image {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            /* margin-bottom: 0.8rem; */
+        }
+        .social-link {
+            color: #0b6b8d;
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40%;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .research-section {
+            display: none;
+        }
+        .research-section.active {
+            display: block;
+        }
+        .nav-link.active {
+            color: #3498db !important;
+            font-weight: bold;
+        }
+
+        /* Enhanced Navigation Bar Styles */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .nav-item {
+            margin: 0 0.5rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.6rem 1rem;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .navbar-nav {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 0.8rem;
+            }
+
+            .nav-item {
+                margin: 0.2rem;
+            }
+
+            .nav-link {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 4px;
+            }
+
+            .nav-link:hover {
+                transform: translateY(-1px);
+            }
+
+            .nav-link.active::after {
+                width: 20px;
+                height: 2px;
+            }
+
+            /* Remove the collapse functionality */
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+            }
+
+            /* Hide the toggle button */
+            .navbar-toggler {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .navbar-nav {
+                gap: 0.5rem;
+            }
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  </head>
+
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+        <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+            <div class="container">
+                <div class="navbar-brand social">
+                    <h1 class="post-title">
+                        LIANG Enming (梁恩明) 
+                    </h1>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <!-- <li class="nav-item active">
+                            <a class="nav-link" href="/">
+                                Main
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li> -->
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&hl=zh-CN">
+                                Google Scholar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/assets/pdf/CV/cv.pdf">
+                                CV
+                            </a>
+                        </li> -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+<!-- Content -->
+  <div class="container mt-5">
+  <div class="post">
+
+
+    <div class="clearfix">
+      <div class="profile float-right">
+        <div class="profile-image-container">
+            <img class="profile-image" 
+                 src="/assets/img/lem.jpg" 
+                 alt="Enming Liang">
+        </div>
+      </div>
+
+      <br/>
+      <font size="3.5">  
+      <p>
+        <!-- This is Enming Liang.  -->
+        <!-- <br/> -->
+        Currently, I am a Research Assistant Professor at City University of Hong Kong. 
+        My research interests include Machine Learning for Constrained Optimization, Generative Models, and its application for Mobility, Energy, and Climate.
+        <br/>
+        <br/>
+        I received Ph.D. (2021-2024) at Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
+        I received bachelor degree (2016-2020) at School of Intelligent Systems Engineering, Sun Yat-sen University.
+         supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
+        <br/>
+        <br/>
+        I have been a member of the <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a> team, working with <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>. 
+        <!-- focusing on applying machine learning approach for power gird operation.  -->
+        I had visited department of <a href="https://www.cst.cam.ac.uk/" class="project-link">CST</a>, University of Cambridge, supervised by <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>.
+        <!-- <br/> -->
+        I had contributed to tutorials for the <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a> summer school, working with <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+        <br/>
+        <br/>
+        I had worked as a research intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/' class="project-link">MSRA</a> (Beijing, 2022), <a href='http://dev3.noahlab.com.hk/' class="project-link">Huawei Noah's Ark Lab</a> (Shenzhen, 2021), and DiDi-SYSU Research Program (Guangzhou, 2020). 
+        <!-- <br/> -->
+
+        <br/>
+        <div class="paper-item">
+            <span style="font-size: 1.em; color: #570882; font-weight: 500;">
+                We have 25/26 PhD/RA positions, please mail your CV if interested.
+            </span>
+        </div>
+        <br/>
+
+      <p>
+      </font>  
+
+      <div class="profile-links">
+        <!-- Combined Social and Nav Links -->
+        <div class="social-links">
+            <a href="mailto:eliang4-c@my.cityu.edu.hk" 
+               title="Email" 
+               class="social-link">
+                <i class="fas fa-envelope"></i>
+            </a>
+            <a href="https://github.com/emliang" 
+               target="_blank" 
+               title="GitHub" 
+               class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/enming-liang-95b5b216a/" 
+               target="_blank" 
+               title="LinkedIn" 
+               class="social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&hl=zh-CN"
+               target="_blank" 
+               title="Google Scholar" 
+               class="social-link">
+                <i class="ai ai-google-scholar"></i>
+            </a>
+            <a href="/assets/pdf/CV/cv.pdf"
+               target="_blank" 
+               title="Curriculum Vitae" 
+               class="social-link">
+                <i class="fas fa-file-pdf"></i> 
+            </a>
+        </div>
+    </div>
+
+  <br/>
+</p>
+
+
+<body>
+
+  
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#pageNavbar" aria-controls="pageNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="pageNavbar">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">ML + Optimization</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="switchPage('ai-sci'); return false;">AI for Sustainability</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        function switchPage(pageId) {
+            // Update navigation active state
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Hide all sections
+            document.querySelectorAll('.research-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            if (pageId === 'all') {
+                document.querySelectorAll('.research-section').forEach(section => {
+                    section.classList.add('active');
+                });
+            } else {
+                const selectedSection = document.getElementById(pageId);
+                if (selectedSection) {
+                    selectedSection.classList.add('active');
+                }
+            }
+        }
+
+        // Initialize on page load to show AI + Optimization section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active state for navigation
+            document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
+            // Show AI + Optimization section
+            switchPage('ml-opt');
+        });
+    </script>
+
+
+
+    <div id="ml-opt" class="research-section active">
+
+        <!-- AI + Optimization content -->
+        <div class="topic-section">
+            <h6 class="topic-title">Learning with Hard Constraints</h6>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <img src="/assets/img/papers/ball_homeo.png" alt="Homeomorphic Projection" class="paper-image">
+                    <div class="paper-content">
+                        <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
+                            Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>,
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                        </div>
+                        <span class="venue">ICML 2023</span>
+                    </div>
+                </div>
+            
+                <div class="paper-item">
+                    <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
+                    <div class="paper-content">
+                        <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
+                            Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>,
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                        </div>
+                        <span class="venue">JMLR 2024</span>
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                    <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
+                    <div class="paper-content">
+                        <a href="" class="paper-link">
+                            Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span> and
+                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
+                        </div>
+                        <span class="venue">ICML 2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            
+    <div class="topic-section">
+        <h6 class="topic-title">Generative Modeling</h6>
+          <div class="paper-list">
+            <div class="paper-item">
+                <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">
+                        Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.
+                    </a>
+                    <div class="authors">
+                        <span class="author-self">Enming Liang</span> and
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICLR 2024</span>
+                </div>
+            </div>
+  
+            <div class="paper-item">
+                <img src="/assets/img/papers/gauge.png" alt="Gauge Flow Matching" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=QyIlskgko9&referrer=%5BAuthor%20Console%5D(%2Fgroup%3Fid%3DICLR.cc%2F2025%2FWorkshop%2FDeLTa%2FAuthors%23your-submissions)" class="paper-link">
+                        Gauge Flow Matching for Efficient Constrained Generative Modeling over General Convex Set.
+                    </a>
+                    <div class="authors">
+                        Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICLR 2025 DeLTa Workshop</span>
+                    <br/>
+                    <span class="notes">Oral & Outstanding Paper Award</span>.
+                </div>
+            </div>
+  
+        </div>
+    </div>
+    
+  
+
+        
+    <div class="topic-section">
+        <h6 class="topic-title">Learning & Approximation Theory</h6>
+        <div class="paper-list">
+            <div class="paper-item">
+                <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
+                        Characterizing ResNet's Universal Approximation Capability.
+                    </a>
+                    <div class="authors">
+                        Chenghao Liu,
+                        <span class="author-self">Enming Liang</span>, and
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICML 2024</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+  
+    <div class="topic-section">
+      <h6 class="topic-title">Decision-Focused Learning</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
+              <div class="paper-content">
+                  <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                      DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
+                  </a>
+                  <div class="authors">
+                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+                  </div>
+                  <span class="venue">AAAI 2025</span>
+                  <br/>
+                  <span class="notes">Oral. Deployed in DiDi Chuxing.</span>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+  
+
+
+    </div>
+
+    <div id="ai-sci" class="research-section">
+   
+
+        <!-- AI for Sustainability content -->
+        <div class="topic-section">
+            <h6 class="topic-title">Ride-Sourcing Optimization</h6>
+            <div class="paper-list">
+                <div class="paper-item">
+                    <img src="/assets/img/papers/kdd.png" alt="KDD Cup 2020" class="paper-image">
+                    <div class="paper-content">
+                        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                            Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
+                        </a>
+                        <div class="authors">
+                            <span class="author-self">Enming Liang</span>. 
+                        </div>
+                        <span class="venue">KDD CUP 2020</span>
+                        <br/>
+                        <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
+
+                    </div>
+                </div>
+
+                <div class="paper-item">
+                      <img src="/assets/img/papers/RLCP.png" alt="Taxi Dispatching" class="paper-image">
+                      <div class="paper-content">
+                          <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
+                              An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
+                          </a>
+                          <div class="authors">
+                              <span class="author-self">Enming Liang</span>,
+                              Kexin Wen,
+                              <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>,
+                              Agachai Sumalee, and
+                              <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                          </div>
+                          <span class="venue">IEEE TNNLS 2021</span>
+                    </div>
+              
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+  <div class="topic-section">
+    <h6 class="topic-title">Power Grid Operation</h6>
+    <div class="paper-list">
+        <div class="paper-item">
+            <img src="/assets/img/papers/CCAI.png" alt="AI for OPF Tutorial" class="paper-image">
+            <div class="paper-content">
+                <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="paper-link">
+                    AI for Optimal Power Flow Tutorial
+                </a>
+                <div class="authors">
+                    <span class="author-self">Enming Liang</span>,
+                    <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
+                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                </div>
+                <span class="venue">Climate Change AI Summer School 2024</span>
+
+            </div>
+        </div>
+
+        <div class="paper-item">
+            <img src="/assets/img/papers/chance.png" alt="Chance-Constrained AC-OPF" class="paper-image">
+            <div class="paper-content">
+                <a href="" class="paper-link">
+                    Solving Chance-Constrained AC-OPF Problems by Neural Network with Bisection-based Projection.
+                </a>
+                <div class="authors">
+                    <span class="author-self">Enming Liang</span><sup>*</sup>,
+                    Min Zhou<sup>*</sup>,
+                    Jiawei Zhao, and  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                </div>
+                <span class="venue">ACM E-energy 2025, EnergySP workshop</span>
+                <br/>
+                <span class="notes">Invited Paper</span>.
+            </div>
+        </div>
+        <!-- <div class="paper-item">
+            <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="paper-link">
+                DeepOPF: Machine Learning for Solving Optimal Power Flow Problems
+            </a>
+            <div class="authors">
+                <span>DeepOPF Team</span>
+            </div>
+        </div> -->
+
+    </div>
+
+
+
+
+
+
+
+    <div class="topic-section">
+      <h6 class="topic-title">Traffic Signal Control</h6>
+      <div class="paper-list">
+          <div class="paper-item">
+              <img src="/assets/img/papers/oam.png" alt="OAM Framework" class="paper-image">
+              <div class="paper-content">
+                  <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">
+                      OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control
+                  </a>
+                  <div class="authors">
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
+                      Chilin Fang, and
+                      <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                  </div>
+                  <span class="venue">AAAI 2022</span>
+                  <br/>
+                  <span class="notes">Oral</span>.
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+  <div class="topic-section">
+    <h6 class="topic-title">Extreme Weather Impact</h6>
+    <div class="paper-list">
+        <div class="paper-item">
+            <a href="" class="paper-link">
+                European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks
+            </a>
+            <div class="authors">
+                <span class="author-self">Enming Liang</span>,
+                <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
+                <span class="venue">(under review) 2024</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+    </div>
+
+    
+  </article>
+
+  <div class="clearfix">
+    <hr>
+    <h4>Visitor Map</h4>
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7fa0e0&w=361&t=tt&d=46o9oT8_1Rg0JFt-FBrd8CRKlVLFd1Sd78L__du-N8A&co=ffffff&cmo=7ae899&cmn=eb647c&ct=000000'></script>
+    </div>
+
+
+</div>
+
+
+
+
+    </div>
+
+    <!-- Footer -->
+
+
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2024 Enming Liang.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+
+    
+    
+    Last updated: May 30, 2024.
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+</html>

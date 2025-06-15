@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<title>Junyan  Su | Paper Summary: Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization</title>
+<meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+">
+
+<!-- Open Graph -->
+
+<meta property="og:site_name" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="" />
+<meta property="og:url" content="/blog/2021/BLO/" />
+<meta property="og:description" content="Paper Summary: Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization" />
+<meta property="og:image" content="" />
+
+
+<!-- Bootstrap & MDB -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
+
+<!-- Fonts & Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+<!-- Code Syntax Highlighting 
+<link rel="stylesheet" href="https://gitcdn.xyz/repo/jwarby/jekyll-pygments-themes/master/github.css" />
+-->
+
+<!-- Styles 
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+
+-->
+
+    <link rel="icon" href="">
+
+
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<link rel="canonical" href="/blog/2021/BLO/">
+
+<!-- JQuery -->
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
+
+<!-- Theming-->
+
+  <script src="/assets/js/theme.js"></script>
+  <!-- Load DarkMode JS -->
+<script src="/assets/js/dark_mode.js"></script>
+
+
+
+
+
+
+    
+<!-- MathJax -->
+<script type="text/javascript">
+  window.MathJax = {
+    tex: {
+      tags: 'ams'
+    }
+  };
+</script>
+<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+
+  </head>
+
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+
+    <header>
+
+    <!-- Nav Bar -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      
+      <a class="navbar-brand title font-weight-lighter" href="/">
+       <span class="font-weight-bold">Junyan</span>   Su
+      </a>
+      
+      <!-- Navbar Toggle -->
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <!-- About -->
+          <li class="nav-item ">
+            <a class="nav-link" href="/">
+              About
+              
+            </a>
+          </li>
+          
+          <!-- Blog -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/blog/">
+              Blog
+              
+            </a>
+          </li>
+          
+
+          <!-- Other pages -->
+          
+          
+          
+          
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/publications/">
+                Publications
+                
+              </a>
+          </li>
+          
+          
+          
+          
+          
+          <li class="nav-item ">
+              <a class="nav-link" href="/misc/">
+                misc
+                
+              </a>
+          </li>
+          
+          
+          
+          
+          
+          
+
+		  <!-- CV 
+          <li class="nav-item ">
+            <a class="nav-link" href="/assets/pdf/CV/CV.pdf">
+              CV
+            </a>
+          </li>
+		-->
+
+          
+            <div class = "toggle-container">
+              <a id = "light-toggle">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+              </a>
+            </div>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+</header>
+
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Paper Summary: Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization</h1>
+    <p class="post-meta">March 1, 2021</p>
+  </header>
+
+  <article class="post-content">
+    <p>In this blog, I will give a summary of the paper <a href="http://web.eecs.umich.edu/~jabernet/123-Abernethy.pdf">“Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization”</a> and some of my understandings. As its title suggests, this paper proposes an efficient algorithm for bandit linear optimization, which achieves the optimal \(O^*(\sqrt{T})\) regret. This method studies the Hessian matrix of regularization function \(R(x)\) to estimate the cost function which shows its connection to interior point methods.</p>
+
+<h3 id="1-bandit-linear-optimization">1. Bandit Linear Optimization</h3>
+
+<p>As introduced in the previous blog, the <em>online linear optimization</em> problem is defined as the following repeated game between the learner (player) and the environment(adversary).</p>
+
+<p>At each time step t=1 to T</p>
+<ul>
+  <li>Player chooses \(x_t \in \mathcal{K}\)</li>
+  <li>Adversary <em>independently</em> chooses \(f_t\in \mathbb{R}^n\)</li>
+  <li>Player suffers loss \(f_t^T x_t\) and observes feedback \(s\).</li>
+</ul>
+
+<p>The Player’s goal is to minimize his <em>regret</em> \(R_T\) defined as</p>
+
+\[R_T = \sum_{t=1}^T f_t^Tx_t - \min_{x^*\in\mathcal{K}}\sum_{t=1}^T f_t^T x^*\]
+
+<p>The above problem has two versions: <em>full-information</em> and <em>bandit</em>. In full-information setting, the Player may observe the entire function \(f_t\) and its feedback \(s\), as discussed in the earlier online gradient descent (OGD) blog. This paper considers a more challenging bandit setting, where only the feedback \(s=f_t x_t\) is provided to the Player, but not the function \(f_t\). At the first glance, the bandit setting is more difficult than the full-information setting bacause of lacking information. But suprisingly, the optimal regret bound is \(O^*(\sqrt{T})\) similar to full-information setting. The method proposed in this paper actually achieves this optimal bound. The cost we pay for less information only relates to the dimension the desition variables \(n\) but not the number of total rounds \(T\).</p>
+
+<h3 id="2-explore-and-exploit">2. Explore and Exploit</h3>
+
+<p>To cope with lack of information, one reasonable direction is to construct an unbiased estimation \(\tilde{f}_t\) of the cost function \(f_t\) and feed the estimates \(\tilde{f}_t\) to a full-information algorithm \(\mathcal{A}\) lick OGD or follow the regularized leader (FTRL). Formally, we introduce the concepts of explore and exploit:</p>
+
+<ul>
+  <li><strong>Explore:</strong> Construct some random estimate \(\tilde{f}_t\) in such a way that \(E[\tilde{f}_t]=f_t\).</li>
+  <li><strong>Exploit:</strong> Query some full-information algorithm \(\mathcal{A}\) to get the decision variable \(x_t\).</li>
+</ul>
+
+<p>In the literature, there are roughly two categories of approches:</p>
+
+<ul>
+  <li><strong>Alternating Explore/Exploit:</strong> Flip an \(\epsilon\)-biased coin to determine whether to explore or exploit. On explore rounds, sample uniformly on some wide region around \(\mathcal{K}\) and estimate \(f_t\) accordingly, and input this into \(\mathcal{A}\). On exploit rounds, query \(\mathcal{A}\) for \(x_t\) and predict this. These methods fail to obtain the desired \(O(\sqrt{T})\) bound since they do not make fully use of the information at each round. In fact, \(\Omega(T^{2/3})\) regret is unavoidable for these alorithms.</li>
+  <li><strong>Simultaneous Explore/Exploit:</strong> Query \(\mathcal{A}\) for \(x_t\) and construct a random vector \(X_t\) such that \(E[X_t] = x_t\). Construct \(\tilde{f}_t\) randomly based on the outcome of \(X_t\) and the learned value \(f_t^T X_t\). The methods in this category are more sophisticated and motivate the approach in this paper.</li>
+</ul>
+
+<h3 id="3-the-curse-of-high-variance-and-the-blessing-of-regularization">3. The Curse of High Variance and the Blessing of Regularization</h3>
+
+<p>The authors then review two of previous work falling in the second category. They point out that one of the main difficulty in bandit setting comes from the high variance of the estimate \(\tilde{f}_t\). That is, the regret bound OGD on \(\tilde{f}_t\) involves terms 
+\(E[||\tilde{f}_t||^2]=O(1/r^2)\) 
+where \(r\) is the distance to the boundry. This means that the regret scales as the inverse of the squared distance to the bountry. If we require \(\tilde{f}_t\) be unbiased and \(x_t\) be the center of the sampling distribution, the high variance property can be shown to be intrinsic to the problem and thus not avoidable.</p>
+
+<p>Fortunately, if we choose the regularization function \(R\) carefully, the algorithm will give a better behavior. The authors call it “the blessing of regularization”. Indeed, the formulation of the regularized minimization as a dual-space mirror descent comes to the rescue. The choice of regularization term motivates from the entropy function \(R(x) = \sum_{i=1}^n x[i]log(x[i])\). By taking the second derivative, the curvature of the entropy function increases \(1/x[i]\). So in this paper, they choose a regularization function \(R(x)\) that curves as inverse <em>squared</em> distance to the boundary, which is so called <em>self-concordant barriers</em> in the area of theory of interior point methods.</p>
+
+<p>A self-concordant function \(R(x): int\,\mathcal{K} \rightarrow \mathbb{R}\) is a \(C^3\) convex function such that</p>
+
+\[| D^3 R(x)[h,h,h] | \leq 2 \left( D^2R(x)[h,h] \right)^{3/2}\]
+
+<p>And the third-order differential is defined as</p>
+
+\[D^3R(x)[h_1,h_2,h_3] = \frac{\partial^3}{\partial t_1 \partial t_2\partial t_3} |_{t_1=t_2=t_3=0} R(x+t_1h_1+t_2h_2+t_3h_3)\]
+
+<p>where \(h_1,h_2,h_3 \in \mathbb{R}^n\) are arbitrary direction vectors in \(\mathbb{R}^n\). Besides, A self-concordant barrier \(R\) is called \(\theta\)-self-concordant if</p>
+
+\[|DR(x)[h]| \leq \theta^{1/2} [D^2 R(x)[h,h]]^{1/2}\]
+
+<p>The \(\theta\)-self-concordant functions lie in the fundation of the method proposed in this paper. See section 5 of the original paper for a deailed discussion on its properties.</p>
+
+<h3 id="4-main-results">4. Main Results</h3>
+
+<p>The alorithm for bandit online linear optimization is stated as follows. 
+For initialization, we choose \(\eta&gt;0\) and a \(\theta\)-self-concordant function \(R\). Let \(x_1 = \arg\min_{x\in\mathcal{K}} R(x)\). Then at each time step \(t=1\) to \(T\):</p>
+
+<ol>
+  <li>Let \(\{ e_1,\dots,e_n \}\) and \(\{ \lambda_1,\dots,\lambda_n \}\) be the set of eigenvectors and eigenvalues of \(\nabla^2 R(x_t)\).</li>
+  <li>Choose \(i_t\) uniformly at random from \(\{1,\dots,n\}\) and \(\epsilon_t = \pm 1\) with probability \(1/2\).</li>
+  <li>Predict \(y_t = x_t + \epsilon_t \lambda_{i_t}^{-1/2}e_{i_t}\)</li>
+  <li>Observe the gain \(f_t^\top y_t \in \mathbb{R}\).</li>
+  <li>Define 
+ \(\tilde{f}_t = n(f_t^T y_t)\epsilon_t\lambda_{i_t}^{1/2}\cdot e_{i_t}\)</li>
+  <li>Update \(x_{t+1} = \arg\min_{x\in\mathcal{K}} \left[ \eta \sum_{s=1}^t \tilde{f}_s^T + R(x) \right]\).</li>
+</ol>
+
+<p>Basically, this method makes use of the hessian metrix of the \(\theta\)-self-concordant regularization \(R(x)\) to approximate the curves of boundary. The square root terms are added to the eigenvalues to make the estimation and prediction unbiased. With some technical assumptions, the regret of the algorithm is bounded by the following inequality:</p>
+
+\[E\sum_{t=1}^T f_t^T y_t \leq \min_{u \in \mathcal{K}^\prime} E\left( \sum_{t=1}^T f_t^T u \right) + 16n\sqrt{\theta T log(T)}\]
+
+<p>where \(\mathcal{K}^\prime \subset \mathcal{K}\) is some subset of \(\mathcal{K}\). The expected regret over the original set \(\mathcal{K}\) is within an additive \(O(\sqrt{nT})\) factor from the above guarantee.
+Although \(O(\sqrt{Tlog(T)})\) is quite close to the desired regret bound, 
+it is not \(O(\sqrt{T})\) as claimed in the introduction. I am not sure if I miss anything.</p>
+
+<p>The remaining part of the paper mainly focuses on the proof of the above regret bound and is skipped for simplicity.</p>
+
+<h3 id="5-some-thoughts">5. Some Thoughts</h3>
+
+<p>To be honest, this is a quite hard paper to read. There are tons of mathemtical concepts and proofs which are not easy to follow. I can hardly say I fully understand all the insights behind this paper. But this is also a good paper that worth reading multiple times since there are many insights and techniques which we can learn.</p>
+
+
+  </article>
+
+  
+
+</div>
+
+    </div>
+
+    <!-- Footer -->
+
+    
+<footer class="fixed-bottom">
+  <div class="container mt-0">
+    &copy; Copyright 2023 Junyan  Su.
+    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+
+    
+    
+    Last updated: June 05, 2023.
+    
+  </div>
+</footer>
+
+
+
+  </body>
+
+  <!-- Bootsrap & MDB scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
+
+  
+<!-- Mansory & imagesLoaded -->
+<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
+
+
+  
+
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+</html>
