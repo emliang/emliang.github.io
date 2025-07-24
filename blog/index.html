@@ -1,270 +1,550 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
   <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Junyan  Su | blank</title>
-<meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>LEM</title>
 
-<!-- Open Graph -->
+    <!-- Meta tags -->
+    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.">
+    <meta property="og:site_name" content="A simple, whitespace theme for academics">
+    <meta property="og:type" content="object">
+    <meta property="og:title" content="">
+    <meta property="og:url" content="/">
+    <meta property="og:description" content="About">
+    <meta property="og:image" content="">
 
-<meta property="og:site_name" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
-" />
-<meta property="og:type" content="object" />
-<meta property="og:title" content="" />
-<meta property="og:url" content="/blog/index.html" />
-<meta property="og:description" content="blank" />
-<meta property="og:image" content="" />
-
-
-<!-- Bootstrap & MDB -->
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha512-MoRNloxbStBcD8z3M/2BmnT+rg4IsMxPkXaGh2zD6LGNNFE80W3onsAhRcMAMrSoyWL9xD7Ert0men7vR8LUZg==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" integrity="sha512-RO38pBRxYH3SoOprtPTD86JFOclM51/XTIdEPh5j8sj4tp8jmQIx26twG52UaLi//hQldfrh7e51WzP9wuP32Q==" crossorigin="anonymous" />
-
-<!-- Fonts & Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"  integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
-
-<!-- Code Syntax Highlighting 
-<link rel="stylesheet" href="https://gitcdn.xyz/repo/jwarby/jekyll-pygments-themes/master/github.css" />
--->
-
-<!-- Styles 
-
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
-
--->
-
-    <link rel="icon" href="">
-
-
-<link rel="stylesheet" href="/assets/css/main.css">
-
-<link rel="canonical" href="/blog/">
-
-<!-- JQuery -->
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-
-
-<!-- Theming-->
-
-  <script src="/assets/js/theme.js"></script>
-  <!-- Load DarkMode JS -->
-<script src="/assets/js/dark_mode.js"></script>
-
-
-
-
-
-
-    
-<!-- MathJax -->
-<script type="text/javascript">
-  window.MathJax = {
-    tex: {
-      tags: 'ams'
+    <!-- Styles -->
+    <style>
+    /* Base styles */
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
     }
-  };
-</script>
-<script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
-<script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
+    /* Responsive breakpoints */
+    @media screen and (max-width: 768px) {
+        .container {
+            padding: 0 10px;
+        }
+        
+        .profile {
+            width: 100%;
+            margin: 0;
+            padding: 1rem 0;
+        }
+        
+        .profile-image {
+            width: 200px;
+            max-width: 100%;
+        }
+        
+        .paper-item {
+            flex-direction: column;
+            padding: 0.5rem 0;
+            align-items: center;
+        }
+        
+        .paper-image {
+            width: 100%;
+            min-width: 100%;
+            max-height: none;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .paper-image img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        
+        .paper-content {
+            width: 100%;
+            text-align: left;
+        }
+        
+        .paper-link {
+            text-align: left;
+        }
+        
+        .authors {
+            text-align: left;
+        }
+        
+        .venue {
+            text-align: left;
+        }
+        
+        .social-links {
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .main-heading {
+            font-size: 1.3em;
+        }
+        
+        .category-heading {
+            font-size: 1.1em;
+        }
+        
+        .paper-link {
+            font-size: 0.85rem;
+        }
+        
+        .authors {
+            font-size: 0.8rem;
+        }
+        
+        .venue {
+            font-size: 0.85rem;
+        }
+    }
 
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 0 5px;
+        }
+        
+        .profile-image {
+            width: 150px;
+        }
+        
+        .social-link {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .main-heading {
+            font-size: 1.2em;
+        }
+        
+        .category-heading {
+            font-size: 1em;
+        }
+    }
+      .post-header {
+        flex: 1;
+        padding-right: 0px;
+    }
+    .post-title {
+        font-size: 1.1em;
+        margin: 0;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+    }
+        h3 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 0.5em;
+      }
+        h5 {
+        text-align: center;
+        color: #555;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        }
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background: #ddd;
+            margin: 10px 0;
+        }
+        .main-heading {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin: 10px 0;
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .category-heading {
+            color: #34495e;
+            font-size: 1.2em;
+            margin: 15px 0 15px 0;
+            /* padding-bottom: 10px; */
+            /* border-bottom: 2px solid #3498db; */
+        }
+        .topic-section {
+            margin-bottom: 1rem;
+        }
+        .topic-title {
+            position: relative;
+            padding-left: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+        .topic-title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #3498db;
+            border-radius: 2px;
+        }
+        .paper-list {
+            padding-left: 1rem;
+        }
+        .paper-item {
+            position: relative;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0.5rem;
+            border-left: 4px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .paper-image {
+            width: 120px;
+            min-width: 330px;
+            height: auto;
+            max-height: 120px;
+            object-fit: contain;
+            border-radius: 4px;
+            flex-shrink: 0;
+            /* background-color: #f8f9fa; */
+            padding: 0.1px;
+        }
+        .paper-content {
+            flex: 1;
+            min-width: 0;
+        }
+        .paper-link {
+            display: block;
+            color: #2c3e50;
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+        .authors {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+        .author-self {
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .venue {
+            font-size: 0.9rem;
+            color: #032034;
+            font-weight: 400;
+            position: static;
+            margin-right: 0;
+            right: auto;
+        }
+        .notes{
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #c24242;
+        }
+        .name-link {
+            color: #115e91;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .project-link {
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+        }
+        .profile {
+            text-align: center;
+            padding: 1rem;
+            margin-left: 1rem;
+            width: 200px; /* Fixed width for profile section */
+        }
+        .profile-image {
+            width: 300px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            margin-top: 1rem;
+        }
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            /* margin-bottom: 0.8rem; */
+        }
+        .social-link {
+            color: #0b6b8d;
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40%;
+            background-color: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+        .research-section {
+            display: none;
+        }
+        .research-section.active {
+            display: block;
+        }
+        .nav-link.active {
+            color: #3498db !important;
+            font-weight: bold;
+        }
+
+        /* Enhanced Navigation Bar Styles */
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 0.8rem 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5rem;
+        }
+
+        .nav-item {
+            margin: 0 0.5rem;
+            position: relative;
+        }
+
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active {
+            color: #3498db;
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #3498db;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.6rem 1rem;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .navbar-nav {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+                gap: 0.8rem;
+            }
+
+            .nav-item {
+                margin: 0.2rem;
+            }
+
+            .nav-link {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.8rem;
+                border-radius: 4px;
+            }
+
+            .nav-link:hover {
+                transform: translateY(-1px);
+            }
+
+            .nav-link.active::after {
+                width: 20px;
+                height: 2px;
+            }
+
+            /* Remove the collapse functionality */
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+            }
+
+            /* Hide the toggle button */
+            .navbar-toggler {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .navbar {
+                padding: 0.5rem;
+            }
+
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.6rem;
+            }
+
+            .navbar-nav {
+                gap: 0.5rem;
+            }
+        }
+    </style>
+
+    <!-- External CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    <script type="text/javascript">
+      window.MathJax = {
+        tex: {
+          tags: 'ams'
+        }
+      };
+    </script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
+    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   </head>
+
 
   <body class="fixed-top-nav ">
 
     <!-- Header -->
-
     <header>
-
-    <!-- Nav Bar -->
-    <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
-    <div class="container">
-      
-      <a class="navbar-brand title font-weight-lighter" href="/">
-       <span class="font-weight-bold">Junyan</span>   Su
-      </a>
-      
-      <!-- Navbar Toggle -->
-      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar top-bar"></span>
-        <span class="icon-bar middle-bar"></span>
-        <span class="icon-bar bottom-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <!-- About -->
-          <li class="nav-item ">
-            <a class="nav-link" href="/">
-              About
-              
-            </a>
-          </li>
-          
-          <!-- Blog -->
-          <li class="nav-item active">
-            <a class="nav-link" href="/blog/">
-              Blog
-              
-            </a>
-          </li>
-          
-
-          <!-- Other pages -->
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/publications/">
-                Publications
-                
-              </a>
-          </li>
-          
-          
-          
-          
-          
-          <li class="nav-item ">
-              <a class="nav-link" href="/misc/">
-                misc
-                
-              </a>
-          </li>
-          
-          
-          
-          
-          
-          
-
-		  <!-- CV 
-          <li class="nav-item ">
-            <a class="nav-link" href="/assets/pdf/CV/CV.pdf">
-              CV
-            </a>
-          </li>
-		-->
-
-          
-            <div class = "toggle-container">
-              <a id = "light-toggle">
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun"></i>
-              </a>
+        <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+            <div class="container">
+                <div class="navbar-brand social">
+                    <h1 class="post-title">
+                        LIANG Enming (梁恩明) 
+                    </h1>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar top-bar"></span>
+                    <span class="icon-bar middle-bar"></span>
+                    <span class="icon-bar bottom-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">
+                                Home
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
+        </nav>
+    </header>
 
-</header>
-
-
-    <!-- Content -->
-
+    <!-- Recent Talks Section -->
     <div class="container mt-5">
       <div class="post">
-
-    <!--
-  <div class="header-bar">
-    <h2>Blog</h2>
-    <h3></h3>
-  </div>
-    -->
-
-  <ul class="post-list">
-    
-      <li>
-        <h6><a class="post-title" href="/blog/2021/writeGuide/">Academic Writing Style Notes</a></h6>
-        <p class="post-meta">July 1, 2021</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h6><a class="post-title" href="/blog/2021/PFOL/">Paper Summary: Project-free Online Learning</a></h6>
-        <p class="post-meta">March 24, 2021</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h6><a class="post-title" href="/blog/2021/BLO/">Paper Summary: Competing in the Dark: An Efficient Algorithm for Bandit Linear Optimization</a></h6>
-        <p class="post-meta">March 1, 2021</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h6><a class="post-title" href="/blog/2021/aSGD/">Paper Summary: Making Gradient Descent Optimal for Strongly Convex Stochastic Optimization</a></h6>
-        <p class="post-meta">February 10, 2021</p>
-        <p></p>
-      </li>
-    
-      <li>
-        <h6><a class="post-title" href="/blog/2021/GIGA/">Paper Summary: Online Convex Programming and Generalized Infinitesimal Gradient Ascent</a></h6>
-        <p class="post-meta">January 25, 2021</p>
-        <p></p>
-      </li>
-    
-  </ul>
-
-  
-
-
-</div>
-
+        <div class="topic-section" style="margin-top: 2rem; margin-bottom: 2rem;">
+          <h6 class="topic-title">Recent Talks</h6>
+          <ul class="paper-list">
+            <li class="paper-item">
+              <div class="paper-content">
+                <span class="venue">Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization</span><br>
+                <span class="authors">The 3rd HKSIAM Biennial Conference, Hong Kong, July 2025</span><br>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-content">
+                <span class="venue">Solving Chance-Constrained ACOPF with Neural Networks and Bisection-based Projection</span><br>
+                <span class="authors">The 16th ACM e-Energy Conference, Rotterdam, June 2025</span><br>
+              </div>
+            </li>
+            <li class="paper-item">
+              <div class="paper-content">
+                <span class="venue">Gauge Flow Matching for Efficient Constrained Generative Modeling</span><br>
+                <span class="authors">ICLR Delta Workshop, Singapore, April 2025</span><br>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
+
+
+    <!-- <div class="container mt-5">
+      <div class="post">
+        <div class="topic-section" style="margin-top: 2rem; margin-bottom: 2rem;">
+          <h6 class="topic-title">Hobbies</h6>
+            Gardener,
+            Drummer,
+            Dancer,
+          </ul>
+        </div>
+      </div>
+    </div> -->
+
+
 
     
 <footer class="fixed-bottom">
   <div class="container mt-0">
-    &copy; Copyright 2023 Junyan  Su.
+    &copy; Copyright 2025 Enming Liang.
     Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-
-    
-    
-    Last updated: June 05, 2023.
-    
+    <!-- Last updated: May 30, 2024. -->
   </div>
 </footer>
 
 
 
   </body>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
 
 
 </html>
