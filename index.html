@@ -201,7 +201,7 @@
         }
         .paper-item {
             position: relative;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             padding: 0.5rem 0.5rem;
             border-left: 4px solid #eee;
             display: flex;
@@ -211,7 +211,7 @@
         }
         .paper-image {
             width: 120px;
-            min-width: 330px;
+            min-width: 350px;
             height: auto;
             max-height: 120px;
             object-fit: contain;
@@ -255,6 +255,12 @@
             font-size: 0.9rem;
             font-weight: 600;
             color: #c24242;
+        }
+        .award{
+            font-size: 0.9rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #4578dc;
         }
         .name-link {
             color: #115e91;
@@ -589,7 +595,7 @@
             <div class="collapse navbar-collapse" id="pageNavbar">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">ML + Optimization</a>
+                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">ML ⇔ Optimization</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="switchPage('ai-sci'); return false;">AI for Sustainability</a>
@@ -642,57 +648,35 @@
         <div class="topic-section">
             <h6 class="topic-title">Learning with Hard Constraints</h6>
             <div class="paper-list">
-                <div class="paper-item">
-                    <img src="/assets/img/papers/ball_homeo.png" alt="Homeomorphic Projection" class="paper-image">
-                    <div class="paper-content">
-                        <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
-                            Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
-                        </a>
-                        <div class="authors">
-                            <span class="author-self">Enming Liang</span>,
-                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
-                        </div>
-                        <span class="venue">ICML 2023</span>
-                    </div>
+ 
+            <div class="paper-item">
+                    <img src="/assets/img/papers/Hom-PGD_framework.png" alt="Hom-PGD Framework" class="paper-image">
+                <div class="paper-content"> 
+                <a href="" class="paper-link">
+                    Fast Projection-Free Approach (without Linear Minimization Oracle) for Optimization over General Compact Convex Set
+                </a>
+                <div class="authors">
+                    Chenghao Liu,
+                    <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
+                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
                 </div>
-
-                <div class="paper-item">
-                    <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
-                    <div class="paper-content">
-                        <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
-                            Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
-                        </a>
-                        <div class="authors">
-                            <span class="author-self">Enming Liang</span>,
-                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                            <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
-                        </div>
-                        <span class="venue">JMLR 2024</span>
-                    </div>
-                </div>
-
-                <div class="paper-item">
-                    <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
-                    <div class="paper-content">
-                        <a href="" class="paper-link">
-                            Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
-                        </a>
-                        <div class="authors">
-                            <span class="author-self">Enming Liang</span> and
-                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
-                        </div>
-                        <span class="venue">ICML 2025</span>
-                    </div>
+                <span class="venue">NeurIPS 2025</span>.  <span class="notes">Spotlight</span>.
                 </div>
             </div>
-        </div>
 
-            
-    <div class="topic-section">
-        <h6 class="topic-title">Generative Modeling</h6>
-          <div class="paper-list">
-
+            <div class="paper-item">
+                <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
+                <div class="paper-content">
+                    <a href="" class="paper-link">
+                        Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
+                    </a>
+                    <div class="authors">
+                        <span class="author-self">Enming Liang</span> and
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
+                    </div>
+                    <span class="venue">ICML 2025</span>
+                </div>
+            </div>
 
             <div class="paper-item">
                 <img src="/assets/img/papers/GFM_framework.png" alt="Gauge Flow Matching" class="paper-image">
@@ -703,13 +687,70 @@
                     <div class="authors">
                         Xinpeng Li<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
                     </div>
-                    <span class="venue">ICLR 2025 DeLTa Workshop</span>
+                    <span class="venue">ICLR 2025 DeLTa Workshop</span>. <span class="notes">Oral</span>.
                     <br/>
-                    <span class="notes">Outstanding Paper Award</span>.
+                    <span class="award">Outstanding Short Paper Award</span>.
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
+                <div class="paper-content">
+                    <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
+                        Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
+                    </a>
+                    <div class="authors">
+                        <span class="author-self">Enming Liang</span>,
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                        <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    </div>
+                    <span class="venue">JMLR 2024</span>
+                </div>
+            </div>
+
+            <div class="paper-item">
+                <img src="/assets/img/papers/ball_homeo.png" alt="Homeomorphic Projection" class="paper-image">
+                <div class="paper-content">
+                    <a href="/projects/1.Homeomorphic_Projection" class="paper-link">
+                        Low Complexity Homeomorphic Projection to Ensure NN Solution Feasibility for Optimization over (Non-)Convex Set.
+                    </a>
+                    <div class="authors">
+                        <span class="author-self">Enming Liang</span>,
+                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                        <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    </div>
+                    <span class="venue">ICML 2023</span>
                 </div>
             </div>
 
 
+            </div>
+        </div>
+
+    <div class="topic-section">
+        <h6 class="topic-title">Decision-Focused Learning</h6>
+        <div class="paper-list">
+            <div class="paper-item">
+                <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
+                <div class="paper-content">
+                    <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                        DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
+                    </a>
+                    <div class="authors">
+                        Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+                    </div>
+                    <span class="venue">AAAI 2025. </span>
+                    <span class="notes">Oral</span>
+                    <br/>
+                    <span class="award">Deployed in DiDi (largest ride-sourcing platform in China).</span>
+                </div>
+            </div>
+        </div>
+     </div>
+
+     <div class="topic-section">
+        <h6 class="topic-title">Generative Learning</h6>
+          <div class="paper-list">
             <div class="paper-item">
                 <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
                 <div class="paper-content">
@@ -723,35 +764,12 @@
                     <span class="venue">ICLR 2024</span>
                 </div>
             </div>
-  
-
-  
         </div>
     </div>
-
-    <div class="topic-section">
+  
+     <div class="topic-section">
         <h6 class="topic-title">Learning & Optimization Theory</h6>
         <div class="paper-list">
-           
-
-        <div class="paper-item">
-                <img src="/assets/img/papers/Hom-PGD_framework.png" alt="Hom-PGD Framework" class="paper-image">
-            <div class="paper-content"> 
-            <a href="" class="paper-link">
-                Fast Projection-Free Approach (without Linear Minimization Oracle) for Optimization over General Compact Convex Set
-            </a>
-            <div class="authors">
-                Chenghao Liu,
-                <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
-                <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
-            </div>
-            <span class="venue">NeurIPS 2025</span> 
-            <br/>
-            <span class="notes">Spotlight</span>.
-            </div>
-        </div>
-
-
         <div class="paper-item">
                 <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
                 <div class="paper-content">
@@ -768,29 +786,6 @@
             </div>
         </div>
     </div>
-
-    
-    <div class="topic-section">
-        <h6 class="topic-title">Decision-Focused Learning</h6>
-        <div class="paper-list">
-            <div class="paper-item">
-                <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
-                <div class="paper-content">
-                    <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
-                        DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
-                    </a>
-                    <div class="authors">
-                        Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
-                    </div>
-                    <span class="venue">AAAI 2025</span>
-                    <br/>
-                    <span class="notes">Oral. Deployed in DiDi Chuxing.</span>
-                </div>
-            </div>
-        </div>
-     </div>
-  
-
   
 
 
