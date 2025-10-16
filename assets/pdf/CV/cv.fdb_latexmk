@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1746106641 "cv.tex" "cv.pdf" "cv" 1746106680
+["pdflatex"] 1760609990 "cv.tex" "cv.pdf" "cv" 1760610009
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomeone.enc" 1463430686 1687 f004baecce60175c6453d0e3f808cf20 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesomethree.enc" 1463430686 2437 443c81fb50993bacedc5f9a206c322b0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc" 1463430686 2679 32dd8ae231bf4a0752b98f62dc097183 ""
@@ -31,6 +31,7 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1248133631 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1248133631 32001 6aeea3afe875097b1eb0da29acd61e28 ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
@@ -98,11 +99,11 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1557342064 3277517 23507ed665b4dd9046f0f2a94bbef2be ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1558070331 4259636 1ee2d95f481daca56e49b053bbfecc8c ""
   "/usr/local/texlive/2019/texmf.cnf" 1557341546 577 d150fef99ac436ad1156e86b0892f6ef ""
-  "cv.aux" 1746106642 2711 931535c68ca0f2fd032221bff88258ba "pdflatex"
-  "cv.out" 1746106642 681 00c731fcb07ca1d5876b537c0cfacb78 "pdflatex"
-  "cv.tex" 1746106679 23926 4049415a173b569d7a7bbd8e3faf2204 ""
+  "cv.aux" 1760609991 2711 684dc08e42e39e15218ae64dd9471b9e "pdflatex"
+  "cv.out" 1760609991 681 00c731fcb07ca1d5876b537c0cfacb78 "pdflatex"
+  "cv.tex" 1760610009 22142 d7c07095db0399a725950688e619c50b ""
   (generated)
-  "cv.aux"
-  "cv.log"
-  "cv.out"
   "cv.pdf"
+  "cv.aux"
+  "cv.out"
+  "cv.log"
