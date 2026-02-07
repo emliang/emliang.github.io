@@ -305,16 +305,36 @@
             font-style: Arial;
             color: #4578dc;
         }
+        .media-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            gap: 0rem;
+            margin: 0rem 0;
+        }
+        .media-row .example {
+            flex: 0 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .media-row .pdf-preview {
+            flex: 1 1 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
         .example {
             text-align: center;
             margin: 0.1rem 0;
-            margin-right: 2rem;
             padding: 0.1rem;
         }
         .example img {
-            width: 150px;
+            width: 220px;
             height: auto;
-            border: 1px solid #ddd;
+            border: 0px solid #ddd;
             border-radius: 4px;
             object-fit: cover;
         }
@@ -324,6 +344,26 @@
             font-weight: 400;
             margin-top: 0.1rem;
             margin-bottom: 0.1rem;
+        }
+        .pdf-preview {
+            margin: 0.2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .pdf-preview iframe {
+            width: 100%;
+            max-width: 400px;
+            height: 220px;
+            border: 0px solid #ddd;
+            border-radius: 4px;
+        }
+        .pdf-preview .caption {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
+            text-align: center;
         }
         .name-link {
             color: #115e91;
@@ -528,13 +568,20 @@
         <br/>
         <br/>
 
-        <div class="example float-left">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif" alt="Homeomorphism">
-            <p class="caption">Homeomorphism</p>
-        </div>
         My research interests lie at the intersection of ML and Optimization, focus on theoretically-grounded algorithms for efficient constrained optimization and learning with hard constraints, and applications in mobility and energy systems. 
         I developed Homeomorphism methods as an elegant framework for efficient learning and optimization with hard constraints.
-        <br/> 
+        <br/>
+        <div class="media-row">
+            <div class="example">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif" alt="Homeomorphism">
+                <p class="caption">Homeomorphism</p>
+            </div>
+            <div class="pdf-preview">
+                <iframe src="/assets/pdf/Slides/Homeomorphism_Methods.pdf#view=FitH" title="Homeomorphism Methods Slides"></iframe>
+                <p class="caption"><a href="/assets/pdf/Slides/Homeomorphism_Methods.pdf" class="name-link" target="_blank">Slides for Homeomorphism Methods</a></p>
+            </div>
+        </div>
+        <!-- <br/>  -->
         <br/>
         <!-- <ul style="list-style-type: none; padding-left: 1;">
             <strong>💼 We have funding for RAs, PhDs, and Postdocs (at CityU or CUHK-SZ).</strong><br>
