@@ -19,6 +19,9 @@
     <!-- Styles -->
     <style>
     /* Base styles */
+    :root {
+        --profile-image-width: 200px;
+    }
     .container {
         max-width: 1000px;
         margin: 0 auto;
@@ -40,7 +43,7 @@
         }
         
         .profile-image {
-            width: 200px;
+            width: var(--profile-image-width);
             max-width: 100%;
         }
         
@@ -72,14 +75,17 @@
         
         .paper-link {
             text-align: left;
+            font-size: 0.85rem;
         }
         
         .authors {
             text-align: left;
+            font-size: 0.8rem;
         }
         
         .venue {
             text-align: left;
+            font-size: 0.85rem;
         }
         
         .social-links {
@@ -100,26 +106,53 @@
             font-size: 1.1em;
         }
         
-        .paper-link {
-            font-size: 0.85rem;
+        .navbar {
+            padding: 0.6rem 1rem;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
         
-        .authors {
-            font-size: 0.8rem;
+        .navbar-nav {
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 100%;
+            gap: 0.8rem;
         }
         
-        .venue {
-            font-size: 0.85rem;
+        .nav-item {
+            margin: 0.2rem;
+        }
+        
+        .nav-link {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active::after {
+            width: 20px;
+            height: 2px;
+        }
+        
+        .navbar-collapse {
+            display: flex !important;
+            flex-basis: auto;
+        }
+        
+        .navbar-toggler {
+            display: none;
         }
     }
 
     @media screen and (max-width: 480px) {
         .container {
             padding: 0 5px;
-        }
-        
-        .profile-image {
-            width: 150px;
         }
         
         .social-link {
@@ -134,6 +167,20 @@
         .category-heading {
             font-size: 1em;
         }
+        
+        .navbar {
+            padding: 0.5rem;
+        }
+        
+        .nav-link {
+            font-size: 0.9rem;
+            padding: 0.3rem 0.6rem;
+        }
+        
+        .navbar-nav {
+            gap: 0.5rem;
+        }
+    
     }
       .post-header {
         flex: 1;
@@ -142,7 +189,7 @@
     .post-title {
         font-size: 1.1em;
         margin: 0;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-family: Arial, sans-serif;
     }
         h3 {
         text-align: center;
@@ -165,14 +212,11 @@
             color: #2c3e50;
             font-size: 1.5em;
             margin: 10px 0;
-            /* border-bottom: 2px solid #3498db; */
         }
         .category-heading {
             color: #34495e;
             font-size: 1.2em;
-            margin: 15px 0 15px 0;
-            /* padding-bottom: 10px; */
-            /* border-bottom: 2px solid #3498db; */
+            margin: 15px 0;
         }
         .topic-section {
             margin-bottom: 1rem;
@@ -217,7 +261,6 @@
             object-fit: contain;
             border-radius: 4px;
             flex-shrink: 0;
-            /* background-color: #f8f9fa; */
             padding: 0.1px;
         }
         .paper-content {
@@ -259,8 +302,28 @@
         .award{
             font-size: 0.9rem;
             font-weight: 400;
-            font-style: italic;
+            font-style: Arial;
             color: #4578dc;
+        }
+        .example {
+            text-align: center;
+            margin: 0.1rem 0;
+            margin-right: 2rem;
+            padding: 0.1rem;
+        }
+        .example img {
+            width: 150px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+        .example .caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 400;
+            margin-top: 0.1rem;
+            margin-bottom: 0.1rem;
         }
         .name-link {
             color: #115e91;
@@ -271,16 +334,15 @@
             color: #34495e;
             text-decoration: none;
             transition: color 0.3s ease;
-            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-family: Arial, sans-serif;
         }
         .profile {
             text-align: center;
             padding: 1rem;
-            margin-left: 1rem;
-            width: 200px; /* Fixed width for profile section */
+            margin-left: 2rem;
         }
         .profile-image {
-            width: 300px;
+            width: var(--profile-image-width);
             height: auto;
             object-fit: cover;
             border-radius: 5px;
@@ -297,7 +359,6 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
-            /* margin-bottom: 0.8rem; */
         }
         .social-link {
             color: #0b6b8d;
@@ -320,8 +381,8 @@
         .nav-link.active {
             color: #3498db !important;
             font-weight: bold;
+            background-color: rgba(52, 152, 219, 0.1);
         }
-
 
         .navbar {
             background-color: #ffffff;
@@ -359,11 +420,6 @@
             background-color: rgba(52, 152, 219, 0.1);
         }
 
-        .nav-link.active {
-            color: #3498db;
-            background-color: rgba(52, 152, 219, 0.1);
-        }
-
         .nav-link.active::after {
             content: '';
             position: absolute;
@@ -375,68 +431,6 @@
             background-color: #3498db;
             border-radius: 3px;
             transition: all 0.3s ease;
-        }
-
-        @media screen and (max-width: 768px) {
-            .navbar {
-                padding: 0.6rem 1rem;
-                background-color: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-            }
-
-            .navbar-nav {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                width: 100%;
-                gap: 0.8rem;
-            }
-
-            .nav-item {
-                margin: 0.2rem;
-            }
-
-            .nav-link {
-                font-size: 0.95rem;
-                padding: 0.4rem 0.8rem;
-                border-radius: 4px;
-            }
-
-            .nav-link:hover {
-                transform: translateY(-1px);
-            }
-
-            .nav-link.active::after {
-                width: 20px;
-                height: 2px;
-            }
-
-
-            .navbar-collapse {
-                display: flex !important;
-                flex-basis: auto;
-            }
-
-
-            .navbar-toggler {
-                display: none;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .navbar {
-                padding: 0.5rem;
-            }
-
-            .nav-link {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-            .navbar-nav {
-                gap: 0.5rem;
-            }
         }
     </style>
 
@@ -511,7 +505,7 @@
       </div>
 
       <br/>
-      <font size="3.2">  
+      <font size="3.8">  
       <p>
         <!-- This is Enming Liang.  -->
         <!-- <br/> -->
@@ -520,23 +514,32 @@
         I received B.Eng. (2016-2020) at School of Intelligent Systems Engineering, Sun Yat-sen University, supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
         <br/>
         <br/>
-        My research interests lie at the intersection of ML and Optimization, focus on theoretically-grounded algorithms for efficient constrained optimization and generative modeling, and applications in mobility and energy systems.
-        <!-- My research interests lie at the intersection of Machine Learning and Optimization, with a particular focus on developing theoretically-grounded algorithms for constrained optimization and generative modeling, and theirapplications in mobility systems and energy infrastructure. -->
-        <br/>
-        <br/>
         I have been a member of <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a>, working with <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>, focusing on applying ML to power grid operation. 
         I visited <a href="https://www.cst.cam.ac.uk/" class="project-link">University of Cambridge</a>, working with <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>, focusing on power grid resilience under extreme weather.
         I contributed to AI for OPF tutorials in <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a> summer school, working with <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+        
         <br/>
         <br/>
+
         I am working with <a href="https://sts.didiglobal.com/" class="project-link">DiDi</a>, focusing on applying ML for improving efficiency of urban mobility-on-demand system.
         I worked as a research intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/' class="project-link">MSRA</a> (Beijing, 2022) 
         and <a href='http://dev3.noahlab.com.hk/' class="project-link">Huawei Noah's Ark Lab</a> (Shenzhen, 2021), focusing on applying RL/ML to logistics and wireless optimization.
+        
+        <br/>
+        <br/>
+
+        <div class="example float-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif" alt="Homeomorphism">
+            <p class="caption">Homeomorphism</p>
+        </div>
+        My research interests lie at the intersection of ML and Optimization, focus on theoretically-grounded algorithms for efficient constrained optimization and learning with hard constraints, and applications in mobility and energy systems. 
+        I developed Homeomorphism methods as an elegant framework for efficient learning and optimization with hard constraints.
         <br/> 
-        <ul style="list-style-type: none; padding-left: 1;">
+        <br/>
+        <!-- <ul style="list-style-type: none; padding-left: 1;">
             <strong>💼 We have funding for RAs, PhDs, and Postdocs (at CityU or CUHK-SZ).</strong><br>
             <span style="color: #666; font-size: 0.9rem;">Please mail me with CV if interested in research opportunities.</span>
-        </ul>
+        </ul> -->
         Please feel free to contact me if you want to cooperate or discuss with me : )
         <br/>
         <br/>
