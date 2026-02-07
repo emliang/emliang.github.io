@@ -20,7 +20,7 @@
     <style>
     /* Base styles */
     :root {
-        --profile-image-width: 200px;
+        --profile-image-width: 240px;
     }
     .container {
         max-width: 1000px;
@@ -147,6 +147,12 @@
         
         .navbar-toggler {
             display: none;
+        }
+        
+        /* 移动端 media-row 换行后两部分各自居中 */
+        .media-row .pdf-preview {
+            flex: 0 1 400px;
+            max-width: 100%;
         }
     }
 
@@ -309,6 +315,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: stretch;
+            justify-content: center;
             gap: 0rem;
             margin: 0rem 0;
         }
@@ -328,11 +335,11 @@
         }
         .example {
             text-align: center;
-            margin: 0.1rem 0;
-            padding: 0.1rem;
+            margin: 0.2rem;
+            margin-left: 2rem;
         }
         .example img {
-            width: 220px;
+            width: 230px;
             height: auto;
             border: 0px solid #ddd;
             border-radius: 4px;
@@ -354,7 +361,7 @@
         .pdf-preview iframe {
             width: 100%;
             max-width: 400px;
-            height: 220px;
+            height: 230px;
             border: 0px solid #ddd;
             border-radius: 4px;
         }
@@ -568,8 +575,9 @@
         <br/>
         <br/>
 
-        My research interests lie at the intersection of ML and Optimization, focus on theoretically-grounded algorithms for efficient constrained optimization and learning with hard constraints, and applications in mobility and energy systems. 
+        My research interests lie at the intersection of ML and Optimization, and applications in mobility and energy systems. 
         I developed Homeomorphism methods as an elegant framework for efficient learning and optimization with hard constraints.
+
         <br/>
         <div class="media-row">
             <div class="example">
@@ -581,13 +589,14 @@
                 <p class="caption"><a href="/assets/pdf/Slides/Homeomorphism_Methods.pdf" class="name-link" target="_blank">Slides for Homeomorphism Methods</a></p>
             </div>
         </div>
-        <!-- <br/>  -->
-        <br/>
-        <!-- <ul style="list-style-type: none; padding-left: 1;">
-            <strong>💼 We have funding for RAs, PhDs, and Postdocs (at CityU or CUHK-SZ).</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Please mail me with CV if interested in research opportunities.</span>
-        </ul> -->
+        <br/> 
         Please feel free to contact me if you want to cooperate or discuss with me : )
+        <br/>
+        <br/>
+        💼 We have funding for RAs, PhDs, and Postdocs (at CityU or CUHK-SZ).💼
+        <br/>
+         Please mail me with CV if interested in research opportunities
+        <!-- Please feel free to contact me if you want to cooperate or discuss with me : ) -->
         <br/>
         <br/>
       </font>  
