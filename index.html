@@ -22,6 +22,14 @@
     :root {
         --profile-image-width: 240px;
     }
+
+    body {
+        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        line-height: 1.7;
+        color: #2c3e50;
+        background-color: #f5f7fb;
+    }
+
     .container {
         max-width: 1000px;
         margin: 0 auto;
@@ -225,16 +233,17 @@
             margin: 15px 0;
         }
         .topic-section {
-            margin-bottom: 1rem;
+            margin-bottom: 2.2rem;
         }
         .topic-title {
             position: relative;
             padding-left: 0.5rem;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
+            margin-bottom: 1.2rem;
+            margin-top: 1.2rem;
             color: #2c3e50;
             font-size: 1.2rem;
-            font-weight: 400;
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
         .topic-title::before {
             content: "";
@@ -251,19 +260,28 @@
         }
         .paper-item {
             position: relative;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0.5rem;
-            border-left: 4px solid #eee;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem 0.9rem;
+            border-left: 4px solid #e1e8f0;
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 0.9rem;
             flex-wrap: wrap;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+        }
+
+        .paper-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
         }
         .paper-image {
-            width: 120px;
-            min-width: 350px;
+            width: 270px;
+            min-width: 270px;
             height: auto;
-            max-height: 120px;
+            max-height: 140px;
             object-fit: contain;
             border-radius: 4px;
             flex-shrink: 0;
@@ -272,6 +290,7 @@
         .paper-content {
             flex: 1;
             min-width: 0;
+            margin-left: 2rem;
         }
         .paper-link {
             display: block;
@@ -316,8 +335,8 @@
             flex-wrap: wrap;
             align-items: stretch;
             justify-content: center;
-            gap: 0rem;
-            margin: 0rem 0;
+            gap: 1.5rem;
+            margin: 1rem 0;
         }
         .media-row .example {
             flex: 0 0 auto;
@@ -336,7 +355,6 @@
         .example {
             text-align: center;
             margin: 0.2rem;
-            margin-left: 2rem;
         }
         .example img {
             width: 230px;
