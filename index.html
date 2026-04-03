@@ -1,1153 +1,1344 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>LEM</title>
+    <title>Enming Liang</title>
 
-    <!-- Meta tags -->
-    <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.">
-    <meta property="og:site_name" content="A simple, whitespace theme for academics">
-    <meta property="og:type" content="object">
-    <meta property="og:title" content="">
-    <meta property="og:url" content="/">
-    <meta property="og:description" content="About">
-    <meta property="og:image" content="">
+    <meta
+      name="description"
+      content="Enming Liang's academic homepage on machine learning, optimization, mobility systems, and power systems."
+    >
+    <meta property="og:site_name" content="Enming Liang">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Enming Liang">
+    <meta property="og:url" content="https://emliang.github.io/">
+    <meta
+      property="og:description"
+      content="Academic homepage featuring research in machine learning, optimization, mobility systems, and energy systems."
+    >
+    <meta property="og:image" content="/assets/img/lem.png">
 
-    <!-- Styles -->
     <style>
-    /* Base styles */
-    :root {
-        --profile-image-width: 240px;
-    }
-
-    body {
-        font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        line-height: 1.7;
-        color: #2c3e50;
-        background-color: #f5f7fb;
-    }
-
-    .container {
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 0 15px;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-
-    @media screen and (max-width: 768px) {
-        .container {
-            padding: 0 10px;
-        }
-        
-        .profile {
-            width: 100%;
-            margin: 0;
-            padding: 1rem 0;
-        }
-        
-        .profile-image {
-            width: var(--profile-image-width);
-            max-width: 100%;
-        }
-        
-        .paper-item {
-            flex-direction: column;
-            padding: 0.5rem 0;
-            align-items: center;
-        }
-        
-        .paper-image {
-            width: 100%;
-            max-width: 270px;
-            height: auto;
-            max-height: none;
-            margin: 0 auto 1rem;
-            display: block;
-        }
-        
-        .paper-image img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        .paper-content {
-            width: 100%;
-            text-align: left;
-        }
-        
-        .paper-link {
-            text-align: left;
-            font-size: 0.85rem;
-        }
-        
-        .authors {
-            text-align: left;
-            font-size: 0.8rem;
-        }
-        
-        .venue {
-            text-align: left;
-            font-size: 0.85rem;
-        }
-        
-        .social-links {
-            gap: 1rem;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
-        }
-        
-        .main-heading {
-            font-size: 1.3em;
-        }
-        
-        .category-heading {
-            font-size: 1.1em;
-        }
-        
-        .navbar {
-            padding: 0.6rem 1rem;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        
-        .navbar-nav {
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 100%;
-            gap: 0.8rem;
-        }
-        
-        .nav-item {
-            margin: 0.2rem;
-        }
-        
-        .nav-link {
-            font-size: 0.95rem;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-        }
-        
-        .nav-link:hover {
-            transform: translateY(-1px);
-        }
-        
-        .nav-link.active::after {
-            width: 20px;
-            height: 2px;
-        }
-        
-        .navbar-collapse {
-            display: flex !important;
-            flex-basis: auto;
-        }
-        
-        .navbar-toggler {
-            display: none;
-        }
-        
-        /* 移动端 media-row 换行后两部分各自居中 */
-        .media-row .pdf-preview {
-            flex: 0 1 400px;
-            max-width: 100%;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .container {
-            padding: 0 5px;
-        }
-        
-        .social-link {
-            width: 35px;
-            height: 35px;
-        }
-        
-        .main-heading {
-            font-size: 1.2em;
-        }
-        
-        .category-heading {
-            font-size: 1em;
-        }
-        
-        .navbar {
-            padding: 0.5rem;
-        }
-        
-        .nav-link {
-            font-size: 0.9rem;
-            padding: 0.3rem 0.6rem;
-        }
-        
-        .navbar-nav {
-            gap: 0.5rem;
-        }
-    
-    }
-      .post-header {
-        flex: 1;
-        padding-right: 0px;
-    }
-    .post-title {
-        font-size: 1.1em;
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-        h3 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 0.5em;
+      :root {
+        --page-bg: #f5f7fb;
+        --card-bg: #ffffff;
+        --text-strong: #173042;
+        --text-main: #2c3e50;
+        --text-muted: #5f6f7d;
+        --line-soft: #dce5ef;
+        --accent: #2698ba;
+        --accent-soft: rgba(38, 152, 186, 0.12);
+        --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.06);
+        --media-thumb-width: 238px;
+        --media-slide-width: 450px;
       }
-        h5 {
+
+      body.home-page {
+        font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.7;
+        color: var(--text-main);
+        background: var(--page-bg);
+      }
+
+      .home-page .page-container {
+        max-width: 960px;
+      }
+
+      .home-page .site-nav {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid var(--line-soft);
+        box-shadow: 0 6px 22px rgba(15, 23, 42, 0.06);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+      }
+
+      .home-page .site-nav .navbar-brand {
+        color: var(--text-strong);
+        font-size: 1.42rem;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+
+      .home-page .site-nav .nav-link {
+        color: var(--text-strong);
+        font-size: 1.14rem;
+        font-weight: 600;
+        padding: 0.5rem 1rem;
+        border-radius: 999px;
+        transition: color 0.2s ease, background-color 0.2s ease;
+      }
+
+      .home-page .site-nav .nav-link:hover,
+      .home-page .site-nav .nav-link:focus {
+        color: var(--accent);
+        background-color: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .home-page .site-nav-links {
+        gap: 0.45rem;
+      }
+
+      .home-page .toggle-container {
+        margin-left: 0.45rem;
+      }
+
+      .home-page .toggle-container a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 46px;
+        color: var(--text-strong);
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 1.12rem;
+      }
+
+      .home-page .toggle-container a:hover,
+      .home-page .toggle-container a:focus {
+        color: var(--accent);
+        background-color: var(--accent-soft);
+        text-decoration: none;
+      }
+
+      .home-page main {
+        padding-top: 0.65rem;
+      }
+
+      .home-page .hero,
+      .home-page .research-shell,
+      .home-page .visitor-shell {
+        background: var(--card-bg);
+        border: 1px solid var(--line-soft);
+        border-radius: 18px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .home-page .hero {
+        padding: 1.2rem;
+        margin-bottom: 1.6rem;
+      }
+
+      .home-page .hero-copy {
+        padding: 1rem 1.2rem 1.05rem 1.35rem;
+      }
+
+      .home-page .profile-embed {
+        float: right;
+        width: min(100%, 278px);
+        margin: 0.15rem 0 1.15rem 1.9rem;
+        padding: 0 0 0 1.55rem;
         text-align: center;
-        color: #555;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        }
-        .section-divider {
-            border: 0;
-            height: 1px;
-            background: #ddd;
-            margin: 10px 0;
-        }
-        .main-heading {
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .category-heading {
-            color: #34495e;
-            font-size: 1.2em;
-            margin: 15px 0;
-        }
-        .topic-section {
-            margin-bottom: 2.2rem;
-        }
-        .topic-title {
-            position: relative;
-            padding-left: 0.5rem;
-            margin-bottom: 1.2rem;
-            margin-top: 1.2rem;
-            color: #2c3e50;
-            font-size: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 0.02em;
-        }
-        .topic-title::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #3498db;
-            border-radius: 2px;
-        }
-        .paper-list {
-            padding-left: 1rem;
-        }
-        .paper-item {
-            position: relative;
-            margin-bottom: 1.2rem;
-            padding: 0.8rem 0.9rem;
-            border-left: 4px solid #e1e8f0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.9rem;
-            flex-wrap: wrap;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
+        border-left: 1px solid var(--line-soft);
+      }
+
+      .home-page .hero-copy h1 {
+        margin: 0 0 0.55rem;
+        color: var(--text-strong);
+        font-size: 2rem;
+        font-weight: 600;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+      }
+
+      .home-page .hero-copy .hero-subtitle {
+        margin: 0 0 2rem;
+        color: #4a7186;
+        font-size: 1.2rem;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      .home-page .hero-copy p {
+        max-width: 44rem;
+      }
+
+      .home-page .hero-copy p {
+        margin-bottom: 1.45rem;
+        font-size: 1.02rem;
+        line-height: 1.88;
+      }
+
+      .home-page .hero-copy .hero-copy-wide {
+        clear: both;
+        max-width: none;
+      }
+
+      .home-page .hero-copy p:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .home-page .profile-image {
+        width: min(100%, 258px);
+        height: auto;
+        border-radius: 14px;
+        margin: 0 auto 1.15rem;
+        display: block;
+      }
+
+      .home-page .profile-note {
+        max-width: 15.5rem;
+        margin: 0 auto 1.1rem;
+        color: var(--text-muted);
+        font-size: 0.96rem;
+        line-height: 1.65;
+      }
+
+      .home-page .social-links {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.55rem;
+      }
+
+      .home-page .social-link {
+        color: #0b6b8d;
+        font-size: 1.12rem;
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        background-color: #f7fafc;
+        border: 1px solid var(--line-soft);
+        transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+      }
+
+      .home-page .social-link:hover,
+      .home-page .social-link:focus {
+        transform: translateY(-1px);
+        border-color: #cbe2ea;
+        background-color: #f0f8fb;
+        text-decoration: none;
+      }
+
+      .home-page .name-link,
+      .home-page .project-link {
+        color: #115e91;
+        text-decoration: none;
+      }
+
+      .home-page .name-link:hover,
+      .home-page .project-link:hover,
+      .home-page .name-link:focus,
+      .home-page .project-link:focus {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .home-page .media-row {
+        display: grid;
+        grid-template-columns: var(--media-thumb-width) minmax(0, var(--media-slide-width));
+        gap: 4.45rem;
+        align-items: start;
+        justify-content: center;
+        clear: both;
+        margin: 1.7rem 0 1.35rem;
+        padding: 0.95rem;
+        border-radius: 14px;
+        background: #f8fbfd;
+        border: 1px solid #e2edf4;
+      }
+
+      .home-page .example,
+      .home-page .pdf-preview {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        align-self: start;
+        text-align: center;
+      }
+
+      .home-page .pdf-preview {
+        max-width: var(--media-slide-width);
+      }
+
+      .home-page .example img,
+      .home-page .pdf-preview iframe {
+        width: 100%;
+        border: 0;
+        border-radius: 10px;
+        background: #ffffff;
+      }
+
+      .home-page .example img {
+        height: var(--media-thumb-width);
+        object-fit: cover;
+      }
+
+      .home-page .pdf-preview iframe {
+        display: block;
+        height: var(--media-thumb-width);
+        min-height: 0;
+      }
+
+      .home-page .caption {
+        width: 100%;
+        margin: 0.45rem 0 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .home-page .funding-note {
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        margin-top: 1.75rem;
+        padding: 1rem 1.15rem;
+        border-left: 4px solid var(--accent);
+        border-radius: 12px;
+        background: #f0f8fb;
+        color: var(--text-main);
+      }
+
+      .home-page .research-shell {
+        padding: 1.5rem;
+        margin-bottom: 1.75rem;
+      }
+
+      .home-page .research-heading {
+        margin: 0 0 0.35rem;
+        color: var(--text-strong);
+        font-size: 1.5rem;
+      }
+
+      .home-page .research-lead {
+        margin: 0 0 1.1rem;
+        color: var(--text-muted);
+      }
+
+      .home-page .research-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.9rem;
+        margin-bottom: 1.45rem;
+        justify-content: center;
+      }
+
+      .home-page .research-tab {
+        appearance: none;
+        border: 1px solid #d6e2eb;
+        background: #ffffff;
+        color: #466173;
+        min-width: 228px;
+        padding: 0.72rem 1.3rem;
+        border-radius: 999px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .home-page .research-tab:hover,
+      .home-page .research-tab:focus {
+        border-color: #bfd6e2;
+        background: #f8fbfd;
+        color: var(--accent);
+        box-shadow: 0 4px 14px rgba(38, 152, 186, 0.08);
+        outline: none;
+      }
+
+      .home-page .research-tab.is-active {
+        background: #eef7fb;
+        border-color: #d5e8f0;
+        color: #15779a;
+        box-shadow: none;
+      }
+
+      .home-page .research-tab.is-active::after {
+        display: none;
+      }
+
+      .home-page .research-panel[hidden] {
+        display: none;
+      }
+
+      .home-page .topic-section + .topic-section {
+        margin-top: 2rem;
+      }
+
+      .home-page .topic-title {
+        position: relative;
+        padding-left: 0.8rem;
+        margin: 0 0 1rem;
+        color: var(--text-strong);
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+
+      .home-page .topic-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.15rem;
+        bottom: 0.15rem;
+        width: 4px;
+        border-radius: 999px;
+        background: var(--accent);
+      }
+
+      .home-page .paper-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .home-page .paper-item {
+        display: grid;
+        grid-template-columns: 360px minmax(0, 1fr);
+        gap: 1.15rem;
+        align-items: start;
+        padding: 1.05rem;
+        border-left: 4px solid #d9e7f0;
+        background: #ffffff;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+      }
+
+      .home-page .paper-image {
+        width: 100%;
+        min-height: 168px;
+        max-height: 182px;
+        object-fit: contain;
+        border-radius: 10px;
+        background: #fbfdff;
+      }
+
+      .home-page .paper-link {
+        display: inline-block;
+        margin-bottom: 0.45rem;
+        color: var(--text-strong);
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 1.45;
+        text-decoration: none;
+      }
+
+      .home-page .paper-link:hover,
+      .home-page .paper-link:focus {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .home-page .authors {
+        margin-bottom: 0.3rem;
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        line-height: 1.45;
+      }
+
+      .home-page .author-self {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      .home-page .venue {
+        color: #20394f;
+        font-size: 0.92rem;
+      }
+
+      .home-page .notes {
+        color: #b33c3c;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .home-page .award {
+        color: #3d67b3;
+        font-size: 0.92rem;
+      }
+
+      .home-page .visitor-shell {
+        padding: 1rem 1.25rem;
+        margin-bottom: 2rem;
+      }
+
+      .home-page .visitor-shell h2 {
+        margin: 0 0 0.8rem;
+        color: var(--text-strong);
+        font-size: 1rem;
+      }
+
+      @media screen and (max-width: 991px) {
+        .home-page .profile-embed {
+          float: none;
+          width: min(100%, 320px);
+          margin: 0 auto 1.5rem;
+          padding: 0 0 1.35rem;
+          border-left: 0;
+          border-bottom: 1px solid var(--line-soft);
         }
 
-        .paper-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        .home-page .social-links {
+          grid-template-columns: repeat(5, minmax(0, 1fr));
         }
-        .paper-image {
-            width: 280px;
-            min-width: 280px;
-            height: auto;
-            max-height: 140px;
-            object-fit: contain;
-            border-radius: 4px;
-            flex-shrink: 0;
-            padding: 0.1px;
-        }
-        .paper-content {
-            flex: 1;
-            min-width: 0;
-        }
-        .paper-link {
-            display: block;
-            color: #2c3e50;
-            font-style: italic;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            line-height: 1.4;
-        }
-        .authors {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 0.3rem;
-            line-height: 1.3;
-        }
-        .author-self {
-            text-decoration: underline;
-            font-weight: 500;
-        }
-        .venue {
-            font-size: 0.9rem;
-            color: #032034;
-            font-weight: 400;
-            position: static;
-            margin-right: 0;
-            right: auto;
-        }
-        .notes{
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #c24242;
-        }
-        .award{
-            font-size: 0.9rem;
-            font-weight: 400;
-            font-style: Arial;
-            color: #4578dc;
-        }
-        .media-row {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1rem 0;
-        }
-        .media-row .example {
-            flex: 0 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .media-row .pdf-preview {
-            flex: 1 1 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-        }
-        .example {
-            text-align: center;
-            margin: 0.2rem;
-        }
-        .example img {
-            width: 230px;
-            height: auto;
-            border: 0px solid #ddd;
-            border-radius: 4px;
-            object-fit: cover;
-        }
-        .example .caption {
-            font-size: 0.9rem;
-            color: #666;
-            font-weight: 400;
-            margin-top: 0.1rem;
-            margin-bottom: 0.1rem;
-        }
-        .pdf-preview {
-            margin: 0.2rem 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .pdf-preview iframe {
-            width: 100%;
-            max-width: 400px;
-            height: 230px;
-            border: 0px solid #ddd;
-            border-radius: 4px;
-        }
-        .pdf-preview .caption {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 0.1rem;
-            margin-bottom: 0.1rem;
-            text-align: center;
-        }
-        .name-link {
-            color: #115e91;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .project-link {
-            color: #34495e;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-family: Arial, sans-serif;
-        }
-        .profile {
-            text-align: center;
-            padding: 1rem;
-            margin-left: 2rem;
-        }
-        .profile-image {
-            width: var(--profile-image-width);
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-            margin-top: 1rem;
-        }
-        .profile-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-        .social-link {
-            color: #0b6b8d;
-            font-size: 1.3rem;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 40%;
-            background-color: #f8f9fa;
-            transition: all 0.3s ease;
-        }
-        .research-section {
-            display: none;
-        }
-        .research-section.active {
-            display: block;
-        }
-        .nav-link.active {
-            color: #3498db !important;
-            font-weight: bold;
-            background-color: rgba(52, 152, 219, 0.1);
+      }
+
+      @media screen and (max-width: 768px) {
+        .home-page .page-container {
+          padding-left: 12px;
+          padding-right: 12px;
         }
 
-        .navbar {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e9ecef;
-            padding: 0.8rem 1.5rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+        .home-page .site-nav {
+          padding-top: 0.35rem;
+          padding-bottom: 0.35rem;
         }
 
-        .navbar-nav {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap: 5rem;
+        .home-page .site-nav .navbar-brand {
+          font-size: 1.18rem;
         }
 
-        .nav-item {
-            margin: 0 0.5rem;
-            position: relative;
+        .home-page .toggle-container {
+          margin-left: 0;
         }
 
-        .nav-link {
-            color: #2c3e50;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            border-radius: 6px;
-            position: relative;
+        .home-page .toggle-container a {
+          width: 42px;
+          height: 42px;
+          font-size: 1rem;
         }
 
-        .nav-link:hover {
-            color: #3498db;
-            background-color: rgba(52, 152, 219, 0.1);
+        .home-page .site-nav .navbar-toggler {
+          padding: 0.3rem 0.5rem;
+          border-color: #d6e2eb;
+          border-radius: 12px;
         }
 
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 3px;
-            background-color: #3498db;
-            border-radius: 3px;
-            transition: all 0.3s ease;
+        .home-page .site-nav .navbar-collapse {
+          margin-top: 0.7rem;
+          padding-top: 0.45rem;
+          border-top: 1px solid #e8eef5;
         }
+
+        .home-page .site-nav-links {
+          gap: 0.45rem;
+          padding-top: 0.15rem;
+          align-items: stretch !important;
+        }
+
+        .home-page .hero-copy,
+        .home-page .research-shell,
+        .home-page .visitor-shell {
+          padding: 1.2rem;
+        }
+
+        .home-page .hero {
+          padding: 0.75rem;
+        }
+
+        .home-page .hero-copy h1 {
+          font-size: 2.1rem;
+          line-height: 1.08;
+        }
+
+        .home-page .hero-copy p,
+        .home-page .funding-note {
+          max-width: none;
+        }
+
+        .home-page .hero-copy .hero-subtitle {
+          margin-bottom: 1.35rem;
+          font-size: 1.05rem;
+        }
+
+        .home-page .profile-note {
+          max-width: none;
+        }
+
+        .home-page .media-row,
+        .home-page .paper-item {
+          grid-template-columns: 1fr;
+        }
+
+        .home-page .media-row {
+          padding: 1rem;
+          gap: 0.9rem;
+        }
+
+        .home-page .example,
+        .home-page .pdf-preview {
+          max-width: 100%;
+        }
+
+        .home-page .example img,
+        .home-page .pdf-preview iframe {
+          max-width: 420px;
+          margin: 0 auto;
+        }
+
+        .home-page .paper-image {
+          min-height: 0;
+          max-width: 360px;
+          margin: 0 auto;
+        }
+
+        .home-page .social-links {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .home-page .profile-embed {
+          width: 100%;
+          max-width: 100%;
+          margin-bottom: 1.3rem;
+          padding-bottom: 1.2rem;
+        }
+
+        .home-page .research-nav {
+          gap: 0.55rem;
+        }
+
+        .home-page .research-tab {
+          min-width: calc(50% - 0.275rem);
+          padding: 0.72rem 1rem;
+          font-size: 0.96rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .home-page .site-nav .navbar-brand {
+          font-size: 1.08rem;
+        }
+
+        .home-page .site-nav .nav-link {
+          padding: 0.65rem 0.9rem;
+          font-size: 1rem;
+        }
+
+        .home-page .research-tab {
+          width: 100%;
+          min-width: 0;
+          text-align: center;
+        }
+
+        .home-page .hero-copy {
+          padding: 1.15rem;
+        }
+
+        .home-page .hero {
+          padding: 0.45rem;
+        }
+
+        .home-page .hero-copy h1 {
+          font-size: 1.82rem;
+        }
+
+        .home-page .hero-copy p {
+          font-size: 0.98rem;
+          line-height: 1.8;
+        }
+
+        .home-page .profile-embed {
+          margin-bottom: 1.1rem;
+          padding-bottom: 1rem;
+        }
+
+        .home-page .social-links {
+          gap: 0.45rem;
+        }
+
+        .home-page .social-link {
+          min-height: 46px;
+        }
+
+        .home-page .media-row,
+        .home-page .research-shell,
+        .home-page .visitor-shell {
+          padding: 0.9rem;
+        }
+
+        .home-page .paper-item {
+          padding: 0.9rem;
+        }
+
+        .home-page .paper-link {
+          font-size: 0.95rem;
+        }
+
+        .home-page .authors,
+        .home-page .venue,
+        .home-page .notes,
+        .home-page .award {
+          font-size: 0.88rem;
+        }
+      }
     </style>
 
-    <!-- External CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    >
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css"
+    >
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"
+    >
     <link rel="stylesheet" href="/assets/css/main.css">
-    
-    <!-- Scripts -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/dark_mode.js"></script>
-    <script type="text/javascript">
-      window.MathJax = {
-        tex: {
-          tags: 'ams'
-        }
-      };
-    </script>
-    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js"></script>
-    <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   </head>
 
-
-  <body class="fixed-top-nav ">
-
-    <!-- Header -->
+  <body class="fixed-top-nav home-page">
     <header>
-        <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
-            <div class="container">
-                <div class="navbar-brand social">
-                    <h1 class="post-title">
-                        LIANG Enming (梁恩明) 
-                    </h1>
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top site-nav">
+        <div class="container page-container">
+          <a class="navbar-brand title font-weight-lighter" href="/">
+            <span class="font-weight-bold">Enming</span> Liang
+          </a>
+
+          <button
+            class="navbar-toggler collapsed ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto align-items-center site-nav-links">
+              <li class="nav-item">
+                <a class="nav-link" href="/news/">News</a>
+              </li>
+              <li class="nav-item">
+                <div class="toggle-container">
+                  <a id="light-toggle" aria-label="Toggle dark mode" tabindex="0">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                  </a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar top-bar"></span>
-                    <span class="icon-bar middle-bar"></span>
-                    <span class="icon-bar bottom-bar"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ml-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="blog/">
-                                Misc
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
+    <main>
+      <div class="container page-container">
+        <section class="hero" aria-labelledby="home-title">
+          <div class="hero-copy">
+            <h1 id="home-title">LIANG Enming (梁恩明)</h1>
+            <p class="hero-subtitle">
+              Research Assistant Professor, City University of Hong Kong
+            </p>
 
+            <aside class="profile-embed" aria-label="Profile summary">
+              <img class="profile-image" src="/assets/img/lem.png" alt="Portrait of Enming Liang">
+              <p class="profile-note">
+                Working on constrained learning, optimization theory, mobility systems, and power
+                systems.
+              </p>
 
-<!-- Content -->
-  <div class="container mt-5">
-  <div class="post">
+              <div class="social-links" aria-label="Profile links">
+                <a
+                  href="mailto:eliang4-c@my.cityu.edu.hk"
+                  title="Email"
+                  class="social-link"
+                  aria-label="Email"
+                >
+                  <i class="fas fa-envelope"></i>
+                </a>
+                <a
+                  href="https://github.com/emliang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  class="social-link"
+                  aria-label="GitHub"
+                >
+                  <i class="fab fa-github"></i>
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/enming-liang-95b5b216a/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  class="social-link"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a
+                  href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&amp;hl=zh-CN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Google Scholar"
+                  class="social-link"
+                  aria-label="Google Scholar"
+                >
+                  <i class="ai ai-google-scholar"></i>
+                </a>
+                <a
+                  href="/assets/pdf/CV/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Curriculum Vitae"
+                  class="social-link"
+                  aria-label="Curriculum Vitae"
+                >
+                  <i class="fas fa-file-pdf"></i>
+                </a>
+              </div>
+            </aside>
 
+            <p>
+              I am a <i>Research Assistant Professor</i> at City University of Hong Kong
+              (2025-). I received my Ph.D. (2021-2024) from the Department of Data Science,
+              City University of Hong Kong, supervised by
+              <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>.
+              I received my B.Eng. (2016-2020) from the School of Intelligent Systems
+              Engineering, Sun Yat-sen University, supervised by
+              <a
+                href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en"
+                class="name-link"
+              >Prof. Renxin Zhong</a>.
+            </p>
 
-    <div class="clearfix">
-      <div class="profile float-right">
-        <div class="profile-image-container">
-            <img class="profile-image" 
-                 src="/assets/img/lem.png" 
-                 alt="Enming Liang">
-        </div>
-      </div>
+            <p>
+              I have been a member of the
+              <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a>
+              project, working with
+              <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>,
+              focusing on applying machine learning to power grid operation. I also visited the
+              <a href="https://www.cst.cam.ac.uk/" class="project-link">University of Cambridge</a>,
+              working with
+              <a
+                href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page"
+                class="name-link"
+              >Prof. Srinivasan Keshav</a>
+              on power grid resilience under extreme weather, and contributed to AI for OPF
+              tutorials in the
+              <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a>
+              summer school with
+              <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+            </p>
 
-      <br/>
-      <font size="3.8">  
-      <p>
-        <!-- This is Enming Liang.  -->
-        <!-- <br/> -->
-        Currently, I am a <i>Research Assistant Professor</i> at City University of Hong Kong (2025-). 
-        I received Ph.D. (2021-2024) at Department of Data Science, City University of Hong Kong, supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>. 
-        I received B.Eng. (2016-2020) at School of Intelligent Systems Engineering, Sun Yat-sen University, supervised by <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Prof. Renxin Zhong</a>. 
-        <br/>
-        <br/>
-        I have been a member of <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a> project, working with <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>, focusing on applying ML to power grid operation. 
-        I visited <a href="https://www.cst.cam.ac.uk/" class="project-link">University of Cambridge</a>, working with <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>, focusing on power grid resilience under extreme weather.
-        I contributed to AI for OPF tutorials in <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a> summer school, working with <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
-        
-        <br/>
-        <br/>
+            <p>
+              I am also working with
+              <a href="https://sts.didiglobal.com/" class="project-link">DiDi</a>,
+              focusing on machine learning for improving urban mobility-on-demand systems. I
+              previously worked as a research intern at
+              <a
+                href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
+                class="project-link"
+              >MSRA</a>
+              (Beijing, 2022) and
+              <a href="http://dev3.noahlab.com.hk/" class="project-link">Huawei Noah's Ark Lab</a>
+              (Shenzhen, 2021), focusing on RL and ML for logistics and wireless optimization.
+            </p>
 
-        I am working with <a href="https://sts.didiglobal.com/" class="project-link">DiDi</a> (the largest ride-sourcing platform in China), focusing on applying ML for improving efficiency of urban mobility-on-demand system.
-        I worked as a research intern in <a href='https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/' class="project-link">MSRA</a> (Beijing, 2022) 
-        and <a href='http://dev3.noahlab.com.hk/' class="project-link">Huawei Noah's Ark Lab</a> (Shenzhen, 2021), focusing on applying RL/ML to logistics and wireless optimization.
-        
-        <br/>
-        <br/>
+            <p class="hero-copy-wide">
+              My research lies at the intersection of machine learning and optimization, with
+              applications in mobility and energy systems. I developed Homeomorphism methods as a
+              framework for efficient learning and optimization with hard constraints, including
+              <a href="http://jmlr.org/papers/v25/23-1577.html" class="name-link">Homeomorphic Projection</a>,
+              <a href="https://openreview.net/forum?id=bP5cU0OYSn" class="name-link">Homeomorphic Optimization</a>,
+              and
+              <a href="https://openreview.net/pdf?id=vxq1OnaAMq" class="name-link">Gauge Flow Matching</a>.
+            </p>
 
-        My research interests lie at the intersection of ML and Optimization, and applications in mobility and energy systems. 
-        I developed Homeomorphism methods as an elegant framework for efficient learning and optimization with hard constraints, including <a href="http://jmlr.org/papers/v25/23-1577.html" class="name-link">Homeomorphic Projection</a>, <a href="https://openreview.net/forum?id=bP5cU0OYSn" class="name-link">Homeomorphic Optimization</a>, and <a href="https://openreview.net/pdf?id=vxq1OnaAMq" class="name-link">Gauge Flow Matching</a>.
-        
-        <div class="media-row">
-            <div class="example">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif" alt="Homeomorphism">
+            <div class="media-row">
+              <div class="example">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif"
+                  alt="Animated illustration representing homeomorphism"
+                >
                 <p class="caption">Homeomorphism</p>
+              </div>
+              <div class="pdf-preview">
+                <iframe
+                  src="/assets/pdf/Slides/Homeomorphism_Methods.pdf#view=FitH"
+                  title="Homeomorphism Methods slides"
+                ></iframe>
+                <p class="caption">
+                  <a
+                    href="/assets/pdf/Slides/Homeomorphism_Methods.pdf"
+                    class="name-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >Slides for Homeomorphism Methods</a>
+                </p>
+              </div>
             </div>
-            <div class="pdf-preview">
-                <iframe src="/assets/pdf/Slides/Homeomorphism_Methods.pdf#view=FitH" title="Homeomorphism Methods Slides"></iframe>
-                <p class="caption"><a href="/assets/pdf/Slides/Homeomorphism_Methods.pdf" class="name-link" target="_blank">Slides for Homeomorphism Methods</a></p>
+
+            <p>
+              Please feel free to contact me if you want to discuss possible collaborations or
+              research directions.
+            </p>
+
+            <div class="funding-note">
+              We have funding for RAs, PhDs, and postdocs at CityU or CUHK-SZ. Please email me
+              with your CV if you are interested in research opportunities.
             </div>
-        </div>
+          </div>
+        </section>
 
+        <section class="research-shell" aria-labelledby="research-title">
+          <h2 id="research-title" class="research-heading">Selected Research</h2>
+          <p class="research-lead">
+            Publications are grouped by research direction to make the homepage easier to scan.
+          </p>
 
-        <!-- We are also preparing a survey paper on machine learning with hard constraints, including both end-to-end prediction and generative modeling. Check for more details and any feedback is welcome. -->
-    
+          <div class="research-nav" role="tablist" aria-label="Research areas">
+            <button
+              class="research-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="ml-opt"
+              data-target="ml-opt"
+            >
+              ML ⇔ Optimization
+            </button>
+            <button
+              class="research-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="ai-sci"
+              data-target="ai-sci"
+            >
+              AI for Sustainability
+            </button>
+          </div>
 
-        Please feel free to contact me if you want to cooperate or discuss with me : )
-        <br/>
-        <br/>
-        💼 We have funding for RAs, PhDs, and Postdocs (at CityU or CUHK-SZ). 
-         Please mail me with CV if interested in research opportunities
-        <br/>
-        <br/>
-      </font>  
-
-
-
-
-
-
-
-      <div class="profile-links">
-        <!-- Combined Social and Nav Links -->
-        <div class="social-links">
-            <a href="mailto:eliang4-c@my.cityu.edu.hk" 
-               title="Email" 
-               class="social-link">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <a href="https://github.com/emliang" 
-               target="_blank" 
-               title="GitHub" 
-               class="social-link">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/enming-liang-95b5b216a/" 
-               target="_blank" 
-               title="LinkedIn" 
-               class="social-link">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://scholar.google.com.sg/citations?user=Todfu6AAAAAJ&hl=zh-CN"
-               target="_blank" 
-               title="Google Scholar" 
-               class="social-link">
-                <i class="ai ai-google-scholar"></i>
-            </a>
-            <a href="/assets/pdf/CV/cv.pdf"
-               target="_blank" 
-               title="Curriculum Vitae" 
-               class="social-link">
-                <i class="fas fa-file-pdf"></i> 
-            </a>
-        </div>
-    </div>
-
-
-
-
-</p>
-
-    <!-- Research Navigation -->
-    <nav class="navbar navbar-expand-lg mb-4" style="background-color: #ffffff; border-bottom: 1px solid #e9ecef;">
-        <div class="container">
-            <div class="collapse navbar-collapse" id="pageNavbar">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#" onclick="switchPage('ml-opt'); return false;">ML ⇔ Optimization</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="switchPage('ai-sci'); return false;">AI for Sustainability</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <script>
-        function switchPage(pageId) {
-            // Update navigation active state
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            event.target.classList.add('active');
-
-            // Hide all sections
-            document.querySelectorAll('.research-section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Show selected section
-            if (pageId === 'all') {
-                document.querySelectorAll('.research-section').forEach(section => {
-                    section.classList.add('active');
-                });
-            } else {
-                const selectedSection = document.getElementById(pageId);
-                if (selectedSection) {
-                    selectedSection.classList.add('active');
-                }
-            }
-        }
-
-        // Initialize on page load to show AI + Optimization section
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set initial active state for navigation
-            document.querySelector('a[onclick="switchPage(\'ml-opt\')"]').classList.add('active');
-            // Show AI + Optimization section
-            switchPage('ml-opt');
-        });
-    </script>
-
-
-
-    <div id="ml-opt" class="research-section active">
-
-        <!-- AI + Optimization content -->
-
-
-        <div class="topic-section">
-            <h6 class="topic-title">Learning and Optimization with Constraints</h6>
-            <div class="paper-list">
-
-
-
-                <div class="paper-item">
-                    <img src="/assets/img/papers/GFM_framework.png" alt="Gauge Flow Matching" class="paper-image">
-                    <div class="paper-content">
-                        <a href="https://openreview.net/pdf?id=vxq1OnaAMq" class="paper-link">
-                            Gauge Flow Matching: Efficient Constrained Generative Modeling over General Convex Set and Beyond.
-                        </a>
-                        <div class="authors">
-                            Xinpeng Li, <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
-                        </div>
-                        <span class="venue">ICLR 2026</span>. 
-                        <br/>
-                         also presented at <span class="venue"><a href="https://openreview.net/pdf?id=QyIlskgko9" class="name-link">ICLR 2025 DeLTa Workshop</a></span>. 
-                         <br/>
-                        <span class="notes">Outstanding Short Paper Award</span>.
-                    </div>
-                </div>
-
-
-
-
-                <div class="paper-item">
-                    <img src="/assets/img/papers/Hom-PGD_framework.png" alt="Hom-PGD Framework" class="paper-image">
-                    <div class="paper-content"> 
-                    <a href="https://openreview.net/forum?id=bP5cU0OYSn" class="paper-link">
-                        Fast Projection-Free Approach (without Optimization Oracle) for Optimization over Compact Convex Set
+          <section id="ml-opt" class="research-panel" role="tabpanel">
+            <div class="topic-section">
+              <h3 class="topic-title">Learning and Optimization with Constraints</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/GFM_framework.png" alt="Gauge Flow Matching" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://openreview.net/pdf?id=vxq1OnaAMq" class="paper-link">
+                      Gauge Flow Matching: Efficient Constrained Generative Modeling over General
+                      Convex Set and Beyond.
                     </a>
                     <div class="authors">
-                        <a href="https://chenghliu.github.io/" class="name-link">Chenghao Liu</a>,
-                        <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
-                    </div>
-                    <span class="venue">NeurIPS 2025</span>.  <span class="notes">Spotlight</span>.
-                    </div>
-            </div>
-
-
-
-
-            <div class="paper-item">
-                <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
-                <div class="paper-content">
-                    <a href="https://openreview.net/pdf?id=HWN9CAfcav" class="paper-link">
-                        Efficient Bisection Projection to Ensure Neural-Network Feasibility for Optimization over General Set.
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span> and
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>
-                    </div>
-                    <span class="venue">ICML 2025</span>
-                </div>
-            </div>
-
-
-            <div class="paper-item">
-                <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
-                <div class="paper-content">
-                    <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
-                        Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained Optimization.
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span>,
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                        <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
-                    </div>
-                    <span class="venue">JMLR 2024</span>
-                    <br/>
-                    <a href="https://proceedings.mlr.press/v202/liang23a/liang23a.pdf" class="name-link">conference version</a> presented at <span class="venue">ICML 2023</span>.
-                </div>
-            </div>
-
-
-            </div>
-        </div>
-
-
-        <div class="topic-section">
-            <h6 class="topic-title">Learning & Optimization Theory</h6>
-            <div class="paper-list">
-    
-    
-            <div class="paper-item">
-                <img src="/assets/img/papers/gnn_socp.png" alt="GNN-SOCP" class="paper-image">
-                <div class="paper-content">
-                    <a href="https://openreview.net/forum?id=wFttcDu6Fr" class="paper-link">
-                    On the Expressiveness and Complexity of Graph Neural Network for Solving Second-Order Cone Programming.    
-                    </a>
-                    <div class="authors">
-                        <a href="Richard99998.github.io" class="name-link">Ruizhe Li</a>,
-                        <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
+                      Xinpeng Li, <span class="author-self">Enming Liang</span><sup>&dagger;</sup>,
+                      and <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
                     </div>
                     <span class="venue">ICLR 2026</span>.
-                    <br/>
-                    also presented at <span class="venue"><a href="https://openreview.net/forum?id=z7zHsNFXHc" class="name-link">NeurIPS 2025 ScaleOPT workshop</a></span>
-                    </div>
-            </div>
-    
-    
-    
-            <div class="paper-item">
-                    <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
-                    <div class="paper-content">
-                        <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
-                            Characterizing ResNet's Universal Approximation Capability.
-                        </a>
-                        <div class="authors">
-                            <a href="https://chenghliu.github.io/" class="name-link">Chenghao Liu</a>,
-                            <span class="author-self">Enming Liang</span>, and
-                            <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-                        </div>
-                        <span class="venue">ICML 2024</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-      
-    
+                    <br>
+                    Also presented at
+                    <span class="venue">
+                      <a href="https://openreview.net/pdf?id=QyIlskgko9" class="name-link">ICLR 2025 DeLTa Workshop</a>
+                    </span>.
+                    <br>
+                    <span class="notes">Outstanding Short Paper Award</span>.
+                  </div>
+                </article>
 
+                <article class="paper-item">
+                  <img src="/assets/img/papers/Hom-PGD_framework.png" alt="Hom-PGD Framework" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=bP5cU0OYSn" class="paper-link">
+                      Fast Projection-Free Approach (without Optimization Oracle) for Optimization
+                      over Compact Convex Set.
+                    </a>
+                    <div class="authors">
+                      <a href="https://chenghliu.github.io/" class="name-link">Chenghao Liu</a>,
+                      <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
+                    </div>
+                    <span class="venue">NeurIPS 2025</span>. <span class="notes">Spotlight</span>.
+                  </div>
+                </article>
 
-    <div class="topic-section">
-        <h6 class="topic-title">Learning for Decision-Making</h6>
-        <div class="paper-list">
-            <div class="paper-item">
-                <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
-                <div class="paper-content">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/bisection.png" alt="Bisection Projection" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://openreview.net/pdf?id=HWN9CAfcav" class="paper-link">
+                      Efficient Bisection Projection to Ensure Neural-Network Feasibility for
+                      Optimization over General Set.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span> and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICML 2025</span>.
+                  </div>
+                </article>
+
+                <article class="paper-item">
+                  <img src="/assets/img/papers/hp.png" alt="Homeomorphic Projection JMLR" class="paper-image">
+                  <div class="paper-content">
+                    <a href="http://jmlr.org/papers/v25/23-1577.html" class="paper-link">
+                      Homeomorphic Projection to Ensure NN Solution Feasibility for Constrained
+                      Optimization.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                      <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    </div>
+                    <span class="venue">JMLR 2024</span>
+                    <br>
+                    <a href="https://proceedings.mlr.press/v202/liang23a/liang23a.pdf" class="name-link">Conference version</a>
+                    presented at <span class="venue">ICML 2023</span>.
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="topic-section">
+              <h3 class="topic-title">Learning and Optimization Theory</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/gnn_socp.png" alt="GNN-SOCP" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=wFttcDu6Fr" class="paper-link">
+                      On the Expressiveness and Complexity of Graph Neural Network for Solving
+                      Second-Order Cone Programming.
+                    </a>
+                    <div class="authors">
+                      <a href="https://Richard99998.github.io" class="name-link">Ruizhe Li</a>,
+                      <span class="author-self">Enming Liang</span><sup>&dagger;</sup>, and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>.
+                    </div>
+                    <span class="venue">ICLR 2026</span>.
+                    <br>
+                    Also presented at
+                    <span class="venue">
+                      <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="name-link">NeurIPS 2025 ScaleOPT Workshop</a>
+                    </span>.
+                  </div>
+                </article>
+
+                <article class="paper-item">
+                  <img src="/assets/img/papers/res.png" alt="ResNet Universal Approximation" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://openreview.net/forum?id=z7zHsNFXHc" class="paper-link">
+                      Characterizing ResNet's Universal Approximation Capability.
+                    </a>
+                    <div class="authors">
+                      <a href="https://chenghliu.github.io/" class="name-link">Chenghao Liu</a>,
+                      <span class="author-self">Enming Liang</span>, and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ICML 2024</span>.
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="topic-section">
+              <h3 class="topic-title">Learning for Decision-Making</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
+                  <div class="paper-content">
                     <a href="https://arxiv.org/abs/2501.01874" class="paper-link">
-                        DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
+                      DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with
+                      Limited Data.
                     </a>
                     <div class="authors">
-                        Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
+                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>,
+                      Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma.
                     </div>
-                    <span class="venue">AAAI 2025. </span>
-                    <span class="notes">Oral</span>
-                    <br/>
+                    <span class="venue">AAAI 2025</span>. <span class="notes">Oral</span>.
+                    <br>
                     <span class="award">Tested in DiDi (largest ride-sourcing platform in China).</span>
-                </div>
-            </div>
+                  </div>
+                </article>
 
-            <div class="paper-item">
-                <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
-                <div class="paper-content">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/GL.png" alt="Generative Learning" class="paper-image">
+                  <div class="paper-content">
                     <a href="https://openreview.net/pdf?id=3tM1l5tSbv" class="paper-link">
-                        Generative Learning for Solving Non-Convex Problem with Multi-Valued Input-Solution Mapping.
+                      Generative Learning for Solving Non-Convex Problem with Multi-Valued
+                      Input-Solution Mapping.
                     </a>
                     <div class="authors">
-                        <span class="author-self">Enming Liang</span> and
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                      <span class="author-self">Enming Liang</span> and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
                     </div>
-                    <span class="venue">ICLR 2024</span>
-                </div>
+                    <span class="venue">ICLR 2024</span>.
+                  </div>
+                </article>
+              </div>
             </div>
+          </section>
 
-        </div>
-     </div>
-
-
-    </div>
-
-    <div id="ai-sci" class="research-section">
-   
-
-        <!-- AI for Sustainability content -->
-        <div class="topic-section">
-            <h6 class="topic-title">Ride-Sourcing Optimization</h6>
-            <div class="paper-list">
-                <div class="paper-item">
-                    <img src="/assets/img/papers/kdd.png" alt="KDD Cup 2020" class="paper-image">
-                    <div class="paper-content">
-                        <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
-                            Learning to Dispatch and Reposition on a Mobility-on-Demand Platform
-                        </a>
-                        <div class="authors">
-                            <span class="author-self">Enming Liang</span>. 
-                        </div>
-                        <span class="venue">ACM KDD CUP 2020</span>
-                        <br/>
-                        <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
-
+          <section id="ai-sci" class="research-panel" role="tabpanel" hidden>
+            <div class="topic-section">
+              <h3 class="topic-title">Ride-Sourcing Optimization</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/kdd.png" alt="KDD Cup 2020" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://www.biendata.xyz/competition/kdd_didi/winners/" class="paper-link">
+                      Learning to Dispatch and Reposition on a Mobility-on-Demand Platform.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span>.
                     </div>
-                </div>
+                    <span class="venue">ACM KDD CUP 2020</span>
+                    <br>
+                    <span class="notes">Solo, 2<sup>nd</sup> Place</span>.
+                  </div>
+                </article>
 
-
-                <div class="paper-item">
-                    <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
-                    <div class="paper-content">
-                        <a href="https://arxiv.org/abs/2501.01874" class="paper-link">
-                            DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with Limited Data.
-                        </a>
-                        <div class="authors">
-                            Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>, Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma. 
-                        </div>
-                        <span class="venue">AAAI 2025. </span>
-                        <span class="notes">Oral</span>
-                        <br/>
-                        <span class="award">Tested in DiDi (largest ride-sourcing platform in China).</span>
+                <article class="paper-item">
+                  <img src="/assets/img/papers/DFF.png" alt="Decision-Focused Fine-tuning" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://arxiv.org/abs/2501.01874" class="paper-link">
+                      DFF: Decision-Focused Fine-tuning for Smarter Predict-then-Optimize with
+                      Limited Data.
+                    </a>
+                    <div class="authors">
+                      Jiaqi Yang<sup>*</sup>, <span class="author-self">Enming Liang</span><sup>*</sup>,
+                      Zicheng Su, Zhichao Zou, Peng Zhen, Jiecheng Guo, Kun An, Wanjing Ma.
                     </div>
-                </div>
-               
+                    <span class="venue">AAAI 2025</span>. <span class="notes">Oral</span>.
+                    <br>
+                    <span class="award">Tested in DiDi (largest ride-sourcing platform in China).</span>
+                  </div>
+                </article>
 
-                <div class="paper-item">
-                    <img src="/assets/img/papers/spo_relocation.png" alt="TRB" class="paper-image">
-                    <div class="paper-content">
-                        <a href="https://www.sciencedirect.com/science/article/pii/S0191261526000238?dgcid=coauthor" class="paper-link">
-                            A Smart Predict-then-Optimize Framework for Vehicle Rebalancing Problem.
-                        </a>
-                        <div class="authors">
-                            Yuhang Guo, Zicheng Su, <a href="https://cehyang.people.ust.hk/" class="name-link">Hai Yang</a>, <span class="author-self">Enming Liang</span>, Chen Zhong, Wanjing Ma.
-                        </div>
-                        <span class="venue">Transportation Research Part B. 2026</span>
-                        <br/>
-                        <span class="award">Tested in DiDi (largest ride-sourcing platform in China).</span>
+                <article class="paper-item">
+                  <img src="/assets/img/papers/spo_relocation.png" alt="Vehicle rebalancing framework" class="paper-image">
+                  <div class="paper-content">
+                    <a
+                      href="https://www.sciencedirect.com/science/article/pii/S0191261526000238?dgcid=coauthor"
+                      class="paper-link"
+                    >
+                      A Smart Predict-then-Optimize Framework for Vehicle Rebalancing Problem.
+                    </a>
+                    <div class="authors">
+                      Yuhang Guo, Zicheng Su,
+                      <a href="https://cehyang.people.ust.hk/" class="name-link">Hai Yang</a>,
+                      <span class="author-self">Enming Liang</span>, Chen Zhong, Wanjing Ma.
                     </div>
-                </div>
+                    <span class="venue">Transportation Research Part B. 2026</span>
+                    <br>
+                    <span class="award">Tested in DiDi (largest ride-sourcing platform in China).</span>
+                  </div>
+                </article>
 
-
-                <div class="paper-item">
-                      <img src="/assets/img/papers/RLCP.png" alt="Taxi Dispatching" class="paper-image">
-                      <div class="paper-content">
-                          <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
-                              An Integrated Reinforcement Learning and Centralized Programming Approach for Online Taxi Dispatching.
-                          </a>
-                          <div class="authors">
-                              <span class="author-self">Enming Liang</span>,
-                              Kexin Wen,
-                              <a href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/" class="name-link">William Lam</a>,
-                              Agachai Sumalee, and
-                              <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
-                          </div>
-                          <span class="venue">IEEE TNNLS 2021</span>
-                     </div>
-                </div>
+                <article class="paper-item">
+                  <img src="/assets/img/papers/RLCP.png" alt="Taxi Dispatching" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://ieeexplore.ieee.org/document/9366995" class="paper-link">
+                      An Integrated Reinforcement Learning and Centralized Programming Approach for
+                      Online Taxi Dispatching.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span>, Kexin Wen,
+                      <a
+                        href="https://www.polyu.edu.hk/cee/people/academic-staff/ir-prof-william-hing-keung-lam/"
+                        class="name-link"
+                      >William Lam</a>,
+                      Agachai Sumalee, and
+                      <a
+                        href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en"
+                        class="name-link"
+                      >Renxin Zhong</a>.
+                    </div>
+                    <span class="venue">IEEE TNNLS 2021</span>.
+                  </div>
+                </article>
+              </div>
             </div>
-        </div>
 
+            <div class="topic-section">
+              <h3 class="topic-title">Power Grid Operation</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img
+                    src="/assets/img/papers/framework_update_2025.png"
+                    alt="Heatwave-induced capacity bottlenecks"
+                    class="paper-image"
+                  >
+                  <div class="paper-content">
+                    <a href="https://emliang.github.io/Heat-Analysis/" class="paper-link">
+                      European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
+                      <a
+                        href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page"
+                        class="name-link"
+                      >Srinivasan Keshav</a>.
+                    </div>
+                    <span class="venue">(under review) 2026</span>.
+                  </div>
+                </article>
 
+                <article class="paper-item">
+                  <img
+                    src="/assets/img/papers/ppnn.png"
+                    alt="Partially Permutation-Invariant Neural Network"
+                    class="paper-image"
+                  >
+                  <div class="paper-content">
+                    <a href="https://ieeexplore.ieee.org/document/11192606/" class="paper-link">
+                      Partially Permutation-Invariant Neural Network for Solving Two-Stage
+                      Stochastic AC-OPF Problem.
+                    </a>
+                    <div class="authors">
+                      Min Zhou, <span class="author-self">Enming Liang</span><sup>&dagger;</sup>,
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>,
+                      and <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
+                    </div>
+                    <span class="venue">IEEE TPWRS 2025</span>.
+                  </div>
+                </article>
 
+                <article class="paper-item">
+                  <img src="/assets/img/papers/chance.png" alt="Chance-Constrained AC-OPF" class="paper-image">
+                  <div class="paper-content">
+                    <a href="https://dl.acm.org/doi/10.1145/3679240.3734656" class="paper-link">
+                      Solving Chance-Constrained AC-OPF Problems by Neural Network with
+                      Bisection-based Projection.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span><sup>*</sup>,
+                      Min Zhou<sup>*</sup>, Jiawei Zhao, and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">ACM E-energy 2025, EnergySP Workshop</span>.
+                  </div>
+                </article>
 
-
-    <div class="topic-section">
-    <h6 class="topic-title">Power Grid Operation</h6>
-    <div class="paper-list">
-
-
-        <div class="paper-item">
-            <img src="/assets/img/papers/framework_update_2025.png" alt="Heatwave-induced Capacity Bottlenecks" class="paper-image">
-            <div class="paper-content">
-                <a href="https://emliang.github.io/Heat-Analysis/" class="paper-link">
-                    European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks
-                </a>
-                <div class="authors">
-                    <span class="author-self">Enming Liang</span>,
-                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                    <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
-                </div>
-                <span class="venue">(under review) 2026</span>
+                <article class="paper-item">
+                  <img src="/assets/img/papers/CCAI.png" alt="AI for OPF Tutorial" class="paper-image">
+                  <div class="paper-content">
+                    <a
+                      href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb"
+                      class="paper-link"
+                    >
+                      AI for Optimal Power Flow Tutorial.
+                    </a>
+                    <div class="authors">
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
+                      <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
+                    </div>
+                    <span class="venue">Climate Change AI Summer School 2024</span>.
+                  </div>
+                </article>
+              </div>
             </div>
-        </div>
 
-        <div class="paper-item">
-            <img src="/assets/img/papers/ppnn.png" alt="Partially Permutation-Invariant Neural Network" class="paper-image">
-            <div class="paper-content">
-                <a href="https://ieeexplore.ieee.org/document/11192606/" class="paper-link">
-                    Partially Permutation-Invariant Neural Network for Solving Two-Stage Stochastic AC-OPF Problem.
-                </a>
-                <div class="authors">
-                    Min Zhou,
-                    <span class="author-self">Enming Liang</span><sup>&dagger;</sup>,
-                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a><sup>&dagger;</sup>, and
-                    <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Steven Low</a>.
-                </div>
-                <span class="venue">IEEE TPWRS 2025</span>
-            </div>
-        </div>
-
-        <div class="paper-item">
-            <img src="/assets/img/papers/chance.png" alt="Chance-Constrained AC-OPF" class="paper-image">
-            <div class="paper-content">
-                <a href="https://dl.acm.org/doi/10.1145/3679240.3734656" class="paper-link">
-                    Solving Chance-Constrained AC-OPF Problems by Neural Network with Bisection-based Projection.
-                </a>
-                <div class="authors">
-                    <span class="author-self">Enming Liang</span><sup>*</sup>,
-                    Min Zhou<sup>*</sup>,
-                    Jiawei Zhao, and  <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-                </div>
-                <span class="venue">ACM E-energy 2025, EnergySP workshop</span>
-            </div>
-        </div>
-
-        <div class="paper-item">
-            <img src="/assets/img/papers/CCAI.png" alt="AI for OPF Tutorial" class="paper-image">
-            <div class="paper-content">
-                <a href="https://githubtocolab.com/climatechange-ai-tutorials/optimal-power-flow/blob/main/AI_for_Optimal_Power_Flow.ipynb" class="paper-link">
-                    AI for Optimal Power Flow Tutorial
-                </a>
-                <div class="authors">
-                    <span class="author-self">Enming Liang</span>,
-                    <a href="https://priyadonti.com/" class="name-link">Priya L. Donti</a>, and
-                    <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>.
-                </div>
-                <span class="venue">Climate Change AI Summer School 2024</span>
-            </div>
-        </div>
-        </div>
-
-
-
-
-    <div class="topic-section">
-        <h6 class="topic-title">Traffic Signal Control</h6>
-        <div class="paper-list">
-            <div class="paper-item">
-                <img src="/assets/img/papers/oam.png" alt="OAM Framework" class="paper-image">
-                <div class="paper-content">
+            <div class="topic-section">
+              <h3 class="topic-title">Traffic Signal Control</h3>
+              <div class="paper-list">
+                <article class="paper-item">
+                  <img src="/assets/img/papers/oam.png" alt="OAM Framework" class="paper-image">
+                  <div class="paper-content">
                     <a href="https://ojs.aaai.org/index.php/AAAI/article/view/20378" class="paper-link">
-                        OAM: An Option-Action Reinforcement Learning Framework for Universal Multi-Intersection Control
+                      OAM: An Option-Action Reinforcement Learning Framework for Universal
+                      Multi-Intersection Control.
                     </a>
                     <div class="authors">
-                        <span class="author-self">Enming Liang</span>,
-                        <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
-                        Chilin Fang, and
-                        <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&hl=en" class="name-link">Renxin Zhong</a>.
+                      <span class="author-self">Enming Liang</span>,
+                      <a href="https://magic.tongji.edu.cn/info/1102/2521.htm" class="name-link">Zicheng Su</a>,
+                      Chilin Fang, and
+                      <a
+                        href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en"
+                        class="name-link"
+                      >Renxin Zhong</a>.
                     </div>
                     <span class="venue">AAAI 2022</span>
-                    <br/>
+                    <br>
                     <span class="notes">Oral</span>.
-                </div>
+                  </div>
+                </article>
+              </div>
             </div>
-        </div>
+          </section>
+        </section>
+
+        <section class="visitor-shell" aria-labelledby="visitor-map-title">
+          <h2 id="visitor-map-title">Visitor Map</h2>
+          <script
+            type="text/javascript"
+            id="clustrmaps"
+            src="//cdn.clustrmaps.com/map_v2.js?cl=7fa0e0&amp;w=361&amp;t=tt&amp;d=46o9oT8_1Rg0JFt-FBrd8CRKlVLFd1Sd78L__du-N8A&amp;co=ffffff&amp;cmo=7ae899&amp;cmn=eb647c&amp;ct=000000"
+          ></script>
+        </section>
       </div>
+    </main>
 
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        &copy; Copyright 2026 Enming Liang. Powered by
+        <a href="http://jekyllrb.com/" target="_blank" rel="noopener noreferrer">Jekyll</a>
+        with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by
+        <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.
+        Last updated: April 3, 2026.
+      </div>
+    </footer>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabs = Array.from(document.querySelectorAll(".research-tab"));
+        const panels = Array.from(document.querySelectorAll(".research-panel"));
 
-    <!-- <div class="topic-section">
-        <h6 class="topic-title">Extreme Weather Impact</h6>
-        <div class="paper-list">
-            <div class="paper-item">
-                <img src="/assets/img/papers/framework_update_2025.png" alt="Heatwave-induced Capacity Bottlenecks" class="paper-image">
-                <div class="paper-content">
-                    <a href="https://emliang.github.io/Heat-Analysis/" class="paper-link">
-                        European Electricity Grids May Exhibit Heatwave-induced Capacity Bottlenecks
-                    </a>
-                    <div class="authors">
-                        <span class="author-self">Enming Liang</span>,
-                        <a href="https://www.mhchen.com/" class="name-link">Minghua Chen</a>, and
-                        <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Srinivasan Keshav</a>.
-                    </div>
-                    <span class="venue">(under review) 2026</span>
-                </div>
-            </div>
-        </div>
-    </div> -->
+        function activateTab(targetId) {
+          tabs.forEach(function (tab) {
+            const isActive = tab.dataset.target === targetId;
+            tab.classList.toggle("is-active", isActive);
+            tab.setAttribute("aria-selected", String(isActive));
+          });
 
+          panels.forEach(function (panel) {
+            panel.hidden = panel.id !== targetId;
+          });
+        }
 
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            activateTab(tab.dataset.target);
+          });
+        });
 
+        activateTab("ml-opt");
+      });
+    </script>
 
-
-</div>
-
-</div>
-
-
-    </body>
-
-
-
-
-
-
-    </div>
-
-    
-  </article>
-
-  <div class="clearfix">
-    <hr>
-    <!-- <h4>Visitor Map</h4> -->
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=7fa0e0&w=361&t=tt&d=46o9oT8_1Rg0JFt-FBrd8CRKlVLFd1Sd78L__du-N8A&co=ffffff&cmo=7ae899&cmn=eb647c&ct=000000'></script>
-    </div>
-
-
-</div>
-
-
-
-
-    </div>
-
-<!-- Footer -->
-<footer class="fixed-bottom">
-  <div class="container mt-0">
-    &copy; Copyright 2026 Enming Liang.
-    Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-    Last updated: February 10, 2026.
-  </div>
-</footer>
-
-
-
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js"
+      integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"
+      integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/common.js"></script>
   </body>
-
-  <!-- Bootsrap & MDB scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/umd/popper.min.js" integrity="sha512-eUQ9hGdLjBjY3F41CScH3UX+4JDSI9zXeroz7hJ+RteoCaY+GP/LDoM8AO+Pt+DRFw3nXqsjh9Zsts8hnYv8/A==" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha512-M5KW3ztuIICmVIhjSqXe01oV2bpe248gOxqmlcYrEzAvws7Pw3z6BK0iGbrwvdrUQUhi3eXgtxp5I8PDo9YfjQ==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js" integrity="sha512-Mug9KHKmroQFMLm93zGrjhibM2z2Obg9l6qFG2qKjXEXkMp/VDkI4uju9m4QKPjWSwQ6O2qzZEnJDEeCw0Blcw==" crossorigin="anonymous"></script>
-
-  
-<!-- Mansory & imagesLoaded -->
-<script defer src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script defer src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-<script defer src="/assets/js/mansory.js" type="text/javascript"></script>
-
-
-  
-
-
-<!-- Load Common JS -->
-<script src="/assets/js/common.js"></script>
-
-
 </html>

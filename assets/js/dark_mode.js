@@ -1,6 +1,10 @@
 $(document).ready(function() {
     const mode_toggle = document.getElementById("light-toggle");
 
+    if (!mode_toggle) {
+        return;
+    }
+
     mode_toggle.addEventListener("click", function() {
         const temp = localStorage.getItem("theme");
         toggleTheme(temp);
