@@ -23,12 +23,12 @@
     <style>
       /* Design Tokens */
       :root {
-        --font-body: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         --font-heading: "Roboto Slab", Georgia, serif;
-        --page-bg: #f8fafc;
+        --page-bg: rgba(15, 23, 42, 0.025);
         --card-bg: #ffffff;
-        --card-bg-soft: #fbfcfd;
-        --card-bg-muted: #fcfdfe;
+        --card-bg-soft: rgba(15, 23, 42, 0.018);
+        --card-bg-muted: rgba(15, 23, 42, 0.012);
         --text-strong: #173042;
         --text-main: #2b4152;
         --text-muted: #617283;
@@ -40,7 +40,7 @@
         --accent: #1f6f90;
         --accent-soft: rgba(31, 111, 144, 0.1);
         --accent-strong: #145572;
-        --success-soft: #f5f9fb;
+        --success-soft: rgba(15, 23, 42, 0.04);
         --note-color: #8f3b35;
         --award-color: #315f88;
         --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.045);
@@ -181,7 +181,7 @@
         max-width: 44rem;
         margin-bottom: 1.45rem;
         font-size: 1.02rem;
-        line-height: 1.88;
+        line-height: 1.74;
       }
 
       .home-page .hero-copy .hero-copy-wide {
@@ -197,27 +197,31 @@
         width: min(100%, 258px);
         height: auto;
         border-radius: var(--radius-soft);
-        margin: 0 auto 1.15rem;
+        margin: 0 auto 1.5rem;
         display: block;
       }
 
       .home-page .profile-note {
         max-width: 15.5rem;
-        margin: 0 auto 1.1rem;
+        margin: 0 auto 1.9rem;
         color: var(--text-muted);
         font-size: 0.94rem;
         line-height: 1.72;
       }
 
       .home-page .social-links {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.55rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        max-width: 15.75rem;
+        margin: 0.85rem auto 0;
       }
 
       .home-page .social-link {
         color: var(--link-color);
         font-size: 1.04rem;
+        width: 74px;
         min-height: 46px;
         display: inline-flex;
         align-items: center;
@@ -339,7 +343,7 @@
       .home-page .research-nav {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.8rem;
+        gap: 2rem;
         margin-bottom: 1.45rem;
         justify-content: center;
       }
@@ -350,10 +354,10 @@
         background: #ffffff;
         color: var(--text-muted);
         min-width: 198px;
-        padding: 0.68rem 1.1rem;
+        padding: 0.68rem 1.4rem;
         border-radius: var(--radius-pill);
-        font-size: 0.96rem;
-        font-weight: 600;
+        font-size: 1.15rem;
+        font-weight: 650;
         text-align: center;
         cursor: pointer;
         transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease,
@@ -716,10 +720,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css"
     >
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons"
-    >
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,600,700|Roboto+Slab:100,300,400,500,700|Material+Icons"
+      >
     <link rel="stylesheet" href="/assets/css/main.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -931,9 +935,6 @@
 
         <section class="research-shell" aria-labelledby="research-title">
           <h2 id="research-title" class="research-heading">Selected Research</h2>
-          <p class="research-lead">
-            Publications are grouped by research direction to make the homepage easier to scan.
-          </p>
 
           <div class="research-nav" role="tablist" aria-label="Research areas">
             <button
