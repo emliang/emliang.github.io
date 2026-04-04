@@ -79,14 +79,14 @@
         font-family: var(--font-heading);
         color: var(--text-strong);
         font-size: 1.42rem;
-        font-weight: 700;
-        letter-spacing: -0.01em;
+        font-weight: 620;
+        letter-spacing: -0.008em;
       }
 
       .home-page .site-nav .nav-link {
         color: var(--text-strong);
         font-size: 1.08rem;
-        font-weight: 600;
+        font-weight: 520;
         padding: 0.45rem 0.9rem;
         border-radius: var(--radius-pill);
         transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
@@ -101,29 +101,6 @@
 
       .home-page .site-nav-links {
         gap: 0.45rem;
-      }
-
-      .home-page .toggle-container {
-        margin-left: 0.45rem;
-      }
-
-      .home-page .toggle-container a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 46px;
-        height: 46px;
-        color: var(--text-strong);
-        border-radius: 999px;
-        cursor: pointer;
-        font-size: 1.12rem;
-      }
-
-      .home-page .toggle-container a:hover,
-      .home-page .toggle-container a:focus {
-        color: var(--accent);
-        background-color: var(--accent-soft);
-        text-decoration: none;
       }
 
       .home-page main {
@@ -164,16 +141,17 @@
         margin: 0 0 0.55rem;
         color: var(--text-strong);
         font-size: 2.14rem;
-        font-weight: 700;
+        font-weight: 620;
         line-height: 1.08;
-        letter-spacing: -0.025em;
+        letter-spacing: -0.012em;
       }
 
       .home-page .hero-copy .hero-subtitle {
+        font-family: var(--font-heading);
         margin: 0 0 2rem;
         color: var(--accent-strong);
         font-size: 1.08rem;
-        font-weight: 700;
+        font-weight: 620;
         line-height: 1.35;
       }
 
@@ -202,6 +180,7 @@
       }
 
       .home-page .profile-note {
+        font-family: var(--font-body);
         max-width: 15.5rem;
         margin: 0 auto 1.9rem;
         color: var(--text-muted);
@@ -244,7 +223,13 @@
       .home-page .project-link {
         color: var(--link-color);
         text-decoration: none;
-        text-underline-offset: 0.16em;
+        transition: color 0.18s ease, text-decoration-color 0.18s ease,
+          text-decoration-thickness 0.18s ease;
+      }
+
+      .home-page .name-link:visited,
+      .home-page .project-link:visited {
+        color: #355f81;
       }
 
       .home-page .name-link:hover,
@@ -252,7 +237,30 @@
       .home-page .name-link:focus,
       .home-page .project-link:focus {
         color: var(--link-hover);
-        text-decoration: underline;
+        text-decoration-line: underline;
+        text-underline-offset: 0.12em;
+        text-decoration-color: rgba(22, 72, 105, 0.65);
+        text-decoration-thickness: 1.5px;
+      }
+
+      .home-page main a:not(.paper-link):not(.social-link):not(.nav-link) {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.18s ease, text-decoration-color 0.18s ease,
+          text-decoration-thickness 0.18s ease;
+      }
+
+      .home-page main a:not(.paper-link):not(.social-link):not(.nav-link):visited {
+        color: #355f81;
+      }
+
+      .home-page main a:not(.paper-link):not(.social-link):not(.nav-link):hover,
+      .home-page main a:not(.paper-link):not(.social-link):not(.nav-link):focus {
+        color: var(--link-hover);
+        text-decoration-line: underline;
+        text-underline-offset: 0.12em;
+        text-decoration-color: rgba(22, 72, 105, 0.65);
+        text-decoration-thickness: 1.5px;
       }
 
       /* Embedded Media */
@@ -333,6 +341,8 @@
         margin: 0 0 0.35rem;
         color: var(--text-strong);
         font-size: 1.36rem;
+        font-weight: 620;
+        letter-spacing: -0.008em;
       }
 
       .home-page .research-lead {
@@ -350,6 +360,7 @@
 
       .home-page .research-tab {
         appearance: none;
+        font-family: var(--font-heading);
         border: 1px solid var(--line-soft);
         background: #ffffff;
         color: var(--text-muted);
@@ -357,7 +368,8 @@
         padding: 0.68rem 1.4rem;
         border-radius: var(--radius-pill);
         font-size: 1.15rem;
-        font-weight: 650;
+        font-weight: 620;
+        letter-spacing: -0.008em;
         text-align: center;
         cursor: pointer;
         transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease,
@@ -399,7 +411,7 @@
         margin: 0 0 1rem;
         color: var(--text-strong);
         font-size: 1.08rem;
-        font-weight: 600;
+        font-weight: 620;
       }
 
       .home-page .topic-title::before {
@@ -450,12 +462,22 @@
         font-weight: 600;
         line-height: 1.5;
         text-decoration: none;
+        text-underline-offset: 0.12em;
+        text-decoration-thickness: 1px;
+        transition: color 0.18s ease, text-decoration-color 0.18s ease,
+          text-decoration-thickness 0.18s ease;
+      }
+
+      .home-page .paper-link:visited {
+        color: #2b4d68;
       }
 
       .home-page .paper-link:hover,
       .home-page .paper-link:focus {
         color: var(--link-hover);
         text-decoration: underline;
+        text-decoration-color: rgba(22, 72, 105, 0.75);
+        text-decoration-thickness: 2px;
       }
 
       .home-page .authors {
@@ -493,6 +515,7 @@
       }
 
       .home-page .visitor-shell h2 {
+        font-family: var(--font-heading);
         margin: 0 0 0.8rem;
         color: var(--text-strong);
         font-size: 1rem;
@@ -527,16 +550,6 @@
 
         .home-page .site-nav .navbar-brand {
           font-size: 1.18rem;
-        }
-
-        .home-page .toggle-container {
-          margin-left: 0;
-        }
-
-        .home-page .toggle-container a {
-          width: 42px;
-          height: 42px;
-          font-size: 1rem;
         }
 
         .home-page .site-nav .navbar-toggler {
@@ -727,17 +740,13 @@
     <link rel="stylesheet" href="/assets/css/main.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/dark_mode.js"></script>
   </head>
 
   <body class="fixed-top-nav home-page">
     <header>
       <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top site-nav">
         <div class="container page-container">
-          <a class="navbar-brand title font-weight-lighter" href="/">
-            <span class="font-weight-bold">Enming</span> Liang
-          </a>
+          <a class="navbar-brand title" href="/">LEM</a>
 
           <button
             class="navbar-toggler collapsed ml-auto"
@@ -758,14 +767,6 @@
             <ul class="navbar-nav ml-auto align-items-center site-nav-links">
               <li class="nav-item">
                 <a class="nav-link" href="/news/">News</a>
-              </li>
-              <li class="nav-item">
-                <div class="toggle-container">
-                  <a id="light-toggle" aria-label="Toggle dark mode" tabindex="0">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                  </a>
-                </div>
               </li>
             </ul>
           </div>
@@ -859,7 +860,7 @@
               <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a>
               project, working with
               <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>,
-              focusing on applying machine learning to power grid operation. I also visited the
+              focusing on applying ML to power grid operation. I also visited the
               <a href="https://www.cst.cam.ac.uk/" class="project-link">University of Cambridge</a>,
               working with
               <a

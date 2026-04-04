@@ -1,45 +1,49 @@
 :root {
-  --subpage-bg: #f5f7fb;
+  --subpage-bg: rgba(15, 23, 42, 0.025);
   --subpage-card-bg: #ffffff;
   --subpage-text-strong: #173042;
-  --subpage-text-main: #2c3e50;
-  --subpage-text-muted: #5f6f7d;
-  --subpage-accent: #2698ba;
-  --subpage-accent-soft: rgba(38, 152, 186, 0.12);
-  --subpage-line: #e8eef5;
-  --subpage-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --subpage-text-main: #2b4152;
+  --subpage-text-muted: #617283;
+  --subpage-accent: #1f6f90;
+  --subpage-accent-soft: rgba(31, 111, 144, 0.1);
+  --subpage-line: #d7e0e8;
+  --subpage-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
 }
 
 body.subpage {
-  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.7;
   color: var(--subpage-text-main);
   background: var(--subpage-bg);
 }
 
 body.subpage .page-container {
-  max-width: 1040px;
+  max-width: 960px;
 }
 
 body.subpage .site-nav {
-  background-color: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid #e7edf3;
-  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  background-color: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--subpage-line);
+  box-shadow: var(--subpage-shadow);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 body.subpage .site-nav .navbar-brand {
   color: var(--subpage-text-strong);
-  font-size: 1.02rem;
-  letter-spacing: 0.02em;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 1.42rem;
+  font-weight: 620;
+  letter-spacing: -0.008em;
 }
 
 body.subpage .site-nav .nav-link {
-  color: var(--subpage-text-main);
-  font-size: 0.96rem;
-  font-weight: 500;
-  padding: 0.35rem 0.72rem;
+  color: var(--subpage-text-strong);
+  font-size: 1.08rem;
+  font-weight: 520;
+  padding: 0.45rem 0.9rem;
   border-radius: 999px;
   transition: color 0.2s ease, background-color 0.2s ease;
 }
@@ -54,43 +58,21 @@ body.subpage .site-nav .nav-link.active {
 }
 
 body.subpage .site-nav-links {
-  gap: 0.3rem;
-}
-
-body.subpage .toggle-container {
-  margin-left: 0.35rem;
-}
-
-body.subpage .toggle-container a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  color: var(--subpage-text-main);
-  border-radius: 999px;
-  cursor: pointer;
-}
-
-body.subpage .toggle-container a:hover,
-body.subpage .toggle-container a:focus {
-  color: var(--subpage-accent);
-  background-color: var(--subpage-accent-soft);
-  text-decoration: none;
+  gap: 0.45rem;
 }
 
 body.subpage main {
-  padding-top: 0.9rem;
+  padding-top: 0.65rem;
 }
 
 body.subpage .page-shell,
 body.subpage .post {
-  padding: 1.65rem 1.75rem;
+  padding: 1.2rem;
   margin-bottom: 2rem;
   border: 1px solid var(--subpage-line);
-  border-radius: 18px;
+  border-radius: 16px;
   background: var(--subpage-card-bg);
-  box-shadow: var(--subpage-shadow);
+  box-shadow: none;
 }
 
 body.subpage .post-header {
@@ -100,11 +82,12 @@ body.subpage .post-header {
 
 body.subpage .post-title,
 body.subpage h1 {
+  font-family: "Roboto Slab", Georgia, serif;
   margin: 0 0 0.35rem;
   color: var(--subpage-text-strong);
   font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 620;
+  letter-spacing: -0.012em;
 }
 
 body.subpage .post-description,
@@ -114,17 +97,38 @@ body.subpage .page-lead {
   font-size: 1rem;
 }
 
+body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn) {
+  color: var(--subpage-accent);
+  text-decoration: none;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease,
+    text-decoration-thickness 0.18s ease;
+}
+
+body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):visited {
+  color: #355f81;
+}
+
+body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):hover,
+body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):focus {
+  color: #164869;
+  text-decoration-line: underline;
+  text-underline-offset: 0.12em;
+  text-decoration-color: rgba(22, 72, 105, 0.65);
+  text-decoration-thickness: 1.5px;
+}
+
 body.subpage .topic-section + .topic-section {
   margin-top: 1.8rem;
 }
 
 body.subpage .topic-title {
+  font-family: "Roboto Slab", Georgia, serif;
   position: relative;
   padding-left: 0.8rem;
   margin: 0 0 1rem;
   color: var(--subpage-text-strong);
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 620;
 }
 
 body.subpage .topic-title::before {
@@ -140,18 +144,19 @@ body.subpage .topic-title::before {
 
 body.subpage .paper-list {
   display: grid;
-  gap: 0.9rem;
+  gap: 1rem;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 body.subpage .paper-item {
-  padding: 0.95rem 1rem;
-  border-left: 4px solid #d9e7f0;
-  border-radius: 14px;
-  background: #ffffff;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--subpage-line);
+  border-left: 3px solid #cfdee7;
+  border-radius: 12px;
+  background: #fcfdfe;
+  box-shadow: none;
 }
 
 body.subpage .paper-content {
@@ -161,21 +166,33 @@ body.subpage .paper-content {
 body.subpage .paper-link,
 body.subpage .venue {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.45rem;
   color: var(--subpage-text-strong);
-  font-size: 1rem;
+  font-size: 0.98rem;
+  font-weight: 600;
   line-height: 1.5;
+  text-underline-offset: 0.12em;
+  text-decoration-thickness: 1px;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease,
+    text-decoration-thickness 0.18s ease;
+}
+
+body.subpage .paper-link:visited {
+  color: #2b4d68;
 }
 
 body.subpage .paper-link:hover {
   color: var(--subpage-accent);
+  text-decoration-color: rgba(31, 111, 144, 0.75);
+  text-decoration-thickness: 2px;
 }
 
 body.subpage .authors,
 body.subpage .caption,
 body.subpage .image-caption {
   color: var(--subpage-text-muted);
-  font-size: 0.93rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 body.subpage .image-container {
@@ -262,14 +279,36 @@ body.subpage .publications {
     padding-right: 12px;
   }
 
+  body.subpage .site-nav {
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+  }
+
   body.subpage .page-shell,
   body.subpage .post {
     padding: 1.2rem;
   }
 
   body.subpage .site-nav-links {
-    gap: 0.2rem;
-    padding-top: 0.7rem;
+    gap: 0.45rem;
+    padding-top: 0.15rem;
+    align-items: stretch !important;
+  }
+
+  body.subpage .site-nav .navbar-brand {
+    font-size: 1.18rem;
+  }
+
+  body.subpage .site-nav .navbar-toggler {
+    padding: 0.3rem 0.5rem;
+    border-color: #d6e2eb;
+    border-radius: 12px;
+  }
+
+  body.subpage .site-nav .navbar-collapse {
+    margin-top: 0.7rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid #e8eef5;
   }
 
   body.subpage .post-title,
