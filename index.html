@@ -189,19 +189,18 @@
       }
 
       .home-page .social-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-        max-width: 15.75rem;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 0.65rem;
+        max-width: 15.25rem;
         margin: 0.85rem auto 0;
       }
 
       .home-page .social-link {
         color: var(--link-color);
         font-size: 1.04rem;
-        width: 74px;
-        min-height: 46px;
+        width: 100%;
+        min-height: 44px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -533,7 +532,7 @@
         }
 
         .home-page .social-links {
-          grid-template-columns: repeat(5, minmax(0, 1fr));
+          grid-template-columns: repeat(4, minmax(0, 1fr));
         }
       }
 
@@ -626,10 +625,6 @@
           margin: 0 auto;
         }
 
-        .home-page .social-links {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-
         .home-page .profile-embed {
           width: 100%;
           max-width: 100%;
@@ -691,7 +686,7 @@
         }
 
         .home-page .social-link {
-          min-height: 46px;
+          min-height: 44px;
         }
 
         .home-page .media-row,
@@ -786,8 +781,9 @@
             <aside class="profile-embed" aria-label="Profile summary">
               <img class="profile-image" src="/assets/img/self.png" alt="Portrait of Enming Liang">
               <p class="profile-note">
-                Working on constrained learning, optimization theory, mobility systems, and power
-                systems.
+                <!-- Working on constrained learning, optimization theory, mobility systems, and power
+                systems. -->
+                Research in constrained learning, optimization theory, mobility systems, and power systems.
               </p>
 
               <div class="social-links" aria-label="Profile links">
@@ -843,58 +839,34 @@
             </aside>
 
             <p>
-              I am a <i>Research Assistant Professor</i> at City University of Hong Kong (2025-). 
-              I received my Ph.D. (2021-2024) from the Department of Data Science, City University of Hong Kong, 
-              supervised by <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>.
-              My Ph.D. thesis received the <a href="https://energy.acm.org/sigenergy-doctoral-dissertation-award-2026-winners/" class="name-link">2026 ACM SIGEnergy Doctoral Dissertation Award Honorable Mention</a>.
-              I received my B.Eng. (2016-2020) from the School of Intelligent Systems Engineering, Sun Yat-sen University, supervised by
-              <a
-                href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en"
-                class="name-link"
-              >Prof. Renxin Zhong</a>.
+              I am a <i>Research Assistant Professor</i> at City University of Hong Kong. My research
+              lies at the intersection of machine learning and optimization, with a focus on
+              methods that respect hard constraints and scale to real decision-making systems.
+              My work is motivated by applications in power grids, mobility systems, and
+              climate resilience.
             </p>
 
             <p>
-              I have been a member of the
-              <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a>
-              project, working with
-              <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>,
-              focusing on applying ML to power grid operation. I also visited the University of Cambridge,
-              working with
-              <a
-                href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page"
-                class="name-link"
-              >Prof. Srinivasan Keshav</a>
-              on power grid resilience under extreme weather, and contributed to AI for OPF
-              tutorials in the
-              <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a>
-              summer school with
-              <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+              I received my Ph.D. from the Department of Data Science at City University of
+              Hong Kong, supervised by
+              <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>.
+              My Ph.D. thesis received the
+              <a href="https://energy.acm.org/sigenergy-doctoral-dissertation-award-2026-winners/" class="name-link">2026 ACM SIGEnergy Doctoral Dissertation Award Honorable Mention</a>.
+              I received my B.Eng. from Sun Yat-sen University, supervised by
+              <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en" class="name-link">Prof. Renxin Zhong</a>.
             </p>
 
             <p>
-              I am also collaborating with DiDi,
-              <!-- <a href="https://sts.didiglobal.com/" class="project-link">DiDi</a>, -->
-              focusing on machine learning for improving urban mobility-on-demand systems. I
-             was a research intern at
-              <!-- <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/" -->
-                <!-- class="project-link" >MSRA</a> -->
-                MSRA
-              (Beijing, 2022) and
-              <!-- <a href="http://dev3.noahlab.com.hk/" class="project-link">Noah's Ark Lab</a> -->
-              Noah's Ark Lab
-              (Shenzhen, 2021), focusing on RL and ML for logistics and wireless optimization.
-            </p>
-
-            <p class="hero-copy-wide">
-              My research lies at the intersection of machine learning and optimization, with
-              applications in mobility and energy systems. I developed Homeomorphism methods as a
-              framework for efficient learning and optimization with hard constraints, including
+              My recent work develops homeomorphism-based methods for constrained learning
+              and optimization, including
               <a href="http://jmlr.org/papers/v25/23-1577.html" class="name-link">Homeomorphic Projection</a>,
               <a href="https://openreview.net/forum?id=bP5cU0OYSn" class="name-link">Homeomorphic Optimization</a>,
               and
               <a href="https://openreview.net/pdf?id=vxq1OnaAMq" class="name-link">Gauge Flow Matching</a>.
+              These methods aim to make neural models feasible, efficient, and reliable when
+              optimization constraints cannot be ignored.
             </p>
+
 
             <div class="media-row">
               <div class="example">
@@ -919,6 +891,42 @@
                 </p>
               </div>
             </div>
+
+
+            <p>
+              I have worked on the
+              <a href="https://energy.hosting.acm.org/wiki/index.php/ML_OPF_wiki" class="project-link">DeepOPF</a>
+              project with
+              <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>,
+              focusing on machine learning methods for power-grid operation. I also visited
+              the University of Cambridge to work with
+              <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>
+              on power-grid resilience under extreme weather, and contributed to the AI for
+              Optimal Power Flow tutorial at the
+              <a href="https://www.climatechange.ai/" class="project-link">Climate Change AI</a>
+              Summer School with
+              <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>.
+            </p>
+
+
+            <p>
+              I also collaborate with DiDi on machine learning methods for urban
+              mobility-on-demand systems. Previously, I was a research intern at MSRA
+              (Beijing, 2022) and Noah's Ark Lab (Shenzhen, 2021), working on reinforcement
+              learning and machine learning for logistics and wireless optimization.
+            </p>
+
+            <!-- <p>
+              I am also collaborating with DiDi,
+              <a href="https://sts.didiglobal.com/" class="project-link">DiDi</a>,
+              focusing on machine learning for improving urban mobility-on-demand systems. I
+             was a research intern at
+              <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-asia/"
+                class="project-link" >MSRA</a>
+                MSRA (Beijing, 2022) and
+              <a href="http://dev3.noahlab.com.hk/" class="project-link">Noah's Ark Lab</a>
+              Noah's Ark Lab (Shenzhen, 2021), focusing on RL and ML for logistics and wireless optimization.
+            </p> -->
 
             <p class="hero-copy-wide">
               Please feel free to contact me if you want to discuss possible collaborations or
