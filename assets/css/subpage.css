@@ -195,6 +195,51 @@ body.subpage .image-caption {
   line-height: 1.55;
 }
 
+body.subpage .talk-list {
+  display: grid;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid var(--subpage-line);
+}
+
+body.subpage .talk-item {
+  display: grid;
+  grid-template-columns: 7.3rem minmax(0, 1fr);
+  gap: 1rem;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid var(--subpage-line);
+}
+
+body.subpage .talk-date {
+  color: var(--subpage-text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+body.subpage .talk-detail,
+body.subpage .talk-title,
+body.subpage .talk-meta {
+  display: block;
+}
+
+body.subpage .talk-title {
+  color: var(--subpage-text-strong);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+body.subpage .talk-meta {
+  margin-top: 0.18rem;
+  color: var(--subpage-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.48;
+}
+
 body.subpage .image-container {
   margin-top: 0.75rem;
   text-align: center;
@@ -314,5 +359,11 @@ body.subpage .publications {
   body.subpage .post-title,
   body.subpage h1 {
     font-size: 1.8rem;
+  }
+
+  body.subpage .talk-item {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+    padding: 0.85rem 0;
   }
 }
