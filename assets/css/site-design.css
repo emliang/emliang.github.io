@@ -122,6 +122,11 @@ body.home-page .background-shell{margin-bottom:40px}
 body.subpage .page-shell{background:transparent;border:0;border-radius:0;padding:30px 32px}
 body.subpage .post-title,body.subpage h1{font-family:var(--serif)}
 body.subpage .topic-title{background:var(--wash);border-left:3px solid var(--blue);border-radius:0 5px 5px 0;padding:10px 14px;color:var(--ink)}
+body.subpage .resource-slide{display:grid;grid-template-columns:minmax(0,390px) minmax(0,1fr);gap:30px;align-items:center;margin:20px 0 0}
+body.subpage .resource-slide-cover{display:block}
+body.subpage .resource-slide-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;border:1px solid var(--line);border-radius:6px;background:#fff}
+body.subpage .resource-slide h3{font-family:var(--serif);font-size:20px;line-height:1.4;color:var(--ink);margin:0 0 12px}
+body.subpage .resource-slide figcaption{font-size:14px;line-height:1.6}
 .site-footer{background:var(--page-bg);border-color:var(--line)}
 .site-footer .container{max-width:1060px}
 @media(max-width:800px){
@@ -187,6 +192,8 @@ body.subpage .page-shell{padding:24px 20px}
 body.subpage h1{font-size:28px}
 body.subpage .page-lead{font-size:15px;margin-bottom:25px}
 body.subpage .topic-title{font-size:16px}
+body.subpage .resource-slide{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:16px}
+body.subpage .resource-slide h3{font-size:17px;margin-bottom:8px}
 body.subpage .talk-item{grid-template-columns:minmax(0,1fr);gap:6px;padding:16px 0}
 body.subpage .talk-title{font-size:15px;line-height:1.6;overflow-wrap:anywhere}
 body.subpage .talk-meta{font-size:13px}
