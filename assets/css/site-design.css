@@ -120,7 +120,7 @@ body.home-page .overview-shell>p,body.home-page .background-shell>p{font-size:15
 body.home-page .overview-shell>p:last-child,body.home-page .background-shell>p:last-child{margin-bottom:0}
 body.home-page .media-row{margin:24px auto 0;gap:32px;max-width:760px}
 body.home-page .background-shell{margin-bottom:40px}
-body.subpage .page-shell{background:#fff;border:1px solid var(--line);border-radius:12px;padding:30px 32px}
+body.subpage .page-shell{background:transparent;border:0;border-radius:0;padding:30px 32px}
 body.subpage .post-title,body.subpage h1{font-family:var(--serif)}
 body.subpage .topic-title{background:var(--wash);border-left:3px solid var(--blue);border-radius:0 5px 5px 0;padding:10px 14px;color:var(--ink)}
 .site-footer{background:var(--page-bg);border-color:var(--line)}
@@ -185,7 +185,7 @@ body.home-page .slide-preview{min-width:0}
 body.home-page .slide-preview img{max-width:100%}
 body.home-page figcaption{font-size:13px;line-height:1.6;margin-top:10px}
 body.home-page .background-shell{margin-bottom:28px}
-body.subpage .page-shell{padding:24px 20px;border-radius:12px}
+body.subpage .page-shell{padding:24px 20px}
 body.subpage h1{font-size:28px}
 body.subpage .page-lead{font-size:15px;margin-bottom:25px}
 body.subpage .topic-title{font-size:16px}
