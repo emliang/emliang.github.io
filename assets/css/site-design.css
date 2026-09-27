@@ -166,8 +166,8 @@ body.home-page .paper-content>.authors+.venue{font-size:12px;margin-top:0}
 body.home-page .paper-content .notes{font-size:12px}
 body.home-page .paper-actions{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:8px;font-size:13px}
 body.home-page .paper-actions a{display:inline-flex;align-items:center;min-height:38px}
-body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:start;width:min(100%,280px);margin-top:0;padding:0;border:0;background:transparent}
-body.home-page .paper-image{display:block;width:100%;height:auto;max-height:110px;object-fit:contain;object-position:left center;margin:0}
+body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:stretch;width:100%;max-width:none;margin-top:0;padding:10px 12px;border:1px solid #e6edf1;border-radius:6px;background:#fff}
+body.home-page .paper-image{display:block;width:100%;height:auto;max-height:150px;object-fit:contain;margin:auto}
 body.home-page .overview-shell,body.home-page .background-shell{padding:22px 20px;margin-top:20px;border-radius:12px}
 body.home-page .overview-shell h2,body.home-page .background-shell h2{font-size:21px;margin-bottom:16px}
 body.home-page .overview-shell>p,body.home-page .background-shell>p{font-size:14.5px;line-height:1.8}
