@@ -1,13 +1,13 @@
 :root {
-  --subpage-bg: rgba(15, 23, 42, 0.025);
+  --subpage-bg: #f8f7f3;
   --subpage-card-bg: #ffffff;
-  --subpage-text-strong: #173042;
-  --subpage-text-main: #2b4152;
-  --subpage-text-muted: #617283;
-  --subpage-accent: #1f6f90;
-  --subpage-accent-soft: rgba(31, 111, 144, 0.1);
-  --subpage-line: #d7e0e8;
-  --subpage-shadow: 0 8px 24px rgba(15, 23, 42, 0.045);
+  --subpage-text-strong: #24363a;
+  --subpage-text-main: #405157;
+  --subpage-text-muted: #65767a;
+  --subpage-accent: #2c6d77;
+  --subpage-accent-soft: rgba(44, 109, 119, 0.1);
+  --subpage-line: #e1dcd3;
+  --subpage-shadow: 0 8px 24px rgba(59, 52, 42, 0.04);
 }
 
 body.subpage {
@@ -93,7 +93,7 @@ body.subpage h1 {
 body.subpage .post-description,
 body.subpage .page-lead {
   margin: 0 0 1.5rem;
-  color: #4a7186;
+  color: #5d7376;
   font-size: 1rem;
 }
 
@@ -105,15 +105,15 @@ body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn)
 }
 
 body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):visited {
-  color: #355f81;
+  color: #365d64;
 }
 
 body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):hover,
 body.subpage main a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn):focus {
-  color: #164869;
+  color: #21535d;
   text-decoration-line: underline;
   text-underline-offset: 0.12em;
-  text-decoration-color: rgba(22, 72, 105, 0.65);
+  text-decoration-color: rgba(33, 83, 93, 0.65);
   text-decoration-thickness: 1.5px;
 }
 
@@ -153,9 +153,9 @@ body.subpage .paper-list {
 body.subpage .paper-item {
   padding: 1rem 1.1rem;
   border: 1px solid var(--subpage-line);
-  border-left: 3px solid #cfdee7;
+  border-left: 3px solid #d7dfdb;
   border-radius: 12px;
-  background: #fcfdfe;
+  background: #fdfcf9;
   box-shadow: none;
 }
 
@@ -178,12 +178,12 @@ body.subpage .venue {
 }
 
 body.subpage .paper-link:visited {
-  color: #2b4d68;
+  color: #365d64;
 }
 
 body.subpage .paper-link:hover {
   color: var(--subpage-accent);
-  text-decoration-color: rgba(31, 111, 144, 0.75);
+  text-decoration-color: rgba(44, 109, 119, 0.75);
   text-decoration-thickness: 2px;
 }
 
@@ -284,7 +284,7 @@ body.subpage .projects .card-item .card {
   height: 100%;
   border: 1px solid var(--subpage-line);
   border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 16px rgba(59, 52, 42, 0.04);
   overflow: hidden;
 }
 
@@ -346,14 +346,14 @@ body.subpage .publications {
 
   body.subpage .site-nav .navbar-toggler {
     padding: 0.3rem 0.5rem;
-    border-color: #d6e2eb;
+    border-color: #e1dcd3;
     border-radius: 12px;
   }
 
   body.subpage .site-nav .navbar-collapse {
     margin-top: 0.7rem;
     padding-top: 0.45rem;
-    border-top: 1px solid #e8eef5;
+    border-top: 1px solid #e8e3db;
   }
 
   body.subpage .post-title,
