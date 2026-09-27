@@ -36,7 +36,7 @@ body.home-page main,body.subpage main{padding-top:42px}
 .home-page .topic-section+.topic-section{margin-top:36px}
 .home-page .paper-item{display:grid;grid-template-columns:280px minmax(0,1fr);column-gap:28px;padding:23px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;align-items:center}
 .home-page .paper-figure{display:block;width:100%;border-radius:5px}
-.home-page .paper-image{display:block;width:100%;height:auto;max-height:166px;object-fit:contain;background:#fff;border:0;border-radius:0}
+.home-page .paper-image{display:block;width:100%;height:auto;max-height:166px;object-fit:contain;background:transparent;border:0;border-radius:0;mix-blend-mode:multiply}
 .home-page .paper-link{display:block;color:var(--ink);font-size:17px;line-height:1.45;font-weight:600;margin-bottom:7px}
 .home-page .paper-link:hover{color:var(--blue);text-decoration:underline;text-underline-offset:3px}
 .home-page .authors{font-size:14px;line-height:1.55;color:var(--muted);margin-bottom:4px}
@@ -174,7 +174,7 @@ body.home-page .paper-content>.authors+.venue{font-size:12px;margin-top:0}
 body.home-page .paper-content .notes{font-size:12px}
 body.home-page .paper-actions{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:8px;font-size:13px}
 body.home-page .paper-actions a{display:inline-flex;align-items:center;min-height:38px}
-body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:stretch;width:100%;max-width:none;margin-top:0;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:#fff}
+body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:stretch;width:100%;max-width:none;margin-top:0;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:transparent}
 body.home-page .paper-image{display:block;width:100%;height:auto;max-height:150px;object-fit:contain;margin:auto}
 body.home-page .overview-shell,body.home-page .background-shell{padding:22px 20px 0;margin-top:24px}
 body.home-page .overview-shell h2,body.home-page .background-shell h2{font-size:21px;margin-bottom:16px}
