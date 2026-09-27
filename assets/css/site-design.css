@@ -81,7 +81,7 @@ body.subpage .talk-meta{font-size:14px}
 
 
 /* V2: distinguish the page, major sections, research topics, and paper metadata. */
-body.home-page,body.subpage{background:#f2f5f7}
+body.home-page,body.subpage{background:#f7f9fa}
 body.home-page .page-container,body.subpage .page-container{max-width:1060px}
 body.home-page main,body.subpage main{padding-top:32px}
 body.home-page .intro-shell{background:#fff;border:1px solid #dce5ea;border-radius:16px;box-shadow:0 8px 28px rgba(23,48,66,.035);overflow:hidden;margin-bottom:28px}
@@ -94,13 +94,13 @@ body.home-page .profile-image{width:204px;border-radius:10px;box-shadow:0 5px 18
 body.home-page .profile-links{align-items:center;gap:10px 20px}
 body.home-page .profile-links a:first-child{background:#1d6786;color:#fff;border-radius:5px;padding:7px 12px;line-height:1.5}
 body.home-page .profile-links a:first-child:hover{background:#175774;text-decoration:none}
-body.home-page .research-shell{background:#fff;border:1px solid #dce5ea;border-radius:16px;box-shadow:0 8px 28px rgba(23,48,66,.025);padding:20px 32px 12px;margin-bottom:32px}
+body.home-page .research-shell{background:transparent;border:0;border-top:1px solid #dce5ea;border-radius:0;box-shadow:none;padding:26px 32px 0;margin-bottom:0}
 body.home-page h2{font-size:28px;letter-spacing:-.5px;color:#173042}
 body.home-page .research-heading{margin-bottom:14px}
 body.home-page .research-nav{margin-bottom:16px;gap:28px}
 body.home-page .research-tab{font-size:16px;padding:0 4px 13px}
 body.home-page .research-tab.is-active{font-weight:600}
-body.home-page .topic-title{font-size:18px;font-weight:600;color:#24516a;line-height:1.4;padding:11px 15px;border-left:3px solid #4e869e;background:#f0f5f8;border-radius:0 5px 5px 0;margin:0 0 5px}
+body.home-page .topic-title{font-size:18px;font-weight:600;color:#24516a;line-height:1.4;padding:5px 0 5px 14px;border-left:3px solid #4e869e;background:transparent;border-radius:0;margin:0 0 8px}
 body.home-page .topic-section+.topic-section{margin-top:26px}
 body.home-page .paper-item{grid-template-columns:260px minmax(0,1fr);column-gap:28px;padding:20px 2px;border-bottom-color:#e5ebef}
 body.home-page .paper-item:last-child{border-bottom:0}
@@ -110,7 +110,7 @@ body.home-page .author-self{color:#405463;font-weight:600}
 body.home-page .paper-content>.authors+.venue{display:inline-block;background:#eaf2f6;color:#285b73;padding:2px 7px;border-radius:4px;font-size:12px;font-weight:600;letter-spacing:.15px;margin-top:2px}
 body.home-page .paper-content .notes{color:#92583d;font-size:13px;font-weight:500}
 body.home-page .paper-actions{margin-top:10px;font-size:13px}
-body.home-page .overview-shell,body.home-page .background-shell{background:#fff;border:1px solid #dce5ea;border-radius:12px;padding:28px 32px;margin-top:28px}
+body.home-page .overview-shell,body.home-page .background-shell{background:transparent;border:0;border-top:1px solid #dce5ea;border-radius:0;padding:30px 32px 0;margin-top:40px}
 body.home-page .overview-shell h2,body.home-page .background-shell h2{font-size:23px;color:#3b5668;margin-bottom:18px}
 body.home-page .overview-shell>p,body.home-page .background-shell>p{font-size:15.5px;color:#526673}
 body.home-page .overview-shell>p:last-child,body.home-page .background-shell>p:last-child{margin-bottom:0}
@@ -118,7 +118,7 @@ body.home-page .media-row{margin:24px auto 0;gap:32px;max-width:760px}
 body.home-page .background-shell{margin-bottom:40px}
 body.subpage .page-shell{background:#fff;border:1px solid #dce5ea;border-radius:14px;padding:30px 32px}
 body.subpage .topic-title{background:#f0f5f8;border-left:3px solid #4e869e;border-radius:0 5px 5px 0;padding:10px 14px;color:#24516a}
-.site-footer{background:#f2f5f7;border-color:#dce5ea}
+.site-footer{background:#f7f9fa;border-color:#dce5ea}
 .site-footer .container{max-width:1060px}
 @media(max-width:800px){
 body.home-page .hero{grid-template-columns:minmax(0,1fr) 160px;padding:28px;gap:28px}
@@ -150,12 +150,12 @@ body.home-page .profile-links a,body.home-page .profile-links a:first-child{disp
 body.home-page .profile-links a:first-child{background:#1d6786;color:#fff;border-color:#1d6786}
 body.home-page .profile-links a:hover{background:#eef5f8}
 body.home-page .profile-links a:first-child:hover{background:#175774}
-body.home-page .research-shell{border-radius:12px;padding:22px 18px 4px;margin-bottom:20px}
+body.home-page .research-shell{padding:22px 18px 0}
 body.home-page h2{font-size:24px;line-height:1.3}
 body.home-page .research-heading{margin-bottom:18px}
 body.home-page .research-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:22px}
 body.home-page .research-tab{width:100%;min-width:0;min-height:46px;font-size:14px;line-height:1.4;padding:0 3px 10px;text-align:center;white-space:normal}
-body.home-page .topic-title{font-size:15px;line-height:1.5;padding:9px 11px;margin-bottom:0}
+body.home-page .topic-title{font-size:15px;line-height:1.5;padding:5px 0 5px 10px;margin-bottom:0}
 body.home-page .topic-section+.topic-section{margin-top:20px}
 body.home-page .paper-item{grid-template-columns:minmax(0,1fr);row-gap:10px;column-gap:0;padding:22px 0 24px;align-items:start}
 body.home-page .paper-link{grid-column:1;grid-row:1;align-self:start;font-size:16px;line-height:1.5;margin:0;overflow-wrap:break-word}
@@ -168,7 +168,7 @@ body.home-page .paper-actions{display:flex;flex-wrap:wrap;gap:6px 20px;margin-to
 body.home-page .paper-actions a{display:inline-flex;align-items:center;min-height:38px}
 body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:stretch;width:100%;max-width:none;margin-top:0;padding:10px 12px;border:1px solid #e6edf1;border-radius:6px;background:#fff}
 body.home-page .paper-image{display:block;width:100%;height:auto;max-height:150px;object-fit:contain;margin:auto}
-body.home-page .overview-shell,body.home-page .background-shell{padding:22px 20px;margin-top:20px;border-radius:12px}
+body.home-page .overview-shell,body.home-page .background-shell{padding:22px 20px 0;margin-top:24px}
 body.home-page .overview-shell h2,body.home-page .background-shell h2{font-size:21px;margin-bottom:16px}
 body.home-page .overview-shell>p,body.home-page .background-shell>p{font-size:14.5px;line-height:1.8}
 body.home-page .media-row{grid-template-columns:minmax(0,1fr);gap:24px;margin:22px 0 0}
