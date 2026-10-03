@@ -1,4 +1,5 @@
 /** Analytic illustrations, not trained models or benchmark results. */
+import { demoMath } from './hard-constrained-math.mjs';
 export const DEFAULT_SEED = 20261003;
 export const DEFAULT_COUNT = 512;
 export const NUMERICAL_TOLERANCE = 1e-9;
@@ -227,25 +228,25 @@ export function mountMechanism(root) {
       <p class="hc-legend"><span class="hc-legend-item" data-candidate-key><i class="hc-key-circle" aria-hidden="true"></i>Candidate</span><span class="hc-legend-item"><i class="hc-key-diamond" aria-hidden="true"></i>Output</span></p>
       <p class="hc-result-line" data-result aria-live="polite" aria-atomic="true"></p></div>
     <div class="hc-controls">
-      <fieldset id="${id}-penalty" data-panel="penalty"><legend>Penalty on a diagonal slice</legend><p class="hc-formula">c = (a, a), 0 ≤ a ≤ 1<br>½‖y − c‖² + ½λ(y₁ + y₂ − 1)₊²</p>
+      <fieldset id="${id}-penalty" data-panel="penalty"><legend>Penalty on a diagonal slice</legend><p class="hc-formula">${demoMath.penalty}</p>
         <div class="hc-slider-pair">${slider(`${id}-a`, 'Candidate coordinate a', 0, 1, 0.01, state.a, '', 'Candidate a')}
         ${slider(`${id}-lambda`, 'Penalty weight λ', 0, 100, 1, state.lambda, '', 'Penalty λ')}</div>
         <p class="hc-control-note">Exact solution of a toy objective; no model training or training guarantee.</p>
       </fieldset>
-      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">y = arg min<sub>z ∈ K</sub> ½‖z − c‖²</p>
+      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">${demoMath.projection}</p>
         <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y₁ coordinate', -0.25, 1.25, 0.01, state.candidate[0], '', 'Candidate y₁')}
         ${slider(`${id}-c2`, 'Candidate y₂ coordinate', -0.25, 1.25, 0.01, state.candidate[1], '', 'Candidate y₂')}</div>
         <label class="hc-select-label" for="${id}-role">Where is projection used?<select id="${id}-role"><option value="post">Post-processing at deployment</option><option value="layer">Structured layer in training</option></select></label>
         <p class="hc-control-note">Use the sliders or drag the hollow circle. Both roles return the same forward output.</p>
       </fieldset>
-      <fieldset id="${id}-parameterization" data-panel="parameterization" hidden><legend>Admissible reference coordinates</legend><p class="hc-formula">y = (b × q, b × (1 − q))<br>b, q ∈ [0, 1]</p>
+      <fieldset id="${id}-parameterization" data-panel="parameterization" hidden><legend>Admissible reference coordinates</legend><p class="hc-formula">${demoMath.parameterization}</p>
         <div class="hc-slider-pair">${slider(`${id}-b`, 'Budget fraction b', 0, 1, 0.01, state.b, '', 'Budget used b')}
         ${slider(`${id}-q`, 'First-service share q', 0, 1, 0.01, state.q, '', 'First share q')}</div>
         <p class="hc-control-note">Bounded reference coordinates construct the output, including the boundary. No physical candidate is corrected.</p>
       </fieldset>
     </div></div>
     <div class="hc-flow" data-flow></div>
-    <details class="hc-details"><summary>Numerical details</summary><p class="hc-control-note hc-numerical-note">Violation = max(0, −y₁, −y₂, y₁ + y₂ − 1). Displayed feasibility uses normalized tolerance 10⁻⁹; real-arithmetic formulas explain the construction.</p></details>`;
+    <details class="hc-details"><summary>Numerical details</summary><p class="hc-control-note hc-numerical-note">${demoMath.violation}Displayed feasibility uses normalized tolerance 10⁻⁹; real-arithmetic formulas explain the construction.</p></details>`;
   const svg = root.querySelector('svg');
   const setValue = (name, value, decimals = 2) => {
     const input = root.querySelector(`#${id}-${name}`);

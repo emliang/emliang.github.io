@@ -125,3 +125,5 @@
 .blog-page .article-body .mechanism-card img{margin:0 auto 14px}
 .blog-page .article-body .mechanism-card p{font-size:14px;line-height:1.65;margin:0;padding:0;border:0}
 @media(max-width:650px){.blog-page .mechanism-grid{grid-template-columns:1fr}.blog-page .mechanism-card:nth-child(odd){border-right:0}.blog-page .mechanism-card:nth-last-child(-n+2){border-bottom:1px solid #e4e9e8}.blog-page .mechanism-card:last-child{border-bottom:0}.blog-page .mechanism-card .mechanism-title{min-height:0;font-size:17px}.blog-page .article-body .mechanism-card p{font-size:15px}}
+
+.blog-page .blog-feature+.blog-feature{margin-top:28px}

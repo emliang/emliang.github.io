@@ -8,14 +8,14 @@
   "preview_url": "http://127.0.0.1:8765/blog/hard-constrained-machine-learning/",
   "content": {
     "language": "en",
-    "main_text_words_including_captions": 2815,
+    "main_text_words_including_captions": 2741,
     "sections": 8,
     "selected_references": 15,
     "interactive_examples": 2,
     "source_link_status": "Public survey preprint forthcoming according to current companion README.",
     "generation_focus": "Conceptual categories for constraint handling in diffusion and flow models.",
     "subtitle": "From Constrained Prediction to Constrained Generation.",
-    "word_count_method": "Whitespace-delimited article text including captions and labels, excluding references; inline text concatenated and block boundaries separated."
+    "word_count_method": "Whitespace-delimited article text excluding references; each pre-rendered math expression counted once via its TeX source."
   },
   "scientific_review": {
     "status": "pass",
@@ -329,7 +329,7 @@
     "measurement_revision": 12
   },
   "source_sha256": {
-    "assets/css/blog.css": "b236441318b94cb40e3cbe1a8bb9cc4be78d73da9bf8456961235c528f151b29",
+    "assets/css/blog.css": "dcbbf4cf7451419ad0127db893210a7d367f4097fbc9fe5f14d9b968f828aabe",
     "assets/css/hard-constrained-demo.css": "1319a72aa8ba1c67806e4b25e8d7bc6c85e546e380ddf10675b941707e56ac28",
     "assets/css/site-design.css": "fc826634ef3bed168280ea19b4e23a3e08aed28d21dcfece0224bfbba9dd4d81",
     "assets/img/blog/favicon.svg": "2fc0aeba8a3f90d7b69052125394a99a863637fe09423ced6d915acbd29106dc",
@@ -354,9 +354,9 @@
     "assets/img/blog/hard-constrained-ml/share.svg": "6d6b5b863511514851190473edf089c34662814e61eafb2511d06428fd4b15aa",
     "assets/img/blog/hard-constrained-ml/training-adaptation.svg": "0b6fc5dc3cc80198a87741bd0689926ae9680e246da565d1ecb47d0b534e376c",
     "assets/js/blog.mjs": "b367a1a07f3caba1df84904edeb9e3f58a3e3dc3c6c043a420ef351e7b811e6f",
-    "assets/js/hard-constrained-demo.mjs": "4d42c439f62ded43690ad6205c2a01206e9cd6ed509c6d92ff394557e48b8d1b",
-    "blog/hard-constrained-machine-learning/index.html": "7b6271f1435ff1e9b1b69a46b510bfb9d34d573778afe8e45ef59bb19f5a4b4d",
-    "blog/index.html": "d427ab4ceea40048fe0300788921897c215005fa690890fd5d024a99628dd02f",
+    "assets/js/hard-constrained-demo.mjs": "8378e9eb5197aa53dc02edf22907fda9707243118183291563c65168f06b5e88",
+    "blog/hard-constrained-machine-learning/index.html": "791425eb94e1c9d0f38bab803344a34a234774ab9f21f28774fc5e92eda595ec",
+    "blog/index.html": "948b230cdd5d4be9a0b67b806ac6a26f8eb2f174a3c5e744287d9ef8d43c0501",
     "docs/blog/qa/browser.js": "00a89b6ca7961b98b149ca02a0f273ce41d683f8a9dcda5691c36b8e2afda46d",
     "docs/blog/qa/figures.js": "5dc08a96526e2fa067a750f41c56298c6e74f50400924cbf5603260d3fd520ae",
     "docs/blog/qa/nojs-touch-navigation.js": "86c78957c6755e6d7980afe317ca3abf8ec6c943a35210910d7f68dd542ad8e6",
@@ -385,7 +385,11 @@
     "assets/img/blog/hard-constrained-ml/guidance-overview.svg": "8fa1d6c82b18a1fba2121eedc54dd9a632844fe5a0f72d0d9146f15b0d9828f1",
     "assets/img/blog/hard-constrained-ml/geometry-overview.svg": "18cc8b1b8dbec19cde122d14aa7c90a658856a404e740dd37757aae02226d4f4",
     "assets/img/blog/hard-constrained-ml/coordinates-overview.svg": "4b7ee2c8a96b1061d7eb3d35eefd1fc0958d83ed3cd078c06380e8327dc33727",
-    "docs/blog/hard-constrained-ml-acceptance.md": "ed95e8c8c6e0a5d0b6686f34df65529e28a873f0dddc1536b8382d9e2e38625d"
+    "docs/blog/hard-constrained-ml-acceptance.md": "ed95e8c8c6e0a5d0b6686f34df65529e28a873f0dddc1536b8382d9e2e38625d",
+    "assets/js/hard-constrained-math.mjs": "317d943a70db423e8c0944b0aed7f2f00931961d072453020a987657cc394f29",
+    "assets/css/blog-math.css": "63104a2d11939d59a58708f48d62eac7d7f77f5afc3f051a9148c623c305c7e4",
+    "scripts/render-blog-math.cjs": "f9977a2240205e9202b7c22383c41703c89815d2d769b3a89ba38f86afc6ce00",
+    "docs/blog/qa/hard-constrained-math.js": "6217e2adf5a193994585694f4acaae0054568ee69487a50f07121fe6602333d7"
   },
   "research_input_sha256": {
     "/Users/lem/Github/Hard-Constrained-ML-Survey/README.md": "9f01783a9c8c3fa81cc6a8757250064dfac6737c0cca750ec2e7c6a5c67f59bf",
@@ -458,7 +462,7 @@
     "output/playwright/framework-webkit-flow-1440.png"
   ],
   "check_state": "valid",
-  "revision": 17,
+  "revision": 18,
   "navigation": {
     "status": "pass",
     "order": [
@@ -551,7 +555,7 @@
     "locations_changed": false,
     "coincident_marker_area": "proportional to exact sample count"
   },
-  "validation_reuse": "Revision 16 reruns both-engine six-group framework screenshots at 360/390/768/1440, native bounds/subscripts on 12 active framework SVGs, 16-SVG clearance checks, and no-JS framework rendering. Method semantics were checked against the survey and four primary papers. Numerical JS, demo CSS and primary samples are unchanged; numerical and interactive validation from revision 15 is reused. Navigation/touch and performance retain their recorded historical revisions.",
+  "validation_reuse": "Revision 18 validates math rendering and explorer behavior in Chromium at 360/390/768/1440, no-JS static formulas, both-blog shared styles, and 8030 numerical checks. Prior diagram, navigation, touch, performance and other-engine measurements retain their recorded historical revisions; those assets and algorithms are unchanged.",
   "transition_check": {
     "status": "pass",
     "engine": "Chromium",
@@ -910,5 +914,146 @@
     "positions_changed": false,
     "resample_reset_keyboard_checks": true,
     "runtime_errors": []
+  },
+  "math_revision": {
+    "reports": [
+      {
+        "width": 360,
+        "name": "feasible-set",
+        "screenshot": "output/playwright/hard-constrained-math-feasible-set-360.png"
+      },
+      {
+        "width": 360,
+        "name": "penalty-objective",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-objective-360.png"
+      },
+      {
+        "width": 360,
+        "name": "inline-coordinates",
+        "screenshot": "output/playwright/hard-constrained-math-inline-coordinates-360.png"
+      },
+      {
+        "width": 360,
+        "name": "Penalty",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-360.png"
+      },
+      {
+        "width": 360,
+        "name": "Projection",
+        "screenshot": "output/playwright/hard-constrained-math-projection-360.png"
+      },
+      {
+        "width": 360,
+        "name": "Parameterization",
+        "screenshot": "output/playwright/hard-constrained-math-parameterization-360.png"
+      },
+      {
+        "width": 390,
+        "name": "feasible-set",
+        "screenshot": "output/playwright/hard-constrained-math-feasible-set-390.png"
+      },
+      {
+        "width": 390,
+        "name": "penalty-objective",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-objective-390.png"
+      },
+      {
+        "width": 390,
+        "name": "inline-coordinates",
+        "screenshot": "output/playwright/hard-constrained-math-inline-coordinates-390.png"
+      },
+      {
+        "width": 390,
+        "name": "Penalty",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-390.png"
+      },
+      {
+        "width": 390,
+        "name": "Projection",
+        "screenshot": "output/playwright/hard-constrained-math-projection-390.png"
+      },
+      {
+        "width": 390,
+        "name": "Parameterization",
+        "screenshot": "output/playwright/hard-constrained-math-parameterization-390.png"
+      },
+      {
+        "width": 768,
+        "name": "feasible-set",
+        "screenshot": "output/playwright/hard-constrained-math-feasible-set-768.png"
+      },
+      {
+        "width": 768,
+        "name": "penalty-objective",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-objective-768.png"
+      },
+      {
+        "width": 768,
+        "name": "inline-coordinates",
+        "screenshot": "output/playwright/hard-constrained-math-inline-coordinates-768.png"
+      },
+      {
+        "width": 768,
+        "name": "Penalty",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-768.png"
+      },
+      {
+        "width": 768,
+        "name": "Projection",
+        "screenshot": "output/playwright/hard-constrained-math-projection-768.png"
+      },
+      {
+        "width": 768,
+        "name": "Parameterization",
+        "screenshot": "output/playwright/hard-constrained-math-parameterization-768.png"
+      },
+      {
+        "width": 1440,
+        "name": "feasible-set",
+        "screenshot": "output/playwright/hard-constrained-math-feasible-set-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "penalty-objective",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-objective-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "inline-coordinates",
+        "screenshot": "output/playwright/hard-constrained-math-inline-coordinates-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "Penalty",
+        "screenshot": "output/playwright/hard-constrained-math-penalty-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "Projection",
+        "screenshot": "output/playwright/hard-constrained-math-projection-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "Parameterization",
+        "screenshot": "output/playwright/hard-constrained-math-parameterization-1440.png"
+      }
+    ],
+    "staticFormulas": 35,
+    "demoFormulas": 7,
+    "errors": [],
+    "pageOverflow": false,
+    "equationOverflow": false,
+    "noJS": true,
+    "projectionRoles": true,
+    "parameterizationEndpoint": true,
+    "generationResampleAndReset": true,
+    "homeomorphismRegression": true,
+    "visually_inspected": true,
+    "test_browser_closed": true,
+    "engine": "Chromium",
+    "numerical_checks": 8030,
+    "measurement_revision": 18,
+    "recorded_date": "2026-10-04",
+    "scope": "35 static and 7 explorer formulas; typography only, mathematical definitions and algorithms preserved."
   }
 }

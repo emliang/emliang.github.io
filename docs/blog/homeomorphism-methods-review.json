@@ -1,0 +1,431 @@
+{
+  "recorded_date": "2026-10-04",
+  "state": "local_draft_validated",
+  "published": false,
+  "route": "/blog/homeomorphism-methods/",
+  "title": "Homeomorphism Methods: One Change of Coordinates, Three Uses",
+  "main_words_including_captions": 2028,
+  "source": "assets/pdf/Slides/Homeomorphism_Methods.pdf",
+  "source_sha256": {
+    "blog/homeomorphism-methods/index.html": "04e6ad6aa33c05a228790391b77859c1b91356f764c980c058a6fc7dd832d447",
+    "blog/index.html": "948b230cdd5d4be9a0b67b806ac6a26f8eb2f174a3c5e744287d9ef8d43c0501",
+    "assets/css/homeomorphism-blog.css": "157b49968e620154cd137f9647a93bb5e05386d9a0d5ab95da8cece43c3810fd",
+    "assets/css/blog.css": "dcbbf4cf7451419ad0127db893210a7d367f4097fbc9fe5f14d9b968f828aabe",
+    "assets/js/homeomorphism-demo.mjs": "32bb3cc58c52766e3239f429c378672041600f16ce127f28ac0ef943ed887eb0",
+    "scripts/verify-homeomorphism-demo.mjs": "a6a1335e130875f1fa10d8e8e20f23ff35ce12b365aa5f7d2b95b5aaf3870725",
+    "docs/blog/qa/homeomorphism.js": "326254a01cfa37d27afcb70b3f8af908843316101547197e280cc446ea7731a8",
+    "assets/img/blog/homeomorphism-methods/reference.svg": "32c2140c5280483cb7c5f489cfd9e10e278fcefe8693de958db05af713de421f",
+    "assets/img/blog/homeomorphism-methods/generate_figures.py": "6a6c43ce79419200ed7f6fd8bc0132269ab5b0cf36ade3d2a05be471a76b7405",
+    "assets/img/blog/homeomorphism-methods/samples-mapped.svg": "54c2f8be6fb52dc23bf2d00321a4f74e830b71c58f5c60c448e6300c710c5190",
+    "assets/img/blog/homeomorphism-methods/mapped.svg": "fde6228ed7a76dfffb6b9e4e135e71e365d8e049b26bae0436136a9e2174f276",
+    "assets/img/blog/homeomorphism-methods/share.png": "de79e373c3375fb8d4c6f25aed54fa32e79fcb78c25bd1723ae2d581cf390594",
+    "assets/img/blog/homeomorphism-methods/samples-reference.svg": "7597e056c35039601726487c9d71aa9f4b7f571bd9f5d0d5568962007deb96ef",
+    "assets/img/blog/homeomorphism-methods/share.svg": "7b6479076c2cbed99b304c8e5bf613b50d49343f9688c2fc167eb338f6b45f26",
+    "assets/pdf/Slides/Homeomorphism_Methods.pdf": "c23ee5f336d7b35e246f3b7606e15f980abcb48b9257ff73109fcc59c599070c",
+    "scripts/render-blog-math.cjs": "f9977a2240205e9202b7c22383c41703c89815d2d769b3a89ba38f86afc6ce00",
+    "assets/vendor/katex-0.16.22/LICENSE": "766ccc1f306c885aa45542a9846bbd0a505b27a0374f146778171c2254ce18e3",
+    "assets/vendor/katex-0.16.22/README.md": "c87dfd8798c969fa3c45dc4be907aaf560822e96f5a8fcc6037f3e22f3285bb0",
+    "assets/vendor/katex-0.16.22/katex.min.css": "b075123b50e51a0a7819b49efa2a62bb05bc7dac04b0d65a9a3799c2211ea48f",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Typewriter-Regular.woff2": "71d517d67827787cfabdf186914cc3358eda539e37931941f2b2fd4a21f68c0b",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_AMS-Regular.woff2": "0cdd387c9590a1a9f9794560022dbb59654a7d86f187aa0c81495ad42d3a7308",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Size3-Regular.woff2": "73d591271b1604960cb10bb90fee021670af7297017e0e98480b332d11f51995",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Main-Regular.woff2": "c2342cd8b869e01752a9321dc17213fc40d4d04c79688c1d43f2cf316abd7866",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Caligraphic-Bold.woff2": "de7701e42cf1f4cf0b766c03fb27977207eee2f4fd5d76fa82188406da43ea4c",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_SansSerif-Bold.woff2": "e99ae51144bf1232efcc1bfe5add36262c6866b0faab24fa75740e1b98577a62",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Math-Italic.woff2": "7af58c5ec8f132a2ddde9027c6d7814decce4d3b822a11192a42a20e2e973264",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Size4-Regular.woff2": "a4af7d414440a1c1790825cfb700cf9cf43b0f2c4b04f0ebc523011ad9853ec0",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Fraktur-Bold.woff2": "74444efd593c005e3f4573b44524704c0af0a937fe911cca9e94068d0d140d3f",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_SansSerif-Italic.woff2": "00b26ac825e2095056396e0553b8ac26d3f8ad158c3826e28b4c45b385c4714a",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Main-Bold.woff2": "0f60d1b897938ec918c8ce073092411baf9438f6739465693ff18b0f9d20b021",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_SansSerif-Regular.woff2": "68e8c73ef42afd3ccec58bf0fba302cce448938e7fc020a5e31f8a952eee1342",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Main-BoldItalic.woff2": "99cd42a3c072d918f2f44984a807cf7aa16e13545fd0875fc07c6c65f99e715b",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Fraktur-Regular.woff2": "51814d270d06ff0255dba0799994fa4d8c84d11f09951d47595f4abb1f3602dc",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Script-Regular.woff2": "036d4e95149b69ff9bcc0cd55771efeb25ffa3947293e69acd78d5ac328c684b",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Math-BoldItalic.woff2": "dc47344dbb6cb5b655c8460d561f4df5f501b90c804ad3c6cec65fe322351ab1",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Main-Italic.woff2": "97479ca6cce906abc961ecac96faa5f9ca2e61b8e7670d475826bcdee9a7c267",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Size1-Regular.woff2": "6b47c40166b6dbe21a5dfca7718413f2147fd2399be1ba605d8ad39cedf25dfe",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Size2-Regular.woff2": "d04c54219f9eaec6d4d4fd42dfb28785975a4794d6b2fc71e566b9cd6db842dd",
+    "assets/vendor/katex-0.16.22/fonts/KaTeX_Caligraphic-Regular.woff2": "5d53e70ad607c2352162dec9e0923fb54ecdafaccbf604cd8dcf7d00facb989b",
+    "assets/css/blog-math.css": "63104a2d11939d59a58708f48d62eac7d7f77f5afc3f051a9148c623c305c7e4"
+  },
+  "numerical_checks": 2884,
+  "local_references": 70,
+  "svg_intrinsic_dimensions": 6,
+  "browser": {
+    "engine": "chromium",
+    "reports": [
+      {
+        "width": 360,
+        "name": "header",
+        "screenshot": "output/playwright/homeomorphism-header-360.png"
+      },
+      {
+        "width": 360,
+        "name": "opening",
+        "screenshot": "output/playwright/homeomorphism-opening-360.png"
+      },
+      {
+        "width": 360,
+        "name": "explorer",
+        "screenshot": "output/playwright/homeomorphism-explorer-360.png"
+      },
+      {
+        "width": 360,
+        "name": "learning",
+        "screenshot": "output/playwright/homeomorphism-learning-360.png"
+      },
+      {
+        "width": 360,
+        "name": "optimization",
+        "screenshot": "output/playwright/homeomorphism-optimization-360.png"
+      },
+      {
+        "width": 360,
+        "name": "sampling",
+        "screenshot": "output/playwright/homeomorphism-sampling-360.png"
+      },
+      {
+        "width": 360,
+        "name": "references",
+        "screenshot": "output/playwright/homeomorphism-references-360.png"
+      },
+      {
+        "width": 390,
+        "name": "header",
+        "screenshot": "output/playwright/homeomorphism-header-390.png"
+      },
+      {
+        "width": 390,
+        "name": "opening",
+        "screenshot": "output/playwright/homeomorphism-opening-390.png"
+      },
+      {
+        "width": 390,
+        "name": "explorer",
+        "screenshot": "output/playwright/homeomorphism-explorer-390.png"
+      },
+      {
+        "width": 390,
+        "name": "learning",
+        "screenshot": "output/playwright/homeomorphism-learning-390.png"
+      },
+      {
+        "width": 390,
+        "name": "optimization",
+        "screenshot": "output/playwright/homeomorphism-optimization-390.png"
+      },
+      {
+        "width": 390,
+        "name": "sampling",
+        "screenshot": "output/playwright/homeomorphism-sampling-390.png"
+      },
+      {
+        "width": 390,
+        "name": "references",
+        "screenshot": "output/playwright/homeomorphism-references-390.png"
+      },
+      {
+        "width": 768,
+        "name": "header",
+        "screenshot": "output/playwright/homeomorphism-header-768.png"
+      },
+      {
+        "width": 768,
+        "name": "opening",
+        "screenshot": "output/playwright/homeomorphism-opening-768.png"
+      },
+      {
+        "width": 768,
+        "name": "explorer",
+        "screenshot": "output/playwright/homeomorphism-explorer-768.png"
+      },
+      {
+        "width": 768,
+        "name": "learning",
+        "screenshot": "output/playwright/homeomorphism-learning-768.png"
+      },
+      {
+        "width": 768,
+        "name": "optimization",
+        "screenshot": "output/playwright/homeomorphism-optimization-768.png"
+      },
+      {
+        "width": 768,
+        "name": "sampling",
+        "screenshot": "output/playwright/homeomorphism-sampling-768.png"
+      },
+      {
+        "width": 768,
+        "name": "references",
+        "screenshot": "output/playwright/homeomorphism-references-768.png"
+      },
+      {
+        "width": 1440,
+        "name": "header",
+        "screenshot": "output/playwright/homeomorphism-header-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "opening",
+        "screenshot": "output/playwright/homeomorphism-opening-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "explorer",
+        "screenshot": "output/playwright/homeomorphism-explorer-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "learning",
+        "screenshot": "output/playwright/homeomorphism-learning-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "optimization",
+        "screenshot": "output/playwright/homeomorphism-optimization-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "sampling",
+        "screenshot": "output/playwright/homeomorphism-sampling-1440.png"
+      },
+      {
+        "width": 1440,
+        "name": "references",
+        "screenshot": "output/playwright/homeomorphism-references-1440.png"
+      }
+    ],
+    "keyboardEndpoints": true,
+    "shapeSwitch": true,
+    "clippedSVGLabels": [],
+    "noJS": true,
+    "indexLinks": true,
+    "pageErrors": [],
+    "final_text_review": {
+      "slideLinks": [
+        {
+          "text": "slides 10–12 ↗",
+          "page": 10
+        },
+        {
+          "text": "slide 50 ↗",
+          "page": 50
+        },
+        {
+          "text": "slides 32–34 ↗",
+          "page": 32
+        },
+        {
+          "text": "slides 9–15 ↗",
+          "page": 9
+        },
+        {
+          "text": "slides 49–51 ↗",
+          "page": 49
+        }
+      ],
+      "finalTextScreenshots": true
+    },
+    "cow_gif_review": {
+      "source": "https://upload.wikimedia.org/wikipedia/commons/2/24/Spot_the_cow.gif",
+      "placement": "Section 1, before the feasible-coordinate definition",
+      "natural_dimensions": [
+        512,
+        512
+      ],
+      "loaded": true,
+      "square_aspect_ratio": true,
+      "horizontal_overflow": false,
+      "viewports": [
+        390,
+        1440
+      ],
+      "screenshots": [
+        "output/playwright/homeomorphism-cow-390.png",
+        "output/playwright/homeomorphism-cow-1440.png"
+      ],
+      "visually_inspected": true,
+      "test_browser_closed": true
+    },
+    "tabas_reference_review": {
+      "viewports": [
+        390,
+        1440
+      ],
+      "referenceLinks": true,
+      "horizontalOverflow": false,
+      "visually_inspected": true,
+      "test_browser_closed": true,
+      "screenshots": [
+        "output/playwright/homeomorphism-tabas-gauge-390.png",
+        "output/playwright/homeomorphism-tabas-references-390.png",
+        "output/playwright/homeomorphism-tabas-gauge-1440.png",
+        "output/playwright/homeomorphism-tabas-references-1440.png"
+      ]
+    },
+    "math_review": {
+      "reports": [
+        {
+          "width": 360,
+          "name": "gauge-equation",
+          "screenshot": "output/playwright/homeomorphism-math-gauge-equation-360.png"
+        },
+        {
+          "width": 360,
+          "name": "optimization-equation",
+          "screenshot": "output/playwright/homeomorphism-math-optimization-equation-360.png"
+        },
+        {
+          "width": 360,
+          "name": "inline-learning",
+          "screenshot": "output/playwright/homeomorphism-math-inline-learning-360.png"
+        },
+        {
+          "width": 360,
+          "name": "sampling-framework",
+          "screenshot": "output/playwright/homeomorphism-math-sampling-framework-360.png"
+        },
+        {
+          "width": 390,
+          "name": "gauge-equation",
+          "screenshot": "output/playwright/homeomorphism-math-gauge-equation-390.png"
+        },
+        {
+          "width": 390,
+          "name": "optimization-equation",
+          "screenshot": "output/playwright/homeomorphism-math-optimization-equation-390.png"
+        },
+        {
+          "width": 390,
+          "name": "inline-learning",
+          "screenshot": "output/playwright/homeomorphism-math-inline-learning-390.png"
+        },
+        {
+          "width": 390,
+          "name": "sampling-framework",
+          "screenshot": "output/playwright/homeomorphism-math-sampling-framework-390.png"
+        },
+        {
+          "width": 768,
+          "name": "gauge-equation",
+          "screenshot": "output/playwright/homeomorphism-math-gauge-equation-768.png"
+        },
+        {
+          "width": 768,
+          "name": "optimization-equation",
+          "screenshot": "output/playwright/homeomorphism-math-optimization-equation-768.png"
+        },
+        {
+          "width": 768,
+          "name": "inline-learning",
+          "screenshot": "output/playwright/homeomorphism-math-inline-learning-768.png"
+        },
+        {
+          "width": 768,
+          "name": "sampling-framework",
+          "screenshot": "output/playwright/homeomorphism-math-sampling-framework-768.png"
+        },
+        {
+          "width": 1440,
+          "name": "gauge-equation",
+          "screenshot": "output/playwright/homeomorphism-math-gauge-equation-1440.png"
+        },
+        {
+          "width": 1440,
+          "name": "optimization-equation",
+          "screenshot": "output/playwright/homeomorphism-math-optimization-equation-1440.png"
+        },
+        {
+          "width": 1440,
+          "name": "inline-learning",
+          "screenshot": "output/playwright/homeomorphism-math-inline-learning-1440.png"
+        },
+        {
+          "width": 1440,
+          "name": "sampling-framework",
+          "screenshot": "output/playwright/homeomorphism-math-sampling-framework-1440.png"
+        }
+      ],
+      "formulas": 56,
+      "fontsLoaded": true,
+      "noJS": true,
+      "pageOverflow": false,
+      "equationOverflow": false,
+      "errors": [],
+      "visually_inspected": true,
+      "test_browser_closed": true,
+      "frameworkSpacing": true,
+      "finalFrameworkScreenshots": [
+        "output/playwright/homeomorphism-math-framework-final-360.png",
+        "output/playwright/homeomorphism-math-framework-final-1440.png"
+      ]
+    },
+    "shared_math_style_review": {
+      "recorded_date": "2026-10-04",
+      "viewports": [
+        360,
+        390,
+        768,
+        1440
+      ],
+      "rendered_formulas": 56,
+      "horizontal_overflow": false,
+      "equation_overflow": false,
+      "status": "pass"
+    }
+  },
+  "source_review": {
+    "status": "pass",
+    "scope": "Blog-level claims and method roles; exact maps vs learned INN, checked recovery, transformed gradients, reflected inference, transported density.",
+    "primary_sources": [
+      "https://www.jmlr.org/papers/v25/23-1577.html",
+      "https://papers.neurips.cc/paper_files/paper/2025/hash/654a49a2e6e71dfc7a8bbb06e0ed462c-Abstract-Conference.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/file/9304fe9848ca4db73c79ac0bac414aef-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2307.08336",
+      "https://proceedings.neurips.cc/paper/2020/hash/2290a7385ed77cc5592dc2153229f082-Abstract.html",
+      "https://arxiv.org/abs/2210.02747",
+      "https://proceedings.mlr.press/v235/xie24k.html",
+      "https://jmlr.org/papers/v22/19-1028.html",
+      "https://arxiv.org/pdf/2110.10333",
+      "https://arxiv.org/pdf/2203.12196"
+    ],
+    "independent_reference_scope": "Primary abstracts/bibliographic records for RAYEN, invertible networks, FM and RFM; normalizing-flow density explanation checked against Section 2.1, page 3.",
+    "cow_gif_source": "https://commons.wikimedia.org/wiki/File:Spot_the_cow.gif",
+    "tabas_scope": "RL Section III-A/B and MPC Section IV: gauge maps, infinity-norm reference ball, interior shifts and feasible neural policy construction; ACC 2022 metadata verified with IEEE."
+  },
+  "limits": [
+    "No training or scientific experiment run; all visual examples are analytic illustrations.",
+    "Chromium browser validation, not physical-device or screen-reader testing.",
+    "Local draft; no commit, push or publication for the new article."
+  ],
+  "revision": 6,
+  "references": {
+    "total": 10,
+    "featured_author_works": 3,
+    "independent_works": 7,
+    "first_use_numbering_valid": true,
+    "all_references_cited": true
+  },
+  "reader_changes": [
+    "Unit ball and roles of z/x defined before figures.",
+    "Predictor and learned invertible map distinguished; recovery explained as midpoint search retaining a checked feasible endpoint.",
+    "Optimization saving precedes the update; step size defined and Jacobian formula removed from main text.",
+    "Flow-matching velocity and reflection explained; caption states what training learns.",
+    "Five independent papers cited in the corresponding explanatory passages.",
+    "Five slide links target pages 10, 50, 32, 9 and 49.",
+    "Homepage cow GIF introduces continuous deformation; caption distinguishes surfaces from filled domains and credits the unmodified source.",
+    "Tabas and Zhang gauge-map RL and MPC papers cited in Section 2; infinity-norm box distinguished from Euclidean-ball illustration.",
+    "56 inline/display math expressions pre-rendered with local KaTeX 0.16.22 fonts; two displays aligned and framework text spacing preserved.",
+    "Both blog articles now share blog-math.css; homeomorphism equations rechecked after style extraction."
+  ],
+  "word_count_method": "Article text before references, counting each pre-rendered formula once via its TeX source.",
+  "math_rendering": {
+    "engine": "KaTeX 0.16.22",
+    "mode": "static HTML plus accessible MathML",
+    "browser_script_required": false,
+    "local_fonts": true,
+    "source": "data-tex attributes",
+    "regeneration": "scripts/render-blog-math.cjs",
+    "scope": "Homeomorphism article; scientific formulas unchanged."
+  }
+}

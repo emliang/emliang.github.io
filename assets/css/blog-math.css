@@ -1,0 +1,8 @@
+.blog-page .hm-math,.blog-page .blog-math{white-space:nowrap}
+.blog-page .katex{font-size:1.04em}
+.blog-page .hm-equation,.blog-page .blog-equation{margin:26px 0;padding:22px 16px;background:#f3f0e9;border:1px solid #e1dcd3;border-radius:8px;color:#24363a;overflow-x:auto;font-size:19px;overflow-wrap:normal}
+.blog-page .hm-equation .katex-display,.blog-page .blog-equation .katex-display{margin:0}
+.blog-page .katex .katex-mathml math{margin:0;padding:0;background:none;font-size:inherit;overflow:visible}
+.blog-page .hc-math-line{display:block;white-space:nowrap;margin:4px 0}
+.blog-page .hc-demo p.hc-formula{font-family:inherit;font-size:14px;line-height:1.85}
+@media(max-width:600px){.blog-page .hm-equation,.blog-page .blog-equation{padding:18px 10px;font-size:16px}}
