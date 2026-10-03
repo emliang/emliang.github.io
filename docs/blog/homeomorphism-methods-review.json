@@ -7,8 +7,8 @@
   "main_words_including_captions": 2028,
   "source": "assets/pdf/Slides/Homeomorphism_Methods.pdf",
   "source_sha256": {
-    "blog/homeomorphism-methods/index.html": "04e6ad6aa33c05a228790391b77859c1b91356f764c980c058a6fc7dd832d447",
-    "blog/index.html": "948b230cdd5d4be9a0b67b806ac6a26f8eb2f174a3c5e744287d9ef8d43c0501",
+    "blog/homeomorphism-methods/index.html": "b72c37101f397fc822c80f052b8e45161d16b924f4a8dfd39899d17f0d566483",
+    "blog/index.html": "5bf96603f700ed380ba2e4d3919d2dd6e7f0b51e7a754beac01565af248193b4",
     "assets/css/homeomorphism-blog.css": "157b49968e620154cd137f9647a93bb5e05386d9a0d5ab95da8cece43c3810fd",
     "assets/css/blog.css": "dcbbf4cf7451419ad0127db893210a7d367f4097fbc9fe5f14d9b968f828aabe",
     "assets/js/homeomorphism-demo.mjs": "32bb3cc58c52766e3239f429c378672041600f16ce127f28ac0ef943ed887eb0",
@@ -398,7 +398,7 @@
     "Chromium browser validation, not physical-device or screen-reader testing.",
     "Local draft; no commit, push or publication for the new article."
   ],
-  "revision": 6,
+  "revision": 7,
   "references": {
     "total": 10,
     "featured_author_works": 3,
@@ -427,5 +427,12 @@
     "source": "data-tex attributes",
     "regeneration": "scripts/render-blog-math.cjs",
     "scope": "Homeomorphism article; scientific formulas unchanged."
+  },
+  "navigation_label_review": {
+    "recorded_date": "2026-10-04",
+    "label": "Blogs",
+    "pages": 12,
+    "static_html_check": "pass",
+    "link_paths_unchanged": true
   }
 }

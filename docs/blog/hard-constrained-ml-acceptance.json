@@ -355,24 +355,24 @@
     "assets/img/blog/hard-constrained-ml/training-adaptation.svg": "0b6fc5dc3cc80198a87741bd0689926ae9680e246da565d1ecb47d0b534e376c",
     "assets/js/blog.mjs": "b367a1a07f3caba1df84904edeb9e3f58a3e3dc3c6c043a420ef351e7b811e6f",
     "assets/js/hard-constrained-demo.mjs": "8378e9eb5197aa53dc02edf22907fda9707243118183291563c65168f06b5e88",
-    "blog/hard-constrained-machine-learning/index.html": "791425eb94e1c9d0f38bab803344a34a234774ab9f21f28774fc5e92eda595ec",
-    "blog/index.html": "948b230cdd5d4be9a0b67b806ac6a26f8eb2f174a3c5e744287d9ef8d43c0501",
+    "blog/hard-constrained-machine-learning/index.html": "e94303455ebe792f29f88e48fbaa9eed9b8caca1920b85fc923299245fcdc57f",
+    "blog/index.html": "5bf96603f700ed380ba2e4d3919d2dd6e7f0b51e7a754beac01565af248193b4",
     "docs/blog/qa/browser.js": "00a89b6ca7961b98b149ca02a0f273ce41d683f8a9dcda5691c36b8e2afda46d",
     "docs/blog/qa/figures.js": "5dc08a96526e2fa067a750f41c56298c6e74f50400924cbf5603260d3fd520ae",
     "docs/blog/qa/nojs-touch-navigation.js": "86c78957c6755e6d7980afe317ca3abf8ec6c943a35210910d7f68dd542ad8e6",
     "docs/blog/qa/performance.js": "e307ed0d68d63ac6cf2b1bcc819866bebbf7c458e5ec730d1e831900fea75c39",
-    "index.html": "4952012b1f502f1f688412f6f75a735a648970b6f8e77c41fb62682bf7e194b7",
-    "news/index.html": "cab617bd1109d6bdd8d3ed09fea88385160437ae7e18f2e05f5e4be72ebbab92",
-    "resources/index.html": "4009f0e5de625bb76c60c26b8a1d4e4b75ca2304b3eccd0881078d988dcd3cf2",
+    "index.html": "5fdc0aeee9075886639fa4e0f5011a3dd059f08ec33d359cfb9d8a80647cd769",
+    "news/index.html": "23a7ebe8dd7a9eb69f93a87163026e2d1abeb3aa864f158c434572f45b3a8045",
+    "resources/index.html": "e35b76dcf426a2a464a5e8cdf80f7472337b318191db25e8ccd3375a85bf4a3f",
     "scripts/verify-hard-constrained-demo.mjs": "f314f0abf6f5acf483b924bd78abbe0ecc345372d2cabb798a9ffc67d01125aa",
     "assets/css/site-header.css": "66a977641ab29aab7865922c0493031f3968460a6c9793ee03e634eaef1337c6",
     "docs/blog/qa/navigation.js": "1c1fc5a8db4a47e659bb55256fa902890d3ddf94282c54fe852e149267218e79",
-    "teaching/index.html": "e75f200be5e645be020a7671ac7fd61fde66263f92db19a27ac1092672d99ac4",
-    "projects/2_project/index.html": "5266260ab01876f0e20a76f4ccd3179c316577bfd3969d0fcca90fc325551b41",
-    "projects/3_project/index.html": "4ae1053b235b073cebe17a06d521330a5652e6cd57524509d8468bf2ff62713b",
-    "projects/4_project/index.html": "e0549092296cd02dbdaf1b00d5dd1902b20fbcb205d518747f5a1db8998c02cb",
-    "projects/5_project/index.html": "4051967bea2cfeb7aad44ed720561cdf1e313c17a3ba9011b02e2663c1909148",
-    "projects/6_project/index.html": "84bca69d45104d851bb5f4b97d9bbd825f6868cc883eb37ffd31a7b84dee3be2",
+    "teaching/index.html": "63d8375715bed0db0d6e4e36047660a3d9ddf315eac68483ea6fb8dab3e981a7",
+    "projects/2_project/index.html": "0736df129c89e8b4a7f458585cb69b9af624cdfdf6d66ccc0a9f76f1230044da",
+    "projects/3_project/index.html": "d69e217c0191c7e7dfdf99f1cf984abde1f9c63a5e69e83bc0451aee892ead45",
+    "projects/4_project/index.html": "16f366412fda9c80283408846549b89ebf0a6ff7e4f8741527ac8c00d68711b8",
+    "projects/5_project/index.html": "48b2faba0d2f6147ff954be17b466486fee4b9b23c78bcb8374d0c9068504de1",
+    "projects/6_project/index.html": "7d2aa63e6241025885e0c0393904048c103f83a5a888c003e066eea6677b44b3",
     "docs/blog/qa/prediction-generation.js": "5644bac87508b2147eb1a4c4288c78c9735962950a759ac0932d622f9034e075",
     "assets/img/blog/hard-constrained-ml/neural-network-prediction.svg": "c6945bb0497f7b7bae636e4bf86e45d34e4f521ee22ef1f4b2d8ccc951629042",
     "assets/img/blog/hard-constrained-ml/flow-generation-general.svg": "bd4c6edae76240fa8c45f445b3899f5cf9c46f46ad126947b347db9428bfd6e0",
@@ -462,7 +462,7 @@
     "output/playwright/framework-webkit-flow-1440.png"
   ],
   "check_state": "valid",
-  "revision": 18,
+  "revision": 19,
   "navigation": {
     "status": "pass",
     "order": [
@@ -1055,5 +1055,12 @@
     "measurement_revision": 18,
     "recorded_date": "2026-10-04",
     "scope": "35 static and 7 explorer formulas; typography only, mathematical definitions and algorithms preserved."
+  },
+  "navigation_label_review": {
+    "recorded_date": "2026-10-04",
+    "label": "Blogs",
+    "pages": 12,
+    "static_html_check": "pass",
+    "link_paths_unchanged": true
   }
 }
