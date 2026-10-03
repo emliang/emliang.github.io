@@ -218,7 +218,7 @@ export function mountMechanism(root) {
   const id = `hc-mechanism-${++widgetNumber}`;
   const state = { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 1, q: 0.5, role: 'post' };
   root.classList.add('hc-demo');
-  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the mechanism · B = 1</p><button class="hc-button hc-reset" type="button">Reset</button></div>
+  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the mechanism · Budget = 1</p><button class="hc-button hc-reset" type="button">Reset</button></div>
     <div class="hc-mode-picker" aria-label="Constraint mechanism">
       <button type="button" data-mode="penalty" aria-pressed="true" aria-controls="${id}-penalty">Penalty</button>
       <button type="button" data-mode="projection" aria-pressed="false" aria-controls="${id}-projection">Projection</button>
@@ -231,7 +231,7 @@ export function mountMechanism(root) {
       <fieldset id="${id}-penalty" data-panel="penalty"><legend>Penalty on a diagonal slice</legend><p class="hc-formula">${demoMath.penalty}</p>
         <div class="hc-slider-pair">${slider(`${id}-a`, 'Candidate coordinate a', 0, 1, 0.01, state.a, '', 'Candidate a')}
         ${slider(`${id}-lambda`, 'Penalty weight λ', 0, 100, 1, state.lambda, '', 'Penalty λ')}</div>
-        <p class="hc-control-note">Exact solution of a toy objective; no model training or training guarantee.</p>
+        <p class="hc-control-note">The displayed point solves this quadratic objective exactly for the selected weight.</p>
       </fieldset>
       <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">${demoMath.projection}</p>
         <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y₁ coordinate', -0.25, 1.25, 0.01, state.candidate[0], '', 'Candidate y₁')}
@@ -352,9 +352,9 @@ function generationPlot(points, moved, label) {
 export function mountGeneration(root) {
   let seed = DEFAULT_SEED;
   root.classList.add('hc-demo');
-  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the returned distribution · B = 1</p><div class="hc-actions"><button class="hc-button" data-resample type="button">Resample</button><button class="hc-button" data-reset type="button">Reset</button></div></div>
+  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the returned distribution · Budget = 1</p><div class="hc-actions"><button class="hc-button" data-resample type="button">Resample</button><button class="hc-button" data-reset type="button">Reset</button></div></div>
     <p class="hc-generation-setup">Proposals: uniform on [−1, 1]². Target: uniform in K. Both methods request 512 outputs; the two plots use identical scales.</p>
-    <p class="hc-plot-units">Both axes: allocation / budget · B = 1</p>
+    <p class="hc-plot-units">Both axes: allocation / budget</p>
     <div class="hc-generation-layout"><figure><figcaption>Rejection sampling</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Rejection samples" data-rejection-plot></svg><p class="hc-cloud-note" data-rejection-note></p></figure><figure><figcaption>Euclidean projection</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Projected samples" data-projection-plot></svg><p class="hc-cloud-note" data-projection-note></p></figure></div>
     <p class="hc-legend hc-generation-legend"><span class="hc-legend-item"><i class="hc-key-dot" aria-hidden="true"></i>Retained sample</span><span class="hc-legend-item"><i class="hc-key-boundary" aria-hidden="true"></i>Moved to boundary</span><span class="hc-legend-item"><i class="hc-key-cross" aria-hidden="true">×</i>Sample mean</span><span class="hc-legend-item"><i class="hc-key-ring" aria-hidden="true"></i>Target mean</span></p>
     <p class="hc-marker-note">Circle area = sample count at the same location. No jitter.</p>

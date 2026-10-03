@@ -32,16 +32,16 @@ function chart(svg, mapped, shape, r, angle) {
     return pixel(mapped ? forward(p, shape) : p);
   };
   const line = (points, attrs = {}) => element('path', { d: 'M ' + points.map(p => p.join(',')).join(' L '), fill: 'none', stroke: '#c3d4d7', 'stroke-width': 1.2, ...attrs });
-  const nodes = [element('text', { x: 240, y: 31, 'text-anchor': 'middle', fill: '#21383c', 'font-size': 23 }, mapped ? 'Mapped decision · K' : 'Reference coordinate · B')];
+  const nodes = [element('text', { x: 240, y: 31, 'text-anchor': 'middle', fill: '#24363a', 'font-size': 23 }, mapped ? 'Mapped decision · K' : 'Reference coordinate · B')];
   nodes.push(line(Array.from({length: 241}, (_,j) => polar(1, 2 * Math.PI * j / 240)), { fill: '#f0f6f4', stroke: mapped ? '#2c6d77' : '#567aa8', 'stroke-width': 2.4 }));
   for (const radius of [.25, .5, .75]) nodes.push(line(Array.from({length: 181},(_,j)=>polar(radius,2 * Math.PI*j/180))));
   for (let j=0;j<12;j++) nodes.push(line([center,polar(1,2*Math.PI*j/12)]));
   const boundary = polar(1,angle), selected = polar(r,angle);
-  nodes.push(line([center,boundary], {stroke:'#ae6b4c','stroke-width':2.4}));
-  nodes.push(element('circle',{cx:boundary[0],cy:boundary[1],r:4,fill:'white',stroke:'#ae6b4c','stroke-width':1.6}));
-  nodes.push(element('circle',{cx:center[0],cy:center[1],r:3,fill:'#21383c'}));
-  nodes.push(element('circle',{cx:selected[0],cy:selected[1],r:6,fill:'#ae6b4c',stroke:'white','stroke-width':2}));
-  nodes.push(element('text',{x:240,y:326,'text-anchor':'middle',fill:'#607276','font-size':20},r===0?'The centers correspond':r===1?'Boundary maps to boundary':'Same fraction of the selected ray'));
+  nodes.push(line([center,boundary], {stroke:'#9b654e','stroke-width':2.4}));
+  nodes.push(element('circle',{cx:boundary[0],cy:boundary[1],r:4,fill:'white',stroke:'#9b654e','stroke-width':1.6}));
+  nodes.push(element('circle',{cx:center[0],cy:center[1],r:3,fill:'#24363a'}));
+  nodes.push(element('circle',{cx:selected[0],cy:selected[1],r:6,fill:'#9b654e',stroke:'white','stroke-width':2}));
+  nodes.push(element('text',{x:240,y:326,'text-anchor':'middle',fill:'#65767a','font-size':20},r===0?'The centers correspond':r===1?'Boundary maps to boundary':'Same fraction of the selected ray'));
   svg.replaceChildren(...nodes);
   svg.style.fontFamily='Arial,Helvetica,sans-serif';
 }
