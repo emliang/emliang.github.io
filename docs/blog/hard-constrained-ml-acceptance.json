@@ -1,0 +1,914 @@
+{
+  "schema_version": 2,
+  "recorded_at": "2026-10-03T15:35:31.573644+00:00",
+  "state": "local_acceptance_passed",
+  "published": false,
+  "article_route": "/blog/hard-constrained-machine-learning/",
+  "index_route": "/blog/",
+  "preview_url": "http://127.0.0.1:8765/blog/hard-constrained-machine-learning/",
+  "content": {
+    "language": "en",
+    "main_text_words_including_captions": 2815,
+    "sections": 8,
+    "selected_references": 15,
+    "interactive_examples": 2,
+    "source_link_status": "Public survey preprint forthcoming according to current companion README.",
+    "generation_focus": "Conceptual categories for constraint handling in diffusion and flow models.",
+    "subtitle": "From Constrained Prediction to Constrained Generation.",
+    "word_count_method": "Whitespace-delimited article text including captions and labels, excluding references; inline text concatenated and block boundaries separated."
+  },
+  "scientific_review": {
+    "status": "pass",
+    "boundaries": [
+      "The four roles are useful nonexclusive categories, not an exhaustive method taxonomy.",
+      "Guidance does not by itself imply exact feasibility.",
+      "Correction can act on a state, output estimate, or returned sample; quantity and timing matter.",
+      "Feasible parameterization requires valid coordinates and a decoder into the feasible set; coverage is separate.",
+      "Geometry-aware sampling depends on modeled geometry and suitable numerical updates.",
+      "Training modifies model parameters; inference mechanisms modify output construction."
+    ],
+    "new_primary_references": [
+      {
+        "id": 12,
+        "url": "https://openaccess.thecvf.com/content/CVPR2023W/GCV/html/Bansal_Universal_Guidance_for_Diffusion_Models_CVPRW_2023_paper.html"
+      },
+      {
+        "id": 13,
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2024/hash/a28af221f2f70be183afc16797a56b91-Abstract-Conference.html"
+      },
+      {
+        "id": 14,
+        "url": "https://proceedings.nips.cc/paper_files/paper/2025/hash/eacce1f7d11e2c3a7568468e0eff5d33-Abstract-Conference.html"
+      },
+      {
+        "id": 15,
+        "url": "https://proceedings.iclr.cc/paper_files/paper/2024/hash/d1f9936d3be6997ffffab692977eebe6-Abstract-Conference.html"
+      }
+    ],
+    "measurement_revision": 17
+  },
+  "numerical": {
+    "status": "pass",
+    "checks": 8030,
+    "command": "node scripts/verify-hard-constrained-demo.mjs",
+    "seed": 20261003,
+    "requested_samples": 512,
+    "rejection": {
+      "proposals": 4199,
+      "returned": 512,
+      "valid": 512,
+      "mean": [
+        0.34588963142414286,
+        0.3321610038929066
+      ]
+    },
+    "projection": {
+      "proposals": 512,
+      "returned": 512,
+      "valid": 512,
+      "moved_from_outside_to_boundary": 451,
+      "origin_count": 138,
+      "mean": [
+        0.22987071925490454,
+        0.2229678656121905
+      ]
+    },
+    "theory": {
+      "acceptance": 0.125,
+      "projection_boundary_mass": 0.875,
+      "projection_origin_mass": 0.25,
+      "target_coordinate_mean": 0.3333333333333333,
+      "projection_coordinate_mean": 0.22916666666666666
+    },
+    "measurement_revision": 15
+  },
+  "browser": {
+    "status": "pass",
+    "engines": [
+      {
+        "name": "Chromium",
+        "version": "154.0.8037.95"
+      },
+      {
+        "name": "WebKit",
+        "version": "26.5"
+      }
+    ],
+    "viewport_widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "horizontal_overflow": false,
+    "article_page_errors": [],
+    "checks": [
+      "Both demos lazy-mount at all viewport widths.",
+      "Projection role switch preserves forward output.",
+      "Keyboard slider Home and End update output, including parameterization boundary.",
+      "Keyboard Enter resamples; Reset reproduces the default seed.",
+      "No-JavaScript at 390x844: article and both static posters readable.",
+      "Touch at 390x844: Projection button and range control operate.",
+      "Reduced-motion context: preference detected; zero active animations.",
+      "Home, News, Resources, Blog navigation and article entry work; mobile home menu supports Blog route.",
+      "Final SVG labels and desktop/mobile screenshots visually inspected.",
+      "All five navigation bars match Main / News / Blog / Resources, and Main click returns home.",
+      "New figure cards render at 390 and 1440px; all referenced images decode successfully.",
+      "No-JavaScript mobile fallback uses responsive rejection/projection plots, both loaded at 350px.",
+      "Pointer drag verifies candidate (0.9,0.2) projects to (0.85,0.15).",
+      "Final styling: Chromium and WebKit at 360/390/768/1440 px; both demos mount, controls operate, no horizontal overflow or page errors.",
+      "Final native select retains its behavior and measures 44px in both engines."
+    ],
+    "measurement_revision": 7
+  },
+  "local_links": {
+    "status": "pass",
+    "checked": 68,
+    "scope": "Article and blog index local href/src references and anchors",
+    "svg_images_with_verified_intrinsic_dimensions": 16,
+    "svg_xml_files_parsed": 26,
+    "errors": [],
+    "measurement_revision": 17
+  },
+  "payload_budget": {
+    "status": "pass",
+    "limit_gzip_bytes": 204800,
+    "new_css_js_svg_gzip_bytes": 87292,
+    "files": [
+      {
+        "path": "assets/css/blog.css",
+        "raw_bytes": 14995,
+        "gzip_bytes": 3226
+      },
+      {
+        "path": "assets/css/hard-constrained-demo.css",
+        "raw_bytes": 11358,
+        "gzip_bytes": 2785
+      },
+      {
+        "path": "assets/css/site-header.css",
+        "raw_bytes": 1875,
+        "gzip_bytes": 756
+      },
+      {
+        "path": "assets/img/blog/favicon.svg",
+        "raw_bytes": 194,
+        "gzip_bytes": 177
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/allocation-teaser.svg",
+        "raw_bytes": 3210,
+        "gzip_bytes": 984
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/coordinates-overview.svg",
+        "raw_bytes": 2114,
+        "gzip_bytes": 841
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/correction-overview.svg",
+        "raw_bytes": 2125,
+        "gzip_bytes": 818
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/correction-step-terminal.svg",
+        "raw_bytes": 4210,
+        "gzip_bytes": 1353
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/feasible-coordinates-geometry.svg",
+        "raw_bytes": 3864,
+        "gzip_bytes": 1328
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/flow-generation-general.svg",
+        "raw_bytes": 87523,
+        "gzip_bytes": 23632
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/generation-poster.svg",
+        "raw_bytes": 67817,
+        "gzip_bytes": 11167
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/generation-processes.svg",
+        "raw_bytes": 2502,
+        "gzip_bytes": 889
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/generation-projection.svg",
+        "raw_bytes": 28829,
+        "gzip_bytes": 4529
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/generation-rejection.svg",
+        "raw_bytes": 40336,
+        "gzip_bytes": 7576
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/geometry-overview.svg",
+        "raw_bytes": 2131,
+        "gzip_bytes": 840
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/guidance-clean-estimate.svg",
+        "raw_bytes": 6989,
+        "gzip_bytes": 1633
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/guidance-overview.svg",
+        "raw_bytes": 2086,
+        "gzip_bytes": 806
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/manifold-flow.svg",
+        "raw_bytes": 3860,
+        "gzip_bytes": 1326
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/mechanism-poster.svg",
+        "raw_bytes": 4837,
+        "gzip_bytes": 1338
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/mechanism-roles.svg",
+        "raw_bytes": 8213,
+        "gzip_bytes": 1160
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/neural-network-prediction.svg",
+        "raw_bytes": 9784,
+        "gzip_bytes": 2107
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/pcfm-endpoint-correction.svg",
+        "raw_bytes": 7210,
+        "gzip_bytes": 1593
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/roles-coordinates.svg",
+        "raw_bytes": 2569,
+        "gzip_bytes": 867
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/roles-layer.svg",
+        "raw_bytes": 2557,
+        "gzip_bytes": 855
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/roles-post.svg",
+        "raw_bytes": 2561,
+        "gzip_bytes": 866
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/roles-training.svg",
+        "raw_bytes": 1910,
+        "gzip_bytes": 770
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/sampler-framework.svg",
+        "raw_bytes": 2505,
+        "gzip_bytes": 894
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/share.svg",
+        "raw_bytes": 3101,
+        "gzip_bytes": 1058
+      },
+      {
+        "path": "assets/img/blog/hard-constrained-ml/training-adaptation.svg",
+        "raw_bytes": 6658,
+        "gzip_bytes": 1847
+      },
+      {
+        "path": "assets/js/blog.mjs",
+        "raw_bytes": 1185,
+        "gzip_bytes": 603
+      },
+      {
+        "path": "assets/js/hard-constrained-demo.mjs",
+        "raw_bytes": 27844,
+        "gzip_bytes": 8668
+      }
+    ],
+    "notes": "Conservative per-file gzip total of all blog SVGs, including unused overview/poster variants; excludes social PNG, synthetic data, and authoring sources.",
+    "measurement_revision": 17
+  },
+  "performance": {
+    "status": "historical_measurement_not_retested_revision_17",
+    "measurement": "Local synthetic cold-load; not a production Core Web Vitals or Lighthouse result.",
+    "browser": "Chromium 154.0.8037.95",
+    "viewport": [
+      390,
+      844
+    ],
+    "cache_disabled": true,
+    "cpu_throttle": 4,
+    "latency_ms": 150,
+    "download_bytes_per_second": 209715.2,
+    "upload_bytes_per_second": 96000.0,
+    "lcp_limit_ms": 2500,
+    "cls_limit": 0.1,
+    "runs": [
+      {
+        "lcp_ms": 752,
+        "cls": 0
+      },
+      {
+        "lcp_ms": 744,
+        "cls": 0
+      },
+      {
+        "lcp_ms": 744,
+        "cls": 0
+      }
+    ],
+    "median_lcp_ms": 744,
+    "initial_total_transfer_bytes": 132234,
+    "server": "Python http.server on loopback; uncompressed responses.",
+    "measurement_revision": 12
+  },
+  "source_sha256": {
+    "assets/css/blog.css": "b236441318b94cb40e3cbe1a8bb9cc4be78d73da9bf8456961235c528f151b29",
+    "assets/css/hard-constrained-demo.css": "1319a72aa8ba1c67806e4b25e8d7bc6c85e546e380ddf10675b941707e56ac28",
+    "assets/css/site-design.css": "fc826634ef3bed168280ea19b4e23a3e08aed28d21dcfece0224bfbba9dd4d81",
+    "assets/img/blog/favicon.svg": "2fc0aeba8a3f90d7b69052125394a99a863637fe09423ced6d915acbd29106dc",
+    "assets/img/blog/hard-constrained-ml/allocation-teaser.svg": "d2742d784ba435c77a0ae95deb415ebca902142bb1585ffd6151d8796d7d3ce6",
+    "assets/img/blog/hard-constrained-ml/correction-step-terminal.svg": "ae1e3b5e039dd247519d7e949b31d74b4167b45319647a3a429f4746a1eae758",
+    "assets/img/blog/hard-constrained-ml/feasible-coordinates-geometry.svg": "d42c1d9900b1795d8d24cb836f6f824fafad64fcb8667bdfce6cfdb382f845f4",
+    "assets/img/blog/hard-constrained-ml/generate_figures.py": "a677ba0db2102e91237e25c1e85fa5e11cd4ba89bf654cdf3501f4a5e6c5a507",
+    "assets/img/blog/hard-constrained-ml/generation-poster.svg": "def1b708a120178cef0dfb1ece848468bf5f2ad67bf375b9f112ce0b21671e14",
+    "assets/img/blog/hard-constrained-ml/generation-processes.svg": "ce5f597c3e14cb9bc1337d1bfca62f417ff2f650b7f38ebb5a6a6576d73c940b",
+    "assets/img/blog/hard-constrained-ml/generation-projection.svg": "38acb8d429c4f0a7110ad803ca165df569d870c32d47125172c0675c296b95c5",
+    "assets/img/blog/hard-constrained-ml/generation-rejection.svg": "6be67071647876c282773d472d5ff61f680da60679d306a07d79ca5b7da9ed75",
+    "assets/img/blog/hard-constrained-ml/guidance-clean-estimate.svg": "564ac3a19ceb1a18c2413f4096d8872b90f4611ab8ec9e5e4a89d3cfbddb4354",
+    "assets/img/blog/hard-constrained-ml/illustrative-samples.json": "d142b03b4415e43a07e4550d9682c395cf66c216b83fd8ee4b7cc294a12f49c8",
+    "assets/img/blog/hard-constrained-ml/mechanism-poster.svg": "d16becd9ade734a235525f2ba0f9221f304bfc8c9908da9f470e08693da7e5ae",
+    "assets/img/blog/hard-constrained-ml/mechanism-roles.svg": "dbcf7156a49e9598b4de0fbefc4b9b6eeb1b0b7b5ff5d92bebf29e0b6dff8feb",
+    "assets/img/blog/hard-constrained-ml/roles-coordinates.svg": "c831d18fa3c8ae326e6d3c2f8fd8899feba064a7e79a142bd7c882a19ca0572b",
+    "assets/img/blog/hard-constrained-ml/roles-layer.svg": "33c3d470decf5818e1370d388011b9d0ee0f7752bc849aa14f9a6df7a210557b",
+    "assets/img/blog/hard-constrained-ml/roles-post.svg": "923592f8aae624e3e466c81542c4b02d1c52a14f9bc93ce4045699930b9b7880",
+    "assets/img/blog/hard-constrained-ml/roles-training.svg": "34f0db78641777288701215a1cdc7485fd78c9d312af4b9b07b2b1353d2e5196",
+    "assets/img/blog/hard-constrained-ml/sampler-framework.svg": "e70fa90a430f1b96684e230aafc1b03026fc87d99f9edcc63d4ff77170e72498",
+    "assets/img/blog/hard-constrained-ml/share.png": "235139f694c0e72a33f26da09edcde7026b05cc86e79cf94197251bfa102b99c",
+    "assets/img/blog/hard-constrained-ml/share.svg": "6d6b5b863511514851190473edf089c34662814e61eafb2511d06428fd4b15aa",
+    "assets/img/blog/hard-constrained-ml/training-adaptation.svg": "0b6fc5dc3cc80198a87741bd0689926ae9680e246da565d1ecb47d0b534e376c",
+    "assets/js/blog.mjs": "b367a1a07f3caba1df84904edeb9e3f58a3e3dc3c6c043a420ef351e7b811e6f",
+    "assets/js/hard-constrained-demo.mjs": "4d42c439f62ded43690ad6205c2a01206e9cd6ed509c6d92ff394557e48b8d1b",
+    "blog/hard-constrained-machine-learning/index.html": "7b6271f1435ff1e9b1b69a46b510bfb9d34d573778afe8e45ef59bb19f5a4b4d",
+    "blog/index.html": "d427ab4ceea40048fe0300788921897c215005fa690890fd5d024a99628dd02f",
+    "docs/blog/qa/browser.js": "00a89b6ca7961b98b149ca02a0f273ce41d683f8a9dcda5691c36b8e2afda46d",
+    "docs/blog/qa/figures.js": "5dc08a96526e2fa067a750f41c56298c6e74f50400924cbf5603260d3fd520ae",
+    "docs/blog/qa/nojs-touch-navigation.js": "86c78957c6755e6d7980afe317ca3abf8ec6c943a35210910d7f68dd542ad8e6",
+    "docs/blog/qa/performance.js": "e307ed0d68d63ac6cf2b1bcc819866bebbf7c458e5ec730d1e831900fea75c39",
+    "index.html": "4952012b1f502f1f688412f6f75a735a648970b6f8e77c41fb62682bf7e194b7",
+    "news/index.html": "cab617bd1109d6bdd8d3ed09fea88385160437ae7e18f2e05f5e4be72ebbab92",
+    "resources/index.html": "4009f0e5de625bb76c60c26b8a1d4e4b75ca2304b3eccd0881078d988dcd3cf2",
+    "scripts/verify-hard-constrained-demo.mjs": "f314f0abf6f5acf483b924bd78abbe0ecc345372d2cabb798a9ffc67d01125aa",
+    "assets/css/site-header.css": "66a977641ab29aab7865922c0493031f3968460a6c9793ee03e634eaef1337c6",
+    "docs/blog/qa/navigation.js": "1c1fc5a8db4a47e659bb55256fa902890d3ddf94282c54fe852e149267218e79",
+    "teaching/index.html": "e75f200be5e645be020a7671ac7fd61fde66263f92db19a27ac1092672d99ac4",
+    "projects/2_project/index.html": "5266260ab01876f0e20a76f4ccd3179c316577bfd3969d0fcca90fc325551b41",
+    "projects/3_project/index.html": "4ae1053b235b073cebe17a06d521330a5652e6cd57524509d8468bf2ff62713b",
+    "projects/4_project/index.html": "e0549092296cd02dbdaf1b00d5dd1902b20fbcb205d518747f5a1db8998c02cb",
+    "projects/5_project/index.html": "4051967bea2cfeb7aad44ed720561cdf1e313c17a3ba9011b02e2663c1909148",
+    "projects/6_project/index.html": "84bca69d45104d851bb5f4b97d9bbd825f6868cc883eb37ffd31a7b84dee3be2",
+    "docs/blog/qa/prediction-generation.js": "5644bac87508b2147eb1a4c4288c78c9735962950a759ac0932d622f9034e075",
+    "assets/img/blog/hard-constrained-ml/neural-network-prediction.svg": "c6945bb0497f7b7bae636e4bf86e45d34e4f521ee22ef1f4b2d8ccc951629042",
+    "assets/img/blog/hard-constrained-ml/flow-generation-general.svg": "bd4c6edae76240fa8c45f445b3899f5cf9c46f46ad126947b347db9428bfd6e0",
+    "docs/blog/qa/frameworks.js": "a652dac299d8baa4a3c49c4b1a7d7790462ff530d9163471f34113d3a3ba2cdb",
+    "docs/blog/qa/diagram-clearance.js": "29f2862d5ed5c5880093443ab3f23b368b7bfd8ed66cae3bd8c47f0a3b0995a2",
+    "docs/blog/framework-method-review.md": "3682b1b236e8156bc659a230c33b9b8942eb58d02340b8c41136f2df639b813c",
+    "assets/img/blog/hard-constrained-ml/pcfm-endpoint-correction.svg": "c6e80bbf4122273dcc91f2b5bd82f107537d1effc53442161179bc24e32b5b71",
+    "assets/img/blog/hard-constrained-ml/manifold-flow.svg": "fecf9adb92926e20b2abe4a664b1e0ce04b81207e5ca108667d8a48edca24b8d",
+    "assets/img/blog/hard-constrained-ml/correction-overview.svg": "12b76c0149a0f325e8b1efe1226835ae7b0b450250271df6439c48310b11666d",
+    "assets/img/blog/hard-constrained-ml/guidance-overview.svg": "8fa1d6c82b18a1fba2121eedc54dd9a632844fe5a0f72d0d9146f15b0d9828f1",
+    "assets/img/blog/hard-constrained-ml/geometry-overview.svg": "18cc8b1b8dbec19cde122d14aa7c90a658856a404e740dd37757aae02226d4f4",
+    "assets/img/blog/hard-constrained-ml/coordinates-overview.svg": "4b7ee2c8a96b1061d7eb3d35eefd1fc0958d83ed3cd078c06380e8327dc33727",
+    "docs/blog/hard-constrained-ml-acceptance.md": "ed95e8c8c6e0a5d0b6686f34df65529e28a873f0dddc1536b8382d9e2e38625d"
+  },
+  "research_input_sha256": {
+    "/Users/lem/Github/Hard-Constrained-ML-Survey/README.md": "9f01783a9c8c3fa81cc6a8757250064dfac6737c0cca750ec2e7c6a5c67f59bf",
+    "/Users/lem/Library/CloudStorage/Dropbox/Apps/Overleaf/ACM-Survey-Submission/preprint/Sections/Part1.tex": "08c11479fc4b3674386ec4ac5fffc97e0da7c2b0cb33ad514604e850a7e100b2",
+    "/Users/lem/Library/CloudStorage/Dropbox/Apps/Overleaf/ACM-Survey-Submission/preprint/Sections/Part2.tex": "09401472c47b8daa227a71f73275b07d0f3db33cef583bfca8eb56196d64d775"
+  },
+  "limits": [
+    "Automated browser engines and emulated touch were checked; physical iOS/Android devices were not tested.",
+    "Assistive-technology behavior was checked through semantics, focus, keyboard controls, and live text; a manual screen-reader audit was not performed.",
+    "Public deployment, production asset URLs and social preview fetches remain unverified because this change is local."
+  ],
+  "qa_sources": [
+    "docs/blog/qa/browser.js",
+    "docs/blog/qa/nojs-touch-navigation.js",
+    "docs/blog/qa/performance.js",
+    "docs/blog/qa/figures.js",
+    "docs/blog/qa/navigation.js",
+    "docs/blog/qa/prediction-generation.js",
+    "docs/blog/qa/frameworks.js",
+    "docs/blog/qa/diagram-clearance.js"
+  ],
+  "screenshots": [
+    "output/playwright/blog-list-revised-mobile.png",
+    "output/playwright/reader-teaser-390.png",
+    "output/playwright/hcdemo-reader-mechanism-390.png",
+    "output/playwright/hcdemo-reader-generation-390.png",
+    "output/playwright/reader-static-generation-390.png",
+    "output/playwright/nav-main-390.png",
+    "output/playwright/nav-blog-390.png",
+    "output/playwright/nav-resources-1440.png",
+    "output/playwright/framework-chromium-roles-360.png",
+    "output/playwright/framework-chromium-sampler-360.png",
+    "output/playwright/framework-chromium-generation-360.png",
+    "output/playwright/framework-chromium-roles-390.png",
+    "output/playwright/framework-chromium-sampler-390.png",
+    "output/playwright/framework-chromium-generation-390.png",
+    "output/playwright/framework-chromium-roles-768.png",
+    "output/playwright/framework-chromium-sampler-768.png",
+    "output/playwright/framework-chromium-generation-768.png",
+    "output/playwright/framework-chromium-roles-1440.png",
+    "output/playwright/framework-chromium-sampler-1440.png",
+    "output/playwright/framework-chromium-generation-1440.png",
+    "output/playwright/framework-webkit-roles-360.png",
+    "output/playwright/framework-webkit-sampler-360.png",
+    "output/playwright/framework-webkit-generation-360.png",
+    "output/playwright/framework-webkit-roles-390.png",
+    "output/playwright/framework-webkit-sampler-390.png",
+    "output/playwright/framework-webkit-generation-390.png",
+    "output/playwright/framework-webkit-roles-768.png",
+    "output/playwright/framework-webkit-sampler-768.png",
+    "output/playwright/framework-webkit-generation-768.png",
+    "output/playwright/framework-webkit-roles-1440.png",
+    "output/playwright/framework-webkit-sampler-1440.png",
+    "output/playwright/framework-webkit-generation-1440.png",
+    "output/playwright/framework-chromium-prediction-360.png",
+    "output/playwright/framework-chromium-flow-360.png",
+    "output/playwright/framework-chromium-prediction-390.png",
+    "output/playwright/framework-chromium-flow-390.png",
+    "output/playwright/framework-chromium-prediction-768.png",
+    "output/playwright/framework-chromium-flow-768.png",
+    "output/playwright/framework-chromium-prediction-1440.png",
+    "output/playwright/framework-chromium-flow-1440.png",
+    "output/playwright/framework-webkit-prediction-360.png",
+    "output/playwright/framework-webkit-flow-360.png",
+    "output/playwright/framework-webkit-prediction-390.png",
+    "output/playwright/framework-webkit-flow-390.png",
+    "output/playwright/framework-webkit-prediction-768.png",
+    "output/playwright/framework-webkit-flow-768.png",
+    "output/playwright/framework-webkit-prediction-1440.png",
+    "output/playwright/framework-webkit-flow-1440.png"
+  ],
+  "check_state": "valid",
+  "revision": 17,
+  "navigation": {
+    "status": "pass",
+    "order": [
+      "Main",
+      "News",
+      "Blog",
+      "Resources"
+    ],
+    "hrefs": [
+      "/",
+      "/news/",
+      "/blog/",
+      "/resources/"
+    ],
+    "checked_pages": [
+      "index.html",
+      "news/index.html",
+      "resources/index.html",
+      "blog/index.html",
+      "blog/hard-constrained-machine-learning/index.html",
+      "teaching/index.html",
+      "projects/2_project/index.html",
+      "projects/3_project/index.html",
+      "projects/4_project/index.html",
+      "projects/5_project/index.html",
+      "projects/6_project/index.html"
+    ],
+    "main_click_destination": "/",
+    "miscellany_removed": true,
+    "shared_stylesheet": "assets/css/site-header.css",
+    "consistent_computed_styles": true,
+    "main_viewports": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "legacy_viewports": [
+      390,
+      1440
+    ],
+    "checks_per_engine": 32,
+    "engines": [
+      "Chromium",
+      "WebKit"
+    ],
+    "note": "Every page uses the same navigation markup/classes. Colors, fonts, dimensions, spacing, active state and fixed positioning match within each viewport. Links remain visible without JavaScript."
+  },
+  "reader_review": {
+    "status": "pass",
+    "changes": [
+      {
+        "finding": "Repeated definitions interrupted the prediction-to-generation transition.",
+        "resolution": "Background appears once in section 5; section 6 starts from the whole-trajectory sample and its two time axes."
+      },
+      {
+        "finding": "Update/model, guidance/fitting and candidate/coordinate objects were easy to conflate.",
+        "resolution": "Separate operation glyphs, state-gradient and parameter-feedback arrows, and c/u notation."
+      },
+      {
+        "finding": "The training loss had no forward input.",
+        "resolution": "Next state feeds an output readout/map/correction, which then supplies the loss."
+      },
+      {
+        "finding": "All intermediate corrections appeared to need transfer back into sampling.",
+        "resolution": "Transfer applies specifically to corrected output estimates; direct state correction can act on the state."
+      },
+      {
+        "finding": "The coordinate-domain curve looked like a physical path.",
+        "resolution": "A single coordinate-vector point represents an entire path."
+      },
+      {
+        "finding": "Small comparison cards reduced legibility.",
+        "resolution": "Full-width editorial rows on desktop; stacked title, diagram and caption on mobile."
+      },
+      {
+        "finding": "Overlap hid the projected origin atom.",
+        "resolution": "Unchanged area/count encoding and explicit coincident sample counts; no jitter."
+      }
+    ],
+    "measurement_revision": 12
+  },
+  "static_samples": {
+    "record_sha256": "d142b03b4415e43a07e4550d9682c395cf66c216b83fd8ee4b7cc294a12f49c8",
+    "seed": 104729,
+    "returned_per_method": 256,
+    "rejection_proposals": 1917,
+    "projection_boundary_count": 218,
+    "projection_origin_count": 75,
+    "locations_changed": false,
+    "coincident_marker_area": "proportional to exact sample count"
+  },
+  "validation_reuse": "Revision 16 reruns both-engine six-group framework screenshots at 360/390/768/1440, native bounds/subscripts on 12 active framework SVGs, 16-SVG clearance checks, and no-JS framework rendering. Method semantics were checked against the survey and four primary papers. Numerical JS, demo CSS and primary samples are unchanged; numerical and interactive validation from revision 15 is reused. Navigation/touch and performance retain their recorded historical revisions.",
+  "transition_check": {
+    "status": "pass",
+    "engine": "Chromium",
+    "viewport_widths": [
+      390,
+      1440
+    ],
+    "visible": true,
+    "horizontal_overflow": false,
+    "screenshots": [
+      "output/playwright/transition-390.png",
+      "output/playwright/transition-1440.png"
+    ],
+    "measurement_revision": 4
+  },
+  "background_check": {
+    "status": "pass",
+    "engine": "Chromium",
+    "viewport_widths": [
+      390,
+      1440
+    ],
+    "opening_present": true,
+    "horizontal_overflow": false,
+    "screenshots": [
+      "output/playwright/background-390.png",
+      "output/playwright/background-1440.png"
+    ]
+  },
+  "prediction_generation_section_check": {
+    "status": "pass",
+    "engines": [
+      "Chromium",
+      "WebKit"
+    ],
+    "viewport_widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "numbered_sections": 8,
+    "references_section": true,
+    "toc_click": true,
+    "broken_toc_anchors": 0,
+    "horizontal_overflow": false,
+    "runtime_errors": [],
+    "no_js_390_px": true,
+    "local_references_checked": 137,
+    "duplicate_ids": false,
+    "command": "playwright-cli run-code --filename=docs/blog/qa/prediction-generation.js"
+  },
+  "visual_review": {
+    "status": "pass",
+    "reading_sizes": [
+      390,
+      1440
+    ],
+    "groups": [
+      "Prediction roles and training graphs",
+      "Base numerical sampler",
+      "Forward Universal Guidance",
+      "Projected Diffusion",
+      "PCFM endpoint correction",
+      "Riemannian flow",
+      "Explicit triangle decoder",
+      "General neural network and analytic flow illustrations"
+    ],
+    "changes": [
+      "Prediction roles use explicit deployed computation and loss nodes, with derivative paths through a layer/decoder only when trained through it.",
+      "The base sampler separates learned model evaluation from numerical integration and terminal output selection.",
+      "Forward Universal Guidance modifies predicted noise before the sampler using the clean-estimate loss gradient with respect to the noisy state.",
+      "Projected Diffusion shows repeated projected inner iterations at a fixed noise level.",
+      "PCFM shows endpoint shooting, Gauss-Newton correction, OT interpolation with the original prior draw, relaxed endpoint-residual correction, repetition and a final solve.",
+      "Riemannian flow uses tangent dynamics on a unit-circle illustration; a separate explicit sigmoid/b-q decoder explains coordinate parameterization.",
+      "Training adaptation is described separately from inference operations. Native diffusion and flow time conventions are stated."
+    ],
+    "preserved": [
+      "Numerical methods, seeds, sample coordinates, tolerance and equal plot scales.",
+      "Constraint scope and distinction between sampler steps and physical path time."
+    ],
+    "screenshots": [
+      "output/playwright/framework-chromium-prediction-390.png",
+      "output/playwright/framework-chromium-flow-390.png",
+      "output/playwright/framework-chromium-roles-390.png",
+      "output/playwright/framework-chromium-sampler-390.png",
+      "output/playwright/framework-chromium-generation-390.png",
+      "output/playwright/framework-chromium-prediction-1440.png",
+      "output/playwright/framework-chromium-flow-1440.png",
+      "output/playwright/framework-chromium-roles-1440.png",
+      "output/playwright/framework-chromium-sampler-1440.png",
+      "output/playwright/framework-chromium-generation-1440.png",
+      "output/playwright/framework-webkit-prediction-390.png",
+      "output/playwright/framework-webkit-flow-390.png",
+      "output/playwright/framework-webkit-roles-390.png",
+      "output/playwright/framework-webkit-sampler-390.png",
+      "output/playwright/framework-webkit-generation-390.png",
+      "output/playwright/framework-webkit-prediction-1440.png",
+      "output/playwright/framework-webkit-flow-1440.png",
+      "output/playwright/framework-webkit-roles-1440.png",
+      "output/playwright/framework-webkit-sampler-1440.png",
+      "output/playwright/framework-webkit-generation-1440.png",
+      "output/playwright/review-generation-chromium-390.png",
+      "output/playwright/review-generation-chromium-1440.png",
+      "output/playwright/final-mechanism-poster.png"
+    ],
+    "demo_css_sha256": "1319a72aa8ba1c67806e4b25e8d7bc6c85e546e380ddf10675b941707e56ac28",
+    "measurement_revision": 16
+  },
+  "general_illustrations": {
+    "status": "pass",
+    "assets": [
+      "assets/img/blog/hard-constrained-ml/neural-network-prediction.svg",
+      "assets/img/blog/hard-constrained-ml/flow-generation-general.svg"
+    ],
+    "creation": "Original SVG architecture and analytic toy transport in the existing generator.",
+    "flow_mechanism_source": "https://facebookresearch.github.io/flow_matching/generated/flow_matching.solver.ODESolver.html",
+    "placement": [
+      "Introduction before the allocation example",
+      "Section 5 before constraint intervention discussion"
+    ],
+    "engines": [
+      "Chromium",
+      "WebKit"
+    ],
+    "viewports": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "loaded": true,
+    "horizontal_overflow": false,
+    "notation": "Phi_theta, f_theta and v_theta use SVG tspan subscripts; positive vertical offsets verified in both engines.",
+    "scope": "Hand-specified 4-3-2 ReLU MLP with affine layers; 44 quantile particles under an analytic transport to a toy target. Neither is trained or experimental.",
+    "measurement_revision": 13,
+    "mathematics": {
+      "MLP": "affine combinations, ReLU and affine readout; explicit toy weights and biases in metadata",
+      "flow": "T(z)=1.15 tanh(1.8z)+0.32z; positive derivative; monotone interpolation with smoothstep; endpoint densities use change of variables",
+      "constraint_scope": "general illustrations do not encode output constraints"
+    },
+    "screenshots": [
+      "output/playwright/framework-chromium-prediction-360.png",
+      "output/playwright/framework-chromium-flow-360.png",
+      "output/playwright/framework-chromium-prediction-390.png",
+      "output/playwright/framework-chromium-flow-390.png",
+      "output/playwright/framework-chromium-prediction-768.png",
+      "output/playwright/framework-chromium-flow-768.png",
+      "output/playwright/framework-chromium-prediction-1440.png",
+      "output/playwright/framework-chromium-flow-1440.png",
+      "output/playwright/framework-webkit-prediction-360.png",
+      "output/playwright/framework-webkit-flow-360.png",
+      "output/playwright/framework-webkit-prediction-390.png",
+      "output/playwright/framework-webkit-flow-390.png",
+      "output/playwright/framework-webkit-prediction-768.png",
+      "output/playwright/framework-webkit-flow-768.png",
+      "output/playwright/framework-webkit-prediction-1440.png",
+      "output/playwright/framework-webkit-flow-1440.png"
+    ]
+  },
+  "readability_revision": {
+    "status": "pass",
+    "measurement_revision": 17,
+    "changes": [
+      "Prediction and generation use matching compact classification cards, with two columns on desktop and one on mobile.",
+      "Each sketch contains only a short conceptual chain; paper-specific algorithms and derivations are removed.",
+      "The base sampler is noise, iterative sampling, then returned output.",
+      "Detailed prediction and generation taxonomies link to their companion GitHub guides.",
+      "The two interactive examples and b/q definitions are preserved."
+    ],
+    "detail_removed": "Expandable coordinate coverage discussion and paper-specific algorithm sequences.",
+    "horizontal_overflow": false
+  },
+  "framework_visual_revision": {
+    "status": "pass",
+    "measurement_revision": 17,
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "viewport_widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "svg_assets": 11,
+    "clipped_svg_labels": 0,
+    "theta_subscripts": "positive tspan vertical offset in both engines",
+    "no_js": true,
+    "runtime_errors": [],
+    "changes": [
+      "Prediction and generation use matching compact classification cards, with two columns on desktop and one on mobile.",
+      "Each sketch contains only a short conceptual chain; paper-specific algorithms and derivations are removed.",
+      "The base sampler is noise, iterative sampling, then returned output.",
+      "Detailed prediction and generation taxonomies link to their companion GitHub guides.",
+      "The two interactive examples and b/q definitions are preserved."
+    ],
+    "preserved": [
+      "General NN/flow illustrations, demo math, primary samples and seeds."
+    ],
+    "screenshots": [
+      "output/playwright/framework-chromium-prediction-360.png",
+      "output/playwright/framework-chromium-flow-360.png",
+      "output/playwright/framework-chromium-roles-360.png",
+      "output/playwright/framework-chromium-sampler-360.png",
+      "output/playwright/framework-chromium-generation-360.png",
+      "output/playwright/framework-chromium-prediction-390.png",
+      "output/playwright/framework-chromium-flow-390.png",
+      "output/playwright/framework-chromium-roles-390.png",
+      "output/playwright/framework-chromium-sampler-390.png",
+      "output/playwright/framework-chromium-generation-390.png",
+      "output/playwright/framework-chromium-prediction-768.png",
+      "output/playwright/framework-chromium-flow-768.png",
+      "output/playwright/framework-chromium-roles-768.png",
+      "output/playwright/framework-chromium-sampler-768.png",
+      "output/playwright/framework-chromium-generation-768.png",
+      "output/playwright/framework-chromium-prediction-1440.png",
+      "output/playwright/framework-chromium-flow-1440.png",
+      "output/playwright/framework-chromium-roles-1440.png",
+      "output/playwright/framework-chromium-sampler-1440.png",
+      "output/playwright/framework-chromium-generation-1440.png",
+      "output/playwright/framework-webkit-prediction-360.png",
+      "output/playwright/framework-webkit-flow-360.png",
+      "output/playwright/framework-webkit-roles-360.png",
+      "output/playwright/framework-webkit-sampler-360.png",
+      "output/playwright/framework-webkit-generation-360.png",
+      "output/playwright/framework-webkit-prediction-390.png",
+      "output/playwright/framework-webkit-flow-390.png",
+      "output/playwright/framework-webkit-roles-390.png",
+      "output/playwright/framework-webkit-sampler-390.png",
+      "output/playwright/framework-webkit-generation-390.png",
+      "output/playwright/framework-webkit-prediction-768.png",
+      "output/playwright/framework-webkit-flow-768.png",
+      "output/playwright/framework-webkit-roles-768.png",
+      "output/playwright/framework-webkit-sampler-768.png",
+      "output/playwright/framework-webkit-generation-768.png",
+      "output/playwright/framework-webkit-prediction-1440.png",
+      "output/playwright/framework-webkit-flow-1440.png",
+      "output/playwright/framework-webkit-roles-1440.png",
+      "output/playwright/framework-webkit-sampler-1440.png",
+      "output/playwright/framework-webkit-generation-1440.png"
+    ],
+    "command": "playwright-cli run-code --filename=docs/blog/qa/frameworks.js",
+    "design_references": [
+      {
+        "title": "Understanding LSTM Networks",
+        "url": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/",
+        "used_for": "stable computation grammar and incremental mechanism comparison"
+      },
+      {
+        "title": "A Gentle Introduction to Graph Neural Networks",
+        "url": "https://distill.pub/2021/gnn-intro/",
+        "used_for": "data objects around the transformation, not only labeled boxes"
+      },
+      {
+        "title": "Diffusion Meets Flow Matching",
+        "url": "https://diffusionflow.github.io/",
+        "used_for": "continuous particle trajectories linked to endpoint marginals"
+      }
+    ]
+  },
+  "semantic_review": {
+    "measurement_revision": 17,
+    "status": "pass",
+    "scope": "Classification-level meaning and boundaries; sketches do not specify individual algorithms.",
+    "review_artifact": "docs/blog/framework-method-review.md",
+    "responsible_sources": [
+      "blog/hard-constrained-machine-learning/index.html",
+      "assets/img/blog/hard-constrained-ml/generate_figures.py",
+      "survey Part I and Part II"
+    ],
+    "primary_sources": [
+      "https://arxiv.org/html/2302.07121v1#S3.SS1",
+      "https://arxiv.org/html/2402.03559v3#S4.SS2",
+      "https://arxiv.org/html/2506.04171v1#S3.SS3",
+      "https://arxiv.org/html/2302.03660v3#S3.SS1"
+    ],
+    "changes": [
+      "Prediction and generation use matching compact classification cards, with two columns on desktop and one on mobile.",
+      "Each sketch contains only a short conceptual chain; paper-specific algorithms and derivations are removed.",
+      "The base sampler is noise, iterative sampling, then returned output.",
+      "Detailed prediction and generation taxonomies link to their companion GitHub guides.",
+      "The two interactive examples and b/q definitions are preserved."
+    ]
+  },
+  "diagram_clearance": {
+    "measurement_revision": 17,
+    "status": "pass",
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "svg_assets_per_engine": 15,
+    "text_pair_collisions": 0,
+    "text_connector_collisions": 0,
+    "scope": "Rendered label bounding boxes plus dashed and arrow-bearing connector geometry; decorative axes, point glyphs and plain label leaders are inspected visually.",
+    "previous_check_gap": "Revision 12 checked canvas clipping but did not test text-to-text or text-to-connector intersections.",
+    "command": "playwright-cli run-code --filename=docs/blog/qa/diagram-clearance.js"
+  },
+  "notation_revision": {
+    "measurement_revision": 14,
+    "status": "pass",
+    "symbols": {
+      "b": "fraction of total budget used",
+      "q": "share assigned to first service"
+    },
+    "formula": "(b*q, b*(1-q))",
+    "updated": [
+      "article definitions, example and expandable note",
+      "interactive formula, visible labels, accessible names, state and control IDs",
+      "SVG descriptions and coordinate metadata",
+      "browser check locator"
+    ],
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "viewport_widths": [
+      360,
+      390,
+      1440
+    ],
+    "example": [
+      0.42,
+      0.18
+    ],
+    "keyboard_boundary_checks": true,
+    "numerical_checks": 8030,
+    "runtime_errors": [],
+    "screenshots": [
+      "output/playwright/parameterization-chromium-360.png",
+      "output/playwright/parameterization-chromium-390.png",
+      "output/playwright/parameterization-chromium-1440.png",
+      "output/playwright/parameterization-webkit-360.png",
+      "output/playwright/parameterization-webkit-390.png",
+      "output/playwright/parameterization-webkit-1440.png"
+    ]
+  },
+  "interactive_visual_revision": {
+    "measurement_revision": 15,
+    "status": "pass",
+    "engines": [
+      "chromium",
+      "webkit"
+    ],
+    "viewport_widths": [
+      360,
+      390,
+      768,
+      1440
+    ],
+    "projection_rendered_sample_count": 512,
+    "origin_sample_count": 138,
+    "marker_area": "proportional to exact coincidence count",
+    "positions_changed": false,
+    "resample_reset_keyboard_checks": true,
+    "runtime_errors": []
+  }
+}

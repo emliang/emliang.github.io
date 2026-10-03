@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="300" viewBox="0 0 480 300" role="img" aria-labelledby="title desc">
+<title id="title">An allocation candidate exceeds the budget</title>
+<desc id="desc">Nonnegative allocations with total at most one form K. Candidate (0.8,0.8) lies outside; projection returns (0.5,0.5). Axes have the same scale.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="300" fill="#ffffff"/>
+<metadata>{&quot;B&quot;: 1, &quot;candidate&quot;: [0.8, 0.8], &quot;projection&quot;: [0.5, 0.5]}</metadata>
+<path d="M45 250 L235 250 L45 60 Z" fill="#e9f3f0" stroke="#2c6d77" stroke-width="2.5"/>
+<line x1="29" y1="250" x2="265" y2="250" stroke="#586a6d" stroke-width="2"/>
+<line x1="45" y1="266" x2="45" y2="38" stroke="#586a6d" stroke-width="2"/>
+<text x="31" y="284" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="end">0</text>
+<text x="235" y="284" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">1</text>
+<text x="31" y="68" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="end">1</text>
+<text x="272" y="258" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">y₁</text>
+<text x="37" y="31" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">y₂</text>
+<line x1="197.0" y1="98.0" x2="140.0" y2="155.0" stroke="#9b654e" stroke-width="3" stroke-dasharray="8 7"/>
+<circle cx="197.0" cy="98.0" r="7" fill="#fbfaf8" stroke="#9b654e" stroke-width="3"/>
+<path d="M140.0 146.0 L149.0 155.0 L140.0 164.0 L131.0 155.0 Z" fill="#fbfaf8" stroke="#2c6d77" stroke-width="3"/>
+<line x1="211.0" y1="98.0" x2="262" y2="98.0" stroke="#9b654e" stroke-width="2"/>
+<text x="278" y="100.0" font-size="24" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">candidate</text>
+<text x="278" y="132.0" font-size="23" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">(0.8, 0.8)</text>
+<line x1="154.0" y1="155.0" x2="262" y2="155.0" stroke="#2c6d77" stroke-width="2"/>
+<text x="278" y="163.0" font-size="24" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">projection</text>
+<text x="278" y="195.0" font-size="23" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">(0.5, 0.5)</text>
+<text x="82" y="234" font-size="28" fill="#2c6d77" font-family="Georgia, 'Times New Roman', serif">K</text>
+</svg>

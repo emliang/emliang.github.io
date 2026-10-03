@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="418" viewBox="0 0 480 418" role="img" aria-labelledby="title desc">
+<title id="title">Projection inside the diffusion sampling loop</title>
+<desc id="desc">Representative inner projected iteration from Projected Diffusion, equation 8 and algorithm 1. A score and Gaussian-noise step produces candidate c; projection onto K produces the next inner iterate. Projection is repeated during the noise schedule, rather than applied only once at the end. Feasibility depends on the encoded projection and its numerical accuracy.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="418" fill="#ffffff"/>
+<metadata>{&quot;scope&quot;: &quot;inner projected update; i counts inner iterations at fixed noise level t&quot;, &quot;source&quot;: &quot;https://arxiv.org/html/2402.03559v3#S4.SS2&quot;}</metadata>
+<text x="240" y="27" font-size="24" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Projected diffusion: one inner iteration</text>
+<rect x="16" y="61" width="116" height="64" rx="9" fill="#ffffff" stroke="#c8d3d5" stroke-width="2"/>
+<text x="74.0" y="86" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">xⁱ<tspan dy="6.72" font-size="19.6">t</tspan><tspan dy="-6.72">&#8203;</tspan></text>
+<text x="74.0" y="117" font-size="18" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">state</text>
+<rect x="192" y="61" width="272" height="64" rx="9" fill="#e9f3f0" stroke="#9bbeb7" stroke-width="2"/>
+<text x="328.0" y="85" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Score + noise step</text>
+<text x="328.0" y="117" font-size="20" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">c = xⁱ<tspan dy="4.8" font-size="14.0">t</tspan><tspan dy="-4.8">&#8203;</tspan> + γ s<tspan dy="4.8" font-size="14.0">θ</tspan><tspan dy="-4.8">&#8203;</tspan> + √(2γ) ξ</text>
+<line x1="140" y1="93" x2="184" y2="93" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="192" y="183" width="272" height="64" rx="9" fill="#f7eee8" stroke="#c79c86" stroke-width="2"/>
+<text x="328.0" y="207" font-size="25" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Projection solve</text>
+<text x="328.0" y="239" font-size="20" fill="#9b654e" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">xⁱ⁺¹<tspan dy="4.8" font-size="14.0">t</tspan><tspan dy="-4.8">&#8203;</tspan> = Π<tspan dy="4.8" font-size="14.0">K</tspan><tspan dy="-4.8">&#8203;</tspan>(c)</text>
+<line x1="328" y1="133" x2="328" y2="175" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<path d="M328 255 V292 H74 V133" fill="none" stroke="#2c6d77" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="236" y="318" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">repeat at level t</text>
+<line x1="16" y1="329" x2="464" y2="329" stroke="#dbe3e1" stroke-width="1"/>
+<text x="240" y="362" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Then advance to the next noise level.</text>
+<text x="240" y="397" font-size="22" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Feasibility is checked after projection.</text>
+</svg>

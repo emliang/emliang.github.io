@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="816" viewBox="0 0 480 816" role="img" aria-labelledby="title desc">
+<title id="title">Four roles for constraints in prediction</title>
+<desc id="desc">Classification overview; methods can combine these roles.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="816" fill="#ffffff"/>
+<g transform="translate(0,0)">
+<text x="16" y="26" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Training-based approaches</text>
+<g transform="translate(0,40)">
+<text x="12" y="71" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x</text>
+<line x1="34" y1="62" x2="150" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="158" y="30" width="165" height="64" rx="9" fill="#24363a" stroke="#24363a" stroke-width="2"/>
+<text x="240.5" y="54" font-size="25" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Model</text>
+<text x="240.5" y="86" font-size="20" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">f<tspan dy="4.8" font-size="14.0">θ</tspan><tspan dy="-4.8">&#8203;</tspan>(x)</text>
+<line x1="331" y1="62" x2="428" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="447" y="71" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">y</text>
+<text x="240" y="137" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Constraints shape the model</text>
+</g></g>
+<g transform="translate(0,204)">
+<text x="16" y="26" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Structured layers</text>
+<g transform="translate(0,40)">
+<text x="12" y="71" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x</text>
+<line x1="34" y1="62" x2="50" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="57" y="30" width="109" height="64" rx="9" fill="#24363a" stroke="#24363a" stroke-width="2"/>
+<text x="111.5" y="54" font-size="25" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Model</text>
+<text x="111.5" y="86" font-size="20" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">f<tspan dy="4.8" font-size="14.0">θ</tspan><tspan dy="-4.8">&#8203;</tspan>(x)</text>
+<line x1="173" y1="62" x2="243" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="207" y="42" font-size="24" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">c</text>
+<rect x="251" y="30" width="161" height="64" rx="9" fill="#f7eee8" stroke="#c79c86" stroke-width="2"/>
+<text x="331.5" y="54" font-size="25" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Layer</text>
+<text x="331.5" y="86" font-size="20" fill="#9b654e" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">in the model</text>
+<line x1="419" y1="62" x2="434" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="447" y="71" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">y</text>
+<text x="240" y="137" font-size="23" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Training includes the operation</text>
+</g></g>
+<g transform="translate(0,408)">
+<text x="16" y="26" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Constraint parameterization</text>
+<g transform="translate(0,40)">
+<text x="12" y="71" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x</text>
+<line x1="34" y1="62" x2="50" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="57" y="30" width="109" height="64" rx="9" fill="#24363a" stroke="#24363a" stroke-width="2"/>
+<text x="111.5" y="54" font-size="25" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Model</text>
+<text x="111.5" y="86" font-size="20" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">f<tspan dy="4.8" font-size="14.0">θ</tspan><tspan dy="-4.8">&#8203;</tspan>(x)</text>
+<line x1="173" y1="62" x2="243" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="207" y="42" font-size="24" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">u</text>
+<rect x="251" y="30" width="161" height="64" rx="9" fill="#edf1f8" stroke="#91a5c5" stroke-width="2"/>
+<text x="331.5" y="54" font-size="25" fill="#526e9b" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Decode</text>
+<text x="331.5" y="86" font-size="20" fill="#526e9b" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">D(u)</text>
+<line x1="419" y1="62" x2="434" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="447" y="71" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">y</text>
+<text x="240" y="137" font-size="23" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Coordinates construct a feasible output</text>
+</g></g>
+<g transform="translate(0,612)">
+<text x="16" y="26" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Post-processing</text>
+<g transform="translate(0,40)">
+<text x="12" y="71" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x</text>
+<line x1="34" y1="62" x2="50" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="57" y="30" width="109" height="64" rx="9" fill="#24363a" stroke="#24363a" stroke-width="2"/>
+<text x="111.5" y="54" font-size="25" fill="#ffffff" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Model</text>
+<text x="111.5" y="86" font-size="20" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">f<tspan dy="4.8" font-size="14.0">θ</tspan><tspan dy="-4.8">&#8203;</tspan>(x)</text>
+<line x1="173" y1="62" x2="243" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="207" y="42" font-size="24" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">c</text>
+<rect x="251" y="30" width="161" height="64" rx="9" fill="#f7eee8" stroke="#c79c86" stroke-width="2"/>
+<text x="331.5" y="54" font-size="25" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Correct</text>
+<text x="331.5" y="86" font-size="20" fill="#9b654e" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">after the model</text>
+<line x1="419" y1="62" x2="434" y2="62" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="447" y="71" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">y</text>
+<text x="240" y="137" font-size="23" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Recovery runs at inference</text>
+</g></g>
+</svg>

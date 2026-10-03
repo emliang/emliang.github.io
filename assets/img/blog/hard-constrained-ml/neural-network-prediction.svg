@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="404" viewBox="0 0 480 404" role="img" aria-labelledby="title desc">
+<title id="title">A feedforward neural network maps a feature vector to a prediction</title>
+<desc id="desc">A small multilayer perceptron is expanded into its actual computation. Four input features enter three affine weighted-sum units, each followed by a ReLU activation, before two affine readout units form the output vector. Bars represent feature values, dark sum nodes are learned affine operations, and the plotted kink denotes ReLU. The copper route helps follow one contribution; all connections remain active. Values come from a hand-specified toy network, not training or experimental data. This unconstrained network does not itself encode feasibility.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="404" fill="#ffffff"/>
+<metadata>{&quot;W1&quot;: [[0.6, -0.2, 0.4, 0.1], [-0.3, 0.8, 0.5, 0.2], [0.2, 0.1, -0.6, 0.9]], &quot;W2&quot;: [[0.65, 0.4, -0.1], [-0.2, 0.5, 0.8]], &quot;architecture&quot;: &quot;4 inputs, 3 ReLU units, 2 affine outputs&quot;, &quot;b1&quot;: [0.05, 0.1, 0.25], &quot;b2&quot;: [0.05, 0.1], &quot;hidden&quot;: [0.7150000000000001, 0.47, 0.22000000000000006], &quot;input&quot;: [0.8, 0.35, 0.6, 0.15], &quot;kind&quot;: &quot;original architecture illustration; hand-specified toy MLP&quot;, &quot;output&quot;: [0.6807500000000001, 0.368], &quot;visual_reference&quot;: &quot;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot;}</metadata>
+<text x="46" y="35" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Input</text>
+<text x="249" y="35" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Learned layers</text>
+<text x="432" y="35" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Output</text>
+<rect x="106" y="57" width="297" height="248" rx="18" fill="#f2f6f4" stroke="#c7d9d4" stroke-width="2"/>
+<text x="140" y="88" font-size="26" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Mix</text>
+<text x="229" y="88" font-size="26" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">ReLU</text>
+<text x="366" y="88" font-size="26" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Mix</text>
+<line x1="78" y1="120" x2="122" y2="130" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="120" x2="122" y2="202" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="120" x2="122" y2="274" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="165" x2="122" y2="130" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="165" x2="122" y2="202" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="165" x2="122" y2="274" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="210" x2="122" y2="130" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="210" x2="122" y2="202" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="210" x2="122" y2="274" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="255" x2="122" y2="130" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="255" x2="122" y2="202" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="255" x2="122" y2="274" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="303.74" y1="130" x2="348" y2="172" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="303.74" y1="130" x2="348" y2="234" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="294.92" y1="202" x2="348" y2="172" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="294.92" y1="202" x2="348" y2="234" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="285.92" y1="274" x2="348" y2="172" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="285.92" y1="274" x2="348" y2="234" stroke="#bfd2cd" stroke-width="1.8"/>
+<line x1="78" y1="165" x2="122" y2="202" stroke="#9b654e" stroke-width="3"/>
+<line x1="294.92" y1="202" x2="348" y2="172" stroke="#9b654e" stroke-width="3"/>
+<path d="M29 106 H22 V269 H29" fill="none" stroke="#24363a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M75 106 H82 V269 H75" fill="none" stroke="#24363a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M422 154 H415 V252 H422" fill="none" stroke="#24363a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M452 154 H459 V252 H452" fill="none" stroke="#24363a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="32" y="112" width="32.0" height="16" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<rect x="32" y="157" width="14.0" height="16" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<rect x="32" y="202" width="24.0" height="16" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<rect x="32" y="247" width="6.0" height="16" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<circle cx="140" cy="130" r="18" fill="#24363a"/>
+<text x="140" y="139" font-size="27" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Σ</text>
+<line x1="160" y1="130" x2="193" y2="130" stroke="#2c6d77" stroke-width="2.7" marker-end="url(#arrow)"/>
+<rect x="196" y="108" width="67" height="44" rx="8" fill="#ffffff" stroke="#a8c5bd" stroke-width="2"/>
+<line x1="208" y1="141" x2="251" y2="141" stroke="#cbdad5" stroke-width="1.6"/>
+<line x1="228" y1="145" x2="228" y2="116" stroke="#cbdad5" stroke-width="1.6"/>
+<path d="M209 140 H228 L248 118" fill="none" stroke="#2c6d77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="263" y1="130" x2="276" y2="130" stroke="#2c6d77" stroke-width="2.7"/>
+<rect x="278" y="123" width="25.740000000000002" height="14" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<circle cx="140" cy="202" r="18" fill="#24363a"/>
+<text x="140" y="211" font-size="27" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Σ</text>
+<line x1="160" y1="202" x2="193" y2="202" stroke="#9b654e" stroke-width="2.7" marker-end="url(#back)"/>
+<rect x="196" y="180" width="67" height="44" rx="8" fill="#ffffff" stroke="#a8c5bd" stroke-width="2"/>
+<line x1="208" y1="213" x2="251" y2="213" stroke="#cbdad5" stroke-width="1.6"/>
+<line x1="228" y1="217" x2="228" y2="188" stroke="#cbdad5" stroke-width="1.6"/>
+<path d="M209 212 H228 L248 190" fill="none" stroke="#9b654e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="263" y1="202" x2="276" y2="202" stroke="#9b654e" stroke-width="2.7"/>
+<rect x="278" y="195" width="16.919999999999998" height="14" rx="3" fill="#9b654e" stroke="#9b654e" stroke-width="2"/>
+<circle cx="140" cy="274" r="18" fill="#24363a"/>
+<text x="140" y="283" font-size="27" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Σ</text>
+<line x1="160" y1="274" x2="193" y2="274" stroke="#2c6d77" stroke-width="2.7" marker-end="url(#arrow)"/>
+<rect x="196" y="252" width="67" height="44" rx="8" fill="#ffffff" stroke="#a8c5bd" stroke-width="2"/>
+<line x1="208" y1="285" x2="251" y2="285" stroke="#cbdad5" stroke-width="1.6"/>
+<line x1="228" y1="289" x2="228" y2="260" stroke="#cbdad5" stroke-width="1.6"/>
+<path d="M209 284 H228 L248 262" fill="none" stroke="#2c6d77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="263" y1="274" x2="276" y2="274" stroke="#2c6d77" stroke-width="2.7"/>
+<rect x="278" y="267" width="7.920000000000002" height="14" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<circle cx="366" cy="172" r="18" fill="#24363a"/>
+<text x="366" y="181" font-size="27" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Σ</text>
+<line x1="386" y1="172" x2="411" y2="172" stroke="#9b654e" stroke-width="2.7" marker-end="url(#back)"/>
+<rect x="428" y="164" width="23.82625" height="16" rx="3" fill="#9b654e" stroke="#9b654e" stroke-width="2"/>
+<circle cx="366" cy="234" r="18" fill="#24363a"/>
+<text x="366" y="243" font-size="27" fill="#ffffff" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Σ</text>
+<line x1="386" y1="234" x2="411" y2="234" stroke="#2c6d77" stroke-width="2.7" marker-end="url(#arrow)"/>
+<rect x="428" y="226" width="12.879999999999999" height="16" rx="3" fill="#2c6d77" stroke="#2c6d77" stroke-width="2"/>
+<text x="52" y="306" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">x</text>
+<text x="437" y="306" font-size="29" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">ŷ</text>
+<text x="240" y="346" font-size="26" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Affine → ReLU → Affine</text>
+<text x="240" y="387" font-size="32" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">ŷ = f<tspan dy="7.68" font-size="22.4">θ</tspan><tspan dy="-7.68">&#8203;</tspan>(x)</text>
+</svg>

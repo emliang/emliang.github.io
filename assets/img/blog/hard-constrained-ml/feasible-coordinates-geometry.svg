@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="388" viewBox="0 0 480 388" role="img" aria-labelledby="title desc">
+<title id="title">Parameterization through an explicit triangle decoder</title>
+<desc id="desc">A concrete illustrative construction. Generate a two-dimensional latent sample u_N, apply sigmoid separately to obtain b and q in the open unit interval, and return y=(bq,b(1-q)). The map enforces the interior triangle constraints. Finite sigmoid inputs do not cover the exact triangle boundary; the earlier interactive explorer uses closed coordinate intervals. This is a coordinate map, not a manifold flow or a claimed map for arbitrary collision-free trajectories.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="388" fill="#ffffff"/>
+<metadata>{&quot;kind&quot;: &quot;analytic triangle construction; not a trained generative result&quot;}</metadata>
+<text x="240" y="27" font-size="24" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">A concrete feasible-coordinate construction</text>
+<rect x="16" y="62" width="128" height="64" rx="9" fill="#ffffff" stroke="#c8d3d5" stroke-width="2"/>
+<text x="80.0" y="87" font-size="28" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">u<tspan dy="6.72" font-size="19.6">N</tspan><tspan dy="-6.72">&#8203;</tspan> ∈ ℝ²</text>
+<text x="80.0" y="118" font-size="18" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">latent sample</text>
+<rect x="201" y="62" width="263" height="64" rx="9" fill="#edf1f8" stroke="#91a5c5" stroke-width="2"/>
+<text x="332.5" y="86" font-size="25" fill="#526e9b" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Bound the coordinates</text>
+<text x="332.5" y="118" font-size="20" fill="#526e9b" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">b = σ(u₁),  q = σ(u₂)</text>
+<line x1="151" y1="94" x2="193" y2="94" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<rect x="201" y="190" width="263" height="64" rx="9" fill="#edf1f8" stroke="#91a5c5" stroke-width="2"/>
+<text x="332.5" y="214" font-size="25" fill="#526e9b" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Decode the allocation</text>
+<text x="332.5" y="246" font-size="20" fill="#526e9b" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">y = (bq, b(1 − q))</text>
+<line x1="333" y1="134" x2="333" y2="182" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<text x="70" y="216" font-size="29" fill="#2c6d77" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">y ∈ K</text>
+<line x1="193" y1="222" x2="122" y2="222" stroke="#2c6d77" stroke-width="2.1" marker-end="url(#arrow)"/>
+<line x1="16" y1="287" x2="464" y2="287" stroke="#dbe3e1" stroke-width="1"/>
+<text x="240" y="324" font-size="24" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">0 &lt; b, q &lt; 1 ⇒ y₁, y₂ &gt; 0; y₁ + y₂ &lt; 1</text>
+<text x="240" y="365" font-size="21" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Finite sigmoid inputs exclude exact boundaries.</text>
+</svg>

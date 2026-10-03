@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="374" viewBox="0 0 480 374" role="img" aria-labelledby="title desc">
+<title id="title">Tangent dynamics and manifold integration</title>
+<desc id="desc">Riemannian Flow Matching learns a tangent vector field using intrinsic paths and the Riemannian metric. This unit-circle illustration separates a tangent velocity from a geometry-aware integration step that returns a state on the manifold. It is not a feasible decoder or an obstacle-avoidance guarantee. Numerical enforcement depends on the selected manifold integrator.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="374" fill="#ffffff"/>
+<metadata>{&quot;illustration&quot;: &quot;unit circle; conceptual tangent and manifold step, not trained samples&quot;, &quot;source&quot;: &quot;https://arxiv.org/html/2302.03660v3#S3.SS1&quot;}</metadata>
+<text x="240" y="27" font-size="24" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Riemannian flow: evolve on the manifold</text>
+<circle cx="150" cy="164" r="87" fill="#f4f7fb" stroke="#91a5c5" stroke-width="2.5"/>
+<text x="115" y="187" font-size="38" fill="#526e9b" font-family="Georgia, 'Times New Roman', serif">M</text>
+<path d="M211.52 102.48 A87 87 0 0 1 211.52 225.52" fill="none" stroke="#2c6d77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<circle cx="211.52" cy="102.48" r="5" fill="#fbfaf8" stroke="#24363a" stroke-width="3"/>
+<path d="M211.52 218.52 L218.52 225.52 L211.52 232.52 L204.52 225.52 Z" fill="#fbfaf8" stroke="#2c6d77" stroke-width="3"/>
+<line x1="212" y1="102" x2="259" y2="149" stroke="#2c6d77" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="182" y="79" font-size="26" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x<tspan dy="6.24" font-size="18.2">t</tspan><tspan dy="-6.24">&#8203;</tspan></text>
+<text x="236" y="247" font-size="26" fill="#24363a" font-family="Georgia, 'Times New Roman', serif">x<tspan dy="6.24" font-size="18.2">t+Δt</tspan><tspan dy="-6.24">&#8203;</tspan></text>
+<text x="357" y="101" font-size="23" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Tangent velocity</text>
+<text x="357" y="139" font-size="27" fill="#2c6d77" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">v<tspan dy="6.48" font-size="18.9">θ</tspan><tspan dy="-6.48">&#8203;</tspan> ∈ T<tspan dy="6.48" font-size="18.9">x</tspan><tspan dy="-6.48">&#8203;</tspan> M</text>
+<text x="357" y="201" font-size="23" fill="#2c6d77" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Manifold step</text>
+<text x="357" y="238" font-size="25" fill="#2c6d77" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">x<tspan dy="6.0" font-size="17.5">t+Δt</tspan><tspan dy="-6.0">&#8203;</tspan> ∈ M</text>
+<line x1="16" y1="277" x2="464" y2="277" stroke="#dbe3e1" stroke-width="1"/>
+<text x="240" y="314" font-size="26" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Example geometry: ‖x‖ = 1</text>
+<text x="240" y="351" font-size="21" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Initialize on M; integrate using its geometry.</text>
+</svg>

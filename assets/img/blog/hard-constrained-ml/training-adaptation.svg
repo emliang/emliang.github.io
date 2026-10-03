@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="420" viewBox="0 0 480 420" role="img" aria-labelledby="title desc">
+<title id="title">Train the update or constraint mechanism</title>
+<desc id="desc">The next sampler state feeds a readout, map or correction before the training loss is evaluated. Solid teal arrows show that forward computation. Dashed copper arrows fit model parameters theta and, when trainable, the output operation&#x27;s parameters. Training can accompany guidance, correction or feasible coordinates; it is not a separate mutually exclusive sampler family. These are schematic paths, not a training result.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="420" fill="#ffffff"/>
+<metadata>{&quot;design_references&quot;: [&quot;https://colah.github.io/posts/2015-08-Understanding-LSTMs/&quot;, &quot;https://diffusionflow.github.io/&quot;], &quot;kind&quot;: &quot;original schematic; hand-designed paths, not an experiment&quot;, &quot;spatial_path&quot;: &quot;whole robot path over physical parameter s, not sampler time k&quot;}</metadata>
+<text x="76" y="31" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">State xₖ</text>
+<text x="240" y="31" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Update</text>
+<text x="404" y="31" font-size="25" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Next xₖ₊₁</text>
+<rect x="16" y="51" width="120" height="96" rx="12" fill="#fafbfc" stroke="#e0e6e8" stroke-width="2"/>
+<line x1="46.0" y1="59" x2="46.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="24" y1="75.0" x2="128" y2="75.0" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="76.0" y1="59" x2="76.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="24" y1="99.0" x2="128" y2="99.0" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="106.0" y1="59" x2="106.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="24" y1="123.0" x2="128" y2="123.0" stroke="#e9edef" stroke-width="0.8"/>
+<circle cx="77.2" cy="102.84" r="21.799999999999997" fill="#9b654e" fill-opacity=".055"/>
+<circle cx="77.2" cy="102.84" r="16.799999999999997" fill="#eedcd1" stroke="#bd8c72" stroke-width="1.2"/>
+<g transform="translate(16,51) scale(120,96)"><path d="M 0.1 0.82 C 0.06 0.44 0.24 0.13 0.29 0.53 S 0.35 0.94 0.45 0.48 S 0.53 0.03 0.62 0.43 S 0.8 0.52 0.9 0.14" fill="none" stroke="#849299" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></g>
+<circle cx="28.0" cy="129.72" r="4.2" fill="#fff" stroke="#849299" stroke-width="2"/>
+<circle cx="124.0" cy="64.44" r="4.2" fill="#fff" stroke="#849299" stroke-width="2"/>
+<rect x="344" y="51" width="120" height="96" rx="12" fill="#fafbfc" stroke="#e0e6e8" stroke-width="2"/>
+<line x1="374.0" y1="59" x2="374.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="352" y1="75.0" x2="456" y2="75.0" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="404.0" y1="59" x2="404.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="352" y1="99.0" x2="456" y2="99.0" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="434.0" y1="59" x2="434.0" y2="139" stroke="#e9edef" stroke-width="0.8"/>
+<line x1="352" y1="123.0" x2="456" y2="123.0" stroke="#e9edef" stroke-width="0.8"/>
+<circle cx="405.2" cy="102.84" r="21.799999999999997" fill="#9b654e" fill-opacity=".055"/>
+<circle cx="405.2" cy="102.84" r="16.799999999999997" fill="#eedcd1" stroke="#bd8c72" stroke-width="1.2"/>
+<g transform="translate(344,51) scale(120,96)"><path d="M 0.1 0.82 C 0.23 0.72 0.27 0.28 0.4 0.43 S 0.51 0.78 0.61 0.39 S 0.8 0.32 0.9 0.14" fill="none" stroke="#24363a" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"/></g>
+<circle cx="356.0" cy="129.72" r="4.2" fill="#fff" stroke="#24363a" stroke-width="2"/>
+<circle cx="452.0" cy="64.44" r="4.2" fill="#fff" stroke="#24363a" stroke-width="2"/>
+<rect x="202" y="61" width="76" height="76" rx="10" fill="#e9f3f0" stroke="#a6c5c0" stroke-width="2"/>
+<text x="240.0" y="109" font-size="34" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">Φ<tspan dy="8.16" font-size="23.8">θ</tspan></text>
+<line x1="146" y1="99" x2="194" y2="99" stroke="#2c6d77" stroke-width="2.5" marker-end="url(#arrow)"/>
+<line x1="286" y1="99" x2="338" y2="99" stroke="#2c6d77" stroke-width="2.5" marker-end="url(#arrow)"/>
+<rect x="16" y="246" width="186" height="58" rx="10" fill="#f7eee8" stroke="#c8967d" stroke-width="2"/>
+<text x="109" y="283" font-size="25" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Training loss</text>
+<rect x="286" y="237" width="178" height="76" rx="10" fill="#e9f3f0" stroke="#a6c5c0" stroke-width="2"/>
+<text x="375" y="268" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Output</text>
+<text x="375" y="299" font-size="26" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">operation</text>
+<path d="M404 155 L404 188 L375 188 L375 231" fill="none" stroke="#2c6d77" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<line x1="278" y1="262" x2="206" y2="262" stroke="#2c6d77" stroke-width="2.2" marker-end="url(#arrow)"/>
+<path d="M109 234 L109 188 L240 188 L240 143" fill="none" stroke="#9b654e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#back)"/>
+<path d="M109 312 L109 352 L375 352 L375 321" fill="none" stroke="#9b654e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7 6" marker-end="url(#back)"/>
+<text x="242" y="398" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">fit operation if trainable</text>
+</svg>

@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="410" viewBox="0 0 480 410" role="img" aria-labelledby="title desc">
+<title id="title">Feasible samples by projection</title>
+<desc id="desc">Unchanged uniform-square synthetic record: seed 104729, equal 256 returned samples per method. No jitter is used. Circle area is proportional to the count of exactly coincident samples; the projection origin circle represents 75 samples. Boundary points are copper and interior points teal. Rejection tested 1917 candidates. Projection maps 256 candidates and has 218 boundary outputs; its ideal boundary probability is 7/8. The rejection conditional target has zero boundary probability and ideal acceptance 1/8.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#2c6d77"/></marker>
+  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#9b654e"/></marker>
+</defs>
+<rect width="480" height="410" fill="#ffffff"/>
+<metadata>{&quot;ideal_projection_boundary_probability&quot;: 0.875, &quot;ideal_rejection_acceptance_probability&quot;: 0.125, &quot;marker_area&quot;: &quot;proportional to exact coincident sample count&quot;, &quot;n_outputs_per_method&quot;: 256, &quot;projection_boundary_count&quot;: 218, &quot;projection_candidates_mapped&quot;: 256, &quot;projection_origin_count&quot;: 75, &quot;rejection_candidates_tested&quot;: 1917, &quot;seed&quot;: 104729}</metadata>
+<text x="24" y="36" font-size="27" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Projection</text>
+<path d="M50 327 L283 327 L50 94 Z" fill="#e9f3f0" stroke="#2c6d77" stroke-width="2.5"/>
+<line x1="34" y1="327" x2="313" y2="327" stroke="#586a6d" stroke-width="2"/>
+<line x1="50" y1="343" x2="50" y2="72" stroke="#586a6d" stroke-width="2"/>
+<text x="22" y="361" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="end">0</text>
+<text x="283" y="361" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">1</text>
+<text x="36" y="102" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="end">1</text>
+<text x="320" y="335" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">y₁</text>
+<text x="42" y="65" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">y₂</text>
+<circle cx="201.0055" cy="283.5741" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.64809223, 0.18637737)</title></circle>
+<circle cx="111.5994" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.26437526, 0)</title></circle>
+<circle cx="156.6148" cy="264.9257" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.45757426, 0.26641316)</title></circle>
+<circle cx="159.5033" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.46997116, 0)</title></circle>
+<circle cx="50.0000" cy="190.5004" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.58583523)</title></circle>
+<circle cx="194.4781" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.62007788, 0)</title></circle>
+<circle cx="226.9885" cy="270.9885" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.75960727, 0.24039273)</title></circle>
+<circle cx="229.8671" cy="273.8671" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.77196172, 0.22803828)</title></circle>
+<circle cx="73.8752" cy="269.7500" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.10246874, 0.24570825)</title></circle>
+<circle cx="50.0000" cy="174.8174" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.65314415)</title></circle>
+<circle cx="82.9368" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.14135982, 0)</title></circle>
+<circle cx="165.1158" cy="299.9263" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.49405905, 0.11619612)</title></circle>
+<circle cx="50.0000" cy="108.7043" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.93689142)</title></circle>
+<circle cx="50.0000" cy="231.6279" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.40932223)</title></circle>
+<circle cx="50.0000" cy="178.4714" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.63746193)</title></circle>
+<circle cx="50.0000" cy="188.4687" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.59455499)</title></circle>
+<circle cx="79.0607" cy="220.5523" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.12472386, 0.45685695)</title></circle>
+<circle cx="110.0690" cy="154.0690" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.25780689, 0.74219311)</title></circle>
+<circle cx="50.0000" cy="308.4271" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.079712126)</title></circle>
+<circle cx="194.5260" cy="238.5260" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.62028312, 0.37971688)</title></circle>
+<circle cx="256.9750" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.88830455, 0)</title></circle>
+<circle cx="116.4409" cy="160.4409" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.28515398, 0.71484602)</title></circle>
+<circle cx="63.3389" cy="297.1751" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.057248558, 0.12800403)</title></circle>
+<circle cx="137.8029" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.37683634, 0)</title></circle>
+<circle cx="214.2339" cy="305.7947" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.70486632, 0.091009871)</title></circle>
+<circle cx="207.7546" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.67705834, 0)</title></circle>
+<circle cx="90.1660" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.17238642, 0)</title></circle>
+<circle cx="62.1953" cy="243.8265" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.052340388, 0.35696773)</title></circle>
+<circle cx="93.3344" cy="199.6965" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.18598463, 0.54636692)</title></circle>
+<circle cx="50.0000" cy="296.7782" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.12970734)</title></circle>
+<circle cx="177.6708" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.54794316, 0)</title></circle>
+<circle cx="50.0000" cy="326.2337" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.0032888004)</title></circle>
+<circle cx="227.6763" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.76255933, 0)</title></circle>
+<circle cx="178.4449" cy="271.3228" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.55126584, 0.23895794)</title></circle>
+<circle cx="50.0000" cy="308.9746" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.077362189)</title></circle>
+<circle cx="184.0516" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.57532856, 0)</title></circle>
+<circle cx="50.0000" cy="271.7373" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.23717916)</title></circle>
+<circle cx="50.0000" cy="139.2587" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.80575684)</title></circle>
+<circle cx="239.1721" cy="283.1721" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.81189759, 0.18810241)</title></circle>
+<circle cx="50.0000" cy="196.8289" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.55867431)</title></circle>
+<circle cx="50.0000" cy="304.8902" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.094891807)</title></circle>
+<circle cx="109.7679" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.25651473, 0)</title></circle>
+<circle cx="59.0762" cy="326.4720" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.038953774, 0.0022662352)</title></circle>
+<circle cx="207.8005" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.67725547, 0)</title></circle>
+<circle cx="50.0000" cy="174.6693" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.65377989)</title></circle>
+<circle cx="50.0000" cy="167.7260" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.68357919)</title></circle>
+<circle cx="50.0000" cy="323.4521" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.015226852)</title></circle>
+<circle cx="50.0000" cy="169.6314" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.67540173)</title></circle>
+<circle cx="50.0000" cy="243.7966" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.35709634)</title></circle>
+<circle cx="110.7301" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.26064412, 0)</title></circle>
+<circle cx="116.4334" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.28512195, 0)</title></circle>
+<circle cx="81.7424" cy="292.7813" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.13623326, 0.14686158)</title></circle>
+<circle cx="50.0000" cy="172.2084" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.66434162)</title></circle>
+<circle cx="269.1229" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.9404418, 0)</title></circle>
+<circle cx="50.0000" cy="204.3835" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.52625116)</title></circle>
+<circle cx="191.9842" cy="235.9842" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.6093744, 0.3906256)</title></circle>
+<circle cx="50.0000" cy="165.8997" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.69141754)</title></circle>
+<circle cx="109.6328" cy="244.0536" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.25593481, 0.35599295)</title></circle>
+<circle cx="55.7028" cy="123.2074" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.024475693, 0.87464622)</title></circle>
+<circle cx="272.8992" cy="316.8992" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.95664895, 0.043351047)</title></circle>
+<circle cx="189.8857" cy="233.8857" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.60036777, 0.39963223)</title></circle>
+<circle cx="50.0000" cy="115.9681" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.90571623)</title></circle>
+<circle cx="268.3360" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.93706423, 0)</title></circle>
+<circle cx="50.0000" cy="218.5758" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.46533988)</title></circle>
+<circle cx="127.8906" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.33429446, 0)</title></circle>
+<circle cx="50.0000" cy="243.7007" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.35750769)</title></circle>
+<circle cx="170.3668" cy="214.3668" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.5165956, 0.4834044)</title></circle>
+<circle cx="50.0000" cy="213.3523" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.48775817)</title></circle>
+<circle cx="83.8513" cy="285.2331" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.14528451, 0.17925696)</title></circle>
+<circle cx="86.7562" cy="270.4056" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.15775177, 0.24289449)</title></circle>
+<circle cx="147.0544" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.41654248, 0)</title></circle>
+<circle cx="66.1273" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.069215848, 0)</title></circle>
+<circle cx="70.2504" cy="178.4824" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.08691138, 0.6374148)</title></circle>
+<circle cx="95.0920" cy="287.5856" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.1935277, 0.16916033)</title></circle>
+<circle cx="65.4049" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.066115517, 0)</title></circle>
+<circle cx="50.0000" cy="203.4104" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.53042736)</title></circle>
+<circle cx="66.9449" cy="204.5686" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.072724683, 0.52545649)</title></circle>
+<circle cx="111.0302" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.26193211, 0)</title></circle>
+<circle cx="112.1499" cy="247.6399" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.26673788, 0.34060108)</title></circle>
+<circle cx="50.0000" cy="298.3045" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.12315674)</title></circle>
+<circle cx="50.0000" cy="221.9113" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.45102449)</title></circle>
+<circle cx="50.8172" cy="271.5683" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.0035071662, 0.23790437)</title></circle>
+<circle cx="107.5987" cy="178.4676" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.24720456, 0.63747823)</title></circle>
+<circle cx="265.7858" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.92611937, 0)</title></circle>
+<circle cx="203.5750" cy="281.6273" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.65912, 0.1947325)</title></circle>
+<circle cx="50.0000" cy="210.6220" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.49947629)</title></circle>
+<circle cx="50.0000" cy="266.9797" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.25759796)</title></circle>
+<circle cx="217.3325" cy="273.0647" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.7181651, 0.23148187)</title></circle>
+<circle cx="50.0000" cy="226.2566" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.43237496)</title></circle>
+<circle cx="242.3569" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.82556595, 0)</title></circle>
+<circle cx="87.7494" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.16201456, 0)</title></circle>
+<circle cx="50.0000" cy="143.1692" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.7889734)</title></circle>
+<circle cx="148.7247" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.42371095, 0)</title></circle>
+<circle cx="50.0000" cy="199.0858" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.54898807)</title></circle>
+<circle cx="246.2424" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.84224223, 0)</title></circle>
+<circle cx="144.3670" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.40500855, 0)</title></circle>
+<circle cx="58.9116" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.038247091, 0)</title></circle>
+<circle cx="148.6306" cy="262.8887" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.42330743, 0.27515564)</title></circle>
+<circle cx="136.3837" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.37074555, 0)</title></circle>
+<circle cx="50.0000" cy="323.1353" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.016586688)</title></circle>
+<circle cx="50.0000" cy="171.9600" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.66540784)</title></circle>
+<circle cx="153.7208" cy="197.7208" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.44515348, 0.55484652)</title></circle>
+<circle cx="50.0000" cy="215.2052" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.47980619)</title></circle>
+<circle cx="50.0000" cy="188.1203" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.59605025)</title></circle>
+<circle cx="50.0000" cy="151.4739" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.7533308)</title></circle>
+<circle cx="148.0502" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.42081635, 0)</title></circle>
+<circle cx="217.3554" cy="292.2582" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.71826357, 0.14910624)</title></circle>
+<circle cx="179.1098" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.55411929, 0)</title></circle>
+<circle cx="237.5819" cy="301.2161" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.8050727, 0.11066035)</title></circle>
+<circle cx="50.0000" cy="309.5027" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.075095571)</title></circle>
+<circle cx="266.1403" cy="317.2144" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.92764096, 0.041998428)</title></circle>
+<circle cx="185.1142" cy="229.1142" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.5798893, 0.4201107)</title></circle>
+<circle cx="50.0000" cy="173.4928" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.65882931)</title></circle>
+<circle cx="127.6360" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.33320192, 0)</title></circle>
+<circle cx="76.3780" cy="306.3681" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.11321045, 0.088548896)</title></circle>
+<circle cx="125.4603" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.32386388, 0)</title></circle>
+<circle cx="50.0000" cy="269.1091" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.24845879)</title></circle>
+<circle cx="128.0834" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.33512177, 0)</title></circle>
+<circle cx="143.6254" cy="187.6254" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.40182557, 0.59817443)</title></circle>
+<circle cx="144.5610" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.40584131, 0)</title></circle>
+<circle cx="241.1946" cy="285.1946" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.82057788, 0.17942212)</title></circle>
+<circle cx="176.3647" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.54233777, 0)</title></circle>
+<circle cx="142.8888" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.39866451, 0)</title></circle>
+<circle cx="234.0084" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.78973556, 0)</title></circle>
+<circle cx="134.3610" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.36206442, 0)</title></circle>
+<circle cx="258.6452" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.89547276, 0)</title></circle>
+<circle cx="50.0000" cy="129.5138" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.84758046)</title></circle>
+<circle cx="56.4741" cy="246.6724" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.027785628, 0.34475363)</title></circle>
+<circle cx="50.0000" cy="169.1745" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.67736286)</title></circle>
+<circle cx="157.6200" cy="201.6200" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.46188824, 0.53811176)</title></circle>
+<circle cx="182.0920" cy="226.0920" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.5669183, 0.4330817)</title></circle>
+<circle cx="142.7501" cy="286.9628" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.39806894, 0.1718334)</title></circle>
+<circle cx="50.0000" cy="234.8610" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.3954462)</title></circle>
+<circle cx="167.8240" cy="211.8240" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.50568259, 0.49431741)</title></circle>
+<circle cx="247.8717" cy="291.8717" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.84923466, 0.15076534)</title></circle>
+<circle cx="185.6487" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.58218332, 0)</title></circle>
+<circle cx="50.0000" cy="325.7886" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.0051992969)</title></circle>
+<circle cx="243.7980" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.83175118, 0)</title></circle>
+<circle cx="50.0000" cy="147.6461" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.76975934)</title></circle>
+<circle cx="83.0341" cy="198.5105" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.14177743, 0.55145719)</title></circle>
+<circle cx="226.6656" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.75822143, 0)</title></circle>
+<circle cx="50.9281" cy="197.0239" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.0039831698, 0.55783744)</title></circle>
+<circle cx="245.4356" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.8387795, 0)</title></circle>
+<circle cx="50.0000" cy="267.3328" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.25608221)</title></circle>
+<circle cx="50.0000" cy="111.6468" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.92426281)</title></circle>
+<circle cx="71.5917" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.092668337, 0)</title></circle>
+<circle cx="50.0000" cy="115.1232" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.90934244)</title></circle>
+<circle cx="103.6959" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.23045463, 0)</title></circle>
+<circle cx="144.8538" cy="188.8538" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.40709767, 0.59290233)</title></circle>
+<circle cx="157.9007" cy="201.9007" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.46309296, 0.53690704)</title></circle>
+<circle cx="110.1434" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.25812601, 0)</title></circle>
+<circle cx="180.7861" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.56131387, 0)</title></circle>
+<circle cx="50.0000" cy="119.6005" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.89012667)</title></circle>
+<circle cx="150.7095" cy="194.7095" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.43222951, 0.56777049)</title></circle>
+<circle cx="67.2388" cy="159.5743" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.07398642, 0.71856539)</title></circle>
+<circle cx="173.3600" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.529442, 0)</title></circle>
+<circle cx="141.0476" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.39076203, 0)</title></circle>
+<circle cx="126.5821" cy="215.8703" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.32867876, 0.47695153)</title></circle>
+<circle cx="100.6012" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.21717236, 0)</title></circle>
+<circle cx="123.5904" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.31583872, 0)</title></circle>
+<circle cx="50.0000" cy="164.9632" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.69543691)</title></circle>
+<circle cx="173.6963" cy="217.6963" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.53088558, 0.46911442)</title></circle>
+<circle cx="257.2431" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.88945551, 0)</title></circle>
+<circle cx="50.0000" cy="279.0661" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.2057247)</title></circle>
+<circle cx="138.4859" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.37976786, 0)</title></circle>
+<circle cx="50.0000" cy="99.1513" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.97789137)</title></circle>
+<circle cx="50.0000" cy="183.7627" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.61475232)</title></circle>
+<circle cx="50.0000" cy="155.6899" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.73523635)</title></circle>
+<circle cx="108.4554" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.25088153, 0)</title></circle>
+<circle cx="125.3484" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.32338387, 0)</title></circle>
+<circle cx="254.4402" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.87742555, 0)</title></circle>
+<circle cx="168.0772" cy="277.8393" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.50676904, 0.21098998)</title></circle>
+<circle cx="182.6738" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.56941563, 0)</title></circle>
+<circle cx="125.7702" cy="169.7702" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.32519398, 0.67480602)</title></circle>
+<circle cx="207.1434" cy="251.1434" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.67443509, 0.32556491)</title></circle>
+<circle cx="50.0000" cy="130.4049" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.84375579)</title></circle>
+<circle cx="133.5037" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.35838516, 0)</title></circle>
+<circle cx="265.1546" cy="327.0000" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0.92341027, 0)</title></circle>
+<circle cx="179.4016" cy="244.8885" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.55537158, 0.3524098)</title></circle>
+<circle cx="50.0000" cy="233.4972" r="2.8000" fill="#9b654e" fill-opacity="0.82"><title>1 sample at (0, 0.40129961)</title></circle>
+<circle cx="85.0042" cy="247.8792" r="2.8000" fill="#2c6d77" fill-opacity="0.82"><title>1 sample at (0.15023257, 0.33957423)</title></circle>
+<circle cx="50.0000" cy="327.0000" r="24.2487" fill="#9b654e" fill-opacity="0.32" stroke="#9b654e" stroke-width="1.4"><title>75 samples at (0, 0)</title></circle>
+<text x="331" y="93" font-size="22" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">256 outputs</text>
+<text x="331" y="127" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">256 draws</text>
+<text x="331" y="184" font-size="22" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="600">Boundary</text>
+<text x="331" y="218" font-size="24" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">218/256</text>
+<text x="331" y="270" font-size="22" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Theory</text>
+<text x="331" y="302" font-size="24" fill="#586a6d" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">7/8</text>
+<text x="98" y="397" font-size="22" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">75 samples at (0, 0)</text>
+</svg>

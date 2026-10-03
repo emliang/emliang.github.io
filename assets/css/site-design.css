@@ -6,11 +6,6 @@ a{color:var(--blue)}
 a:hover{color:#21535d}
 a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:5px;border-radius:2px}
 body.home-page .page-container,body.subpage .page-container{max-width:1000px;padding-left:28px;padding-right:28px}
-body.home-page .site-nav,body.subpage .site-nav{height:72px;background:rgba(255,255,255,.98);border-bottom:1px solid var(--line);box-shadow:none;padding:0;opacity:1}
-body.home-page .site-nav .navbar-brand,body.subpage .site-nav .navbar-brand{font-family:var(--serif);font-size:23px;font-weight:700;color:var(--ink);letter-spacing:-.6px}
-body.home-page .site-nav .nav-link,body.subpage .site-nav .nav-link{font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:0;color:var(--body);padding:9px 14px;border-radius:6px}
-body.home-page .site-nav .nav-link:hover,body.subpage .site-nav .nav-link:hover,body.subpage .site-nav .nav-link.is-active{color:var(--blue);background:var(--wash)}
-.site-nav-links{gap:8px}
 body.home-page main,body.subpage main{padding-top:42px}
 .home-page .hero{display:grid;grid-template-columns:minmax(0,1fr) 220px;column-gap:64px;align-items:center;padding:0;margin:0 0 28px;background:none;border:0;border-radius:0}
 .home-page .hero-copy h1{font-family:var(--serif);font-size:36px;font-weight:600;line-height:1.25;color:var(--ink);letter-spacing:-.7px;margin:0 0 12px}
@@ -200,15 +195,6 @@ body.subpage .talk-item{grid-template-columns:minmax(0,1fr);gap:6px;padding:16px
 body.subpage .talk-title{font-size:15px;line-height:1.6;overflow-wrap:anywhere}
 body.subpage .talk-meta{font-size:13px}
 .site-footer .container{padding-left:24px;padding-right:24px;line-height:1.8}
-}
-@media(max-width:575px){
-body.home-page .site-nav,body.subpage .site-nav{height:auto;min-height:64px;padding:9px 0}
-body.home-page .site-nav .page-container,body.subpage .site-nav .page-container{padding-left:20px;padding-right:20px}
-body.home-page .site-nav .navbar-brand,body.subpage .site-nav .navbar-brand{font-size:21px}
-.site-nav .navbar-toggler{padding:9px;border:1px solid var(--line);border-radius:6px;min-width:44px;min-height:42px}
-.site-nav .navbar-collapse{padding-top:10px}
-.site-nav-links{align-items:stretch!important;gap:2px}
-body.home-page .site-nav .nav-link,body.subpage .site-nav .nav-link{padding:10px 12px;text-align:left}
 }
 @media(max-width:359px){
 body.home-page .hero{padding-left:17px;padding-right:17px;grid-template-columns:minmax(0,1fr) 64px;column-gap:10px}
