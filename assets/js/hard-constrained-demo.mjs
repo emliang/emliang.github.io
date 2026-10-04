@@ -358,10 +358,13 @@ export function mountGeneration(root) {
     <div class="hc-generation-layout"><figure><figcaption>Rejection sampling</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Rejection samples" data-rejection-plot></svg><p class="hc-cloud-note" data-rejection-note></p></figure><figure><figcaption>Euclidean projection</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Projected samples" data-projection-plot></svg><p class="hc-cloud-note" data-projection-note></p></figure></div>
     <p class="hc-legend hc-generation-legend"><span class="hc-legend-item"><i class="hc-key-dot" aria-hidden="true"></i>Retained sample</span><span class="hc-legend-item"><i class="hc-key-boundary" aria-hidden="true"></i>Moved to boundary</span><span class="hc-legend-item"><i class="hc-key-cross" aria-hidden="true">×</i>Sample mean</span><span class="hc-legend-item"><i class="hc-key-ring" aria-hidden="true"></i>Target mean</span></p>
     <p class="hc-marker-note">Circle area = sample count at the same location. No jitter.</p>
+    <p class="hc-takeaway">Projection adds boundary mass; rejection samples the uniform interior.</p>
+    <p class="hc-result-line" data-generation-warning aria-live="polite" hidden></p>
+    <details class="hc-details"><summary>Sample statistics &amp; analytic reference</summary>
     <div class="hc-table-wrap"><table class="hc-sample-table"><caption>Measured values; validity uses tolerance 10⁻⁹.</caption><colgroup><col class="hc-col-method"><col class="hc-col-proposals"><col class="hc-col-valid"><col class="hc-col-mean"></colgroup><thead><tr><th scope="col">Method</th><th scope="col" title="Number of candidate proposals">Draws</th><th scope="col">Returned / valid</th><th scope="col">Mean (y₁, y₂)</th></tr></thead><tbody data-sample-rows></tbody></table></div>
     <p class="hc-result-line" data-generation-status aria-live="polite" aria-atomic="true"></p>
-    <p class="hc-theory-note">Same validity, different probability law: the continuous target has zero boundary mass; projection puts 7/8 on the boundary, including 1/4 at the origin. These are analytic values, not sample measurements.</p>
-    <details class="hc-details"><summary>Analytic reference and reproducibility</summary><p class="hc-control-note">Population rejection acceptance = 1/8. Target mean = (1/3, 1/3); projected mean = (11/48, 11/48). This synthetic illustration runs no model training. Mulberry32, seed <span data-seed></span>. Both methods start with the same proposal stream. Rejection has a cap of 64 × 512 candidates and reports any partial return.</p></details>`;
+    <p class="hc-theory-note">The continuous target has zero boundary mass; projection puts 7/8 on the boundary, including 1/4 at the origin. These are analytic values, rather than sample measurements.</p>
+    <p class="hc-control-note">Population rejection acceptance = 1/8. Target mean = (1/3, 1/3); projected mean = (11/48, 11/48). This synthetic illustration runs no model training. Mulberry32, seed <span data-seed></span>. Both methods start with the same proposal stream. Rejection has a cap of 64 × 512 candidates and reports any partial return.</p></details>`;
   const render = () => {
     const result = sampleGeneration({ seed });
     root.querySelector('[data-rejection-plot]').innerHTML = generationPlot(result.rejection.points, null, 'Rejection sampling');
@@ -371,6 +374,8 @@ export function mountGeneration(root) {
     root.querySelector('[data-sample-rows]').innerHTML = `<tr><th scope="row">Rejection</th><td>${result.rejection.proposals.toLocaleString('en-US')}</td><td>${result.rejection.returned} / ${result.rejection.valid}</td><td>${pair(result.rejection.mean)}</td></tr><tr><th scope="row">Projection</th><td>${result.projected.proposals}</td><td>${result.projected.returned} / ${result.projected.valid}</td><td>${pair(result.projected.mean)}</td></tr>`;
     const capText = result.rejection.capped ? ` Rejection reached its ${result.rejection.cap} candidate cap and returned only ${result.rejection.returned} samples.` : '';
     root.querySelector('[data-generation-status]').textContent = `Measured acceptance: ${percent(result.rejection.acceptance)}. Projection moved ${result.projected.movedToBoundary} / ${result.projected.returned} outside candidates to the boundary (${percent(result.projected.movedToBoundary / result.projected.returned)}).${capText}`;
+    root.querySelector('[data-generation-warning]').textContent = capText.trim();
+    root.querySelector('[data-generation-warning]').hidden = !result.rejection.capped;
     root.querySelector('[data-seed]').textContent = seed;
   };
   root.querySelector('[data-resample]').addEventListener('click', () => { seed = (seed + 1) >>> 0; render(); });

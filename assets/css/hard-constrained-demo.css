@@ -10,7 +10,7 @@
   background: #fff;
   border: 1px solid var(--hc-line);
   border-radius: 14px;
-  box-shadow: 0 5px 22px rgba(36, 54, 58, .045);
+  box-shadow: none;
   padding: 18px;
   margin: 24px 0;
   color: var(--hc-ink);
@@ -122,3 +122,6 @@
   .hc-demo table.hc-sample-table { table-layout: fixed; font-size: 12px; }
   .hc-demo .hc-sample-table th, .hc-demo .hc-sample-table td { padding-right: 5px; overflow-wrap: anywhere; }
 }
+
+.hc-demo p.hc-takeaway{font-size:15px;line-height:1.65;color:var(--hc-ink);margin:14px 0 10px;padding-top:14px;border-top:1px solid var(--hc-line)}
+.hc-demo .hc-details[open] .hc-table-wrap{margin:12px 0}
