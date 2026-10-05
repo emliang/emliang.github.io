@@ -2,7 +2,7 @@ async (page) => {
  const ctx=await page.context().browser().newContext();
  const engine=page.context().browser().browserType().name();
  const p=await ctx.newPage();
- const names=['allocation-teaser','mechanism-poster','generation-rejection','generation-projection','neural-network-prediction','flow-generation-general','roles-training','roles-layer','roles-coordinates','roles-post','sampler-framework','guidance-overview','correction-overview','coordinates-overview','geometry-overview'];
+ const names=['allocation-teaser','mechanism-poster','generation-rejection','generation-projection','neural-network-prediction','flow-generation-general','roles-training','roles-layer','roles-coordinates','roles-post','sampler-framework','generation-training','generation-interventions','coordinates-overview','geometry-overview'];
  const reports=[];
  for(const name of names){
   await p.goto('http://127.0.0.1:8765/assets/img/blog/hard-constrained-ml/'+name+'.svg');

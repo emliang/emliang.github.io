@@ -259,17 +259,42 @@ def sampler():
 
 
 def generation_interventions():
+    """Compact classification chains, following the accepted editorial style.
+
+    The active taxonomy is training, geometry, parameterization, then grouped
+    guidance/correction/search. Standalone guidance/correction variants remain
+    available, but do not define separate top-level families in the article.
+    """
     specs=[
-      ('guidance-overview','Guidance','State','Guide','the update','Next','constraint','Use an objective to steer sampling. This schematic does not prescribe a universal gradient formula or guarantee feasibility.'),
-      ('correction-overview','Correction','Candidate','Correct','or solve','Output','constraint','Apply a correction to a specified state, output estimate or final sample. Intermediate corrections need a method-specific connection to continued sampling.'),
-      ('coordinates-overview','Parameterization','u ∈ U','Decode','D(u)','y ∈ K','map','Generate valid reference coordinates and use a specified decoder whose image lies in the feasible set. This is distinct from intrinsic geometry.'),
-      ('geometry-overview','Geometry-aware sampling','On M','Geometric','update','On M','map','Use dynamics and numerical operations appropriate to a domain or manifold. The diagram represents that geometry only, not arbitrary additional constraints.')]
-    for name,title,left,middle,detail,right,kind,desc in specs:
-        b=[rect(16,34,124,64,'#ffffff','#c8d3d5',9),t(78,74,left,24,anchor='middle'),
-           *operation(189,34,136,middle,detail,kind=kind),
-           rect(374,34,100,64,'#ffffff','#c8d3d5',9),t(424,74,right,22,anchor='middle'),
-           line(148,66,181,66,TEAL,2.1,arrow=True),line(333,66,366,66,TEAL,2.1,arrow=True)]
-        svg(name+'.svg',480,132,title,desc,b,{'scope':'classification schematic; algorithm details in companion repository'})
+      ('generation-training','Training-based methods','Data','Fit model','constraints','Model','compute',False,
+       'Constraint supervision adapts model parameters before generation. Supervision may concern output estimates, completed rollouts, population statistics, or an inference operation. A penalty alone does not enforce feasibility for each output.'),
+      ('geometry-overview','Geometry-aware sampling','On M','Geometric','update','On M','map',False,
+       'The manifold case: dynamics and numerical operations evolve a state on a modeled manifold M. Reflection at domain boundaries is another geometry-aware mechanism; neither represents arbitrary additional constraints.'),
+      ('coordinates-overview','Constraint parameterization','u ∈ U','Decode','D(u)','y ∈ K','map',True,
+       'Generate valid reference coordinates u in U, then apply a decoder D whose image lies in the feasible set K. The map determines validity and coverage. This differs from intrinsic geometric dynamics.'),
+      ('generation-interventions','Guidance, correction, and search','State','Guide','repair / select','Result','constraint',False,
+       'Constraint information can steer an update, repair a specified candidate, or select among competing proposals. These are alternatives that can be combined, not three mandatory sequential operations. The object, timing and accuracy of the operation determine the final-output claim.'),
+      ('guidance-overview','Guidance','State','Guide','update','Next','constraint',False,
+       'Use an objective to steer sampling. This schematic does not prescribe a universal gradient formula or guarantee feasibility.'),
+      ('correction-overview','Correction','Candidate','Correct','or solve','Output','constraint',False,
+       'Apply a correction to a specified state, output estimate or final sample. Intermediate correction requires a connection to later sampling.')]
+    for name,title,left,middle,detail,right,kind,math,desc in specs:
+        fill,color={'compute':('#edf4f2',TEAL),'map':('#eef2f7','#526e9b'),'constraint':('#f6eee9',COPPER)}[kind]
+        def label(x,y,text,size=22,color=INK,math=False,weight=None):
+            result=t(x,y,text,size,color,weight,anchor='middle',serif=math)
+            return result.replace('>', ' font-style="italic">', 1) if math else result
+        body=[label(76,74,left,math=math),
+              '<path d="M139 66H176" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
+              f'<rect x="186" y="34" width="146" height="64" rx="4" fill="{fill}"/>',
+              f'<path d="M186 42V90" stroke="{color}" stroke-width="1.8"/>',
+              label(259,58,middle,21,color,weight=500),
+              label(259,85,detail,21 if math else (17 if '/' in detail else 19),color,math),
+              '<path d="M342 66H388" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
+              label(435,74,right,math=math)]
+        header=f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="92" viewBox="0 20 480 92" role="img" aria-labelledby="title desc">'
+        defs='<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="'+TEAL+'"/></marker></defs>'
+        meta=escape(json.dumps({'scope':'classification schematic; algorithm details in companion repository'}))
+        (OUT/(name+'.svg')).write_text('\n'.join([header,f'<title id="title">{escape(title)}</title>',f'<desc id="desc">{escape(desc)}</desc>',defs,f'<metadata>{meta}</metadata>',*body,'</svg>','']))
 
 
 def general_illustrations():

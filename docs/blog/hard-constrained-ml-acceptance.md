@@ -1,39 +1,32 @@
 # Hard-Constrained ML Blog：交付与验收
 
-2026-10-03，修订版 17。本地候选已检查；尚未提交、推送或部署。
+2026-10-05，修订版 20。本地候选已对齐最新 survey 与 companion 仓库；本轮尚未提交、推送或部署。
 
-## 本轮交付
+## 本轮更新
 
-文章定位为框架展示与分类讨论：约 2,815 个英文词（含图注，不含参考文献），8 节正文、15 条精选参考文献、两个交互例子。
+文章保留框架总览与分类讨论的定位，约 3,000 个英文词，8 节正文、15 条精选文献、两个交互例子。
 
-- 预测与生成图统一为短流程：每张只表达一个分类角色，桌面两列、手机单列。
-- 删除正文中的具体算法多级流程、推导及可展开坐标技术细节。
-- 保留 neural-network prediction、flow generation 背景图及 penalty / projection / feasible coordinates 和 rejection / projection 两个例子。
-- 完整分类和方法文献分别链接 companion GitHub 的 prediction 与 generation guides。
-- b、q 的定义和交互计算保持一致。导航保持 Main → News → Blog → Resources。
+- 预测分类采用 Training-Based Approaches、Structured NN Layers、Constraint Parameterization、Post-Processing 的统一名称；说明同一操作在不同位置的作用与训练要求。
+- Parameterization 补全为 feasible combinations、feasible distributions、global feasible-set maps。三角形仍作为坐标映射的例子，不代表整个分类。
+- 生成背景区分 direct、autoregressive、diffusion/flow。说明局部合法的前缀不一定有可行完成。
+- Diffusion/flow 的四个图块依次是 training、geometry、parameterization、guidance/correction/search；下方简述机制组合。Detailed taxonomy、离散干预及 bridge/control 构造保留 GitHub 入口。
+- 方法选择补充不依赖目标梯度的 candidate/path search；评估区分逐样本可行性、总体期望要求、目标分布与完整成本。
 
-本地预览：[文章](http://127.0.0.1:8765/blog/hard-constrained-machine-learning/?review=17) · [Blog 列表](http://127.0.0.1:8765/blog/)。
+来源为 ACM-Survey-Submission 的 `preprint/Sections/1.Intro.tex`、`Part1.tex`、`Part2.tex`、`4.Discussion.tex`、`4.Discussion_Generation_Extension.tex`，以及 companion 仓库 README 和 prediction/generation guides。精确 SHA-256 与 companion commit 记录在 JSON。
 
-## 当前检查
+## 当前验证
 
 | 项目 | 结果 |
 | --- | --- |
-| 分类语义 | 图表达机制角色，不再代表单篇论文的完整算法；关键边界见 [framework-method-review.md](framework-method-review.md) |
-| 浏览器与宽度 | Chromium、WebKit；360 / 390 / 768 / 1440 px；每套引擎 20 张框架截图 |
-| 图片与页面 | 11 个活跃框架 SVG 加载正常，无标签裁切、横向溢出或页面运行错误；无 JS 框架图正常 |
-| 图内间距 | 每套引擎检查 15 个 SVG，文字之间及文字与箭头的自动相交检查均为 0；桌面与手机截图另作目视检查 |
-| 本地引用 | 文章和 Blog 列表的 68 个本地引用、16 个 SVG 尺寸及全部 26 个 SVG XML 通过 |
-| 资源预算 | 全部新增 CSS / JS / SVG 的保守逐文件 gzip 总计 87,292 bytes，低于 200 KiB；包含未使用的旧图版本 |
-| 数值与交互 | 复用修订版 15 的 8,030 项数值检查及既有交互检查；数值 JS、demo CSS、primary JSON 的 SHA-256 不变 |
-| 性能 | 本轮未重测；JSON 保留修订版 12 的历史本地模拟测量，不作为本轮性能结论 |
+| 分类与语义 | 已对照 survey 和 companion；图保持机制层次，不展开单篇论文算法；详见 [framework-method-review.md](framework-method-review.md) |
+| 页面与框架 | Chromium / WebKit，360 / 390 / 768 / 1440 px；图片加载正常，无横向溢出、公式错误或运行错误 |
+| 图内清晰度 | 每套引擎 11 个活跃框架资产、15 个 SVG 间距检查；文字与文字、文字与箭头碰撞为 0；另目视检查手机和桌面截图 |
+| 目录与背景 | 8 节正文及 references、独立 prediction-to-generation 背景、分类顺序和所有目录锚点通过；无 JS 可阅读 |
+| 引用与资产 | 文章与 Blogs 列表的本地路径、片段 ID、SVG 原生尺寸、XML 和资源预算重新检查；准确计数见 JSON |
+| 数值 | 当前版本通过 8,030 项数值检查；交互算法、公式源、静态数据和随机种子本轮没有修改 |
+| 检查范围 | 此轮没有重复触屏、键盘、全站导航或加载性能测量；相关历史记录保留原修订版本 |
 
-记录与源文件 SHA-256 见 [hard-constrained-ml-acceptance.json](hard-constrained-ml-acceptance.json)。
-
-## 保留的解释边界
-
-Guidance 的目标改善不等于精确可行。Correction 的对象和时机影响最终输出。Parameterization 依赖允许的坐标域和可行映射，覆盖性另行考虑。Geometry-aware sampling 依赖建模的几何与适当数值更新。Training 可配合多种机制。图中四类是读者理解框架的入口，完整分类在 GitHub。
-
-Penalty 演示是点上的二次优化问题，不训练神经网络。坐标映射 `(b*q, b*(1-q))` 保证三角形可行性。生成演示固定 square 上的 uniform proposals，比较 rejection 与 projection 的不同输出分布；静态数据、随机种子和点位置没有改变。
+测试浏览器检查后关闭，避免在桌面留下自动化窗口。本地预览：[文章](http://127.0.0.1:8765/blog/hard-constrained-machine-learning/?review=20)。
 
 ## 复查入口
 
@@ -42,8 +35,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 node scripts/verify-hard-constrained-demo.mjs
 playwright-cli -s=blog run-code --filename=docs/blog/qa/frameworks.js
 playwright-cli -s=blog run-code --filename=docs/blog/qa/diagram-clearance.js
+playwright-cli -s=blog run-code --filename=docs/blog/qa/prediction-generation.js
 ```
 
-正文：`blog/hard-constrained-machine-learning/index.html`。图与生成源：`assets/img/blog/hard-constrained-ml/`。截图：已忽略的 `output/playwright/`。
-
-未进行实体手机测试、手动 screen-reader audit 或部署后的检查。
+截图位于已忽略的 `output/playwright/`。本轮编辑没有改变 Homeomorphism Methods 文章、共享 CSS、导航或主页。机器记录见 [hard-constrained-ml-acceptance.json](hard-constrained-ml-acceptance.json)。

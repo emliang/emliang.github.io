@@ -26,7 +26,7 @@ async (page) => {
    reports.push({width,name,loaded,overflow,screenshot:path});
   }
  }
- const assets=['neural-network-prediction','flow-generation-general','roles-training','roles-layer','roles-coordinates','roles-post','sampler-framework','guidance-overview','correction-overview','coordinates-overview','geometry-overview'];
+ const assets=['neural-network-prediction','flow-generation-general','roles-training','roles-layer','roles-coordinates','roles-post','sampler-framework','generation-training','generation-interventions','coordinates-overview','geometry-overview'];
  const svgChecks=[];
  for(const name of assets){
   await reader.goto(`http://127.0.0.1:8765/assets/img/blog/hard-constrained-ml/${name}.svg`);
