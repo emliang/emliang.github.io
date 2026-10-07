@@ -1,28 +1,54 @@
-.homeomorphism-page .hm-figure,/* A comparison figure stays readable as three horizontal text flows. */
-.homeomorphism-page .hm-framework{padding:0;background:transparent}
+/* Paired views keep the coordinate correspondence visible at reading scale. */
+.homeomorphism-page .hm-figure,.homeomorphism-page .hm-framework{padding:0;background:transparent}
+.homeomorphism-page .hm-paired{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.homeomorphism-page .article-body .hm-paired img{border-radius:0}
+.homeomorphism-page .article-body .hm-deformation{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;align-items:center;padding:20px 0;border-top:1px solid #e1dcd3;border-bottom:1px solid #e1dcd3}
+.homeomorphism-page .article-body .hm-deformation img{width:180px;border:0;border-radius:0;background:transparent}
+.homeomorphism-page .hm-deformation figcaption{margin:0}
+.homeomorphism-page .hm-image-credit{display:block;font-size:12px;line-height:1.65;margin-top:8px}
+
+/* Three short horizontal flows, with space reserved for each arrow. */
 .homeomorphism-page .hm-framework-row{padding:20px 0;border-top:1px solid #dbe3e1}
-.homeomorphism-page .hm-framework-row>strong{display:block;font-size:15px;color:#24363a;margin-bottom:16px}
+.homeomorphism-page .hm-framework-row>strong{display:block;font-size:15px;color:#24363a;margin-bottom:14px}
 .homeomorphism-page .article-body .hm-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding:0;margin:0;list-style:none}
 .homeomorphism-page .hm-flow li{position:relative;display:flex;align-items:center;justify-content:center;min-height:42px;padding:0 4px;text-align:center;font-size:15px;line-height:1.5;margin:0}
-.homeomorphism-page .hm-flow li:nth-child(2){color:#526e9b}
+.homeomorphism-page .hm-flow li:nth-child(2){color:#526e9b;font-weight:500}
 .homeomorphism-page .hm-flow li:last-child{color:#2c6d77}
 .homeomorphism-page .hm-flow li+li::before{content:'→';position:absolute;left:-24px;top:50%;transform:translateY(-50%);color:#65767a;font-size:20px}
 .homeomorphism-page .hm-flow sup{line-height:0;align-self:center;margin-top:-10px}
-.homeomorphism-page .hm-explorer{border:1px solid #dbe3e1;border-radius:12px;background:white;padding:20px;margin:28px 0}
+
+.homeomorphism-page .hm-explorer{border:1px solid #dbe3e1;border-radius:14px;background:#fff;padding:18px;margin:28px 0}
 .homeomorphism-page .hm-explorer[hidden]{display:none}
-.homeomorphism-page .hm-explorer-heading{display:flex;justify-content:space-between;gap:16px;align-items:start}
-.homeomorphism-page .hm-explorer-heading strong{font-size:17px}
-.homeomorphism-page .article-body .hm-explorer-heading p{font-size:14px;margin:5px 0 18px;color:#65767a}
-.homeomorphism-page .hm-explorer-heading label{display:flex;flex-direction:column;gap:6px;font-size:13px}
-.homeomorphism-page .hm-explorer select{min-height:44px;padding:7px;border:1px solid #bdcdcf;border-radius:6px;color:#24363a;background:white;font:inherit;max-width:100%}
-.homeomorphism-page .hm-canvases{gap:12px}
-.homeomorphism-page .hm-canvases svg{display:block;width:100%;border:1px solid #e1e9e6;border-radius:12px;background:#fbfcfb}
-.homeomorphism-page .hm-controls{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px}
-.homeomorphism-page .hm-controls label{font-size:14px;display:block}.homeomorphism-page .hm-controls output{float:right;font-variant-numeric:tabular-nums;color:#2c6d77}
-.homeomorphism-page .hm-controls input{display:block;width:100%;min-height:44px;accent-color:#2c6d77;margin:0}
-.homeomorphism-page .article-body .hm-status{font-size:14px;line-height:1.6;margin:12px 0;color:#24363a;font-variant-numeric:tabular-nums}
-.homeomorphism-page .article-body .hm-demo-note{font-size:13px;color:#65767a;line-height:1.65;margin:0}
-@media(max-width:650px){.homeomorphism-page .hm-paired{grid-template-columns:1fr;gap:12px}.homeomorphism-page .hm-explorer{padding:16px}.homeomorphism-page .hm-explorer-heading{display:block}.homeomorphism-page .hm-explorer-heading label{margin-bottom:16px}.homeomorphism-page .hm-controls{grid-template-columns:1fr;gap:12px}.homeomorphism-page .article-body .hm-flow{gap:18px}.homeomorphism-page .hm-flow li{font-size:14px;min-height:56px;padding:0;line-height:1.45}.homeomorphism-page .hm-flow li+li::before{left:-16px;font-size:16px}.homeomorphism-page .hm-framework-row{padding:16px 0}.homeomorphism-page .hm-framework-row>strong{font-size:14px;margin-bottom:10px}}
+.homeomorphism-page .hm-explorer-heading{display:grid;grid-template-columns:minmax(0,1fr) 174px;gap:20px;align-items:start}
+.homeomorphism-page .hm-explorer-heading strong{font-size:16px}
+.homeomorphism-page .article-body .hm-explorer-heading p{font-size:13px;line-height:1.65;margin:5px 0 18px;color:#65767a}
+.homeomorphism-page .hm-explorer-heading label{display:flex;flex-direction:column;gap:6px;font-size:12px}
+.homeomorphism-page .hm-explorer select{min-height:44px;padding:7px 10px;border:1px solid #dbe3e1;border-radius:7px;color:#24363a;background:#fff;font:inherit;max-width:100%}
+.homeomorphism-page .hm-canvases svg{display:block;width:100%;height:auto;border:0;border-radius:0;background:transparent}
+.homeomorphism-page .hm-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:16px;padding-top:16px;border-top:1px solid #dbe3e1}
+.homeomorphism-page .hm-controls label{font-size:13px;display:block}
+.homeomorphism-page .hm-controls output{float:right;min-width:36px;padding:1px 4px;border:1px solid #dbe3e1;border-radius:4px;text-align:center;font-variant-numeric:tabular-nums;color:#2c6d77}
+.homeomorphism-page .hm-controls input{-webkit-appearance:none;appearance:none;display:block;width:100%;min-height:44px;padding:0;border:0;background:transparent;accent-color:#2c6d77;cursor:pointer;margin:0}
+.homeomorphism-page .hm-controls input::-webkit-slider-runnable-track{height:4px;border-radius:8px;background:#cad8d3}
+.homeomorphism-page .hm-controls input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:17px;height:17px;margin-top:-6.5px;border:2px solid #fff;border-radius:50%;background:#2c6d77;box-shadow:0 1px 4px rgba(36,54,58,.16)}
+.homeomorphism-page .hm-controls input::-moz-range-track{height:4px;border-radius:8px;background:#cad8d3}
+.homeomorphism-page .hm-controls input::-moz-range-thumb{width:13px;height:13px;border:2px solid #fff;border-radius:50%;background:#2c6d77}
+.homeomorphism-page .article-body .hm-status{font-size:13px;line-height:1.65;margin:12px 0;padding:9px 12px;border:1px solid #dce9e4;border-radius:7px;background:#f4f8f6;color:#24363a;font-variant-numeric:tabular-nums}
+.homeomorphism-page .article-body .hm-demo-note{font-size:12px;color:#65767a;line-height:1.65;margin:0}
 .homeomorphism-page .article-body .hm-slide-link{font-size:14px;color:#65767a;margin-top:14px}
 
-@media(max-width:600px){.homeomorphism-page .hm-deformation{grid-template-columns:1fr;gap:12px}.homeomorphism-page .article-body .hm-deformation img{width:150px}.homeomorphism-page .hm-deformation figcaption{max-width:440px;margin:0 auto;text-align:center}}
+@media(max-width:650px){
+.homeomorphism-page .hm-paired{grid-template-columns:minmax(0,1fr);gap:20px}
+.homeomorphism-page .hm-explorer{padding:14px}
+.homeomorphism-page .hm-explorer-heading{display:block}
+.homeomorphism-page .hm-explorer-heading label{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px;margin-bottom:18px}
+.homeomorphism-page .hm-controls{gap:16px}
+.homeomorphism-page .article-body .hm-flow{gap:24px}
+.homeomorphism-page .hm-flow li{font-size:14px;min-height:56px;padding:0;line-height:1.45}
+.homeomorphism-page .hm-flow li+li::before{left:-20px;font-size:17px}
+.homeomorphism-page .hm-framework-row{padding:16px 0}
+.homeomorphism-page .hm-framework-row>strong{font-size:14px;margin-bottom:10px}
+.homeomorphism-page .article-body .hm-deformation{grid-template-columns:minmax(0,1fr);gap:16px}
+.homeomorphism-page .article-body .hm-deformation img{width:150px;margin:auto}
+.homeomorphism-page .hm-deformation figcaption{max-width:440px;margin:auto}
+}

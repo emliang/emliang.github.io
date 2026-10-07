@@ -357,7 +357,7 @@ export function mountGeneration(root) {
     <p class="hc-plot-units">Both axes: allocation / budget</p>
     <div class="hc-generation-layout"><figure><figcaption>Rejection sampling</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Rejection samples" data-rejection-plot></svg><p class="hc-cloud-note" data-rejection-note></p></figure><figure><figcaption>Euclidean projection</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Projected samples" data-projection-plot></svg><p class="hc-cloud-note" data-projection-note></p></figure></div>
     <p class="hc-legend hc-generation-legend"><span class="hc-legend-item"><i class="hc-key-dot" aria-hidden="true"></i>Retained sample</span><span class="hc-legend-item"><i class="hc-key-boundary" aria-hidden="true"></i>Moved to boundary</span><span class="hc-legend-item"><i class="hc-key-cross" aria-hidden="true">×</i>Sample mean</span><span class="hc-legend-item"><i class="hc-key-ring" aria-hidden="true"></i>Target mean</span></p>
-    <p class="hc-marker-note">Circle area = sample count at the same location. No jitter.</p>
+    <p class="hc-marker-note"><i class="hc-key-stack" aria-hidden="true"></i>Circle area shows the number of samples at the same location.</p>
     <p class="hc-takeaway">Projection adds boundary mass; rejection samples the uniform interior.</p>
     <p class="hc-result-line" data-generation-warning aria-live="polite" hidden></p>
     <details class="hc-details"><summary>Sample statistics &amp; analytic reference</summary>
@@ -370,7 +370,7 @@ export function mountGeneration(root) {
     root.querySelector('[data-rejection-plot]').innerHTML = generationPlot(result.rejection.points, null, 'Rejection sampling');
     root.querySelector('[data-projection-plot]').innerHTML = generationPlot(result.projected.points, result.projected.movedFromOutside, 'Euclidean projection');
     root.querySelector('[data-rejection-note]').textContent = `${result.rejection.returned} kept from ${result.rejection.proposals.toLocaleString('en-US')} proposals`;
-    root.querySelector('[data-projection-note]').textContent = `${result.projected.originCount} / ${result.projected.returned} overlap exactly at (0, 0); no jitter`;
+    root.querySelector('[data-projection-note]').textContent = `${result.projected.originCount} / ${result.projected.returned} samples coincide at (0, 0)`;
     root.querySelector('[data-sample-rows]').innerHTML = `<tr><th scope="row">Rejection</th><td>${result.rejection.proposals.toLocaleString('en-US')}</td><td>${result.rejection.returned} / ${result.rejection.valid}</td><td>${pair(result.rejection.mean)}</td></tr><tr><th scope="row">Projection</th><td>${result.projected.proposals}</td><td>${result.projected.returned} / ${result.projected.valid}</td><td>${pair(result.projected.mean)}</td></tr>`;
     const capText = result.rejection.capped ? ` Rejection reached its ${result.rejection.cap} candidate cap and returned only ${result.rejection.returned} samples.` : '';
     root.querySelector('[data-generation-status]').textContent = `Measured acceptance: ${percent(result.rejection.acceptance)}. Projection moved ${result.projected.movedToBoundary} / ${result.projected.returned} outside candidates to the boundary (${percent(result.projected.movedToBoundary / result.projected.returned)}).${capText}`;

@@ -4,16 +4,16 @@
 <defs>
   <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#2c6d77"/></marker>
 </defs>
-<text x="19" y="88" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#24363a" font-style="italic">x</text>
+<text x="19" y="88" font-size="27" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-style="italic">x</text>
 <path d="M38 80H56" fill="none" stroke="#2c6d77" stroke-width="1.6" marker-end="url(#arrow)"/>
 <rect x="64" y="48" width="120" height="64" rx="5" fill="#f0f4f3" stroke="#c7d2cf" stroke-width="1"/>
-<text x="124.0" y="72" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" fill="#637674" font-weight="500">Model</text>
-<text x="124.0" y="99" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#24363a" font-style="italic">f<tspan dy="4.5" font-size="14">θ</tspan><tspan dy="-4.5">&#8203;</tspan>(x)</text>
+<text x="124.0" y="72" font-size="22" fill="#637674" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Model</text>
+<text x="124.0" y="99" font-size="23" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-style="italic">f<tspan dy="5.52" font-size="16.1">θ</tspan><tspan dy="-5.52">&#8203;</tspan>(x)</text>
 <path d="M193 80H269" fill="none" stroke="#2c6d77" stroke-width="1.6" marker-end="url(#arrow)"/>
-<text x="231" y="61" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" fill="#24363a" font-style="italic">c</text>
+<text x="231" y="61" font-size="25" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-style="italic">c</text>
 <rect x="278" y="48" width="144" height="64" rx="4" fill="#f6eee9"/>
 <path d="M278 56V104" stroke="#9b654e" stroke-width="1.8"/>
-<text x="350.0" y="88" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="23" fill="#9b654e" font-weight="500">Correct</text>
+<text x="350.0" y="88" font-size="23" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Correct</text>
 <path d="M431 80H445" fill="none" stroke="#2c6d77" stroke-width="1.6" marker-end="url(#arrow)"/>
-<text x="461" y="88" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#24363a" font-style="italic">y</text>
+<text x="461" y="88" font-size="27" fill="#24363a" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle" font-style="italic">y</text>
 </svg>

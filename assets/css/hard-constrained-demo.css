@@ -87,7 +87,8 @@
 .hc-demo .hc-key-boundary { width: 7px; height: 7px; background: var(--hc-copper); border-radius: 50%; }
 .hc-demo .hc-sample-stack { fill-opacity: .24; opacity: 1; stroke: var(--hc-teal); stroke-width: 1; }
 .hc-demo .hc-sample-boundary.hc-sample-stack { stroke: var(--hc-copper); }
-.hc-demo p.hc-marker-note { margin: -5px 0 14px; text-align: center; color: var(--hc-muted); font-size: 12px; }
+.hc-demo p.hc-marker-note { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 0 14px; text-align: center; color: var(--hc-muted); font-size: 12px; }
+.hc-demo .hc-key-stack { flex: 0 0 auto; width: 17px; height: 17px; border: 1px solid var(--hc-copper); border-radius: 50%; background: rgba(155, 101, 78, .24); }
 .hc-demo .hc-key-cross { color: var(--hc-ink); font-size: 19px; line-height: 1; }
 .hc-demo .hc-key-ring { width: 11px; height: 11px; background: #fff; border: 1.6px solid var(--hc-ink); border-radius: 50%; }
 .hc-demo p.hc-generation-legend { margin: 7px 0 14px; }

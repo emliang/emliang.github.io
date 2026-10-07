@@ -213,31 +213,50 @@ def down(x,y1,y2,color=TEAL,dashed=False):
 
 
 def roles():
+    """Compact prediction chains, sized for 334–350px article columns."""
+    def label(x, y, text, size, color=INK, serif=False, weight=None):
+        result=t(x,y,text,size,color,weight,anchor='middle',serif=serif)
+        return result.replace('>', ' font-style="italic">', 1) if serif else result
+
+    def model(x, width):
+        center=x+width/2
+        return [f'<rect x="{x}" y="48" width="{width}" height="64" rx="5" fill="#f0f4f3" stroke="#c7d2cf" stroke-width="1"/>',
+                label(center,72,'Model',22,'#637674',weight=500),
+                label(center,99,'fθ(x)',23,serif=True)]
+
+    defs=('<defs>\n'
+          '  <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="'+TEAL+'"/></marker>\n'
+          '</defs>')
+    def arrow(start, end):
+        return f'<path d="M{start} 80H{end}" fill="none" stroke="{TEAL}" stroke-width="1.6" marker-end="url(#arrow)"/>'
+
     specs=[]
     for slug in ('training','layer','coordinates','post'):
-        b=[t(12,71,'x',28,serif=True)]
         if slug=='training':
-            b += [line(34,62,150,62,TEAL,2.1,arrow=True),
-                  *operation(158,30,165,'Model','fθ(x)'),
-                  line(331,62,428,62,TEAL,2.1,arrow=True),
-                  t(447,71,'y',29,serif=True),
-                  t(240,137,'Constraints shape the model',24,MUTED,anchor='middle')]
+            b=[label(240,24,'Constraints',22,COPPER,weight=500),
+               f'<path d="M240 31V40" stroke="{COPPER}" stroke-width="1.4"/>',
+               f'<path d="M237 37L240 40L243 37" fill="none" stroke="{COPPER}" stroke-width="1.4"/>',
+               label(19,88,'x',27,serif=True),arrow(43,156),
+               *model(166,148),arrow(324,437),label(461,88,'y',27,serif=True)]
             title='Training-based approaches'
             desc='Classification schematic: constraints shape how the predictor is trained or constructed; the model directly returns y.'
         else:
             middle={'layer':'Layer','coordinates':'Decode','post':'Correct'}[slug]
-            detail={'layer':'in the model','coordinates':'D(u)','post':'after the model'}[slug]
-            kind='map' if slug=='coordinates' else 'constraint'
-            b += [line(34,62,50,62,TEAL,2.1,arrow=True),
-                  *operation(57,30,109,'Model','fθ(x)'),
-                  line(173,62,243,62,TEAL,2.1,arrow=True),
-                  t(207,42,'u' if slug=='coordinates' else 'c',24,anchor='middle',serif=True),
-                  *operation(251,30,161,middle,detail,kind=kind),
-                  line(419,62,434,62,TEAL,2.1,arrow=True),t(447,71,'y',29,serif=True),
-                  t(240,137,{'layer':'Training includes the operation','coordinates':'Coordinates construct a feasible output','post':'Recovery runs at inference'}[slug],23,MUTED,anchor='middle')]
+            fill,color=('#eef2f7','#526e9b') if slug=='coordinates' else ('#f6eee9',COPPER)
+            b=[label(19,88,'x',27,serif=True),arrow(38,56),*model(64,120),
+               arrow(193,269),label(231,61,'u' if slug=='coordinates' else 'c',25,serif=True),
+               f'<rect x="278" y="48" width="144" height="64" rx="4" fill="{fill}"/>',
+               f'<path d="M278 56V104" stroke="{color}" stroke-width="1.8"/>']
+            if slug=='coordinates':
+                b += [label(350.0,72,middle,23,color,weight=500),
+                      label(350.0,99,'D(u)',23,color,serif=True)]
+            else:
+                b += [label(350.0,88,middle,23,color,weight=500)]
+            b += [arrow(431,445),label(461,88,'y',27,serif=True)]
             title={'layer':'Structured layers','coordinates':'Constraint parameterization','post':'Post-processing'}[slug]
-            desc={'layer':'Classification schematic: a structured output operation participates in training and remains in inference.','coordinates':'Classification schematic: reference coordinates u are mapped by a specified feasible decoder D to output y.','post':'Classification schematic: a downstream correction acts after the fitted predictor; training need not include it.'}[slug]
-        svg('roles-'+slug+'.svg',480,160,title,desc,b)
+            desc={'layer':'Classification schematic: a predictor produces c, which passes through a structured output layer. The operation participates in training and remains in inference.','coordinates':'Classification schematic: the predictor returns admissible reference coordinates u, and a specified feasible decoder D maps them to output y.','post':'Classification schematic: a downstream correction acts on candidate c after the fitted predictor. Training need not include this operation.'}[slug]
+        header='<svg xmlns="http://www.w3.org/2000/svg" width="480" height="130" viewBox="0 -3 480 130" role="img" aria-labelledby="title desc">'
+        (OUT/('roles-'+slug+'.svg')).write_text('\n'.join([header,f'<title id="title">{escape(title)}</title>',f'<desc id="desc">{escape(desc)}</desc>',defs,*b,'</svg>','']),encoding='utf-8')
         specs.append((title,b))
     overview=[]
     for i,(title,b) in enumerate(specs):
@@ -279,6 +298,7 @@ def generation_interventions():
       ('correction-overview','Correction','Candidate','Correct','or solve','Output','constraint',False,
        'Apply a correction to a specified state, output estimate or final sample. Intermediate correction requires a connection to later sampling.')]
     for name,title,left,middle,detail,right,kind,math,desc in specs:
+        active=name in {'generation-training','geometry-overview','coordinates-overview','generation-interventions'}
         fill,color={'compute':('#edf4f2',TEAL),'map':('#eef2f7','#526e9b'),'constraint':('#f6eee9',COPPER)}[kind]
         def label(x,y,text,size=22,color=INK,math=False,weight=None):
             result=t(x,y,text,size,color,weight,anchor='middle',serif=math)
@@ -287,8 +307,8 @@ def generation_interventions():
               '<path d="M139 66H176" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
               f'<rect x="186" y="34" width="146" height="64" rx="4" fill="{fill}"/>',
               f'<path d="M186 42V90" stroke="{color}" stroke-width="1.8"/>',
-              label(259,58,middle,21,color,weight=500),
-              label(259,85,detail,21 if math else (17 if '/' in detail else 19),color,math),
+              label(259,58,middle,23 if active else 21,color,weight=500),
+              label(259,85,detail,21 if (active or math) else (17 if '/' in detail else 19),color,math),
               '<path d="M342 66H388" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
               label(435,74,right,math=math)]
         header=f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="92" viewBox="0 20 480 92" role="img" aria-labelledby="title desc">'

@@ -7,8 +7,8 @@
 <path d="M139 66H176" fill="none" stroke="#2c6d77" stroke-width="1.6" marker-end="url(#arrow)"/>
 <rect x="186" y="34" width="146" height="64" rx="4" fill="#f6eee9"/>
 <path d="M186 42V90" stroke="#9b654e" stroke-width="1.8"/>
-<text x="259" y="58" font-size="21" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Guide</text>
-<text x="259" y="85" font-size="17" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">repair / select</text>
+<text x="259" y="58" font-size="23" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="500" text-anchor="middle">Guide</text>
+<text x="259" y="85" font-size="21" fill="#9b654e" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">repair / select</text>
 <path d="M342 66H388" fill="none" stroke="#2c6d77" stroke-width="1.6" marker-end="url(#arrow)"/>
 <text x="435" y="74" font-size="22" fill="#24363a" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" text-anchor="middle">Result</text>
 </svg>
