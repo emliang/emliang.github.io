@@ -128,3 +128,21 @@
 .blog-page .article-body .opening-figure img{border:0;border-radius:0;padding:0;background:transparent;box-shadow:none}
 .blog-page .article-body .allocation-teaser.opening-figure img{mix-blend-mode:multiply}
 @media(max-width:600px){.blog-page .article-header h1{font-size:32px}.blog-page .article-body .opening-figure{margin:20px auto 24px}}
+
+/* One fixed diagram, three deliberate reading steps. */
+.blog-page .article-body .figure-walkthrough{max-width:560px;margin:28px auto 32px}
+.blog-page .figure-step-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:16px}
+.blog-page .figure-step-controls button{min-height:44px;border:1px solid #dbe3e1;border-radius:6px;background:transparent;color:#65767a;font:inherit;font-size:14px;line-height:1.4;padding:9px 8px;cursor:pointer}
+.blog-page .figure-step-controls button:hover{border-color:#2c6d77;color:#2c6d77}
+.blog-page .figure-step-controls button[aria-selected="true"]{border-color:#2c6d77;background:#e9f3f0;color:#21535d;font-weight:500}
+.blog-page .figure-step-controls span{margin-right:6px;font-size:12px;font-variant-numeric:tabular-nums}
+.blog-page .figure-step-graphic{display:block;width:100%;height:auto;font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.blog-page .figure-step-graphic .figure-symbol{font-family:Georgia,"Times New Roman",serif;font-style:italic}
+.blog-page .figure-walkthrough figcaption{margin-top:12px}
+.blog-page .article-body .figure-step-panel p{font-size:15px;line-height:1.7;color:#405157;margin:0 0 14px}
+.blog-page .figure-step-panels{min-height:86px}
+.blog-page .article-body .figure-takeaway{font-size:13px;line-height:1.7;color:#65767a;margin:0;padding-top:12px;border-top:1px solid #e1dcd3}
+.blog-page .figure-walkthrough.is-enhanced[data-current-step="1"] [data-reveal="2"],
+.blog-page .figure-walkthrough.is-enhanced[data-current-step="1"] [data-reveal="3"],
+.blog-page .figure-walkthrough.is-enhanced[data-current-step="2"] [data-reveal="3"]{display:none}
+@media(max-width:600px){.blog-page .figure-step-controls{gap:6px}.blog-page .figure-step-controls button{font-size:13px;padding:9px 4px}.blog-page .figure-step-controls span{margin-right:4px}.blog-page .figure-step-panels{min-height:118px}.blog-page .article-body .figure-step-panel p{font-size:14px}}
