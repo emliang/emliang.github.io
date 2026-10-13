@@ -9,7 +9,7 @@
   box-sizing: border-box;
   background: #fff;
   border: 1px solid var(--hc-line);
-  border-radius: 14px;
+  border-radius: 6px;
   box-shadow: none;
   padding: 18px;
   margin: 24px 0;
@@ -27,7 +27,7 @@
 }
 .hc-demo .hc-button:hover, .hc-demo .hc-mode-picker button:hover { background: var(--hc-wash); }
 .hc-demo button:focus-visible, .hc-demo input:focus-visible, .hc-demo select:focus-visible, .hc-demo summary:focus-visible { outline: 2px solid var(--hc-teal); outline-offset: 3px; }
-.hc-demo .hc-mode-picker { display: inline-flex; max-width: 100%; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; padding: 4px; border: 1px solid var(--hc-line); border-radius: 10px; background: var(--hc-control-wash); }
+.hc-demo .hc-mode-picker { display: inline-flex; max-width: 100%; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; padding: 4px; border: 1px solid var(--hc-line); border-radius: 6px; background: var(--hc-control-wash); }
 .hc-demo .hc-mode-picker button { border-color: transparent; background: transparent; min-height: 38px; }
 .hc-demo .hc-mode-picker button[aria-pressed="true"] { background: var(--hc-teal); border-color: var(--hc-teal); color: #fff; box-shadow: 0 2px 5px rgba(36, 54, 58, .09); }
 .hc-demo .hc-mechanism-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 20px; align-items: start; }

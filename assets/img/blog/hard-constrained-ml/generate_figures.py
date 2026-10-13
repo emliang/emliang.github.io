@@ -212,52 +212,62 @@ def down(x,y1,y2,color=TEAL,dashed=False):
     return line(x,y1,x,y2,color,2.1,dashed,True)
 
 
-def roles():
-    """Compact prediction chains, sized for 334–350px article columns."""
+def roles(include_overview=True):
+    """Aligned classification chains, legible at 320px and 430px wide.
+
+    The single-operation training row is centered. The other rows share the
+    same model and constraint-operation positions, and all four share a
+    baseline, model dimensions, and returned-output position.
+    """
     def label(x, y, text, size, color=INK, serif=False, weight=None):
         result=t(x,y,text,size,color,weight,anchor='middle',serif=serif)
+        # Restore the baseline on actual following text; avoid a zero-width
+        # reset glyph, which some non-browser SVG renderers display as tofu.
+        result=re.sub(r'<tspan dy="(-[\d.]+)">&#8203;</tspan>([^<]+)',
+                      r'<tspan dy="\1">\2</tspan>',result)
         return result.replace('>', ' font-style="italic">', 1) if serif else result
 
-    def model(x, width):
+    def model(x, width=126):
         center=x+width/2
-        return [f'<rect x="{x}" y="48" width="{width}" height="64" rx="5" fill="#f0f4f3" stroke="#c7d2cf" stroke-width="1"/>',
-                label(center,72,'Model',22,'#637674',weight=500),
-                label(center,99,'fθ(x)',23,serif=True)]
+        return [f'<rect x="{x}" y="52" width="{width}" height="72" rx="9" fill="#f0f4f3" stroke="#bdcbc7" stroke-width="1.5"/>',
+                label(center,77,'Model',23,'#637674',weight=500),
+                label(center,106,'fθ(x)',27,serif=True)]
 
     defs=('<defs>\n'
-          '  <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="'+TEAL+'"/></marker>\n'
+          '  <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10Z" fill="'+TEAL+'"/></marker>\n'
+          '  <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10Z" fill="'+COPPER+'"/></marker>\n'
           '</defs>')
     def arrow(start, end):
-        return f'<path d="M{start} 80H{end}" fill="none" stroke="{TEAL}" stroke-width="1.6" marker-end="url(#arrow)"/>'
+        return f'<path d="M{start} 88H{end}" fill="none" stroke="{TEAL}" stroke-width="2.1" stroke-linecap="round" marker-end="url(#arrow)"/>'
 
     specs=[]
     for slug in ('training','layer','coordinates','post'):
         if slug=='training':
-            b=[label(240,24,'Constraints',22,COPPER,weight=500),
-               f'<path d="M240 31V40" stroke="{COPPER}" stroke-width="1.4"/>',
-               f'<path d="M237 37L240 40L243 37" fill="none" stroke="{COPPER}" stroke-width="1.4"/>',
-               label(19,88,'x',27,serif=True),arrow(43,156),
-               *model(166,148),arrow(324,437),label(461,88,'y',27,serif=True)]
+            b=[label(239,19,'Constraints',22,COPPER,weight=500),
+               f'<path d="M239 29V42" fill="none" stroke="{COPPER}" stroke-width="1.8" stroke-linecap="round" marker-end="url(#back)"/>',
+               label(22,97,'x',29,serif=True),arrow(46,164),
+               *model(176),arrow(314,438),label(458,97,'y',29,serif=True)]
             title='Training-based approaches'
             desc='Classification schematic: constraints shape how the predictor is trained or constructed; the model directly returns y.'
         else:
             middle={'layer':'Layer','coordinates':'Decode','post':'Correct'}[slug]
             fill,color=('#eef2f7','#526e9b') if slug=='coordinates' else ('#f6eee9',COPPER)
-            b=[label(19,88,'x',27,serif=True),arrow(38,56),*model(64,120),
-               arrow(193,269),label(231,61,'u' if slug=='coordinates' else 'c',25,serif=True),
-               f'<rect x="278" y="48" width="144" height="64" rx="4" fill="{fill}"/>',
-               f'<path d="M278 56V104" stroke="{color}" stroke-width="1.8"/>']
+            b=[label(22,97,'x',29,serif=True),arrow(46,66),*model(78),
+               arrow(216,268),label(241,64,'u' if slug=='coordinates' else 'c',27,serif=True),
+               f'<rect x="280" y="52" width="126" height="72" rx="9" fill="{fill}" stroke="{color}" stroke-opacity=".45" stroke-width="1.5"/>']
             if slug=='coordinates':
-                b += [label(350.0,72,middle,23,color,weight=500),
-                      label(350.0,99,'D(u)',23,color,serif=True)]
+                b += [label(343,77,middle,24,color,weight=500),
+                      label(343,106,'D(u)',27,color,serif=True)]
             else:
-                b += [label(350.0,88,middle,23,color,weight=500)]
-            b += [arrow(431,445),label(461,88,'y',27,serif=True)]
+                b += [label(343,97,middle,24,color,weight=500)]
+            b += [arrow(418,438),label(458,97,'y',29,serif=True)]
             title={'layer':'Structured layers','coordinates':'Constraint parameterization','post':'Post-processing'}[slug]
             desc={'layer':'Classification schematic: a predictor produces c, which passes through a structured output layer. The operation participates in training and remains in inference.','coordinates':'Classification schematic: the predictor returns admissible reference coordinates u, and a specified feasible decoder D maps them to output y.','post':'Classification schematic: a downstream correction acts on candidate c after the fitted predictor. Training need not include this operation.'}[slug]
-        header='<svg xmlns="http://www.w3.org/2000/svg" width="480" height="130" viewBox="0 -3 480 130" role="img" aria-labelledby="title desc">'
+        header='<svg xmlns="http://www.w3.org/2000/svg" width="480" height="142" viewBox="0 0 480 142" role="img" aria-labelledby="title desc">'
         (OUT/('roles-'+slug+'.svg')).write_text('\n'.join([header,f'<title id="title">{escape(title)}</title>',f'<desc id="desc">{escape(desc)}</desc>',defs,*b,'</svg>','']),encoding='utf-8')
         specs.append((title,b))
+    if not include_overview:
+        return
     overview=[]
     for i,(title,b) in enumerate(specs):
         overview += [f'<g transform="translate(0,{i*204})">',t(16,26,title,25,weight=600),'<g transform="translate(0,40)">',*b,'</g></g>']
@@ -277,7 +287,7 @@ def sampler():
     generation_interventions()
 
 
-def generation_interventions():
+def generation_interventions(active_only=False):
     """Compact classification chains, following the accepted editorial style.
 
     The active taxonomy is training, geometry, parameterization, then grouped
@@ -299,20 +309,26 @@ def generation_interventions():
        'Apply a correction to a specified state, output estimate or final sample. Intermediate correction requires a connection to later sampling.')]
     for name,title,left,middle,detail,right,kind,math,desc in specs:
         active=name in {'generation-training','geometry-overview','coordinates-overview','generation-interventions'}
+        if active_only and not active:
+            continue
         fill,color={'compute':('#edf4f2',TEAL),'map':('#eef2f7','#526e9b'),'constraint':('#f6eee9',COPPER)}[kind]
         def label(x,y,text,size=22,color=INK,math=False,weight=None):
             result=t(x,y,text,size,color,weight,anchor='middle',serif=math)
             return result.replace('>', ' font-style="italic">', 1) if math else result
-        body=[label(76,74,left,math=math),
-              '<path d="M139 66H176" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
-              f'<rect x="186" y="34" width="146" height="64" rx="4" fill="{fill}"/>',
-              f'<path d="M186 42V90" stroke="{color}" stroke-width="1.8"/>',
-              label(259,58,middle,23 if active else 21,color,weight=500),
-              label(259,85,detail,21 if (active or math) else (17 if '/' in detail else 19),color,math),
-              '<path d="M342 66H388" fill="none" stroke="'+TEAL+'" stroke-width="1.6" marker-end="url(#arrow)"/>',
-              label(435,74,right,math=math)]
-        header=f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="92" viewBox="0 20 480 92" role="img" aria-labelledby="title desc">'
-        defs='<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L8 4L0 8Z" fill="'+TEAL+'"/></marker></defs>'
+        body=[label(62,84,left,26 if math else 24,math=math),
+              '<path d="M119 76H156" fill="none" stroke="'+TEAL+'" stroke-width="2.1" stroke-linecap="round" marker-end="url(#arrow)"/>',
+              f'<rect x="168" y="38" width="170" height="76" rx="9" fill="{fill}" stroke="{color}" stroke-opacity=".45" stroke-width="1.5"/>']
+        if name=='generation-interventions':
+            # A single group of alternatives, not three boxes in a sequence.
+            body += [label(253,64,'Guide / repair',22,color,weight=500),
+                     label(253,96,'/ select',22,color,weight=500)]
+        else:
+            body += [label(253,65,middle,24 if active else 22,color,weight=500),
+                     label(253,96,detail,25 if math else 22,color,math)]
+        body += ['<path d="M350 76H389" fill="none" stroke="'+TEAL+'" stroke-width="2.1" stroke-linecap="round" marker-end="url(#arrow)"/>',
+                 label(435,84,right,26 if math else 24,math=math)]
+        header=f'<svg xmlns="http://www.w3.org/2000/svg" width="480" height="134" viewBox="0 0 480 134" role="img" aria-labelledby="title desc">'
+        defs='<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L10 5L0 10Z" fill="'+TEAL+'"/></marker></defs>'
         meta=escape(json.dumps({'scope':'classification schematic; algorithm details in companion repository'}))
         (OUT/(name+'.svg')).write_text('\n'.join([header,f'<title id="title">{escape(title)}</title>',f'<desc id="desc">{escape(desc)}</desc>',defs,f'<metadata>{meta}</metadata>',*body,'</svg>','']))
 

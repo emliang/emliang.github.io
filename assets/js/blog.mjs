@@ -7,20 +7,30 @@ if (toc) {
   wide.addEventListener('change', setOpen);
   const links = [...toc.querySelectorAll('a[href^="#"]')];
   const sections = links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(entries => {
-      const visible = entries.filter(entry => entry.isIntersecting);
-      if (!visible.length) return;
-      const id = visible[0].target.id;
-      links.forEach(link => {
-        const active = link.hash === `#${id}`;
-        link.classList.toggle('is-current', active);
-        if (active) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-    }, { rootMargin: '-100px 0px -60% 0px', threshold: 0 });
-    sections.forEach(section => observer.observe(section));
-  }
+  let pending = false;
+  const updateCurrent = () => {
+    pending = false;
+    let current;
+    for (const section of sections) {
+      if (section.getBoundingClientRect().top > 140) break;
+      current = section.id;
+    }
+    links.forEach(link => {
+      const active = link.hash === `#${current}`;
+      link.classList.toggle('is-current', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  };
+  const scheduleCurrent = () => {
+    if (pending) return;
+    pending = true;
+    requestAnimationFrame(updateCurrent);
+  };
+  window.addEventListener('scroll', scheduleCurrent, { passive: true });
+  window.addEventListener('resize', scheduleCurrent);
+  window.addEventListener('load', scheduleCurrent);
+  updateCurrent();
   links.forEach(link => link.addEventListener('click', () => { if (!wide.matches) toc.open = false; }));
 }
 
