@@ -1,5 +1,5 @@
 /** Analytic illustrations, not trained models or benchmark results. */
-import { demoMath } from './hard-constrained-math.mjs';
+import { demoMath } from './hard-constrained-math.mjs?v=20261018.5';
 export const DEFAULT_SEED = 20261003;
 export const DEFAULT_COUNT = 512;
 export const NUMERICAL_TOLERANCE = 1e-9;

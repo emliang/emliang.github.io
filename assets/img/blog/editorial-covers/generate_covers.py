@@ -6,6 +6,7 @@ Only the Python standard library is required.
 """
 
 from html import escape
+from base64 import b64encode
 from math import cos, hypot, pi, sin
 from pathlib import Path
 import xml.etree.ElementTree as ET
@@ -20,6 +21,18 @@ BLUE = "#567aa8"
 GRID = "#d9dfdb"
 MINT = "#e8f1ec"
 PALE_BLUE = "#edf1f6"
+MATH_FONTS = OUT.parents[2] / "vendor/katex-0.16.22/fonts"
+
+
+def math_font_style():
+    faces = []
+    for family, filename, style in (
+        ("KaTeX_Main", "KaTeX_Main-Regular.woff2", "normal"),
+        ("KaTeX_Math", "KaTeX_Math-Italic.woff2", "italic"),
+    ):
+        data = b64encode((MATH_FONTS / filename).read_bytes()).decode("ascii")
+        faces.append(f'@font-face{{font-family:{family};font-style:{style};font-weight:400;src:url(data:font/woff2;base64,{data}) format("woff2")}}')
+    return '<style>' + ''.join(faces) + '</style>'
 
 
 def number(value):
@@ -41,8 +54,8 @@ def dot(point, radius, color, hollow=False):
 
 
 def label(x, y, content, size=27, color=INK, anchor="start", serif=False):
-    family = "Georgia,Times New Roman,serif" if serif else "Arial,Helvetica,sans-serif"
-    italic = ' font-style="italic"' if serif else ""
+    family = ("KaTeX_Main,Times New Roman,serif" if content == "Φ" else "KaTeX_Math,Times New Roman,serif") if serif else "Arial,Helvetica,sans-serif"
+    italic = ' font-style="italic"' if serif and content != "Φ" else ""
     return f'<text x="{number(x)}" y="{number(y)}" text-anchor="{anchor}" font-family="{family}" font-size="{size}" fill="{color}"{italic}>{escape(content)}</text>'
 
 
@@ -64,6 +77,7 @@ def document(name, width, height, title, description, metadata, body, mobile):
   <title id="title">{escape(title)}</title>
   <desc id="desc">{escape(description)}</desc>
   <metadata>{escape(metadata)}</metadata>
+  {math_font_style()}
   <defs>
     <marker id="return-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="{COPPER}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></marker>
     <marker id="map-arrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="11" markerHeight="11" markerUnits="userSpaceOnUse" orient="auto"><path d="M2 2 L10 6 L2 10" fill="none" stroke="{TEAL}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></marker>

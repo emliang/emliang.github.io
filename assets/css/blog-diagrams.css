@@ -18,9 +18,7 @@
 .blog-page .flow-detail{display:block;font-size:12px;line-height:1.45;font-weight:400;color:#65767a}
 .blog-page .flow-math{display:block;font-family:KaTeX_Main,"Times New Roman",serif;font-size:21px;line-height:1.25;font-weight:400;color:#24363a;white-space:nowrap}
 .blog-page .flow-operation--map .flow-math{color:#526d92}
-.blog-page .flow-math var{font-family:KaTeX_Math,"Times New Roman",serif;font-style:italic}
-.blog-page .flow-math sub{position:relative;top:.25em;vertical-align:baseline;font-size:.7em;line-height:0;margin-left:.02em}
-.blog-page .flow-math sup{font-size:.7em;line-height:0;vertical-align:super}
+.blog-page .flow-math .katex{font-size:1em}
 .blog-page .flow-arrow{display:block;width:24px;height:12px;overflow:visible;color:#829a9c}
 .blog-page .flow-arrow path{fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .blog-page .article-body .sampler-framework.native-sampler{max-width:none;margin:36px 0}

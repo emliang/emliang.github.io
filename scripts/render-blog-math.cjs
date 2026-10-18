@@ -25,8 +25,8 @@ console.log(`Rendered ${count} formulas in ${file} with KaTeX ${katex.version}`)
 
 // Static formulas used by the interactive allocation explorer.
 const demoSources = {
-  penalty: [String.raw`c=(a,a),\quad 0\le a\le1`, String.raw`\dfrac{1}{2}\lVert y-c\rVert^2`, String.raw`{}+\dfrac{\lambda}{2}\bigl[\max(0,y_1+y_2-1)\bigr]^2`],
-  projection: [String.raw`y=\underset{z\in K}{\arg\min}\;\dfrac{1}{2}\lVert z-c\rVert^2`],
+  penalty: [String.raw`c=(a,a),\quad 0\le a\le1`, String.raw`\dfrac{1}{2}\lVert y-c\rVert_2^2`, String.raw`{}+\dfrac{\lambda}{2}\bigl[\max(0,y_1+y_2-1)\bigr]^2`],
+  projection: [String.raw`y=\underset{w\in K}{\arg\min}\;\dfrac{1}{2}\lVert w-c\rVert_2^2`],
   parameterization: [String.raw`y=\bigl(bq,\,b(1-q)\bigr)`, String.raw`b,q\in[0,1]`],
   violation: [String.raw`\begin{aligned}\mathrm{Violation}=\max(&0,-y_1,-y_2,\\&y_1+y_2-1)\end{aligned}`],
 };
