@@ -31,7 +31,7 @@
 .hc-demo .hc-mode-picker button { border-color: transparent; background: transparent; min-height: 38px; }
 .hc-demo .hc-mode-picker button[aria-pressed="true"] { background: var(--hc-teal); border-color: var(--hc-teal); color: #fff; box-shadow: 0 2px 5px rgba(36, 54, 58, .09); }
 .hc-demo .hc-mechanism-layout { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 20px; align-items: start; }
-.hc-demo .hc-controls { margin-top: 26px; padding: 15px; border: 1px solid var(--hc-line); border-radius: 10px; background: var(--hc-control-wash); }
+.hc-demo .hc-controls { margin-top: 26px; padding: 15px; border: 0; border-radius: 6px; background: var(--hc-control-wash); }
 .hc-demo .hc-plot-wrap { min-width: 0; }
 .hc-demo p.hc-plot-units { margin: 0 0 3px; text-align: center; font-size: 12px; line-height: 1.5; color: var(--hc-muted); }
 .hc-demo svg { display: block; width: 100%; height: auto; overflow: visible; font-family: inherit; }

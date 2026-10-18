@@ -52,9 +52,9 @@
 .blog-page .article-body strong{color:#24363a;font-weight:600}
 .blog-page .article-body figure{margin:36px 0}
 .blog-page .article-body figure img{display:block;width:100%;border-radius:6px;background:#fff}
-.blog-page .article-body figcaption{font-size:14px;line-height:1.7;color:#65767a;margin:16px 0 0;text-wrap:pretty}
-.blog-page .article-body .figure-heading{display:flex;align-items:baseline;gap:12px;margin:0 0 20px;font-size:15px;line-height:1.5;color:#24363a;font-weight:500;text-wrap:balance}
-.blog-page .figure-index{flex:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:#2c6d77;font-weight:400}
+.blog-page .article-body figcaption{font-size:14.5px;line-height:1.75;color:#586a6d;margin:14px 0 0;text-wrap:pretty}
+.blog-page .article-body .figure-heading{display:flex;align-items:baseline;gap:12px;margin:0 0 16px;font-size:16px;line-height:1.5;color:#24363a;font-weight:500;text-wrap:balance}
+.blog-page .figure-index{flex:none;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#2c6d77;font-weight:400}
 /* Each classification gets one reading row: explanation, then a legible chain. */
 .blog-page .mechanism-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
 .blog-page .mechanism-card{min-width:0;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr);column-gap:28px;align-items:center;border-top:1px solid #dbe3e1;padding:22px 0}
@@ -131,8 +131,9 @@
 
 /* Shared visual essays: quiet prose, explicit questions, and consistent figure frames. */
 .blog-page .article-body .article-context{font-size:14px;line-height:1.7;color:#65767a}
-.blog-page .article-body .explorer-prompt{font-size:15px;line-height:1.7;margin:24px 0 12px;padding-left:14px;border-left:2px solid #2c6d77}
-.blog-page .article-body .explorer-prompt + .hc-demo{margin-top:12px}
+.blog-page .article-body .figure-observation,.blog-page .article-body .explorer-prompt{font-size:15.5px;line-height:1.7;color:#405157;margin:28px 0 12px;padding:0;border:0}
+.blog-page .figure-observation strong,.blog-page .explorer-prompt strong{color:#2c6d77;font-weight:500}
+.blog-page .article-body .figure-observation + figure,.blog-page .article-body .explorer-prompt + figure,.blog-page .article-body .figure-observation + .hc-demo,.blog-page .article-body .explorer-prompt + .hc-demo{margin-top:14px}
 .blog-page .article-body .article-figure img,.blog-page .article-body .demo-fallback>img,.blog-page .article-body .static-cloud-grid img{border-radius:6px;box-shadow:none}
 
 .blog-page .article-body .opening-figure{margin:24px auto 28px}
@@ -141,7 +142,7 @@
 @media(max-width:600px){.blog-page .article-header h1{font-size:34px;line-height:1.17}.blog-page .article-body .opening-figure{margin:24px auto 28px}}
 
 /* One fixed diagram, three deliberate reading steps. */
-.blog-page .article-body .figure-walkthrough{max-width:600px;margin:32px auto 36px;padding:22px 24px 20px;background:#f4f5f1;border:1px solid #dbe3e1;border-radius:6px}
+.blog-page .article-body .figure-walkthrough{max-width:600px;margin:32px auto 36px;padding:22px 24px 20px;background:#f4f5f1;border:0;border-radius:6px}
 .blog-page .figure-step-controls{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:18px}
 .blog-page .figure-step-controls button{min-height:44px;border:1px solid #cad6d2;border-radius:4px;background:transparent;color:#65767a;font:inherit;font-size:14px;line-height:1.4;padding:9px 8px;cursor:pointer}
 .blog-page .figure-step-controls button:hover{border-color:#2c6d77;color:#2c6d77}
@@ -156,4 +157,4 @@
 .blog-page .figure-walkthrough.is-enhanced[data-current-step="1"] [data-reveal="2"],
 .blog-page .figure-walkthrough.is-enhanced[data-current-step="1"] [data-reveal="3"],
 .blog-page .figure-walkthrough.is-enhanced[data-current-step="2"] [data-reveal="3"]{display:none}
-@media(max-width:600px){.blog-page .article-body .figure-walkthrough{padding:18px 14px 16px}.blog-page .article-body .figure-heading{display:block;font-size:15px;margin-bottom:18px}.blog-page .figure-index{display:block;margin-bottom:7px}.blog-page .figure-step-controls{gap:6px}.blog-page .figure-step-controls button{font-size:13px;padding:9px 4px}.blog-page .figure-step-controls span{margin-right:4px}.blog-page .figure-step-panels{min-height:142px}.blog-page .article-body .figure-step-panel p{font-size:15px}.blog-page .article-body .figure-takeaway{font-size:14px}.blog-page .article-body h2{padding-top:20px}}
+@media(max-width:600px){.blog-page .article-body .figure-walkthrough{padding:18px 14px 16px}.blog-page .article-body .figure-heading{display:block;font-size:15.5px;margin-bottom:16px}.blog-page .figure-index{display:block;margin-bottom:6px}.blog-page .figure-step-controls{gap:6px}.blog-page .figure-step-controls button{font-size:13px;padding:9px 4px}.blog-page .figure-step-controls span{margin-right:4px}.blog-page .figure-step-panels{min-height:142px}.blog-page .article-body .figure-step-panel p{font-size:15px}.blog-page .article-body .figure-takeaway{font-size:14px}.blog-page .article-body h2{padding-top:20px}}
