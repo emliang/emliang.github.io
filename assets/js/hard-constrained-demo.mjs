@@ -157,6 +157,13 @@ function slider(id, name, min, max, step, value, suffix = '', shortName = name) 
 
 const MECHANISM_PLOT = Object.freeze({ originX: 68, originY: 294, unit: 220 });
 
+// The page already loads these KaTeX faces; keep plot variables distinct from
+// the sans-serif explanations and use attached SVG subscripts, as in the text.
+function plotVariable(symbol, subscript = null) {
+  const base = `<tspan font-family="KaTeX_Math, 'Times New Roman', serif" font-style="italic">${symbol}</tspan>`;
+  return subscript === null ? base : `${base}<tspan font-family="KaTeX_Main, 'Times New Roman', serif" font-style="normal" baseline-shift="sub" font-size="70%">${subscript}</tspan>`;
+}
+
 function mechanismGeometry(state) {
   const toX = value => MECHANISM_PLOT.originX + MECHANISM_PLOT.unit * value;
   const toY = value => MECHANISM_PLOT.originY - MECHANISM_PLOT.unit * value;
@@ -195,7 +202,7 @@ function mechanismGeometry(state) {
   }
   // The set remains shaded; omit its redundant interior text when moving point labels need that space.
   const domainLabels = labelAreas.some(area => area.left < 200 && area.right > 85 && area.top < 271 && area.bottom > 226)
-    ? '' : '<text class="hc-domain-label" x="90" y="241">feasible set K</text><text class="hc-domain-label" x="90" y="263">y₁ + y₂ ≤ 1</text>';
+    ? '' : `<text class="hc-domain-label" x="90" y="241">feasible set ${plotVariable('K')}</text><text class="hc-domain-label" x="90" y="263">${plotVariable('y', '1')} + ${plotVariable('y', '2')} ≤ 1</text>`;
   const description = candidate
     ? 'A hollow circle marks a physical candidate and a filled diamond marks the returned output.'
     : 'A filled diamond marks the feasible output decoded from admissible reference coordinates. No physical candidate is being corrected.';
@@ -207,7 +214,7 @@ function mechanismGeometry(state) {
       <path class="hc-feasible" d="M 68 294 L 288 294 L 68 74 Z"/>
       <path class="hc-axis" d="M ${state.mode === 'projection' ? 13 : 57} 294 H 352 M 68 ${state.mode === 'projection' ? 349 : 303} V 22"/>
       <path class="hc-tick" d="M 178 289 V 299 M 288 289 V 299 M 63 184 H 73 M 63 74 H 73"/>
-      <text class="hc-axis-label" x="352" y="321">y₁</text><text class="hc-axis-label" x="40" y="24">y₂</text>
+      <text class="hc-axis-label" x="352" y="321">${plotVariable('y', '1')}</text><text class="hc-axis-label" x="40" y="24">${plotVariable('y', '2')}</text>
       <text class="hc-tick-label" x="51" y="318">0</text><text class="hc-tick-label" x="178" y="318" text-anchor="middle">0.5</text><text class="hc-tick-label" x="288" y="318" text-anchor="middle">1</text>
       <text class="hc-tick-label" x="51" y="189" text-anchor="end">0.5</text><text class="hc-tick-label" x="51" y="79" text-anchor="end">1</text>
       ${domainLabels}${marks}`,
@@ -234,8 +241,8 @@ export function mountMechanism(root) {
         <p class="hc-control-note">The displayed point solves this quadratic objective exactly for the selected weight.</p>
       </fieldset>
       <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">${demoMath.projection}</p>
-        <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y₁ coordinate', -0.25, 1.25, 0.01, state.candidate[0], '', 'Candidate y₁')}
-        ${slider(`${id}-c2`, 'Candidate y₂ coordinate', -0.25, 1.25, 0.01, state.candidate[1], '', 'Candidate y₂')}</div>
+        <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate c₁ coordinate', -0.25, 1.25, 0.01, state.candidate[0], '', 'Candidate c₁')}
+        ${slider(`${id}-c2`, 'Candidate c₂ coordinate', -0.25, 1.25, 0.01, state.candidate[1], '', 'Candidate c₂')}</div>
         <label class="hc-select-label" for="${id}-role">Where is projection used?<select id="${id}-role"><option value="post">Post-processing at deployment</option><option value="layer">Structured layer in training</option></select></label>
         <p class="hc-control-note">Use the sliders or drag the hollow circle. Both roles return the same forward output.</p>
       </fieldset>
@@ -343,7 +350,7 @@ function generationPlot(points, moved, label) {
   return `<title>${label}: returned samples</title><desc>Samples inside the triangular feasible set. Teal circles show retained samples; copper circles show candidates moved to the boundary. Circle area counts exactly coincident samples; no locations are shifted. The cross marks the sample mean and the hollow ring marks the conditional target mean at one third in both coordinates.</desc>
     <path class="hc-feasible" d="M 48 282 L 298 282 L 48 32 Z"/><path class="hc-axis" d="M 37 282 H 320 M 48 295 V 18"/>
     <path class="hc-tick" d="M 173 277 V 287 M 298 277 V 287 M 43 157 H 53 M 43 32 H 53"/>
-    <text class="hc-axis-label" x="320" y="308">y₁</text><text class="hc-axis-label" x="19" y="22">y₂</text>
+    <text class="hc-axis-label" x="320" y="308">${plotVariable('y', '1')}</text><text class="hc-axis-label" x="19" y="22">${plotVariable('y', '2')}</text>
     <text class="hc-tick-label" x="15" y="307">0</text><text class="hc-tick-label" x="173" y="307" text-anchor="middle">0.5</text><text class="hc-tick-label" x="298" y="307" text-anchor="middle">1</text>
     <text class="hc-tick-label" x="33" y="162" text-anchor="end">0.5</text><text class="hc-tick-label" x="33" y="37" text-anchor="end">1</text>
     ${dots}<circle class="hc-target-mean" cx="${toX(1 / 3)}" cy="${toY(1 / 3)}" r="6"/>${meanMark}`;

@@ -9,4 +9,4 @@ body.home-page,body.subpage,body.blog-page{padding-top:72px}
 .site-header .site-navigation-link:hover,.site-header .site-navigation-link[aria-current="page"]{color:#2c6d77;background:#f3f0e9;text-decoration:none}
 .site-header a:focus-visible{outline:2px solid #2c6d77;outline-offset:3px}
 @media(max-width:600px){body.home-page,body.subpage,body.blog-page{padding-top:64px}.site-header .site-navigation{min-height:64px;padding:0 20px;gap:12px}.site-header .site-brand{font-size:22px}.site-header .site-navigation-links{gap:4px}.site-header .site-navigation-link{font-size:14px;padding:10px 6px}}
-@media(max-width:350px){.site-header .site-navigation{padding:0 16px;gap:8px}.site-header .site-navigation-link{font-size:13px}}
+@media(max-width:350px){.site-header .site-navigation{padding:0 12px;gap:6px}.site-header .site-navigation-links{gap:2px}.site-header .site-navigation-link{display:flex;align-items:center;min-height:42px;padding:9px 4px;font-size:13px}}

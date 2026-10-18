@@ -32,7 +32,9 @@ function chart(svg, mapped, shape, r, angle) {
     return pixel(mapped ? forward(p, shape) : p);
   };
   const line = (points, attrs = {}) => element('path', { d: 'M ' + points.map(p => p.join(',')).join(' L '), fill: 'none', stroke: '#c3d4d7', 'stroke-width': 1.2, ...attrs });
-  const nodes = [element('text', { x: 180, y: 27, 'text-anchor': 'middle', fill: mapped ? '#2c6d77' : '#567aa8', 'font-size': 22 }, mapped ? 'Mapped decision · K' : 'Reference coordinate · B')];
+  const heading = element('text', { x: 180, y: 27, 'text-anchor': 'middle', fill: mapped ? '#2c6d77' : '#567aa8', 'font-size': 22 }, mapped ? 'Mapped decision · ' : 'Reference coordinate · ');
+  heading.append(element('tspan', { class: 'hm-svg-symbol', 'font-family': 'KaTeX_Math', 'font-style': 'italic' }, mapped ? 'K' : 'B'));
+  const nodes = [heading];
   nodes.push(line(Array.from({length: 241}, (_,j) => polar(1, 2 * Math.PI * j / 240)), { fill: '#f0f6f4', stroke: mapped ? '#2c6d77' : '#567aa8', 'stroke-width': 2.4 }));
   for (const radius of [.25, .5, .75]) nodes.push(line(Array.from({length: 181},(_,j)=>polar(radius,2 * Math.PI*j/180))));
   for (let j=0;j<12;j++) nodes.push(line([center,polar(1,2*Math.PI*j/12)]));
@@ -42,7 +44,7 @@ function chart(svg, mapped, shape, r, angle) {
   nodes.push(element('circle',{cx:center[0],cy:center[1],r:3,fill:'#24363a'}));
   nodes.push(element('circle',{cx:selected[0],cy:selected[1],r:6,fill:'#9b654e',stroke:'white','stroke-width':2}));
   svg.replaceChildren(...nodes);
-  svg.style.fontFamily='Arial,Helvetica,sans-serif';
+  svg.style.fontFamily='inherit';
 }
 function mount(explorer) {
   const rInput=explorer.querySelector('[data-hm-radius]');
@@ -58,7 +60,16 @@ function mount(explorer) {
     chart(explorer.querySelector('[data-hm-ball]'),false,shape,r,a);
     chart(explorer.querySelector('[data-hm-target]'),true,shape,r,a);
     const fmt=p=>`(${p.map(v=>(Math.abs(v)<.0005?0:v).toFixed(3)).join(', ')})`;
-    explorer.querySelector('[data-hm-status]').textContent=`z = ${fmt(z)} → x = ${fmt(x)}. ${r===1?'On the boundary.':'Inside the feasible region.'}`;
+    const symbol = letter => {
+      const label = document.createElement('span');
+      label.className = 'hm-status-symbol';
+      label.textContent = letter;
+      return label;
+    };
+    explorer.querySelector('[data-hm-status]').replaceChildren(
+      symbol('z'), document.createTextNode(` = ${fmt(z)} → `),
+      symbol('x'), document.createTextNode(` = ${fmt(x)}. ${r===1?'On the boundary.':'Inside the feasible region.'}`)
+    );
   }
   for(const input of [rInput,angleInput,shapeInput])input.addEventListener('input',update);
   update();explorer.hidden=false;

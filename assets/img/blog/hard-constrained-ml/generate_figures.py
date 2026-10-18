@@ -6,6 +6,7 @@ record is validated and read, never modified while figures are rendered.
 
 from pathlib import Path
 from html import escape
+from base64 import b64encode
 import json
 import re
 
@@ -14,6 +15,41 @@ PAPER, INK, TEAL, COPPER = "#fbfaf8", "#24363a", "#2c6d77", "#9b654e"
 MUTED, LINE, FILL = "#586a6d", "#dbe3e1", "#e9f3f0"
 SANS = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
 SERIF = "Georgia, 'Times New Roman', serif"
+MATH_FONTS = Path(__file__).resolve().parents[3] / "vendor/katex-0.16.22/fonts"
+
+
+def math_font_style():
+    """Keep math in image SVGs identical to the article's bundled KaTeX faces."""
+    faces = []
+    for family, filename, style in (
+        ("KaTeX_Main", "KaTeX_Main-Regular.woff2", "normal"),
+        ("KaTeX_Math", "KaTeX_Math-Italic.woff2", "italic"),
+    ):
+        data = b64encode((MATH_FONTS / filename).read_bytes()).decode("ascii")
+        faces.append(f'@font-face{{font-family:{family};font-style:{style};font-weight:400;src:url(data:font/woff2;base64,{data}) format("woff2")}}')
+    return '<style>' + ''.join(faces) + (
+        '.svg-math{font-family:KaTeX_Main,"Times New Roman",serif;font-style:normal;font-weight:400}'
+        '.svg-math .math-var{font-family:KaTeX_Math,"Times New Roman",serif;font-style:italic;font-weight:400}'
+        '</style>'
+    )
+
+
+def math_var(symbol):
+    return f'<tspan class="math-var">{escape(symbol)}</tspan>'
+
+
+def math_sub(symbol, subscript, size):
+    """An attached subscript whose baseline resets with the surrounding span."""
+    return (math_var(symbol)
+            + f'<tspan baseline-shift="sub" font-size="{round(size*.7, 2)}">'
+            + (math_var(subscript) if subscript.isalpha() else escape(subscript))
+            + '</tspan>')
+
+
+def math_text(x, y, content, size=26, color=INK, anchor=None):
+    return (f'<text x="{x}" y="{y}" class="svg-math" font-size="{size}" fill="{color}"'
+            + (f' text-anchor="{anchor}"' if anchor else '')
+            + '>' + content + '</text>')
 
 
 def t(x, y, text, size=26, color=INK, weight=None, anchor=None, serif=False):
@@ -52,7 +88,7 @@ def box(x, y, w, label, color=TEAL):
     return rect(x, y, w, 60, stroke=color) + t(x+w/2, y+39, label, 27, anchor="middle")
 
 
-def svg(name, w, h, title, description, body, metadata=None):
+def svg(name, w, h, title, description, body, metadata=None, math_fonts=False):
     s = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" role="img" aria-labelledby="title desc">
 <title id="title">{escape(title)}</title>
 <desc id="desc">{escape(description)}</desc>
@@ -62,6 +98,8 @@ def svg(name, w, h, title, description, body, metadata=None):
 </defs>
 <rect width="{w}" height="{h}" fill="#ffffff"/>
 '''
+    if math_fonts:
+        s += math_font_style() + '\n'
     if metadata:
         s += '<metadata>' + escape(json.dumps(metadata, sort_keys=True)) + '</metadata>\n'
     s += '\n'.join(body) + '\n</svg>\n'
@@ -345,6 +383,27 @@ def general_illustrations():
     from math import exp, pi, tanh
     from statistics import NormalDist
 
+    # Keep the image typography stable across platforms. Structural labels use
+    # the same quiet sans face; only mathematical expressions use a serif face.
+    sans = "Arial, Helvetica, sans-serif"
+    math_face = "'Times New Roman', Georgia, serif"
+
+    def label(x, y, text, size=21, color=INK, weight=500, anchor=None, serif=False):
+        if serif:
+            return math_text(x, y, escape(text) if text == "Σ" else math_var(text), size, color, anchor)
+        result = (t(x, y, text, size, color, weight, anchor, serif)
+                  .replace(f'font-family="{SANS}"', f'font-family="{sans}"')
+                  .replace(f'font-family="{SERIF}"', f'font-family="{math_face}"'))
+        if serif and text != "Σ":
+            result = result.replace('>', ' font-style="italic">', 1)
+        return result
+
+    def shape(*args):
+        return rect(*args).replace('stroke-width="2"', 'stroke-width="1.4"')
+
+    def equation(x, y, content, size=27):
+        return math_text(x, y, content, size, anchor="middle")
+
     # ---------- A real layer structure, with data drawn as feature vectors. ---
     x_values = [.8, .35, .6, .15]
     w1 = [[.6, -.2, .4, .1], [-.3, .8, .5, .2], [.2, .1, -.6, .9]]
@@ -356,56 +415,58 @@ def general_illustrations():
     y_values = [sum(w*h for w, h in zip(row, h_values))+bias
                 for row, bias in zip(w2, b2)]
     inputs, hidden, outputs = [120, 165, 210, 255], [130, 202, 274], [172, 234]
-    nn = [t(46, 35, "Input", 26, weight=500, anchor="middle"),
-          t(249, 35, "Learned layers", 26, weight=500, anchor="middle"),
-          t(432, 35, "Output", 26, weight=500, anchor="middle"),
-          rect(106, 57, 297, 248, "#f2f6f4", "#c7d9d4", 18),
-          t(140, 88, "Mix", 26, TEAL, weight=500, anchor="middle"),
-          t(229, 88, "ReLU", 26, TEAL, weight=500, anchor="middle"),
-          t(366, 88, "Mix", 26, TEAL, weight=500, anchor="middle")]
+    nn = [label(46, 35, "Input", 21, weight=500, anchor="middle"),
+          label(249, 35, "Learned layers", 21, weight=500, anchor="middle"),
+          label(432, 35, "Output", 21, weight=500, anchor="middle"),
+          shape(106, 57, 297, 248, "#f5f7f4", "#dbe3e1", 10),
+          label(140, 88, "Mix", 20, TEAL, weight=500, anchor="middle"),
+          label(229, 88, "ReLU", 20, TEAL, weight=500, anchor="middle"),
+          label(366, 88, "Mix", 20, TEAL, weight=500, anchor="middle")]
 
     # Every input reaches every hidden weighted sum; every hidden activation
     # reaches both readout sums. The copper route is an explanatory focus.
     for yi in inputs:
         for yh in hidden:
-            nn.append(line(78, yi, 122, yh, "#bfd2cd", 1.8))
+            nn.append(line(78, yi, 122, yh, "#c6d7d2", 1.4))
     for value, yh in zip(h_values, hidden):
         right = 278+36*value
         for yo in outputs:
-            nn.append(line(right, yh, 348, yo, "#bfd2cd", 1.8))
-    nn += [line(78, inputs[1], 122, hidden[1], COPPER, 3),
-           line(278+36*h_values[1], hidden[1], 348, outputs[0], COPPER, 3)]
+            nn.append(line(right, yh, 348, yo, "#c6d7d2", 1.4))
+    nn += [line(78, inputs[1], 122, hidden[1], COPPER, 2.3),
+           line(278+36*h_values[1], hidden[1], 348, outputs[0], COPPER, 2.3)]
 
     # Brackets distinguish the input/output vectors from learned operations.
-    nn += [route("M29 106 H22 V269 H29", INK, arrow=False),
-           route("M75 106 H82 V269 H75", INK, arrow=False),
-           route("M422 154 H415 V252 H422", INK, arrow=False),
-           route("M452 154 H459 V252 H452", INK, arrow=False)]
+    nn += [route("M29 106 H22 V269 H29", INK, arrow=False, width=1.8),
+           route("M75 106 H82 V269 H75", INK, arrow=False, width=1.8),
+           route("M422 154 H415 V252 H422", INK, arrow=False, width=1.8),
+           route("M452 154 H459 V252 H452", INK, arrow=False, width=1.8)]
     for value, y in zip(x_values, inputs):
-        nn.append(rect(32, y-8, 40*value, 16, TEAL, TEAL, 3))
+        nn.append(shape(32, y-8, 40*value, 16, TEAL, TEAL, 3))
     for index, (value, y) in enumerate(zip(h_values, hidden)):
         selected = index == 1
         color = COPPER if selected else TEAL
         # Weighted-sum unit. Bias is included in the affine operation.
-        nn += [f'<circle cx="140" cy="{y}" r="18" fill="{INK}"/>',
-               t(140, y+9, "Σ", 27, "#ffffff", anchor="middle", serif=True),
-               line(160, y, 193, y, color, 2.7, arrow=True),
-               rect(196, y-22, 67, 44, "#ffffff", "#a8c5bd", 8),
+        nn += [f'<circle cx="140" cy="{y}" r="17" fill="{INK}"/>',
+               label(140, y+7, "Σ", 23, "#ffffff", anchor="middle", serif=True),
+               line(160, y, 193, y, color, 2.1, arrow=True),
+               shape(196, y-22, 67, 44, "#ffffff", "#afc8bf", 6),
                line(208, y+11, 251, y+11, "#cbdad5", 1.6),
                line(228, y+15, 228, y-14, "#cbdad5", 1.6),
-               route(f"M209 {y+10} H228 L248 {y-12}", color, arrow=False),
-               line(263, y, 276, y, color, 2.7),
-               rect(278, y-7, 36*value, 14, color, color, 3)]
+               route(f"M209 {y+10} H228 L248 {y-12}", color, arrow=False, width=2.1),
+               line(263, y, 276, y, color, 2.1),
+               shape(278, y-7, 36*value, 14, color, color, 3)]
     for index, (value, y) in enumerate(zip(y_values, outputs)):
         color = COPPER if index == 0 else TEAL
-        nn += [f'<circle cx="366" cy="{y}" r="18" fill="{INK}"/>',
-               t(366, y+9, "Σ", 27, "#ffffff", anchor="middle", serif=True),
-               line(386, y, 411, y, color, 2.7, arrow=True),
-               rect(428, y-8, 35*value, 16, color, color, 3)]
-    nn += [t(52, 306, "x", 29, anchor="middle", serif=True),
-           t(437, 306, "ŷ", 29, anchor="middle", serif=True),
-           t(240, 346, "Affine → ReLU → Affine", 26, MUTED, anchor="middle"),
-           t(240, 387, "ŷ = fθ(x)", 32, anchor="middle", serif=True)]
+        nn += [f'<circle cx="366" cy="{y}" r="17" fill="{INK}"/>',
+               label(366, y+7, "Σ", 23, "#ffffff", anchor="middle", serif=True),
+               line(386, y, 411, y, color, 2.1, arrow=True),
+               shape(428, y-8, 35*value, 16, color, color, 3)]
+    nn += [label(52, 306, "x", 27, anchor="middle", serif=True),
+           label(437, 306, "c", 27, anchor="middle", serif=True),
+           label(240, 346, "Affine → ReLU → Affine", 20, MUTED, anchor="middle"),
+           equation(240, 387,
+                    math_var('c') + ' = ' + math_sub('f', 'θ', 27)
+                    + '(' + math_var('x') + ')')]
     svg("neural-network-prediction.svg", 480, 404,
         "A feedforward neural network maps a feature vector to a prediction",
         "A small multilayer perceptron is expanded into its actual computation. "
@@ -420,10 +481,10 @@ def general_illustrations():
          "architecture": "4 inputs, 3 ReLU units, 2 affine outputs",
          "input": x_values, "W1": w1, "b1": b1, "W2": w2, "b2": b2,
          "hidden": h_values, "output": y_values,
-         "visual_reference": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/"})
+         "visual_reference": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/"}, math_fonts=True)
 
     # ---------- Continuous flow: coherent particles + coherent marginals. ---
-    # X_t(z) interpolates between a standard normal prior and a smooth monotone
+    # Z_t(z) interpolates between a standard normal prior and a smooth monotone
     # target map T. Since dT/dz > 0, this gives a well-defined 1D velocity field.
     # The plot is not a fitted v_theta or a feasibility result.
     normal = NormalDist()
@@ -435,15 +496,16 @@ def general_illustrations():
     left, right, top, bottom = 120, 398, 78, 278
     py = lambda value: (top+bottom)/2-value*(bottom-top)/5.2
     px = lambda tm: left+(right-left)*tm
-    ff = [t(77, 35, "Prior", 26, weight=500, anchor="middle"),
-          t(260, 35, "Transport", 26, weight=500, anchor="middle"),
-          t(441, 35, "Target", 24, weight=500, anchor="middle"),
+    ff = [label(77, 35, "Prior", 21, weight=500, anchor="middle"),
+          label(260, 35, "Transport", 21, weight=500, anchor="middle"),
+          label(441, 35, "Target", 21, weight=500, anchor="middle"),
           # One shared state scale throughout, rather than separate clouds.
           line(left, top-10, left, bottom+5, LINE, 1.4),
           line(px(.5), top-10, px(.5), bottom+5, LINE, 1.4, dashed=True),
           line(right, top-10, right, bottom+5, LINE, 1.4),
           '<g transform="translate(32 178) rotate(-90)">'
-          +t(0, 0, "sample value xₜ", 25, MUTED, anchor="middle")+'</g>']
+          +label(0, 0, "sample value STATE", 20, MUTED, anchor="middle")
+           .replace("STATE", '<tspan class="svg-math">' + math_sub('z', 't', 20) + '</tspan>')+'</g>']
 
     # Actual analytic marginal silhouettes, in a common horizontal density
     # scale: p_1(T(z)) = p_0(z)/T'(z). Use dense z values only for the silhouettes.
@@ -456,8 +518,8 @@ def general_illustrations():
     target_path += " ".join(f"L{414+72*prior_density(z)/target_derivative(z):.3f} "
                             f"{py(target(z)):.3f}" for z in z_grid)
     target_path += f" L414 {py(target(2.6)):.3f} Z"
-    ff += [f'<path d="{prior_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="2.2"/>',
-           f'<path d="{target_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="2.2"/>']
+    ff += [f'<path d="{prior_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="1.7"/>',
+           f'<path d="{target_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="1.7"/>']
 
     # Continuous trajectories make transport visible in a static image.
     for z in quantiles:
@@ -476,23 +538,24 @@ def general_illustrations():
     focus_path = " ".join(("M" if j == 0 else "L")
                           +f"{px(j/80):.3f} {py(position(focus,j/80)):.3f}"
                           for j in range(81))
-    ff.append(route(focus_path, COPPER, arrow=False))
+    ff.append(route(focus_path, COPPER, arrow=False, width=2.3))
     for a, c in ((.25, .32), (.64, .71)):
         ff.append(line(px(a), py(position(focus,a)), px(c), py(position(focus,c)),
-                       COPPER, 2.8, arrow=True))
+                       COPPER, 2.2, arrow=True))
     for tm in (0., .5, 1.):
-        ff.append(point(px(tm), py(position(focus,tm)), "circle", COPPER, 5.5))
+        ff.append(point(px(tm), py(position(focus,tm)), "circle", COPPER, 4.5))
     ff += [line(left, 295, right+8, 295, TEAL, 2.2, arrow=True),
-           t(left, 328, "0", 26, MUTED, anchor="middle"),
-           t(px(.5), 328, "0.5", 26, MUTED, anchor="middle"),
-           t(right, 328, "1", 26, MUTED, anchor="middle"),
-           t(260, 363, "generation time t", 26, MUTED, anchor="middle"),
-           # Use tspan subscripts: Georgia has no reliable Unicode subscript t.
-           t(240, 404, "dxₜ/dt = vθ(xₜ, t)", 31, anchor="middle", serif=True)
-           .replace("dxₜ/dt", 'dx<tspan dy="7.44" font-size="21.7">t</tspan>'
-                    '<tspan dy="-7.44">/dt</tspan>')
-           .replace("(xₜ, t)", '(x<tspan dy="7.44" font-size="21.7">t</tspan>'
-                    '<tspan dy="-7.44">, t)</tspan>')]
+           label(left, 328, "0", 20, MUTED, anchor="middle"),
+           label(px(.5), 328, "0.5", 20, MUTED, anchor="middle"),
+           label(right, 328, "1", 20, MUTED, anchor="middle"),
+           label(260, 363, "generation time t", 20, MUTED, anchor="middle"),
+           # Subscripts use a separate span; operators stay upright while
+           # variables use the same mathematical italic as the article.
+           equation(240, 404,
+                    'd' + math_sub('z', 't', 27) + '/d' + math_var('t')
+                    + ' = ' + math_sub('v', 'θ', 27) + '('
+                    + math_sub('z', 't', 27) + ', ' + math_var('t') + ')')]
+
     svg("flow-generation-general.svg", 480, 420,
         "A flow transports particles from a prior toward a data distribution",
         "In one shared coordinate system, continuous curves follow particles "
@@ -510,19 +573,22 @@ def general_illustrations():
          "quantiles": "(i+0.5)/44, i=0,...,43, of standard normal",
          "map": "T(z)=1.15 tanh(1.8z)+0.32z",
          "schedule": "s(t)=3t^2-2t^3",
-         "transport": "X_t(z)=(1-s(t))z+s(t)T(z)",
+         "transport": "Z_t(z)=(1-s(t))z+s(t)T(z)",
          "density": "p_1(T(z))=p_0(z)/T'(z)",
          "focus_quantile": focus_quantile,
-         "visual_reference": "https://diffusionflow.github.io/"})
+         "visual_reference": "https://diffusionflow.github.io/"}, math_fonts=True)
 
 
-def tri(b,x,bottom,s):
+def tri(b,x,bottom,s,math_fonts=False):
     b+=[f'<path d="M{x} {bottom} L{x+s} {bottom} L{x} {bottom-s} Z" fill="{FILL}" stroke="{TEAL}" stroke-width="2.5"/>',line(x-16,bottom,x+s+30,bottom,MUTED,2),line(x,bottom+16,x,bottom-s-22,MUTED,2),t(x-14,bottom+34,"0",22,MUTED,anchor="end"),t(x+s,bottom+34,"1",22,MUTED,anchor="middle"),t(x-14,bottom-s+8,"1",22,MUTED,anchor="end"),t(x+s+37,bottom+8,"y₁",24,MUTED),t(x-8,bottom-s-29,"y₂",24,MUTED)]
+    if math_fonts:
+        b[-2:] = [math_text(x+s+37,bottom+8,math_sub('y','1',24),24,MUTED),
+                  math_text(x-8,bottom-s-29,math_sub('y','2',24),24,MUTED)]
 
 
-def geometry():
+def geometry(active_only=False):
     b=[];x,bottom,s=46,299,221
-    tri(b,x,bottom,s)
+    tri(b,x,bottom,s,math_fonts=True)
     xy=lambda a,c:(x+s*a,bottom-s*c)
     c,p,q,u=xy(.8,.8),xy(.6,.6),xy(.5,.5),xy(.42,.18)
     b += [line(*c,*q,COPPER,2,dashed=True),
@@ -536,15 +602,17 @@ def geometry():
           t(294,250,"projection",22,TEAL,weight=600),t(294,279,"(0.5, 0.5)",22,TEAL),
           route(f"M{u[0]+12} {u[1]} L230 274 L282 274 L282 327",TEAL,arrow=False,width=1.6),
           t(294,335,"decoded output",22,TEAL,weight=600),t(294,364,"(0.42, 0.18)",22,TEAL),
-          t(68,284,"K",26,TEAL,serif=True)]
-    svg("mechanism-poster.svg",480,380,"Three mechanisms on a triangular feasible set","Synthetic geometry, not neural-network training. Candidate (0.8,0.8) violates the nonnegative total-budget set K. The quadratic penalty with lambda=1 returns (0.6,0.6); projection returns (0.5,0.5); b=0.6,q=0.7 construct (0.42,0.18). Formula and mechanism meaning belong in the HTML caption.",b,{"B":1,"candidate":[.8,.8],"quadratic_penalty_lambda":1,"penalty_output":[.6,.6],"projection_output":[.5,.5],"parameterization":{"b":.6,"q":.7,"output":[.42,.18]}})
+          math_text(68,284,math_var("K"),26,TEAL)]
+    svg("mechanism-poster.svg",480,380,"Three mechanisms on a triangular feasible set","Synthetic geometry, not neural-network training. Candidate (0.8,0.8) violates the nonnegative total-budget set K. The quadratic penalty with lambda=1 returns (0.6,0.6); projection returns (0.5,0.5); b=0.6,q=0.7 construct (0.42,0.18). Formula and mechanism meaning belong in the HTML caption.",b,{"B":1,"candidate":[.8,.8],"quadratic_penalty_lambda":1,"penalty_output":[.6,.6],"projection_output":[.5,.5],"parameterization":{"b":.6,"q":.7,"output":[.42,.18]}},math_fonts=True)
+    if active_only:
+        return
     b=[];x,bottom,s=45,250,190
     tri(b,x,bottom,s);xy=lambda a,c:(x+s*a,bottom-s*c);c,q=xy(.8,.8),xy(.5,.5)
     b+=[line(*c,*q,COPPER,3,dashed=True),point(*c,"open",COPPER,7),point(*q,"diamond",TEAL,7),line(c[0]+14,c[1],262,c[1],COPPER,2),t(278,c[1]+2,"candidate",24,COPPER,weight=600),t(278,c[1]+34,"(0.8, 0.8)",23,COPPER),line(q[0]+14,q[1],262,q[1],TEAL,2),t(278,q[1]+8,"projection",24,TEAL,weight=600),t(278,q[1]+40,"(0.5, 0.5)",23,TEAL),t(82,234,"K",28,TEAL,serif=True)]
     svg("allocation-teaser.svg",480,300,"An allocation candidate exceeds the budget","Nonnegative allocations with total at most one form K. Candidate (0.8,0.8) lies outside; projection returns (0.5,0.5). Axes have the same scale.",b,{"B":1,"candidate":[.8,.8],"projection":[.5,.5]})
 
 
-def scatter():
+def scatter(active_only=False):
     record=json.loads((OUT/"illustrative-samples.json").read_text())
     actual=samples()
     assert actual[0]==list(map(tuple,record["rejection"]["returned_samples"]))
@@ -552,7 +620,7 @@ def scatter():
     assert actual[2]==record["rejection"]["candidates_tested"] and actual[3]==record["projection"]["boundary_count"]
     def panel(title,data,draws,projection):
         b=[t(24,36,title,27,weight=600)];x,bottom,s=50,327,233
-        tri(b,x,bottom,s)
+        tri(b,x,bottom,s,math_fonts=True)
         b[-5]=t(22,bottom+34,"0",22,MUTED,anchor="end")
         counts=Counter(map(tuple,data))
         for (a,c),n in sorted(counts.items(),key=lambda item:item[1]):
@@ -568,8 +636,10 @@ def scatter():
     pb=panel("Projection",record["projection"]["returned_samples"],256,True)
     desc="Unchanged uniform-square synthetic record: seed 104729, equal 256 returned samples per method. No jitter is used. Circle area is proportional to the count of exactly coincident samples; the projection origin circle represents 75 samples. Boundary points are copper and interior points teal. Rejection tested 1917 candidates. Projection maps 256 candidates and has 218 boundary outputs; its ideal boundary probability is 7/8. The rejection conditional target has zero boundary probability and ideal acceptance 1/8."
     meta={"seed":104729,"n_outputs_per_method":256,"rejection_candidates_tested":actual[2],"projection_candidates_mapped":256,"projection_boundary_count":actual[3],"projection_origin_count":75,"ideal_projection_boundary_probability":7/8,"ideal_rejection_acceptance_probability":1/8,"marker_area":"proportional to exact coincident sample count"}
-    svg("generation-rejection.svg",480,410,"Conditional samples by rejection",desc,rb,meta)
-    svg("generation-projection.svg",480,410,"Feasible samples by projection",desc,pb,meta)
+    svg("generation-rejection.svg",480,410,"Conditional samples by rejection",desc,rb,meta,math_fonts=True)
+    svg("generation-projection.svg",480,410,"Feasible samples by projection",desc,pb,meta,math_fonts=True)
+    if active_only:
+        return
     combined=rb+[line(24,423,456,423),'<g transform="translate(0,445)">',*pb,'</g>',t(24,894,"Circle area = coincident sample count",22,MUTED)]
     svg("generation-poster.svg",480,925,"Rejection and projection produce different distributions",desc,combined,meta)
 

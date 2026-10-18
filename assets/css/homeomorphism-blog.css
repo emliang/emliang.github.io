@@ -54,3 +54,10 @@
 .homeomorphism-page .article-body .hm-deformation img{width:150px;margin:auto}
 .homeomorphism-page .hm-deformation figcaption{max-width:440px;margin:auto}
 }
+@media(max-width:430px){
+.homeomorphism-page .article-body .hm-flow{grid-template-columns:minmax(0,1fr);gap:22px;max-width:300px;margin:0 auto}
+.homeomorphism-page .hm-flow li{min-height:44px;padding:8px 12px;font-size:15px;line-height:1.6}
+.homeomorphism-page .hm-flow li+li::before{content:'↓';left:50%;top:-23px;transform:translateX(-50%);font-size:18px;line-height:22px}
+.homeomorphism-page .hm-framework-row{padding:22px 0}
+.homeomorphism-page .hm-framework-row>strong{font-size:15px;margin-bottom:18px}
+}
