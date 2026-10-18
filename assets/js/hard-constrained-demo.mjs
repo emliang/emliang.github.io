@@ -1,5 +1,5 @@
 /** Analytic illustrations, not trained models or benchmark results. */
-import { demoMath } from './hard-constrained-math.mjs?v=20261018.5';
+import { demoMath } from './hard-constrained-math.mjs?v=20261018.6';
 export const DEFAULT_SEED = 20261003;
 export const DEFAULT_COUNT = 512;
 export const NUMERICAL_TOLERANCE = 1e-9;
@@ -47,7 +47,7 @@ export function projection(candidate, budget = 1) {
   return [budget * (x - y + 1) / 2, budget * (y - x + 1) / 2];
 }
 
-/** Exact minimizer of the displayed toy objective, only for c = (a, a), 0 <= a <= B. */
+/** Exact minimizer of the displayed toy objective, only for y hat = (a, a), 0 <= a <= B. */
 export function penalty(a, lambda, budget = 1) {
   positiveBudget(budget);
   if (!Number.isFinite(a) || a < 0 || a > budget) throw new RangeError('The diagonal candidate must satisfy 0 <= a <= budget.');
@@ -241,8 +241,8 @@ export function mountMechanism(root) {
         <p class="hc-control-note">The displayed point solves this quadratic objective exactly for the selected weight.</p>
       </fieldset>
       <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">${demoMath.projection}</p>
-        <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate c₁ coordinate', -0.25, 1.25, 0.01, state.candidate[0], '', 'Candidate c₁')}
-        ${slider(`${id}-c2`, 'Candidate c₂ coordinate', -0.25, 1.25, 0.01, state.candidate[1], '', 'Candidate c₂')}</div>
+        <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y hat, coordinate 1', -0.25, 1.25, 0.01, state.candidate[0], '', `Candidate ${demoMath.candidate1}`)}
+        ${slider(`${id}-c2`, 'Candidate y hat, coordinate 2', -0.25, 1.25, 0.01, state.candidate[1], '', `Candidate ${demoMath.candidate2}`)}</div>
         <label class="hc-select-label" for="${id}-role">Where is projection used?<select id="${id}-role"><option value="post">Post-processing at deployment</option><option value="layer">Structured layer in training</option></select></label>
         <p class="hc-control-note">Use the sliders or drag the hollow circle. Both roles return the same forward output.</p>
       </fieldset>

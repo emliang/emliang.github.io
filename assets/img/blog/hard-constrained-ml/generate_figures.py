@@ -52,6 +52,16 @@ def math_text(x, y, content, size=26, color=INK, anchor=None):
             + '>' + content + '</text>')
 
 
+def candidate_hat(center, baseline, size=27, color=INK):
+    """Draw a wide hat above y without depending on a combined Unicode glyph."""
+    half = size * .29
+    shoulders, apex = baseline - size*.59, baseline - size*.75
+    return (f'<path class="math-accent" d="M{center-half:.4f} {shoulders:.4f}'
+            f'L{center:.4f} {apex:.4f}L{center+half:.4f} {shoulders:.4f}" '
+            f'fill="none" stroke="{color}" stroke-width="{size*.043:.4f}" '
+            'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"/>')
+
+
 def t(x, y, text, size=26, color=INK, weight=None, anchor=None, serif=False):
     attrs = [f'x="{x}"', f'y="{y}"', f'font-size="{size}"', f'fill="{color}"',
              f'font-family="{SERIF if serif else SANS}"']
@@ -372,39 +382,33 @@ def generation_interventions(active_only=False):
 
 
 def general_illustrations():
-    """Two original, static mechanism illustrations; neither is a trained result.
+    """Two quiet, original diagrams sharing a typographic and colour system.
 
-    The feedforward diagram expands a small MLP into weighted sums, ReLU
-    operations, and a readout. The flow diagram uses an analytic monotone toy
-    transport so every trajectory and marginal is internally consistent.
-    Visual references: Colah's LSTM walkthrough (shape grammar and focus) and
-    Diffusion Meets Flow Matching (trajectories linked to endpoint marginals).
+    Nodes summarize a 4-3-2 MLP; they do not encode activation magnitudes.
+    The flow uses the existing exact monotone toy transport and its marginals.
     """
     from math import exp, pi, tanh
     from statistics import NormalDist
 
-    # Keep the image typography stable across platforms. Structural labels use
-    # the same quiet sans face; only mathematical expressions use a serif face.
     sans = "Arial, Helvetica, sans-serif"
-    math_face = "'Times New Roman', Georgia, serif"
+    soft_ink, faint, pale = "#65767a", "#c9d9d5", "#f1f6f3"
 
-    def label(x, y, text, size=21, color=INK, weight=500, anchor=None, serif=False):
-        if serif:
-            return math_text(x, y, escape(text) if text == "Σ" else math_var(text), size, color, anchor)
-        result = (t(x, y, text, size, color, weight, anchor, serif)
-                  .replace(f'font-family="{SANS}"', f'font-family="{sans}"')
-                  .replace(f'font-family="{SERIF}"', f'font-family="{math_face}"'))
-        if serif and text != "Σ":
-            result = result.replace('>', ' font-style="italic">', 1)
-        return result
+    def label(x, y, text, size=22, color=INK, weight=400, anchor="middle"):
+        return (t(x, y, text, size, color, weight, anchor)
+                .replace(f'font-family="{SANS}"', f'font-family="{sans}"'))
 
-    def shape(*args):
-        return rect(*args).replace('stroke-width="2"', 'stroke-width="1.4"')
+    def curve(d, color, width=1.3, opacity=1):
+        return (f'<path d="{d}" fill="none" stroke="{color}" '
+                f'stroke-width="{width}" stroke-opacity="{opacity}" '
+                'stroke-linecap="round" stroke-linejoin="round"/>')
 
-    def equation(x, y, content, size=27):
-        return math_text(x, y, content, size, anchor="middle")
+    def node(x, y, radius, selected=False, hidden=False):
+        color = COPPER if selected else TEAL
+        fill = "#f7eee8" if selected else ("#edf4f1" if hidden else "#ffffff")
+        return (f'<circle cx="{x}" cy="{y}" r="{radius}" fill="{fill}" '
+                f'stroke="{color}" stroke-width="1.7"/>')
 
-    # ---------- A real layer structure, with data drawn as feature vectors. ---
+    # The same illustrative toy network, now shown as a layer schematic.
     x_values = [.8, .35, .6, .15]
     w1 = [[.6, -.2, .4, .1], [-.3, .8, .5, .2], [.2, .1, -.6, .9]]
     b1 = [.05, .1, .25]
@@ -414,167 +418,140 @@ def general_illustrations():
     b2 = [.05, .1]
     y_values = [sum(w*h for w, h in zip(row, h_values))+bias
                 for row, bias in zip(w2, b2)]
-    inputs, hidden, outputs = [120, 165, 210, 255], [130, 202, 274], [172, 234]
-    nn = [label(46, 35, "Input", 21, weight=500, anchor="middle"),
-          label(249, 35, "Learned layers", 21, weight=500, anchor="middle"),
-          label(432, 35, "Output", 21, weight=500, anchor="middle"),
-          shape(106, 57, 297, 248, "#f5f7f4", "#dbe3e1", 10),
-          label(140, 88, "Mix", 20, TEAL, weight=500, anchor="middle"),
-          label(229, 88, "ReLU", 20, TEAL, weight=500, anchor="middle"),
-          label(366, 88, "Mix", 20, TEAL, weight=500, anchor="middle")]
+    inputs, hidden, outputs = [110, 155, 200, 245], [125, 177.5, 230], [150, 205]
+    nn = [label(88, 35, "Input", weight=500),
+          label(280, 35, "Hidden layer", weight=500),
+          label(492, 35, "Prediction", weight=500),
+          label(88, 66, "Features", 21.5, soft_ink),
+          label(280, 66, "Affine + ReLU", 21.5, soft_ink),
+          label(492, 66, "Affine", 21.5, soft_ink),
+          '<rect x="244" y="94" width="72" height="168" rx="36" fill="#f4f7f5"/>']
 
-    # Every input reaches every hidden weighted sum; every hidden activation
-    # reaches both readout sums. The copper route is an explanatory focus.
+    # Complete connectivity remains visible without repeating unit internals.
+    def edge(a, b, color=faint, width=1.3, opacity=.85):
+        x0, y0 = a; x1, y1 = b
+        span = x1-x0
+        return curve(f'M{x0} {y0} C{x0+span*.38} {y0}, '
+                     f'{x1-span*.38} {y1}, {x1} {y1}', color, width, opacity)
+
     for yi in inputs:
         for yh in hidden:
-            nn.append(line(78, yi, 122, yh, "#c6d7d2", 1.4))
-    for value, yh in zip(h_values, hidden):
-        right = 278+36*value
+            nn.append(edge((98, yi), (262, yh)))
+    for yh in hidden:
         for yo in outputs:
-            nn.append(line(right, yh, 348, yo, "#c6d7d2", 1.4))
-    nn += [line(78, inputs[1], 122, hidden[1], COPPER, 2.3),
-           line(278+36*h_values[1], hidden[1], 348, outputs[0], COPPER, 2.3)]
-
-    # Brackets distinguish the input/output vectors from learned operations.
-    nn += [route("M29 106 H22 V269 H29", INK, arrow=False, width=1.8),
-           route("M75 106 H82 V269 H75", INK, arrow=False, width=1.8),
-           route("M422 154 H415 V252 H422", INK, arrow=False, width=1.8),
-           route("M452 154 H459 V252 H452", INK, arrow=False, width=1.8)]
-    for value, y in zip(x_values, inputs):
-        nn.append(shape(32, y-8, 40*value, 16, TEAL, TEAL, 3))
-    for index, (value, y) in enumerate(zip(h_values, hidden)):
-        selected = index == 1
-        color = COPPER if selected else TEAL
-        # Weighted-sum unit. Bias is included in the affine operation.
-        nn += [f'<circle cx="140" cy="{y}" r="17" fill="{INK}"/>',
-               label(140, y+7, "Σ", 23, "#ffffff", anchor="middle", serif=True),
-               line(160, y, 193, y, color, 2.1, arrow=True),
-               shape(196, y-22, 67, 44, "#ffffff", "#afc8bf", 6),
-               line(208, y+11, 251, y+11, "#cbdad5", 1.6),
-               line(228, y+15, 228, y-14, "#cbdad5", 1.6),
-               route(f"M209 {y+10} H228 L248 {y-12}", color, arrow=False, width=2.1),
-               line(263, y, 276, y, color, 2.1),
-               shape(278, y-7, 36*value, 14, color, color, 3)]
-    for index, (value, y) in enumerate(zip(y_values, outputs)):
-        color = COPPER if index == 0 else TEAL
-        nn += [f'<circle cx="366" cy="{y}" r="17" fill="{INK}"/>',
-               label(366, y+7, "Σ", 23, "#ffffff", anchor="middle", serif=True),
-               line(386, y, 411, y, color, 2.1, arrow=True),
-               shape(428, y-8, 35*value, 16, color, color, 3)]
-    nn += [label(52, 306, "x", 27, anchor="middle", serif=True),
-           label(437, 306, "c", 27, anchor="middle", serif=True),
-           label(240, 346, "Affine → ReLU → Affine", 20, MUTED, anchor="middle"),
-           equation(240, 387,
-                    math_var('c') + ' = ' + math_sub('f', 'θ', 27)
-                    + '(' + math_var('x') + ')')]
-    svg("neural-network-prediction.svg", 480, 404,
-        "A feedforward neural network maps a feature vector to a prediction",
-        "A small multilayer perceptron is expanded into its actual computation. "
-        "Four input features enter three affine weighted-sum units, each followed "
-        "by a ReLU activation, before two affine readout units form the output "
-        "vector. Bars represent feature values, dark sum nodes are learned affine "
-        "operations, and the plotted kink denotes ReLU. The copper route helps "
-        "follow one contribution; all connections remain active. Values come "
-        "from a hand-specified toy network, not training or experimental data. "
-        "This unconstrained network does not itself encode feasibility.", nn,
-        {"kind": "original architecture illustration; hand-specified toy MLP",
+            nn.append(edge((298, yh), (478, yo)))
+    nn += [edge((98, inputs[1]), (262, hidden[1]), COPPER, 2.4, 1),
+           edge((298, hidden[1]), (478, outputs[0]), COPPER, 2.4, 1)]
+    for i, y in enumerate(inputs):
+        nn.append(node(88, y, 10, selected=i == 1))
+    for i, y in enumerate(hidden):
+        nn.append(node(280, y, 18, selected=i == 1, hidden=True))
+    for i, y in enumerate(outputs):
+        nn.append(node(492, y, 14, selected=i == 0))
+    nn += [math_text(88, 303, math_var('x'), 29, anchor="middle"),
+           math_text(492, 303, math_var('y'), 29, anchor="middle"),
+           candidate_hat(492, 303, 29)]
+    svg("neural-network-prediction.svg", 560, 332,
+        "From input features to a raw neural-network prediction",
+        "A layer schematic of a fully connected 4-3-2 multilayer perceptron. "
+        "Four feature nodes connect to three hidden units, each applying an "
+        "affine transformation followed by ReLU. Two affine readout units form "
+        "the raw prediction y hat. Pale curves show all learned connections; "
+        "a copper route guides the eye through one unit in each layer. It is "
+        "not an independent numerical contribution after nonlinear mixing. "
+        "Nodes do not encode activation magnitudes. The hand-specified toy "
+        "network is illustrative, not a trained result, and imposes no output "
+        "constraint. The model equation is typeset below the image.", nn,
+        {"kind": "original layer schematic; hand-specified toy MLP",
          "architecture": "4 inputs, 3 ReLU units, 2 affine outputs",
          "input": x_values, "W1": w1, "b1": b1, "W2": w2, "b2": b2,
          "hidden": h_values, "output": y_values,
+         "encoding": "nodes indicate units, not numerical activation magnitudes",
          "visual_reference": "https://colah.github.io/posts/2015-08-Understanding-LSTMs/"}, math_fonts=True)
 
-    # ---------- Continuous flow: coherent particles + coherent marginals. ---
-    # Z_t(z) interpolates between a standard normal prior and a smooth monotone
-    # target map T. Since dT/dz > 0, this gives a well-defined 1D velocity field.
-    # The plot is not a fitted v_theta or a feasibility result.
+    # The same smooth monotone map and schedule used in the original diagram.
     normal = NormalDist()
     target = lambda z: 1.15*tanh(1.8*z)+.32*z
     target_derivative = lambda z: 2.07*(1-tanh(1.8*z)**2)+.32
     blend = lambda tm: 3*tm*tm-2*tm*tm*tm
     position = lambda z, tm: (1-blend(tm))*z+blend(tm)*target(z)
-    quantiles = [normal.inv_cdf((i+.5)/44) for i in range(44)]
-    left, right, top, bottom = 120, 398, 78, 278
-    py = lambda value: (top+bottom)/2-value*(bottom-top)/5.2
-    px = lambda tm: left+(right-left)*tm
-    ff = [label(77, 35, "Prior", 21, weight=500, anchor="middle"),
-          label(260, 35, "Transport", 21, weight=500, anchor="middle"),
-          label(441, 35, "Target", 21, weight=500, anchor="middle"),
-          # One shared state scale throughout, rather than separate clouds.
-          line(left, top-10, left, bottom+5, LINE, 1.4),
-          line(px(.5), top-10, px(.5), bottom+5, LINE, 1.4, dashed=True),
-          line(right, top-10, right, bottom+5, LINE, 1.4),
-          '<g transform="translate(32 178) rotate(-90)">'
-          +label(0, 0, "sample value STATE", 20, MUTED, anchor="middle")
-           .replace("STATE", '<tspan class="svg-math">' + math_sub('z', 't', 20) + '</tspan>')+'</g>']
-
-    # Actual analytic marginal silhouettes, in a common horizontal density
-    # scale: p_1(T(z)) = p_0(z)/T'(z). Use dense z values only for the silhouettes.
-    z_grid = [-2.6+i*5.2/200 for i in range(201)]
-    prior_density = lambda z: exp(-z*z/2)/(2*pi)**.5
-    prior_path = "M104 "+f"{py(-2.6):.3f} "
-    prior_path += " ".join(f"L{104-72*prior_density(z):.3f} {py(z):.3f}" for z in z_grid)
-    prior_path += f" L104 {py(2.6):.3f} Z"
-    target_path = f"M414 {py(target(-2.6)):.3f} "
-    target_path += " ".join(f"L{414+72*prior_density(z)/target_derivative(z):.3f} "
-                            f"{py(target(z)):.3f}" for z in z_grid)
-    target_path += f" L414 {py(target(2.6)):.3f} Z"
-    ff += [f'<path d="{prior_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="1.7"/>',
-           f'<path d="{target_path}" fill="{FILL}" stroke="{TEAL}" stroke-width="1.7"/>']
-
-    # Continuous trajectories make transport visible in a static image.
-    for z in quantiles:
-        d = " ".join(("M" if j == 0 else "L")
-                     +f"{px(j/80):.3f} {py(position(z,j/80)):.3f}"
-                     for j in range(81))
-        ff.append(f'<path d="{d}" fill="none" stroke="{TEAL}" '
-                  'stroke-opacity=".32" stroke-width="1.45"/>')
-        for tm in (0., .5, 1.):
-            ff.append(f'<circle cx="{px(tm):.3f}" cy="{py(position(z,tm)):.3f}" '
-                      f'r="2.5" fill="{TEAL}" fill-opacity=".75"/>')
-
-    # A focused particle with tangent arrows conveys direction without motion.
+    indices = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 32, 35, 39, 43]
+    quantiles = [normal.inv_cdf((i+.5)/44) for i in indices]
     focus_quantile = (32+.5)/44
     focus = normal.inv_cdf(focus_quantile)
-    focus_path = " ".join(("M" if j == 0 else "L")
-                          +f"{px(j/80):.3f} {py(position(focus,j/80)):.3f}"
-                          for j in range(81))
-    ff.append(route(focus_path, COPPER, arrow=False, width=2.3))
-    for a, c in ((.25, .32), (.64, .71)):
-        ff.append(line(px(a), py(position(focus,a)), px(c), py(position(focus,c)),
-                       COPPER, 2.2, arrow=True))
-    for tm in (0., .5, 1.):
-        ff.append(point(px(tm), py(position(focus,tm)), "circle", COPPER, 4.5))
-    ff += [line(left, 295, right+8, 295, TEAL, 2.2, arrow=True),
-           label(left, 328, "0", 20, MUTED, anchor="middle"),
-           label(px(.5), 328, "0.5", 20, MUTED, anchor="middle"),
-           label(right, 328, "1", 20, MUTED, anchor="middle"),
-           label(260, 363, "generation time t", 20, MUTED, anchor="middle"),
-           # Subscripts use a separate span; operators stay upright while
-           # variables use the same mathematical italic as the article.
-           equation(240, 404,
-                    'd' + math_sub('z', 't', 27) + '/d' + math_var('t')
-                    + ' = ' + math_sub('v', 'θ', 27) + '('
-                    + math_sub('z', 't', 27) + ', ' + math_var('t') + ')')]
+    left, right, top, bottom = 148, 414, 98, 292
+    px = lambda tm: left+(right-left)*tm
+    py = lambda value: (top+bottom)/2-value*(bottom-top)/5.2
+    ff = [label(90, 35, "Prior", weight=500),
+          label(281, 35, "Transport", weight=500),
+          label(478, 35, "Target", weight=500),
+          curve('M205 64 H226', COPPER, 2.4),
+          label(240, 71, "one sample", 21.5, COPPER, anchor="start"),
+          math_text(20, 81, math_sub('z', 't', 30), 30, soft_ink)]
 
-    svg("flow-generation-general.svg", 480, 420,
-        "A flow transports particles from a prior toward a data distribution",
-        "In one shared coordinate system, continuous curves follow particles "
-        "from a normal prior at generation time zero toward an illustrative "
-        "bimodal target at time one. The copper curve identifies one particle "
-        "and its tangent arrows show its motion. Dots mark the same particles "
-        "at times zero, one-half, and one. Endpoint silhouettes show the exact "
-        "analytic marginal densities on the same density scale. The hand-specified "
-        "smooth transport represents the role played by a learned velocity field "
-        "v_theta in a flow model; no velocity field was trained here. Generation "
-        "time t is not the physical time along a robot trajectory, and no output "
-        "constraint is encoded in this general illustration.", ff,
+    # Endpoint silhouettes share the same sample-value and density scales.
+    z_grid = [-2.6+i*5.2/200 for i in range(201)]
+    prior_density = lambda z: exp(-z*z/2)/(2*pi)**.5
+    prior_path = f'M124 {py(-2.6):.3f} '
+    prior_path += ' '.join(f'L{124-82*prior_density(z):.3f} {py(z):.3f}' for z in z_grid)
+    prior_path += f' L124 {py(2.6):.3f} Z'
+    target_path = f'M438 {py(target(-2.6)):.3f} '
+    target_path += ' '.join(f'L{438+82*prior_density(z)/target_derivative(z):.3f} '
+                            f'{py(target(z)):.3f}' for z in z_grid)
+    target_path += f' L438 {py(target(2.6)):.3f} Z'
+    ff += [curve('M44 292 V98 M40 106 L44 98 L48 106', '#c0cec8', 1.1),
+           label(28, py(0)+7, '0', 21.5, soft_ink, anchor='end'),
+           curve(f'M44 {py(0)} H518', '#e9eeeb', 1),
+           f'<path d="{prior_path}" fill="{pale}" stroke="{TEAL}" stroke-width="1.45"/>',
+           f'<path d="{target_path}" fill="{pale}" stroke="{TEAL}" stroke-width="1.45"/>']
+    for tm in (0., .5, 1.):
+        ff.append(f'<path d="M{px(tm)} {top-8} V{bottom+6}" fill="none" '
+                  f'stroke="#dce5e1" stroke-width="1.1"'
+                  + (' stroke-dasharray="3 6"' if tm == .5 else '') + '/>')
+
+    # Since s(t)=3t^2-2t^3, each curve is exactly a cubic Bezier in time.
+    # Fewer visible quantiles reveal the trajectories without changing the map.
+    def trajectory(z, color, width, opacity=1):
+        y0, y1 = py(z), py(target(z)); third = (right-left)/3
+        return curve(f'M{left} {y0:.4f} C{left+third:.4f} {y0:.4f}, '
+                     f'{right-third:.4f} {y1:.4f}, {right} {y1:.4f}', color, width, opacity)
+    for index, z in zip(indices, quantiles):
+        if index != 32:
+            ff.append(trajectory(z, '#91b1ac', 1.3, .72))
+    ff.append(trajectory(focus, COPPER, 2.5))
+    for tm in (0., .5, 1.):
+        ff.append(f'<circle cx="{px(tm):.3f}" cy="{py(position(focus,tm)):.3f}" '
+                  f'r="4.5" fill="{COPPER}" stroke="#ffffff" stroke-width="1.5"/>')
+    # One small tangent arrow indicates the direction of the highlighted path.
+    a, b = .63, .675
+    ff.append(line(px(a), py(position(focus,a)), px(b), py(position(focus,b)),
+                   COPPER, 2, arrow=True))
+    ff.append(line(left, 314, right+5, 314, TEAL, 1.6, arrow=True))
+    for tm, name in ((0., '0'), (.5, '0.5'), (1., '1')):
+        ff += [curve(f'M{px(tm)} 310 V318', '#8da6a6', 1.1),
+               label(px(tm), 344, name, 21.5, soft_ink)]
+    ff.append(label(281, 376, 'generation time TIME', 22, soft_ink)
+              .replace('TIME', '<tspan class="svg-math">'+math_var('t')+'</tspan>'))
+    svg("flow-generation-general.svg", 560, 394,
+        "Individual sample paths transport an entire distribution",
+        "A normal prior at generation time zero is transported to an "
+        "illustrative bimodal target at time one. Fifteen selected quantile "
+        "paths share one vertical sample-value scale with the two exact "
+        "endpoint marginal densities. The copper curve follows one sample; "
+        "its three dots mark times zero, one-half, and one. Each path uses "
+        "the same analytic monotone transport. No velocity field was trained "
+        "and no output constraint is imposed. The generic flow-model equation "
+        "is typeset below the image. Generation time is distinct from physical "
+        "time along a generated robot route.", ff,
         {"kind": "original analytic toy transport, not learned model samples",
-         "particles": 44,
-         "quantiles": "(i+0.5)/44, i=0,...,43, of standard normal",
+         "particles": len(indices), "source_quantile_grid_size": 44,
+         "visible_quantile_indices": indices,
+         "quantiles": "(i+0.5)/44 for the 15 displayed indices",
          "map": "T(z)=1.15 tanh(1.8z)+0.32z",
          "schedule": "s(t)=3t^2-2t^3",
          "transport": "Z_t(z)=(1-s(t))z+s(t)T(z)",
          "density": "p_1(T(z))=p_0(z)/T'(z)",
+         "trajectory_geometry": "exact cubic Bezier for the existing schedule",
          "focus_quantile": focus_quantile,
          "visual_reference": "https://diffusionflow.github.io/"}, math_fonts=True)
 
