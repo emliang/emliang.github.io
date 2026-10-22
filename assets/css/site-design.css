@@ -101,6 +101,8 @@ body.home-page .research-tab.is-active{font-weight:600}
 body.home-page .topic-title{font-size:18px;font-weight:600;color:var(--ink);line-height:1.4;padding:5px 0 5px 14px;border-left:3px solid var(--blue);background:transparent;border-radius:0;margin:0 0 8px}
 body.home-page .topic-section+.topic-section{margin-top:26px}
 body.home-page .paper-item{grid-template-columns:260px minmax(0,1fr);column-gap:28px;padding:20px 2px;border-bottom-color:var(--line)}
+body.home-page .heatwave-paper{grid-template-columns:300px minmax(0,1fr)}
+body.home-page .heatwave-paper .paper-image{height:194px}
 body.home-page .paper-item:last-child{border-bottom:0}
 body.home-page .paper-link{font-size:17px;line-height:1.5;color:var(--ink)}
 body.home-page .authors,body.home-page .authors a{color:#566a6e;font-size:14px}
@@ -133,6 +135,8 @@ body.home-page .hero-copy h1 span{font-size:24px}
 body.home-page .profile-image{width:160px}
 body.home-page .research-shell,body.home-page .overview-shell,body.home-page .background-shell{padding-left:24px;padding-right:24px}
 body.home-page .paper-item{grid-template-columns:210px minmax(0,1fr);column-gap:24px}
+body.home-page .heatwave-paper{grid-template-columns:240px minmax(0,1fr)}
+body.home-page .heatwave-paper .paper-image{height:170px}
 }
 
 
@@ -166,6 +170,7 @@ body.home-page .research-tab{width:100%;min-width:0;min-height:46px;font-size:14
 body.home-page .topic-title{font-size:15px;line-height:1.5;padding:5px 0 5px 10px;margin-bottom:0}
 body.home-page .topic-section+.topic-section{margin-top:20px}
 body.home-page .paper-item{grid-template-columns:minmax(0,1fr);row-gap:10px;column-gap:0;padding:22px 0 24px;align-items:start}
+body.home-page .heatwave-paper{grid-template-columns:minmax(0,1fr)}
 body.home-page .paper-link{grid-column:1;grid-row:1;align-self:start;font-size:16px;line-height:1.5;margin:0;overflow-wrap:break-word}
 body.home-page .paper-content{display:block;grid-column:1;grid-row:2;min-width:0}
 body.home-page .authors{font-size:13px;line-height:1.6;margin-bottom:5px}
@@ -176,6 +181,7 @@ body.home-page .paper-actions{display:flex;flex-wrap:wrap;gap:6px 20px;margin-to
 body.home-page .paper-actions a{display:inline-flex;align-items:center;min-height:38px}
 body.home-page .paper-figure{grid-column:1;grid-row:3;justify-self:stretch;width:100%;max-width:none;margin-top:0;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:transparent}
 body.home-page .paper-image{display:block;width:100%;height:126px;object-fit:contain;margin:auto}
+body.home-page .heatwave-paper .paper-image{height:126px}
 body.home-page .overview-shell,body.home-page .background-shell{padding:22px 20px 0;margin-top:24px}
 body.home-page .overview-shell h2,body.home-page .background-shell h2{font-size:21px;margin-bottom:16px}
 body.home-page .overview-shell>p,body.home-page .background-shell>p{font-size:14.5px;line-height:1.8}
