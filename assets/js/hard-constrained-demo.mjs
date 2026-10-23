@@ -188,7 +188,8 @@ function mechanismGeometry(state) {
   const pointLabel = (point, text, offset) => {
     const pointX = toX(point[0]);
     const labelX = pointX + (pointX > 220 ? -12 : 12);
-    const labelY = clamp(toY(point[1]) + offset, 20, 350);
+    const pointY = toY(point[1]);
+    const labelY = clamp(pointY + (pointY < 42 && offset < 0 ? 24 : offset), 20, 350);
     const labelWidth = text.length * 8;
     labelAreas.push({ left: pointX > 220 ? labelX - labelWidth : labelX, right: pointX > 220 ? labelX : labelX + labelWidth, top: labelY - 15, bottom: labelY + 3 });
     return `<text class="hc-point-label" x="${labelX}" y="${labelY}" text-anchor="${pointX > 220 ? 'end' : 'start'}">${text}</text>`;
@@ -209,10 +210,10 @@ function mechanismGeometry(state) {
   return {
     output,
     candidate,
-    viewBox: state.mode === 'projection' ? '0 0 380 365' : '0 0 380 330',
-    svg: `<title>Triangle resource-allocation example: ${state.mode}</title><desc>The shaded triangle satisfies nonnegative allocations with total allocation at most one. ${description} Coordinate values and violation are also given below.</desc>
+    viewBox: '0 0 380 365',
+    svg: `<title>Triangle resource-allocation example: ${state.mode}</title><desc>The shaded triangle satisfies nonnegative allocations with total allocation at most one. ${description} Output coordinates and violation are available under Numerical details.</desc>
       <path class="hc-feasible" d="M 68 294 L 288 294 L 68 74 Z"/>
-      <path class="hc-axis" d="M ${state.mode === 'projection' ? 13 : 57} 294 H 352 M 68 ${state.mode === 'projection' ? 349 : 303} V 22"/>
+      <path class="hc-axis" d="M 13 294 H 352 M 68 349 V 22"/>
       <path class="hc-tick" d="M 178 289 V 299 M 288 289 V 299 M 63 184 H 73 M 63 74 H 73"/>
       <text class="hc-axis-label" x="352" y="321">${plotVariable('y', '1')}</text><text class="hc-axis-label" x="40" y="24">${plotVariable('y', '2')}</text>
       <text class="hc-tick-label" x="51" y="318">0</text><text class="hc-tick-label" x="178" y="318" text-anchor="middle">0.5</text><text class="hc-tick-label" x="288" y="318" text-anchor="middle">1</text>
@@ -223,7 +224,7 @@ function mechanismGeometry(state) {
 
 export function mountMechanism(root) {
   const id = `hc-mechanism-${++widgetNumber}`;
-  const state = { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 1, q: 0.5, role: 'post' };
+  const state = { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 0.6, q: 0.7 };
   root.classList.add('hc-demo');
   root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the mechanism · Budget = 1</p><button class="hc-button hc-reset" type="button">Reset</button></div>
     <div class="hc-mode-picker" aria-label="Constraint mechanism">
@@ -232,28 +233,23 @@ export function mountMechanism(root) {
       <button type="button" data-mode="parameterization" aria-pressed="false" aria-controls="${id}-parameterization">Parameterization</button>
     </div>
     <div class="hc-mechanism-layout"><div class="hc-plot-wrap"><p class="hc-plot-units">Both axes: allocation / budget</p><svg class="hc-mechanism-plot" viewBox="0 0 380 365" role="img" aria-label="Resource allocation geometry"></svg>
-      <p class="hc-legend"><span class="hc-legend-item" data-candidate-key><i class="hc-key-circle" aria-hidden="true"></i>Candidate</span><span class="hc-legend-item"><i class="hc-key-diamond" aria-hidden="true"></i>Output</span></p>
-      <p class="hc-result-line" data-result aria-live="polite" aria-atomic="true"></p></div>
+      <p class="hc-legend"><span class="hc-legend-item" data-candidate-key><i class="hc-key-circle" aria-hidden="true"></i>Candidate</span><span class="hc-legend-item"><i class="hc-key-diamond" aria-hidden="true"></i>Output</span></p></div>
     <div class="hc-controls">
-      <fieldset id="${id}-penalty" data-panel="penalty"><legend>Penalty on a diagonal slice</legend><p class="hc-formula">${demoMath.penalty}</p>
+      <fieldset id="${id}-penalty" data-panel="penalty"><legend>Symmetric candidate (a, a)</legend>
         <div class="hc-slider-pair">${slider(`${id}-a`, 'Candidate coordinate a', 0, 1, 0.01, state.a, '', 'Candidate a')}
-        ${slider(`${id}-lambda`, 'Penalty weight λ', 0, 100, 1, state.lambda, '', 'Penalty λ')}</div>
-        <p class="hc-control-note">The displayed point solves this quadratic objective exactly for the selected weight.</p>
+        ${slider(`${id}-lambda`, 'Penalty weight λ', 0, 10, 0.1, state.lambda, '', 'Penalty λ')}</div>
       </fieldset>
-      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Full two-dimensional projection</legend><p class="hc-formula">${demoMath.projection}</p>
+      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Move the candidate</legend>
         <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y hat, coordinate 1', -0.25, 1.25, 0.01, state.candidate[0], '', `Candidate ${demoMath.candidate1}`)}
         ${slider(`${id}-c2`, 'Candidate y hat, coordinate 2', -0.25, 1.25, 0.01, state.candidate[1], '', `Candidate ${demoMath.candidate2}`)}</div>
-        <label class="hc-select-label" for="${id}-role">Where is projection used?<select id="${id}-role"><option value="post">Post-processing at deployment</option><option value="layer">Structured layer in training</option></select></label>
-        <p class="hc-control-note">Use the sliders or drag the hollow circle. Both roles return the same forward output.</p>
       </fieldset>
-      <fieldset id="${id}-parameterization" data-panel="parameterization" hidden><legend>Admissible reference coordinates</legend><p class="hc-formula">${demoMath.parameterization}</p>
+      <fieldset id="${id}-parameterization" data-panel="parameterization" hidden><legend>Choose budget and share</legend>
         <div class="hc-slider-pair">${slider(`${id}-b`, 'Budget fraction b', 0, 1, 0.01, state.b, '', 'Budget used b')}
-        ${slider(`${id}-q`, 'First-service share q', 0, 1, 0.01, state.q, '', 'First share q')}</div>
-        <p class="hc-control-note">Bounded reference coordinates construct the output, including the boundary. No physical candidate is corrected.</p>
+        ${slider(`${id}-q`, 'First-service share q', 0, 1, 0.01, state.q, '', 'Service 1 share q')}</div>
       </fieldset>
+      <p class="hc-observation" data-observation aria-live="polite" aria-atomic="true"></p>
     </div></div>
-    <div class="hc-flow" data-flow></div>
-    <details class="hc-details"><summary>Numerical details</summary><p class="hc-control-note hc-numerical-note">${demoMath.violation}Displayed feasibility uses normalized tolerance 10⁻⁹; real-arithmetic formulas explain the construction.</p></details>`;
+    <details class="hc-details"><summary>Numerical details</summary><p class="hc-control-note" data-result></p><p class="hc-control-note hc-numerical-note">${demoMath.violation}Coordinates are rounded; violation is computed before rounding. Displayed feasibility uses normalized tolerance 10⁻⁹; real-arithmetic formulas explain the construction.</p></details>`;
   const svg = root.querySelector('svg');
   const setValue = (name, value, decimals = 2) => {
     const input = root.querySelector(`#${id}-${name}`);
@@ -267,13 +263,30 @@ export function mountMechanism(root) {
     svg.setAttribute('viewBox', geometry.viewBox);
     svg.innerHTML = geometry.svg;
     const residual = violation(geometry.output);
-    const candidateText = geometry.candidate ? `Candidate ${pair(geometry.candidate)} → ` : 'Decoded ';
-    root.querySelector('[data-result]').textContent = `${candidateText}output ${pair(geometry.output)}. Violation ${residual === 0 ? '0' : residual.toExponential(2)}; ${isFeasible(geometry.output) ? 'feasible within tolerance' : 'outside the feasible set'}.`;
-    const flow = root.querySelector('[data-flow]');
-    if (state.mode === 'penalty') flow.innerHTML = '<span>Task loss + violation penalty → learning</span><span class="hc-flow-secondary">At deployment: model → direct prediction</span>';
-    else if (state.mode === 'parameterization') flow.innerHTML = `<span>Coordinates (b, q) → feasible decoder → output y</span><span class="hc-flow-secondary">Weights (unused, y₁, y₂) = ${format(1 - state.b, 2)}, ${format(state.b * state.q, 2)}, ${format(state.b * (1 - state.q), 2)}</span>`;
-    else if (state.role === 'layer') flow.innerHTML = '<span>Model → candidate → projection → output → task loss</span><span class="hc-flow-secondary">Training signal ← projection ← task loss <em>(a chosen backward rule; no training is run)</em></span>';
-    else flow.innerHTML = '<span>Model → candidate → projection → output</span><span class="hc-flow-secondary">Deployment correction; training does not pass through this operation.</span>';
+    root.querySelector('[data-result]').textContent = `Output ${pair(geometry.output)} · normalized violation ${residual === 0 ? '0' : residual.toExponential(2)} · ${isFeasible(geometry.output) ? 'feasible within tolerance' : 'outside the feasible set'}`;
+    let explanation;
+    if (state.mode === 'penalty') {
+      if (2 * state.a <= 1) {
+        explanation = 'The candidate already fits the budget, so the penalty leaves it unchanged.';
+      } else if (state.lambda === 0) {
+        explanation = 'At λ = 0, the output stays at the candidate, outside the triangle.';
+      } else {
+        const excess = residual < 0.001 ? residual.toExponential(1) : format(residual, 3);
+        explanation = `The output still exceeds the budget by ${excess} units; increasing λ reduces this excess.`;
+      }
+    } else if (state.mode === 'projection') {
+      const moved = geometry.candidate.some((value, index) => value !== geometry.output[index]);
+      explanation = moved
+        ? 'Projection moves the candidate to the nearest point in the triangle.'
+        : 'The candidate is already feasible, so projection leaves it unchanged.';
+    } else {
+      if (state.b === 0) {
+        explanation = 'With b = 0, both allocations are zero regardless of the share q.';
+      } else {
+        explanation = 'The coordinates construct a feasible allocation: b sets the total, and q splits it between the two services.';
+      }
+    }
+    root.querySelector('[data-observation]').textContent = explanation;
     root.querySelector('[data-candidate-key]').hidden = state.mode === 'parameterization';
   };
   const bindings = {
@@ -288,16 +301,29 @@ export function mountMechanism(root) {
     root.querySelector(`#${id}-${name}`).addEventListener('input', event => {
       const value = Number(event.target.value);
       update(value);
-      setValue(name, value, name === 'lambda' ? 0 : 2);
+      setValue(name, value, name === 'lambda' ? 1 : 2);
       render();
     });
   }
-  root.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => { state.mode = button.dataset.mode; render(); }));
-  root.querySelector(`#${id}-role`).addEventListener('change', event => { state.role = event.target.value; render(); });
+  root.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
+    const nextMode = button.dataset.mode;
+    if (state.mode === 'penalty' && nextMode === 'projection') {
+      // Compare the same physical candidate when moving from the diagonal toy to projection.
+      state.candidate = [state.a, state.a];
+      setValue('c1', state.a);
+      setValue('c2', state.a);
+    } else if (state.mode === 'projection' && nextMode === 'penalty'
+      && state.candidate[0] === state.candidate[1] && state.candidate[0] >= 0 && state.candidate[0] <= 1) {
+      // A general projection candidate cannot be represented by the penalty demo's single a.
+      state.a = state.candidate[0];
+      setValue('a', state.a);
+    }
+    state.mode = nextMode;
+    render();
+  }));
   root.querySelector('.hc-reset').addEventListener('click', () => {
-    Object.assign(state, { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 1, q: 0.5, role: 'post' });
-    for (const [name, value] of Object.entries({ a: 0.8, lambda: 1, c1: 0.8, c2: 0.8, b: 1, q: 0.5 })) setValue(name, value, name === 'lambda' ? 0 : 2);
-    root.querySelector(`#${id}-role`).value = 'post';
+    Object.assign(state, { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 0.6, q: 0.7 });
+    for (const [name, value] of Object.entries({ a: 0.8, lambda: 1, c1: 0.8, c2: 0.8, b: 0.6, q: 0.7 })) setValue(name, value, name === 'lambda' ? 1 : 2);
     render();
   });
   let dragPointer = null;
@@ -324,7 +350,7 @@ export function mountMechanism(root) {
   svg.addEventListener('pointercancel', finishDrag);
   svg.addEventListener('lostpointercapture', finishDrag);
   render();
-  setValue('lambda', state.lambda, 0);
+  setValue('lambda', state.lambda, 1);
   hideFallback(root);
   root.dataset.demoMounted = 'true';
 }
