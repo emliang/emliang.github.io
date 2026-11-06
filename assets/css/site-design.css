@@ -218,7 +218,11 @@ body.news-page .topic-section+.topic-section,body.resources-page .topic-section+
 body.news-page .talk-list{border-top:0}
 body.news-page .talk-item{position:relative;grid-template-columns:104px minmax(0,1fr);gap:18px;margin-left:4px;padding:18px 0 21px 22px;border-left:1px solid var(--line);border-bottom:0;align-items:start}
 body.news-page .talk-item::before{content:"";position:absolute;left:-4px;top:25px;width:7px;height:7px;border-radius:50%;background:#c6d1cf}
-body.news-page .talk-item:first-child::before{background:var(--blue)}
+body.news-page .news-updates .talk-item:first-child::before,body.news-page .talk-item--latest::before{background:var(--blue)}
+body.news-page .talk-year{display:flex;align-items:center;gap:13px;margin:26px 0 7px;font-family:var(--sans);font-size:14px;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted)}
+body.news-page .talk-year::after{content:"";flex:1;height:1px;background:var(--line)}
+body.news-page .talks-by-year .talk-item{grid-template-columns:65px minmax(0,1fr);padding:17px 0 20px 20px}
+body.news-page .talks-by-year .talk-item::before{top:24px}
 body.news-page .talk-date{color:var(--blue);font-size:13px;font-weight:500;padding-top:3px;font-variant-numeric:tabular-nums}
 body.news-page .talk-title{font-size:16px;line-height:1.5}
 body.news-page .talk-detail{min-width:0}
@@ -228,27 +232,31 @@ body.news-page .news-updates .talk-title a{font-weight:500}
 body.news-page .news-actions{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;margin-top:7px;font-size:13px;line-height:1.5}
 body.news-page .news-actions a{display:inline-flex;align-items:center;min-height:32px}
 body.resources-page .talk-list{display:block;border-top:1px solid var(--line)}
-body.resources-page .talk-item{display:block;padding:19px 0 21px;border-top:0;border-bottom:1px solid var(--line)}
-body.resources-page .resource-type{display:inline-flex;align-items:center;vertical-align:middle;margin-right:10px;padding:5px 8px;border-radius:3px;font-size:11px;font-weight:600;line-height:1.25;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+body.resources-page .talk-item{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:22px;align-items:start;padding:19px 0 21px;border-top:0;border-bottom:1px solid var(--line)}
+body.resources-page .talk-detail{min-width:0}
+body.resources-page .resource-type{display:inline-flex;align-items:center;justify-self:end;gap:6px;margin-top:1px;padding:5px 9px;border-radius:3px;font-size:12px;font-weight:500;line-height:1.3;white-space:nowrap}
+body.resources-page .resource-type i{font-size:12px;width:14px;text-align:center}
 body.resources-page .resource-type--survey{color:#4c655c;background:#edf1ee}
 body.resources-page .resource-type--code{color:#2c6d77;background:#e8f1f2}
 body.resources-page .resource-type--tutorial{color:#8c5b43;background:#f6eee7}
 body.resources-page .resource-type--project{color:#536782;background:#edf0f5}
 body.resources-page .talk-title{font-size:17px;line-height:1.5}
-body.resources-page .talk-meta{margin-top:6px}
+body.resources-page .talk-meta{margin-top:5px;line-height:1.6}
+body.resources-page .resource-credit{display:block;margin-top:8px;font-size:12.5px;line-height:1.6;color:var(--muted)}
 @media(max-width:800px){
 body.resources-page .resource-slide{grid-template-columns:minmax(0,1fr);gap:18px}
 body.resources-page .resource-slide-cover{max-width:520px}
 }
 @media(max-width:640px){
 body.news-page .topic-section+.topic-section,body.resources-page .topic-section+.topic-section{margin-top:32px}
-body.news-page .talk-item{grid-template-columns:minmax(0,1fr);gap:4px;padding:15px 0 18px 17px}
-body.news-page .talk-item::before{top:22px}
+body.news-page .talk-item,body.news-page .talks-by-year .talk-item{grid-template-columns:minmax(0,1fr);gap:4px;padding:15px 0 18px 17px}
+body.news-page .talk-item::before,body.news-page .talks-by-year .talk-item::before{top:22px}
 body.news-page .talk-date{font-size:12px;padding-top:0}
 body.news-page .news-actions{gap:0 16px;margin-top:4px}
 body.news-page .news-actions a{min-height:44px}
 body.news-page .talk-title,body.resources-page .talk-title{font-size:15px}
-body.resources-page .talk-item{padding:16px 0 18px}
+body.resources-page .talk-item{grid-template-columns:minmax(0,1fr);gap:8px;padding:16px 0 18px}
+body.resources-page .resource-type{grid-row:1;justify-self:start}
 }
 @media(max-width:359px){
 body.home-page .hero{padding-left:17px;padding-right:17px;grid-template-columns:minmax(0,1fr) 64px;column-gap:10px}
