@@ -1,4 +1,4 @@
-:root{--ink:#24363a;--body:#405157;--muted:#65767a;--blue:#2c6d77;--line:#e1dcd3;--wash:#f3f0e9;--page-bg:#fdfcfb;--copper:#9b654e;--serif:Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+:root{--ink:#24363a;--body:#405157;--muted:#596b70;--subpage-text-muted:var(--muted);--blue:#2c6d77;--line:#e1dcd3;--wash:#f3f0e9;--page-bg:#fdfcfb;--copper:#9b654e;--serif:Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 html{scroll-behavior:smooth;scroll-padding-top:100px}
 body.home-page,body.subpage{font-family:var(--sans);font-weight:400;line-height:1.7;background:#fff;color:var(--body);padding-top:72px;padding-bottom:0}
 body.home-page p,body.home-page div,body.home-page span,body.home-page strong,body.home-page em{color:inherit}
@@ -265,3 +265,7 @@ body.home-page .profile-image{width:64px;height:76px}
 body.home-page .research-shell{padding-left:15px;padding-right:15px}
 body.home-page .research-tab-description{font-size:12px}
 }
+
+/* Keep inline links identifiable without relying on color. */
+body.home-page main p a,
+body.subpage main :is(p, .news-updates .talk-title) a:not(.paper-link):not(.nav-link):not(.navbar-brand):not(.btn){text-decoration-line:underline;text-decoration-color:currentColor;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-skip-ink:auto}
