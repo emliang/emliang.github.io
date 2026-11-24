@@ -18,6 +18,8 @@ export function inverse(point, shape = 'convex') {
   return [x / scale, y / scale];
 }
 const NS = 'http://www.w3.org/2000/svg';
+const CENTER = [180, 156];
+const SCALE = 100;
 function element(tag, attributes, text) {
   const el = document.createElementNS(NS, tag);
   for (const [key, value] of Object.entries(attributes)) el.setAttribute(key, value);
@@ -25,8 +27,7 @@ function element(tag, attributes, text) {
   return el;
 }
 function chart(svg, mapped, shape, r, angle) {
-  const center = [180, 156], scale = 100;
-  const pixel = point => [center[0] + scale * point[0], center[1] - scale * point[1]];
+  const pixel = point => [CENTER[0] + SCALE * point[0], CENTER[1] - SCALE * point[1]];
   const polar = (radius, direction) => {
     const p = [radius * Math.cos(direction), radius * Math.sin(direction)];
     return pixel(mapped ? forward(p, shape) : p);
@@ -37,12 +38,12 @@ function chart(svg, mapped, shape, r, angle) {
   const nodes = [heading];
   nodes.push(line(Array.from({length: 241}, (_,j) => polar(1, 2 * Math.PI * j / 240)), { fill: '#f0f6f4', stroke: mapped ? '#2c6d77' : '#567aa8', 'stroke-width': 2.4 }));
   for (const radius of [.25, .5, .75]) nodes.push(line(Array.from({length: 181},(_,j)=>polar(radius,2 * Math.PI*j/180))));
-  for (let j=0;j<12;j++) nodes.push(line([center,polar(1,2*Math.PI*j/12)]));
+  for (let j=0;j<12;j++) nodes.push(line([CENTER,polar(1,2*Math.PI*j/12)]));
   const boundary = polar(1,angle), selected = polar(r,angle);
-  nodes.push(line([center,boundary], {stroke:'#9b654e','stroke-width':2.4}));
+  nodes.push(line([CENTER,boundary], {stroke:'#9b654e','stroke-width':2.4}));
   nodes.push(element('circle',{cx:boundary[0],cy:boundary[1],r:4,fill:'white',stroke:'#9b654e','stroke-width':1.6}));
-  nodes.push(element('circle',{cx:center[0],cy:center[1],r:3,fill:'#24363a'}));
-  nodes.push(element('circle',{cx:selected[0],cy:selected[1],r:6,fill:'#9b654e',stroke:'white','stroke-width':2}));
+  nodes.push(element('circle',{cx:CENTER[0],cy:CENTER[1],r:3,fill:'#24363a'}));
+  nodes.push(element('circle',{cx:selected[0],cy:selected[1],r:7,fill:'#9b654e',stroke:'white','stroke-width':2}));
   svg.replaceChildren(...nodes);
   svg.style.fontFamily='inherit';
 }
@@ -50,15 +51,17 @@ function mount(explorer) {
   const rInput=explorer.querySelector('[data-hm-radius]');
   const angleInput=explorer.querySelector('[data-hm-angle]');
   const shapeInput=explorer.querySelector('[data-hm-shape]');
+  const ballSvg=explorer.querySelector('[data-hm-ball]');
+  const targetSvg=explorer.querySelector('[data-hm-target]');
   function update() {
     const r=Number(rInput.value), degrees=Number(angleInput.value), a=degrees*Math.PI/180, shape=shapeInput.value;
-    const z=[r*Math.cos(a),r*Math.sin(a)], x=forward(z,shape);
+    const z=[r*Math.cos(a),r*Math.sin(a)], x=forward(z,shape), rayScale=boundaryRadius(a,shape);
     explorer.querySelector('[data-hm-radius-label]').value=r.toFixed(2);
     explorer.querySelector('[data-hm-angle-label]').value=`${degrees}°`;
     rInput.setAttribute('aria-valuetext',`${r.toFixed(2)} of the radius`);
     angleInput.setAttribute('aria-valuetext',`${degrees} degrees`);
-    chart(explorer.querySelector('[data-hm-ball]'),false,shape,r,a);
-    chart(explorer.querySelector('[data-hm-target]'),true,shape,r,a);
+    chart(ballSvg,false,shape,r,a);
+    chart(targetSvg,true,shape,r,a);
     const fmt=p=>`(${p.map(v=>(Math.abs(v)<.0005?0:v).toFixed(3)).join(', ')})`;
     const symbol = letter => {
       const label = document.createElement('span');
@@ -68,9 +71,40 @@ function mount(explorer) {
     };
     explorer.querySelector('[data-hm-status]').replaceChildren(
       symbol('z'), document.createTextNode(` = ${fmt(z)} → `),
-      symbol('x'), document.createTextNode(` = ${fmt(x)}. ${r===1?'On the boundary.':'Inside the feasible region.'}`)
+      symbol('x'), document.createTextNode(` = ${fmt(x)} · `),
+      symbol('R'), document.createTextNode('('), symbol('u'),
+      document.createTextNode(`) = ${rayScale.toFixed(2)}×. ${r===1?'On the boundary.':'Inside the feasible region.'}`)
     );
   }
+  function bindPointer(svg, mapped) {
+    let active = false;
+    const pick = event => {
+      const rect = svg.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const vx = ((event.clientX - rect.left) / rect.width) * 360;
+      const vy = ((event.clientY - rect.top) / rect.height) * 300;
+      const pt = [(vx - CENTER[0]) / SCALE, (CENTER[1] - vy) / SCALE];
+      const z = mapped ? inverse(pt, shapeInput.value) : pt;
+      const r = Math.min(1, Math.hypot(z[0], z[1]));
+      const deg = r < 1e-4 ? Number(angleInput.value) : Math.round(((Math.atan2(z[1], z[0]) * 180 / Math.PI) + 360) % 360) % 360;
+      rInput.value = (Math.round(r * 100) / 100).toFixed(2);
+      angleInput.value = String(deg);
+      update();
+    };
+    svg.addEventListener('pointerdown', event => {
+      active = true;
+      if (svg.setPointerCapture) svg.setPointerCapture(event.pointerId);
+      pick(event);
+    });
+    svg.addEventListener('pointermove', event => {
+      if (active) pick(event);
+    });
+    const end = () => { active = false; };
+    svg.addEventListener('pointerup', end);
+    svg.addEventListener('pointercancel', end);
+  }
+  bindPointer(ballSvg, false);
+  bindPointer(targetSvg, true);
   for(const input of [rInput,angleInput,shapeInput])input.addEventListener('input',update);
   update();explorer.hidden=false;
 }

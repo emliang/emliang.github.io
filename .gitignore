@@ -1,3 +1,5 @@
 /output/playwright/
 /.playwright-cli/
 __pycache__/
+.DS_Store
+

@@ -1,6 +1,6 @@
 async (page) => {
  const main=['/','/news/','/blog/','/resources/','/blog/hard-constrained-machine-learning/'];
- const extras=['/teaching/','/projects/2_project/','/projects/3_project/','/projects/4_project/','/projects/5_project/','/projects/6_project/'];
+ const extras=[];
  const reports=[];
  for(const width of [360,390,768,1440]){
   await page.setViewportSize({width,height:900});
