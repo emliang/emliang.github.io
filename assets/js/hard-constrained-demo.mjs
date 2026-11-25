@@ -232,6 +232,13 @@ export function mountMechanism(root) {
       <button type="button" data-mode="projection" aria-pressed="false" aria-controls="${id}-projection">Projection</button>
       <button type="button" data-mode="parameterization" aria-pressed="false" aria-controls="${id}-parameterization">Parameterization</button>
     </div>
+    <div class="demo-presets" aria-label="Comparison presets">
+      <span class="demo-preset-label">Try</span>
+      <button type="button" class="demo-preset-btn" data-preset="high-lambda">Penalty λ = 10 (still outside)</button>
+      <button type="button" class="demo-preset-btn" data-preset="project-same">Same target → Projection</button>
+      <button type="button" class="demo-preset-btn" data-preset="already-feasible">Already feasible</button>
+      <button type="button" class="demo-preset-btn" data-preset="full-budget">Full budget split</button>
+    </div>
     <div class="hc-mechanism-layout"><div class="hc-plot-wrap"><p class="hc-plot-units">Both axes: allocation / budget</p><svg class="hc-mechanism-plot" viewBox="0 0 380 365" role="img" aria-label="Resource allocation geometry"></svg>
       <p class="hc-legend"><span class="hc-legend-item" data-candidate-key><i class="hc-key-circle" aria-hidden="true"></i>Candidate</span><span class="hc-legend-item"><i class="hc-key-diamond" aria-hidden="true"></i>Output</span></p></div>
     <div class="hc-controls">
@@ -256,8 +263,26 @@ export function mountMechanism(root) {
     input.value = value;
     root.querySelector(`[data-value="${id}-${name}"]`).textContent = format(value, decimals);
   };
+  const presets = {
+    'high-lambda': () => ({ mode: 'penalty', a: 0.8, lambda: 10 }),
+    'project-same': () => ({ mode: 'projection', candidate: [0.8, 0.8] }),
+    'already-feasible': () => ({ mode: 'penalty', a: 0.4, lambda: 1 }),
+    'full-budget': () => ({ mode: 'parameterization', b: 1.0, q: 0.7 }),
+  };
+  const syncActivePresets = () => {
+    const matches = {
+      'high-lambda': state.mode === 'penalty' && Math.abs(state.a - 0.8) < 1e-6 && Math.abs(state.lambda - 10) < 1e-6,
+      'project-same': state.mode === 'projection' && Math.abs(state.candidate[0] - 0.8) < 1e-6 && Math.abs(state.candidate[1] - 0.8) < 1e-6,
+      'already-feasible': state.mode === 'penalty' && Math.abs(state.a - 0.4) < 1e-6 && Math.abs(state.lambda - 1) < 1e-6,
+      'full-budget': state.mode === 'parameterization' && Math.abs(state.b - 1.0) < 1e-6 && Math.abs(state.q - 0.7) < 1e-6,
+    };
+    for (const button of root.querySelectorAll('[data-preset]')) {
+      button.classList.toggle('is-active', Boolean(matches[button.dataset.preset]));
+    }
+  };
   const render = () => {
     for (const button of root.querySelectorAll('[data-mode]')) button.setAttribute('aria-pressed', String(button.dataset.mode === state.mode));
+    syncActivePresets();
     for (const panel of root.querySelectorAll('[data-panel]')) panel.hidden = panel.dataset.panel !== state.mode;
     const geometry = mechanismGeometry(state);
     svg.setAttribute('viewBox', geometry.viewBox);
@@ -319,6 +344,21 @@ export function mountMechanism(root) {
       setValue('a', state.a);
     }
     state.mode = nextMode;
+    render();
+  }));
+  root.querySelectorAll('[data-preset]').forEach(button => button.addEventListener('click', () => {
+    const next = presets[button.dataset.preset]?.();
+    if (!next) return;
+    if (next.mode) state.mode = next.mode;
+    if (next.a !== undefined) { state.a = next.a; setValue('a', next.a); }
+    if (next.lambda !== undefined) { state.lambda = next.lambda; setValue('lambda', next.lambda, 1); }
+    if (next.candidate) {
+      state.candidate = [...next.candidate];
+      setValue('c1', next.candidate[0]);
+      setValue('c2', next.candidate[1]);
+    }
+    if (next.b !== undefined) { state.b = next.b; setValue('b', next.b); }
+    if (next.q !== undefined) { state.q = next.q; setValue('q', next.q); }
     render();
   }));
   root.querySelector('.hc-reset').addEventListener('click', () => {

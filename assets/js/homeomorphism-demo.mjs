@@ -53,9 +53,42 @@ function mount(explorer) {
   const shapeInput=explorer.querySelector('[data-hm-shape]');
   const ballSvg=explorer.querySelector('[data-hm-ball]');
   const targetSvg=explorer.querySelector('[data-hm-target]');
+  const presets = [
+    { label: 'Interior (r = 0.50)', shape: 'convex', r: 0.50, angle: 35 },
+    { label: 'Boundary (r = 1.00)', shape: 'convex', r: 1.00, angle: 25 },
+    { label: 'Star peak (1.25×)', shape: 'star', r: 0.85, angle: 0 },
+    { label: 'Star valley (0.75×)', shape: 'star', r: 0.85, angle: 60 },
+  ];
+  const presetBar = document.createElement('div');
+  presetBar.className = 'demo-presets';
+  presetBar.setAttribute('aria-label', 'Preset coordinates');
+  const presetLabel = document.createElement('span');
+  presetLabel.className = 'demo-preset-label';
+  presetLabel.textContent = 'Try';
+  presetBar.append(presetLabel);
+  const presetButtons = presets.map(preset => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'demo-preset-btn';
+    btn.textContent = preset.label;
+    btn.addEventListener('click', () => {
+      shapeInput.value = preset.shape;
+      rInput.value = preset.r.toFixed(2);
+      angleInput.value = String(preset.angle);
+      update();
+    });
+    presetBar.append(btn);
+    return { btn, preset };
+  });
+  const canvases = explorer.querySelector('.hm-canvases');
+  if (canvases) canvases.before(presetBar);
   function update() {
     const r=Number(rInput.value), degrees=Number(angleInput.value), a=degrees*Math.PI/180, shape=shapeInput.value;
     const z=[r*Math.cos(a),r*Math.sin(a)], x=forward(z,shape), rayScale=boundaryRadius(a,shape);
+    presetButtons.forEach(({ btn, preset }) => {
+      const match = preset.shape === shape && Math.abs(preset.r - r) < 0.005 && preset.angle === degrees;
+      btn.classList.toggle('is-active', match);
+    });
     explorer.querySelector('[data-hm-radius-label]').value=r.toFixed(2);
     explorer.querySelector('[data-hm-angle-label]').value=`${degrees}°`;
     rInput.setAttribute('aria-valuetext',`${r.toFixed(2)} of the radius`);

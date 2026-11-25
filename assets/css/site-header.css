@@ -1,16 +1,17 @@
 /* Shared navigation for every main page; independent of page-specific frameworks. */
 body.home-page,body.subpage,body.blog-page{padding-top:72px}
-.site-header{position:fixed;inset:0 0 auto;z-index:1000;margin:0;padding:0;background:rgba(253,252,251,.98);border:0;border-bottom:1px solid #e1dcd3;box-shadow:none;color:#405157;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+.site-header{position:fixed;inset:0 0 auto;z-index:1000;margin:0;padding:0;background:rgba(255,255,255,.97);border:0;border-bottom:1px solid #e6e6e4;box-shadow:none;color:#2f2f2f;font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
 .site-header *{box-sizing:border-box}
 .site-header .site-navigation{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;max-width:1060px;min-height:72px;margin:0 auto;padding:0 28px;background:transparent}
-.site-header .site-brand{display:block;margin:0;padding:0;font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:700;line-height:1.5;letter-spacing:-.6px;color:#24363a;text-decoration:none}
+.site-header .site-brand{display:block;margin:0;padding:0;font-family:Georgia,"Times New Roman",serif;font-size:23px;font-weight:700;line-height:1.5;letter-spacing:-.6px;color:#141414;text-decoration:none}
 .site-header .site-navigation-links{display:flex;align-items:center;gap:8px;margin:0;padding:0}
-.site-header .site-navigation-link{display:block;margin:0;padding:9px 14px;border:0;border-radius:6px;background:transparent;font-family:inherit;font-size:15px;font-weight:500;line-height:1.5;letter-spacing:0;color:#405157;text-decoration:none;white-space:nowrap}
-.site-header .site-navigation-link:hover,.site-header .site-navigation-link[aria-current="page"]{color:#2c6d77;background:#f3f0e9;text-decoration:none}
-.site-header a:focus-visible{outline:2px solid #2c6d77;outline-offset:3px}
+.site-header .site-navigation-link{display:block;margin:0;padding:9px 14px;border:0;border-radius:4px;background:transparent;font-family:inherit;font-size:15px;font-weight:500;line-height:1.5;letter-spacing:0;color:#555555;text-decoration:none;white-space:nowrap}
+.site-header .site-navigation-link:hover{color:#141414;background:transparent;text-decoration:none}
+.site-header .site-navigation-link[aria-current="page"]{color:#141414;background:transparent;text-decoration:none}
+.site-header a:focus-visible{outline:2px solid #1b4d89;outline-offset:3px}
 @media(max-width:600px){body.home-page,body.subpage,body.blog-page{padding-top:64px}.site-header .site-navigation{min-height:64px;padding:0 20px;gap:12px}.site-header .site-brand{font-size:22px}.site-header .site-navigation-links{gap:4px}.site-header .site-navigation-link{font-size:14px;padding:10px 6px}}
 @media(max-width:350px){.site-header .site-navigation{padding:0 12px;gap:6px}.site-header .site-navigation-links{gap:2px}.site-header .site-navigation-link{display:flex;align-items:center;min-height:42px;padding:9px 4px;font-size:13px}}
 
 /* A persistent shape marks the current page in addition to its color. */
 .site-header .site-navigation-link[aria-current="page"]{position:relative}
-.site-header .site-navigation-link[aria-current="page"]::after{content:"";position:absolute;bottom:3px;left:50%;width:18px;height:2px;transform:translateX(-50%);border-radius:1px;background:currentColor}
+.site-header .site-navigation-link[aria-current="page"]::after{content:"";position:absolute;bottom:3px;left:50%;width:18px;height:2px;transform:translateX(-50%);border-radius:1px;background:#1b4d89}

@@ -31,8 +31,8 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap"
     >
-    <link rel="stylesheet" href="/assets/css/site-design.css?v=20261124c">
-    <link rel="stylesheet" href="/assets/css/site-header.css?v=20261124a">
+    <link rel="stylesheet" href="/assets/css/site-design.css?v=20261125g">
+    <link rel="stylesheet" href="/assets/css/site-header.css?v=20261125b">
   </head>
 
   <body class="fixed-top-nav home-page">
@@ -76,8 +76,6 @@
               <span><sup>*</sup>Equal contribution</span>
               <span aria-hidden="true">&middot;</span>
               <span><sup>&dagger;</sup>Co-corresponding author</span>
-              <span aria-hidden="true">&middot;</span>
-              <a href="https://scholar.google.com/citations?user=Todfu6AAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Full list on Google Scholar ↗</a>
             </p>
           </div>
 
@@ -90,9 +88,8 @@
               aria-controls="highlights"
               data-target="highlights"
             >
-              <span class="research-tab-index" aria-hidden="true">01</span>
-              <span class="research-tab-label">Selected Highlights</span>
-              <span class="research-tab-description">Representative work across constrained ML and sustainable systems</span>
+              <span class="research-tab-label">Highlights</span>
+              <span class="research-tab-count">4</span>
             </button>
             <button
               class="research-tab"
@@ -102,9 +99,8 @@
               aria-controls="ml-opt"
               data-target="ml-opt"
             >
-              <span class="research-tab-index" aria-hidden="true">02</span>
               <span class="research-tab-label">ML &hArr; Optimization</span>
-              <span class="research-tab-description">Feasible learning, theory, and decision-focused methods</span>
+              <span class="research-tab-count">10</span>
             </button>
             <button
               class="research-tab"
@@ -114,19 +110,17 @@
               aria-controls="ai-sci"
               data-target="ai-sci"
             >
-              <span class="research-tab-index" aria-hidden="true">03</span>
               <span class="research-tab-label">AI for Sustainability</span>
-              <span class="research-tab-description">Climate resilience, power grids, and urban mobility</span>
+              <span class="research-tab-count">8</span>
             </button>
           </div>
 
           <section id="highlights" class="research-panel" role="tabpanel">
             <div class="topic-section">
-              <h3 class="topic-title">Representative Publications</h3>
               <div class="paper-list">
                 <article class="paper-item heatwave-paper">
                   <a class="paper-figure" href="https://emliang.github.io/Heat-Analysis/" target="_blank" rel="noopener noreferrer" aria-label="Open HEAT-Analysis project website"><img
-                    src="https://emliang.github.io/Heat-Analysis/images/heatwave-aware-grid-framework.png"
+                    src="/assets/img/papers/heatwave.png"
                     alt="Framework linking heatwaves to electricity demand, generation, line temperature, and grid operation"
                     class="paper-image"
                     decoding="async"
@@ -187,6 +181,7 @@
                     <div class="paper-actions">
                       <a href="https://openreview.net/forum?id=bP5cU0OYSn" target="_blank" rel="noopener noreferrer">Paper ↗</a>
                       <a href="https://github.com/emliang/Homeomorphic-Optimization" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      <a href="/blog/homeomorphism-methods/#optimization">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -209,6 +204,7 @@
                     <div class="paper-actions">
                       <a href="https://jmlr.org/papers/v25/23-1577.html" target="_blank" rel="noopener noreferrer">Paper ↗</a>
                       <a href="https://github.com/emliang/Homeomorphic-Projection" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      <a href="/blog/homeomorphism-methods/#learning">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -234,6 +230,7 @@
                     <span class="venue">ICML 2026</span>.
                     <div class="paper-actions">
                       <a href="https://icml.cc/virtual/2026/poster/62871" target="_blank" rel="noopener noreferrer">Paper ↗</a>
+                      <a href="/blog/homeomorphism-methods/#optimization">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -256,6 +253,7 @@
                     <div class="paper-actions">
                       <a href="https://openreview.net/pdf?id=vxq1OnaAMq" target="_blank" rel="noopener noreferrer">Paper ↗</a>
                       <a href="https://github.com/icyLee0274/GFM" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      <a href="/blog/homeomorphism-methods/#sampling">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -275,6 +273,7 @@
                     <div class="paper-actions">
                       <a href="https://openreview.net/forum?id=bP5cU0OYSn" target="_blank" rel="noopener noreferrer">Paper ↗</a>
                       <a href="https://github.com/emliang/Homeomorphic-Optimization" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      <a href="/blog/homeomorphism-methods/#optimization">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -314,6 +313,7 @@
                     <div class="paper-actions">
                       <a href="https://jmlr.org/papers/v25/23-1577.html" target="_blank" rel="noopener noreferrer">Paper ↗</a>
                       <a href="https://github.com/emliang/Homeomorphic-Projection" target="_blank" rel="noopener noreferrer">Code ↗</a>
+                      <a href="/blog/homeomorphism-methods/#learning">Visual Guide ↗</a>
                     </div>
                   </div>
                 </article>
@@ -432,7 +432,7 @@
               <div class="paper-list">
                 <article class="paper-item heatwave-paper">
                   <a class="paper-figure" href="https://emliang.github.io/Heat-Analysis/" target="_blank" rel="noopener noreferrer" aria-label="Open HEAT-Analysis project website"><img
-                    src="https://emliang.github.io/Heat-Analysis/images/heatwave-aware-grid-framework.png"
+                    src="/assets/img/papers/heatwave.png"
                     alt="Framework linking heatwaves to electricity demand, generation, line temperature, and grid operation"
                     class="paper-image"
                     loading="lazy"
@@ -642,21 +642,20 @@
         <section id="background" class="background-shell" aria-labelledby="background-title">
           <h2 id="background-title">Background</h2>
           <p>
-            I received my Ph.D. from the Department of Data Science at City University of
+            <strong>Education.</strong> I received my Ph.D. from the Department of Data Science at City University of
             Hong Kong, supervised by
-            <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>.
-            My Ph.D. thesis received the
+            <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>;
+            my dissertation received the
             <a href="https://energy.acm.org/sigenergy-doctoral-dissertation-award-2026-winners/" class="name-link">2026 ACM SIGEnergy Doctoral Dissertation Award Honorable Mention</a>.
             I received my B.Eng. from SYSU, advised by
             <a href="https://scholar.google.com/citations?user=buJMiZMAAAAJ&amp;hl=en" class="name-link">Prof. Renxin Zhong</a>.
           </p>
           <p class="hero-copy-wide">
-            I have worked on the
+            <strong>Research &amp; Community.</strong> I worked on the
             <a href="https://www.mhchen.com/projects/DeepOPF.html" class="project-link">DeepOPF</a>
             project with <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>
             and <a href="https://www.ee.caltech.edu/people/slow" class="name-link">Prof. Steven Low</a>
-            of Caltech, focusing on machine learning methods for power-grid operation. I also visited
-            the University of Cambridge to work with
+            of Caltech, and visited the University of Cambridge to work with
             <a href="https://svr-sk818-web.cl.cam.ac.uk/keshav/wiki/index.php/Main_Page" class="name-link">Prof. Srinivasan Keshav</a>
             on power-grid resilience under extreme weather. I led the 2024 and 2026 revisions of the
             <a href="https://github.com/climatechange-ai-tutorials/optimal-power-flow" class="project-link">AI for Optimal Power Flow tutorial</a>
@@ -666,12 +665,14 @@
             <a href="https://priyadonti.com/" class="name-link">Prof. Priya L. Donti</a>,
             <a href="https://www.mhchen.com" class="name-link">Prof. Minghua Chen</a>, and the
             <a href="https://www.climatechange.ai/" class="name-link">CCAI Committee</a>.
-            I also collaborate with DiDi on decision-focused learning for urban
+          </p>
+          <p class="hero-copy-wide">
+            <strong>Industry.</strong> I collaborate with DiDi on decision-focused learning for urban
             mobility-on-demand systems, and previously interned at MSRA (Beijing, 2022) and
             Noah's Ark Lab (Shenzhen, 2021).
           </p>
           <p class="hero-copy-wide">
-            At CityU HK, I have served as sole instructor for <em>SDSC3060 Operations Research</em>
+            <strong>Teaching &amp; Service.</strong> At CityU HK, I have served as sole instructor for <em>SDSC3060 Operations Research</em>
             and mentored Ph.D., master's, and undergraduate researchers on constrained generative
             modeling, graph neural networks for conic programming, and decision-focused learning
             (with joint work appearing at ICLR and AAAI). I serve as an Area Chair for ICLR 2027

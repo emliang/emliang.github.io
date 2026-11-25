@@ -44,12 +44,12 @@
 .homeomorphism-page .hm-explorer[hidden]{display:none}
 .homeomorphism-page .hm-explorer-heading{display:grid;grid-template-columns:minmax(0,1fr) 174px;gap:20px;align-items:start}
 .homeomorphism-page .hm-explorer-heading strong{font-size:16px}
-.homeomorphism-page .article-body .hm-explorer-heading p{font-size:13px;line-height:1.65;margin:5px 0 18px;color:#65767a}
+.homeomorphism-page .article-body .hm-explorer-heading p{font-size:13px;line-height:1.65;margin:5px 0 14px;color:#526468}
 .homeomorphism-page .hm-explorer-heading label{display:flex;flex-direction:column;gap:6px;font-size:12px}
 .homeomorphism-page .hm-explorer select{min-height:44px;padding:7px 10px;border:1px solid #dbe3e1;border-radius:7px;color:#24363a;background:#fff;font:inherit;max-width:100%}
 .homeomorphism-page .hm-canvases svg{display:block;width:100%;height:auto;border:0;border-radius:0;background:transparent;cursor:crosshair;touch-action:none;user-select:none}
 .homeomorphism-page .hm-inline-diagram{display:block;width:100%;height:auto;padding:16px 14px 12px;border:1px solid #dbe3e1;border-radius:6px;background:#fff;font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.homeomorphism-page .hm-inline-diagram .figure-symbol{font-family:Georgia,"Times New Roman",serif;font-style:italic}
+.homeomorphism-page .hm-inline-diagram .figure-symbol{font-family:KaTeX_Math,Georgia,"Times New Roman",serif;font-style:italic}
 .homeomorphism-page .article-body .hm-canvases{padding:0;border:0;background:transparent}
 .homeomorphism-page .hm-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:16px;padding-top:16px;border-top:1px solid #dbe3e1}
 .homeomorphism-page .hm-controls label{font-size:13px;display:block}
@@ -60,8 +60,8 @@
 .homeomorphism-page .hm-controls input::-moz-range-track{height:4px;border-radius:8px;background:#cad8d3}
 .homeomorphism-page .hm-controls input::-moz-range-thumb{width:13px;height:13px;border:2px solid #fff;border-radius:50%;background:#2c6d77}
 .homeomorphism-page .article-body .hm-status{font-size:13px;line-height:1.65;margin:12px 0;padding:9px 12px;border:1px solid #dce9e4;border-radius:7px;background:#f4f8f6;color:#24363a;font-variant-numeric:tabular-nums}
-.homeomorphism-page .article-body .hm-demo-note{font-size:12px;color:#65767a;line-height:1.65;margin:0}
-.homeomorphism-page .article-body .hm-slide-link{font-size:14px;color:#65767a;margin-top:14px}
+.homeomorphism-page .article-body .hm-demo-note{font-size:12.5px;color:#526468;line-height:1.65;margin:0}
+.homeomorphism-page .article-body .hm-slide-link{font-size:14px;color:#526468;margin-top:14px}
 
 @media(max-width:650px){
 .homeomorphism-page .hm-paired{grid-template-columns:minmax(0,1fr);gap:20px}
