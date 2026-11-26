@@ -347,7 +347,7 @@ function buildBisectionSpec() {
 
     // Raw infeasible point in K (always visible)
     nodes.push(el('circle', { cx: pKRaw[0], cy: pKRaw[1], r: 5.5, fill: COL.brick, stroke: COL.white, 'stroke-width': 1.8 }));
-    const rawKLbl = el('text', { x: pKRaw[0] + 10, y: pKRaw[1] - 4, 'font-size': 12, fill: COL.brick });
+    const rawKLbl = el('text', { x: pKRaw[0] + 10, y: pKRaw[1] - 4, class: 'hm-svg-halo', 'font-size': 12, fill: COL.brick });
     rawKLbl.append(document.createTextNode('raw '), el('tspan', { class: 'figure-symbol' }, 'x'));
     nodes.push(rawKLbl);
 
@@ -360,7 +360,7 @@ function buildBisectionSpec() {
       if (u > 0.35) {
         const a = clamp((u - 0.35) / 0.4, 0, 1);
         nodes.push(el('circle', { cx: pBRaw[0], cy: pBRaw[1], r: 5.5, fill: COL.brick, stroke: COL.white, 'stroke-width': 1.8, opacity: a }));
-        const rawZLbl = el('text', { x: pBRaw[0] - 12, y: pBRaw[1] - 12, 'text-anchor': 'middle', 'font-size': 12, fill: COL.brick, opacity: a });
+        const rawZLbl = el('text', { x: pBRaw[0] - 10, y: pBRaw[1] - 12, class: 'hm-svg-halo', 'text-anchor': 'middle', 'font-size': 12, fill: COL.brick, opacity: a });
         rawZLbl.append(document.createTextNode('raw '), el('tspan', { class: 'figure-symbol' }, 'z'));
         nodes.push(rawZLbl);
       }
@@ -408,7 +408,9 @@ function buildBisectionSpec() {
         nodes.push(el('circle', { cx: xMid[0], cy: xMid[1], r: 5.5, fill: midCol, stroke: COL.white, 'stroke-width': 1.8 }));
         if (checked) {
           const verdict = st.ok ? '∈ K ✓' : '∉ K ✕';
-          nodes.push(el('text', { x: xMid[0] + 10, y: xMid[1] + 14, 'font-size': 12, 'font-weight': 600, fill: midCol }, verdict));
+          const vx = st.ok ? xMid[0] + 13 : xMid[0] + 11;
+          const vy = st.ok ? xMid[1] + 16 : xMid[1] - 8;
+          nodes.push(el('text', { x: vx, y: vy, class: 'hm-svg-halo', 'font-size': 12, 'font-weight': 600, fill: midCol }, verdict));
         }
       }
 
@@ -425,12 +427,12 @@ function buildBisectionSpec() {
       const xF = toK(xFinal);
       nodes.push(el('circle', { cx: pBRaw[0], cy: pBRaw[1], r: 4.5, fill: COL.brick, stroke: COL.white, 'stroke-width': 1.5, opacity: 0.7 }));
       nodes.push(el('circle', { cx: zF[0], cy: zF[1], r: 6.5, fill: COL.teal, stroke: COL.white, 'stroke-width': 2 }));
-      const zLbl = el('text', { x: zF[0] - 10, y: zF[1] - 12, 'text-anchor': 'end', 'font-size': 12, 'font-weight': 600, fill: COL.teal });
+      const zLbl = el('text', { x: zF[0] - 10, y: zF[1] - 12, class: 'hm-svg-halo', 'text-anchor': 'end', 'font-size': 12, 'font-weight': 600, fill: COL.teal });
       zLbl.append(document.createTextNode('z'), el('tspan', { 'baseline-shift': 'sub', 'font-size': '72%' }, 'lo'));
       nodes.push(zLbl);
 
       nodes.push(el('circle', { cx: xF[0], cy: xF[1], r: 6.5, fill: COL.teal, stroke: COL.white, 'stroke-width': 2 }));
-      const xLbl = el('text', { x: xF[0] + 11, y: xF[1] + 15, 'font-size': 12, 'font-weight': 600, fill: COL.teal });
+      const xLbl = el('text', { x: xF[0] + 12, y: xF[1] + 16, class: 'hm-svg-halo', 'font-size': 12, 'font-weight': 600, fill: COL.teal });
       xLbl.append(document.createTextNode('verified '), el('tspan', { class: 'figure-symbol' }, 'x'));
       nodes.push(xLbl);
 
@@ -551,13 +553,13 @@ function buildHomPgdSpec() {
     zTrail.forEach(([px, py]) => nodes.push(el('circle', { cx: px, cy: py, r: 4, fill: COL.brick, stroke: COL.white, 'stroke-width': 1.4 })));
     xTrail.forEach(([px, py]) => nodes.push(el('circle', { cx: px, cy: py, r: 4, fill: COL.brick, stroke: COL.white, 'stroke-width': 1.4 })));
 
-    // Labels for z_0 and x_0
+    // Labels for z_0 and x_0 (offset inward above start point to avoid boundary lines)
     const z0p = toB(iters[0].z);
-    const z0l = el('text', { x: z0p[0] - 14, y: z0p[1] + 15, 'font-size': 11.5, fill: COL.body });
+    const z0l = el('text', { x: z0p[0] + 6, y: z0p[1] - 9, class: 'hm-svg-halo', 'font-size': 11.5, fill: COL.body });
     z0l.append(el('tspan', { class: 'figure-symbol' }, 'z'), el('tspan', { 'baseline-shift': 'sub', 'font-size': '72%' }, '0'));
     nodes.push(z0l);
     const x0p = toK(iters[0].x);
-    const x0l = el('text', { x: x0p[0] - 14, y: x0p[1] + 15, 'font-size': 11.5, fill: COL.body });
+    const x0l = el('text', { x: x0p[0] + 6, y: x0p[1] - 9, class: 'hm-svg-halo', 'font-size': 11.5, fill: COL.body });
     x0l.append(el('tspan', { class: 'figure-symbol' }, 'x'), el('tspan', { 'baseline-shift': 'sub', 'font-size': '72%' }, '0'));
     nodes.push(x0l);
 
@@ -584,7 +586,7 @@ function buildHomPgdSpec() {
         stroke: COL.brick, 'stroke-width': 1.8,
       }));
       if (it.clipped && u > 0.25) {
-        const gLbl = el('text', { x: pTilde[0] + 6, y: pTilde[1] - 10, 'text-anchor': 'middle', 'font-size': 11, fill: COL.brick });
+        const gLbl = el('text', { x: pTilde[0] + 9, y: pTilde[1] - 9, class: 'hm-svg-halo', 'text-anchor': 'start', 'font-size': 11, fill: COL.brick });
         gLbl.append(el('tspan', { class: 'figure-symbol' }, 'z'), el('tspan', { 'baseline-shift': 'sub', 'font-size': '72%' }, String(it.k)), document.createTextNode('−η∇'), el('tspan', { class: 'figure-symbol' }, 'h'));
         nodes.push(gLbl);
       }
@@ -627,10 +629,11 @@ function buildHomPgdSpec() {
       nodes.push(el('circle', { cx: pTilde[0], cy: pTilde[1], r: 4, fill: COL.white, stroke: COL.brick, 'stroke-width': 1.8 }));
       nodes.push(el('circle', { cx: pNext[0], cy: pNext[1], r: 6, fill: COL.teal, stroke: COL.white, 'stroke-width': 1.8 }));
       nodes.push(el('circle', { cx: xNext[0], cy: xNext[1], r: 6, fill: COL.teal, stroke: COL.white, 'stroke-width': 1.8 }));
-      const xEndLbl = el('text', { x: xNext[0] + 10, y: xNext[1] - 4, 'font-size': 12, 'font-weight': 600, fill: COL.teal });
+      const xEndLbl = el('text', { x: xNext[0] + 10, y: xNext[1] - 4, class: 'hm-svg-halo', 'font-size': 12, 'font-weight': 600, fill: COL.teal });
       xEndLbl.append(el('tspan', { class: 'figure-symbol' }, 'x'), el('tspan', { 'baseline-shift': 'sub', 'font-size': '72%' }, 'opt'));
       nodes.push(xEndLbl);
-      statusEl.innerHTML = `<strong>Converged:</strong> <em>f</em> dropped 2.52 → ${last.fVal.toFixed(2)} <span class="hm-anim-tag hm-anim-tag--ok">no oracle over K</span>`;
+      const fInit = fObj(iters[0].x).toFixed(2);
+      statusEl.innerHTML = `<strong>Converged:</strong> <em>f</em> dropped ${fInit} → ${last.fVal.toFixed(2)} <span class="hm-anim-tag hm-anim-tag--ok">no oracle over K</span>`;
     }
 
     nodes.push(el('text', { x: B_CX, y: 242, 'text-anchor': 'middle', 'font-size': 11.5, fill: COL.muted }, 'Exact radial norm clipping keeps z in B'));

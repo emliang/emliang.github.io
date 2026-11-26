@@ -15,6 +15,12 @@
   font-family: KaTeX_Math, Georgia, "Times New Roman", serif;
   font-style: italic;
 }
+.homeomorphism-page .hm-svg-halo {
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3.5px;
+  stroke-linejoin: round;
+}
 
 /* Compact monochrome animation toolbar shared across Figures 03, 04, and 06 */
 .homeomorphism-page .hm-anim-bar {
