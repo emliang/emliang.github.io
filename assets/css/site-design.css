@@ -234,46 +234,52 @@ body.subpage .talk-meta{font-size:13px}
 }
 
 /* News and Resources: quiet editorial rhythm within the shared site style. */
-body.news-page .page-lead,body.resources-page .page-lead{max-width:640px}
-body.news-page .topic-section+.topic-section,body.resources-page .topic-section+.topic-section{margin-top:44px}
+body.news-page .page-shell,body.resources-page .page-shell{padding:32px 0 40px}
+body.news-page .page-lead,body.resources-page .page-lead{max-width:640px;margin-bottom:24px}
+body.news-page .topic-title,body.resources-page .topic-title{margin-bottom:6px}
+body.news-page .topic-section+.topic-section{margin-top:28px}
+body.resources-page .topic-section+.topic-section{margin-top:32px}
 body.news-page .talk-list{border-top:0}
-body.news-page .talk-item{position:relative;grid-template-columns:104px minmax(0,1fr);gap:18px;margin-left:4px;padding:18px 0 21px 22px;border-left:1px solid var(--line);border-bottom:0;align-items:start}
-body.news-page .talk-item::before{content:"";position:absolute;left:-4px;top:25px;width:7px;height:7px;border-radius:50%;background:#d0d0cc}
+body.news-page .talk-item{position:relative;grid-template-columns:96px minmax(0,1fr);gap:16px;margin-left:4px;padding:9px 0 10px 18px;border-left:1px solid var(--line);border-bottom:0;align-items:start}
+body.news-page .talk-item::before{content:"";position:absolute;left:-3.5px;top:16px;width:6px;height:6px;border-radius:50%;background:#d0d0cc}
 body.news-page .news-updates .talk-item:first-child::before,body.news-page .talk-item--latest::before{background:var(--blue)}
-body.news-page .talk-year{display:flex;align-items:center;gap:13px;margin:26px 0 7px;font-family:var(--sans);font-size:14px;font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--muted)}
+body.news-page .talk-year{display:flex;align-items:center;gap:12px;margin:14px 0 4px;font-family:var(--sans);font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.05em;color:var(--muted)}
 body.news-page .talk-year::after{content:"";flex:1;height:1px;background:var(--line)}
-body.news-page .talks-by-year .talk-item{grid-template-columns:65px minmax(0,1fr);padding:17px 0 20px 20px}
-body.news-page .talks-by-year .talk-item::before{top:24px}
-body.news-page .talk-date{color:var(--muted);font-size:13px;font-weight:500;padding-top:3px;font-variant-numeric:tabular-nums}
-body.news-page .talk-title{font-size:16px;line-height:1.5}
+body.news-page .talks-by-year .talk-item{grid-template-columns:60px minmax(0,1fr);padding:8px 0 9px 18px}
+body.news-page .talks-by-year .talk-item::before{top:15px}
+body.news-page .talk-date{color:var(--muted);font-size:12.5px;font-weight:500;padding-top:2px;font-variant-numeric:tabular-nums}
+body.news-page .talk-title{font-size:15px;line-height:1.45}
 body.news-page .talk-detail{min-width:0}
-body.news-page .talk-meta{margin-top:6px;line-height:1.6}
-body.news-page .news-updates .talk-title{font-weight:400;line-height:1.65}
+body.news-page .talk-meta{margin-top:2px;font-size:13.5px;line-height:1.45}
+body.news-page .news-updates .talk-title{font-weight:400;line-height:1.5}
 body.news-page .news-updates .talk-title a{font-weight:500}
-body.news-page .news-actions{display:flex;flex-wrap:wrap;align-items:center;gap:4px 20px;margin-top:7px;font-size:13px;line-height:1.5}
-body.news-page .news-actions a{display:inline-flex;align-items:center;min-height:32px}
+body.news-page .news-actions{display:flex;flex-wrap:wrap;align-items:center;gap:2px 16px;margin-top:3px;font-size:13px;line-height:1.4}
+body.news-page .news-actions a{display:inline-flex;align-items:center;min-height:22px}
 body.resources-page .talk-list{display:block;border-top:0}
-body.resources-page .talk-item{display:grid;grid-template-columns:minmax(0,1fr) 104px;gap:22px;align-items:start;padding:19px 0 21px;border-top:0;border-bottom:1px solid var(--line)}
+body.resources-page .talk-item{display:grid;grid-template-columns:minmax(0,1fr) 98px;gap:18px;align-items:start;padding:12px 0 13px;border-top:0;border-bottom:1px solid var(--line)}
 body.resources-page .talk-detail{min-width:0}
-body.resources-page .resource-type{display:inline-flex;align-items:center;justify-self:end;gap:6px;margin-top:1px;padding:4px 9px;border:1px solid #e2e2de;border-radius:4px;background:transparent;color:#555555;font-size:12px;font-weight:500;line-height:1.3;white-space:nowrap}
+body.resources-page .resource-type{display:inline-flex;align-items:center;justify-self:end;gap:6px;margin-top:1px;padding:3px 8px;border:1px solid #e2e2de;border-radius:4px;background:transparent;color:#555555;font-size:12px;font-weight:500;line-height:1.3;white-space:nowrap}
 body.resources-page .resource-type i,body.resources-page .resource-type .resource-icon{font-size:12px;width:13px;height:13px;flex-shrink:0;text-align:center;color:#767676}
 body.resources-page .resource-type--survey,body.resources-page .resource-type--code,body.resources-page .resource-type--tutorial,body.resources-page .resource-type--project{color:#555555;background:transparent}
-body.resources-page .talk-title{font-size:17px;line-height:1.5}
-body.resources-page .talk-meta{margin-top:5px;line-height:1.6}
-body.resources-page .resource-credit{display:block;margin-top:8px;font-size:12.5px;line-height:1.6;color:var(--muted)}
+body.resources-page .talk-title{font-size:15.5px;line-height:1.45}
+body.resources-page .talk-meta{margin-top:2px;font-size:14px;line-height:1.5}
+body.resources-page .resource-credit{display:block;margin-top:4px;font-size:12.5px;line-height:1.5;color:var(--muted)}
+body.resources-page .resource-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px 16px;margin-top:5px;font-size:13px;line-height:1.4;font-weight:500}
 @media(max-width:800px){
 body.resources-page .resource-slide{grid-template-columns:minmax(0,1fr);gap:18px}
 body.resources-page .resource-slide-cover{max-width:520px}
 }
 @media(max-width:640px){
-body.news-page .topic-section+.topic-section,body.resources-page .topic-section+.topic-section{margin-top:32px}
-body.news-page .talk-item,body.news-page .talks-by-year .talk-item{grid-template-columns:minmax(0,1fr);gap:4px;padding:15px 0 18px 17px}
-body.news-page .talk-item::before,body.news-page .talks-by-year .talk-item::before{top:22px}
+body.news-page .page-shell,body.resources-page .page-shell{padding:24px 0 32px}
+body.news-page .topic-section+.topic-section{margin-top:24px}
+body.resources-page .topic-section+.topic-section{margin-top:28px}
+body.news-page .talk-item,body.news-page .talks-by-year .talk-item{grid-template-columns:minmax(0,1fr);gap:2px;padding:9px 0 10px 15px}
+body.news-page .talk-item::before,body.news-page .talks-by-year .talk-item::before{top:15px}
 body.news-page .talk-date{font-size:12px;padding-top:0}
-body.news-page .news-actions{gap:0 16px;margin-top:4px}
-body.news-page .news-actions a{min-height:44px}
-body.news-page .talk-title,body.resources-page .talk-title{font-size:15px}
-body.resources-page .talk-item{grid-template-columns:minmax(0,1fr);gap:8px;padding:16px 0 18px}
+body.news-page .news-actions{gap:0 16px;margin-top:2px}
+body.news-page .news-actions a{min-height:38px}
+body.news-page .talk-title,body.resources-page .talk-title{font-size:14.5px}
+body.resources-page .talk-item{grid-template-columns:minmax(0,1fr);gap:6px;padding:11px 0 12px}
 body.resources-page .resource-type{grid-row:1;justify-self:start}
 }
 @media(max-width:359px){
