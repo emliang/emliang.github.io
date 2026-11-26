@@ -36,7 +36,6 @@ export function isFeasible(point, budget = 1, tolerance = NUMERICAL_TOLERANCE) {
 export function projection(candidate, budget = 1) {
   positiveBudget(budget);
   finitePair(candidate);
-  // Normalize first so tests and residuals use the same units for every budget.
   const x = candidate[0] / budget;
   const y = candidate[1] / budget;
   const positiveX = Math.max(x, 0);
@@ -101,7 +100,6 @@ export function sampleGeneration({ seed = DEFAULT_SEED, count = DEFAULT_COUNT, b
   while (rejectionPoints.length < count && attempts < cap) {
     const point = proposal(rejectionRandom);
     attempts += 1;
-    // Membership is exact here: do not admit a numerical boundary band into the conditional sampler.
     if (point[0] >= 0 && point[1] >= 0 && point[0] + point[1] <= budget) rejectionPoints.push(point);
   }
   const projectionRandom = makeRandom(seed);
@@ -111,8 +109,6 @@ export function sampleGeneration({ seed = DEFAULT_SEED, count = DEFAULT_COUNT, b
     const candidate = proposal(projectionRandom);
     const outside = candidate[0] < 0 || candidate[1] < 0 || candidate[0] + candidate[1] > budget;
     projectedPoints.push(projection(candidate, budget));
-    // For this closed convex triangle, every outside point projects to its boundary.
-    // Track this source event, rather than estimating boundary mass with an epsilon band.
     movedFromOutside.push(outside);
   }
   return {
@@ -157,8 +153,6 @@ function slider(id, name, min, max, step, value, suffix = '', shortName = name) 
 
 const MECHANISM_PLOT = Object.freeze({ originX: 68, originY: 294, unit: 220 });
 
-// The page already loads these KaTeX faces; keep plot variables distinct from
-// the sans-serif explanations and use attached SVG subscripts, as in the text.
 function plotVariable(symbol, subscript = null) {
   const base = `<tspan font-family="KaTeX_Math, 'Times New Roman', serif" font-style="italic">${symbol}</tspan>`;
   return subscript === null ? base : `${base}<tspan font-family="KaTeX_Main, 'Times New Roman', serif" font-style="normal" baseline-shift="sub" font-size="70%">${subscript}</tspan>`;
@@ -179,7 +173,7 @@ function mechanismGeometry(state) {
   let marks = '';
   if (candidate) {
     marks += `<line class="hc-connection" x1="${toX(candidate[0])}" y1="${toY(candidate[1])}" x2="${toX(output[0])}" y2="${toY(output[1])}"/>`;
-    marks += `<circle class="hc-candidate ${state.mode === 'projection' ? 'hc-drag-handle' : ''}" data-candidate cx="${toX(candidate[0])}" cy="${toY(candidate[1])}" r="8"><title>Candidate ${pair(candidate)}. Use the coordinate sliders below to move it.</title></circle>`;
+    marks += `<circle class="hc-candidate ${state.mode === 'projection' ? 'hc-drag-handle' : ''}" data-candidate cx="${toX(candidate[0])}" cy="${toY(candidate[1])}" r="8"><title>Candidate ${pair(candidate)}. Drag or use the sliders to move it.</title></circle>`;
   }
   const x = toX(output[0]);
   const y = toY(output[1]);
@@ -201,7 +195,6 @@ function mechanismGeometry(state) {
     if (candidate) marks += pointLabel(candidate, 'candidate', -15);
     marks += pointLabel(output, candidate ? 'output' : 'feasible output', output[1] < 0.12 ? -15 : 22);
   }
-  // The set remains shaded; omit its redundant interior text when moving point labels need that space.
   const domainLabels = labelAreas.some(area => area.left < 200 && area.right > 85 && area.top < 271 && area.bottom > 226)
     ? '' : `<text class="hc-domain-label" x="90" y="241">feasible set ${plotVariable('K')}</text><text class="hc-domain-label" x="90" y="263">${plotVariable('y', '1')} + ${plotVariable('y', '2')} ≤ 1</text>`;
   const description = candidate
@@ -226,27 +219,22 @@ export function mountMechanism(root) {
   const id = `hc-mechanism-${++widgetNumber}`;
   const state = { mode: 'penalty', a: 0.8, lambda: 1, candidate: [0.8, 0.8], b: 0.6, q: 0.7 };
   root.classList.add('hc-demo');
-  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the mechanism · Budget = 1</p><button class="hc-button hc-reset" type="button">Reset</button></div>
-    <div class="hc-mode-picker" aria-label="Constraint mechanism">
-      <button type="button" data-mode="penalty" aria-pressed="true" aria-controls="${id}-penalty">Penalty</button>
-      <button type="button" data-mode="projection" aria-pressed="false" aria-controls="${id}-projection">Projection</button>
-      <button type="button" data-mode="parameterization" aria-pressed="false" aria-controls="${id}-parameterization">Parameterization</button>
+  root.innerHTML = `<div class="hc-toolbar">
+      <div class="hc-mode-picker" aria-label="Constraint mechanism">
+        <button type="button" data-mode="penalty" aria-pressed="true" aria-controls="${id}-penalty">Penalty</button>
+        <button type="button" data-mode="projection" aria-pressed="false" aria-controls="${id}-projection">Projection</button>
+        <button type="button" data-mode="parameterization" aria-pressed="false" aria-controls="${id}-parameterization">Parameterization</button>
+      </div>
+      <button class="hc-button hc-reset" type="button">Reset</button>
     </div>
-    <div class="demo-presets" aria-label="Comparison presets">
-      <span class="demo-preset-label">Try</span>
-      <button type="button" class="demo-preset-btn" data-preset="high-lambda">Penalty λ = 10 (still outside)</button>
-      <button type="button" class="demo-preset-btn" data-preset="project-same">Same target → Projection</button>
-      <button type="button" class="demo-preset-btn" data-preset="already-feasible">Already feasible</button>
-      <button type="button" class="demo-preset-btn" data-preset="full-budget">Full budget split</button>
-    </div>
-    <div class="hc-mechanism-layout"><div class="hc-plot-wrap"><p class="hc-plot-units">Both axes: allocation / budget</p><svg class="hc-mechanism-plot" viewBox="0 0 380 365" role="img" aria-label="Resource allocation geometry"></svg>
+    <div class="hc-mechanism-layout"><div class="hc-plot-wrap"><svg class="hc-mechanism-plot" viewBox="0 0 380 365" role="img" aria-label="Resource allocation geometry"></svg>
       <p class="hc-legend"><span class="hc-legend-item" data-candidate-key><i class="hc-key-circle" aria-hidden="true"></i>Candidate</span><span class="hc-legend-item"><i class="hc-key-diamond" aria-hidden="true"></i>Output</span></p></div>
     <div class="hc-controls">
       <fieldset id="${id}-penalty" data-panel="penalty"><legend>Symmetric candidate (a, a)</legend>
         <div class="hc-slider-pair">${slider(`${id}-a`, 'Candidate coordinate a', 0, 1, 0.01, state.a, '', 'Candidate a')}
         ${slider(`${id}-lambda`, 'Penalty weight λ', 0, 10, 0.1, state.lambda, '', 'Penalty λ')}</div>
       </fieldset>
-      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Move the candidate</legend>
+      <fieldset id="${id}-projection" data-panel="projection" hidden><legend>Move or drag candidate</legend>
         <div class="hc-slider-pair">${slider(`${id}-c1`, 'Candidate y hat, coordinate 1', -0.25, 1.25, 0.01, state.candidate[0], '', `Candidate ${demoMath.candidate1}`)}
         ${slider(`${id}-c2`, 'Candidate y hat, coordinate 2', -0.25, 1.25, 0.01, state.candidate[1], '', `Candidate ${demoMath.candidate2}`)}</div>
       </fieldset>
@@ -256,6 +244,13 @@ export function mountMechanism(root) {
       </fieldset>
       <p class="hc-observation" data-observation aria-live="polite" aria-atomic="true"></p>
     </div></div>
+    <div class="demo-preset-bar" aria-label="Comparison presets">
+      <span class="demo-preset-label">Presets:</span>
+      <button type="button" class="demo-preset-link" data-preset="high-lambda">Penalty λ = 10</button><span class="demo-preset-sep" aria-hidden="true">·</span>
+      <button type="button" class="demo-preset-link" data-preset="project-same">Same target → Projection</button><span class="demo-preset-sep" aria-hidden="true">·</span>
+      <button type="button" class="demo-preset-link" data-preset="already-feasible">Already feasible</button><span class="demo-preset-sep" aria-hidden="true">·</span>
+      <button type="button" class="demo-preset-link" data-preset="full-budget">Full budget split</button>
+    </div>
     <details class="hc-details"><summary>Numerical details</summary><p class="hc-control-note" data-result></p><p class="hc-control-note hc-numerical-note">${demoMath.violation}Coordinates are rounded; violation is computed before rounding. Displayed feasibility uses normalized tolerance 10⁻⁹; real-arithmetic formulas explain the construction.</p></details>`;
   const svg = root.querySelector('svg');
   const setValue = (name, value, decimals = 2) => {
@@ -333,13 +328,11 @@ export function mountMechanism(root) {
   root.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     const nextMode = button.dataset.mode;
     if (state.mode === 'penalty' && nextMode === 'projection') {
-      // Compare the same physical candidate when moving from the diagonal toy to projection.
       state.candidate = [state.a, state.a];
       setValue('c1', state.a);
       setValue('c2', state.a);
     } else if (state.mode === 'projection' && nextMode === 'penalty'
       && state.candidate[0] === state.candidate[1] && state.candidate[0] >= 0 && state.candidate[0] <= 1) {
-      // A general projection candidate cannot be represented by the penalty demo's single a.
       state.a = state.candidate[0];
       setValue('a', state.a);
     }
@@ -399,7 +392,6 @@ function generationPlot(points, moved, label) {
   const toX = value => 48 + 250 * value;
   const toY = value => 282 - 250 * value;
   const mean = summarize(points, 1).mean;
-  // Combine exact coincidences without moving any sample. Marker area counts samples.
   const groups = new Map();
   points.forEach((point, index) => {
     const boundary = Boolean(moved?.[index]);
@@ -413,10 +405,10 @@ function generationPlot(points, moved, label) {
     return `<circle class="${boundary ? 'hc-sample-boundary' : 'hc-sample-interior'}${count > 1 ? ' hc-sample-stack' : ''}" cx="${toX(point[0])}" cy="${toY(point[1])}" r="${radius}" data-count="${count}"><title>${count} sample${count === 1 ? '' : 's'} at (${point[0]}, ${point[1]})</title></circle>`;
   }).join('');
   const meanMark = mean ? `<path class="hc-sample-mean" d="M ${toX(mean[0]) - 5} ${toY(mean[1]) - 5} l 10 10 M ${toX(mean[0]) - 5} ${toY(mean[1]) + 5} l 10 -10"/>` : '';
-  return `<title>${label}: returned samples</title><desc>Samples inside the triangular feasible set. Teal circles show retained samples; copper circles show candidates moved to the boundary. Circle area counts exactly coincident samples; no locations are shifted. The cross marks the sample mean and the hollow ring marks the conditional target mean at one third in both coordinates.</desc>
-    <path class="hc-feasible" d="M 48 282 L 298 282 L 48 32 Z"/><path class="hc-axis" d="M 37 282 H 320 M 48 295 V 18"/>
+  return `<title>${label}: returned samples</title><desc>Samples inside the triangular feasible set. Teal circles show retained samples; terracotta circles show candidates moved to the boundary. Circle area counts exactly coincident samples; no locations are shifted. The cross marks the sample mean and the hollow ring marks the conditional target mean at one third in both coordinates.</desc>
+    <path class="hc-feasible" d="M 48 282 L 298 282 L 48 32 Z"/><path class="hc-axis" d="M 37 282 H 320 M 48 295 V 12"/>
     <path class="hc-tick" d="M 173 277 V 287 M 298 277 V 287 M 43 157 H 53 M 43 32 H 53"/>
-    <text class="hc-axis-label" x="320" y="308">${plotVariable('y', '1')}</text><text class="hc-axis-label" x="19" y="22">${plotVariable('y', '2')}</text>
+    <text class="hc-axis-label" x="320" y="308">${plotVariable('y', '1')}</text><text class="hc-axis-label" x="58" y="22">${plotVariable('y', '2')}</text>
     <text class="hc-tick-label" x="15" y="307">0</text><text class="hc-tick-label" x="173" y="307" text-anchor="middle">0.5</text><text class="hc-tick-label" x="298" y="307" text-anchor="middle">1</text>
     <text class="hc-tick-label" x="33" y="162" text-anchor="end">0.5</text><text class="hc-tick-label" x="33" y="37" text-anchor="end">1</text>
     ${dots}<circle class="hc-target-mean" cx="${toX(1 / 3)}" cy="${toY(1 / 3)}" r="6"/>${meanMark}`;
@@ -425,13 +417,12 @@ function generationPlot(points, moved, label) {
 export function mountGeneration(root) {
   let seed = DEFAULT_SEED;
   root.classList.add('hc-demo');
-  root.innerHTML = `<div class="hc-demo-heading"><p class="hc-demo-kicker">Explore the returned distribution · Budget = 1</p><div class="hc-actions"><button class="hc-button" data-resample type="button">Resample</button><button class="hc-button" data-reset type="button">Reset</button></div></div>
-    <p class="hc-generation-setup">Proposals: uniform on [−1, 1]². Target: uniform in K. Both methods request 512 outputs; the two plots use identical scales.</p>
-    <p class="hc-plot-units">Both axes: allocation / budget</p>
+  root.innerHTML = `<div class="hc-toolbar">
+      <p class="hc-toolbar-meta">512 outputs from uniform [−1, 1]² proposals · Target: uniform in K (budget = 1)</p>
+      <div class="hc-actions"><button class="hc-button" data-resample type="button">Resample</button><button class="hc-button" data-reset type="button">Reset</button></div>
+    </div>
     <div class="hc-generation-layout"><figure><figcaption>Rejection sampling</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Rejection samples" data-rejection-plot></svg><p class="hc-cloud-note" data-rejection-note></p></figure><figure><figcaption>Euclidean projection</figcaption><svg viewBox="0 0 345 325" role="img" aria-label="Projected samples" data-projection-plot></svg><p class="hc-cloud-note" data-projection-note></p></figure></div>
-    <p class="hc-legend hc-generation-legend"><span class="hc-legend-item"><i class="hc-key-dot" aria-hidden="true"></i>Retained sample</span><span class="hc-legend-item"><i class="hc-key-boundary" aria-hidden="true"></i>Moved to boundary</span><span class="hc-legend-item"><i class="hc-key-cross" aria-hidden="true">×</i>Sample mean</span><span class="hc-legend-item"><i class="hc-key-ring" aria-hidden="true"></i>Target mean</span></p>
-    <p class="hc-marker-note"><i class="hc-key-stack" aria-hidden="true"></i>Circle area shows the number of samples at the same location.</p>
-    <p class="hc-takeaway">Projection adds boundary mass; rejection samples the uniform interior.</p>
+    <p class="hc-legend hc-generation-legend"><span class="hc-legend-item"><i class="hc-key-dot" aria-hidden="true"></i>Retained sample</span><span class="hc-legend-item"><i class="hc-key-boundary" aria-hidden="true"></i>Moved to boundary</span><span class="hc-legend-item"><i class="hc-key-stack" aria-hidden="true"></i>Area ∝ coincident count</span><span class="hc-legend-item"><i class="hc-key-cross" aria-hidden="true">×</i>Sample mean</span><span class="hc-legend-item"><i class="hc-key-ring" aria-hidden="true"></i>Target mean</span></p>
     <p class="hc-result-line" data-generation-warning aria-live="polite" hidden></p>
     <details class="hc-details"><summary>Sample statistics &amp; analytic reference</summary>
     <div class="hc-table-wrap"><table class="hc-sample-table"><caption>Measured values; validity uses tolerance 10⁻⁹.</caption><colgroup><col class="hc-col-method"><col class="hc-col-proposals"><col class="hc-col-valid"><col class="hc-col-mean"></colgroup><thead><tr><th scope="col">Method</th><th scope="col" title="Number of candidate proposals">Draws</th><th scope="col">Returned / valid</th><th scope="col">Mean (y₁, y₂)</th></tr></thead><tbody data-sample-rows></tbody></table></div>
@@ -469,12 +460,10 @@ export function initializeDemos(documentRoot = document) {
     } catch (error) {
       root.replaceChildren();
       root.classList.remove('hc-demo');
-      // Do not hide the fallback or leave unusable controls visible.
       console.warn('Hard-constrained illustration could not be enhanced.', error);
     }
   };
   if (typeof IntersectionObserver === 'undefined') {
-    // Older browsers retain the useful static figure; they do not compute invisible demos.
     return;
   }
   const observer = new IntersectionObserver(entries => {

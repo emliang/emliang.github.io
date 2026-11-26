@@ -1,100 +1,254 @@
-/* Paired views keep the coordinate correspondence visible at reading scale. */
-.homeomorphism-page .hm-figure,.homeomorphism-page .hm-framework{padding:0;background:transparent}
-.homeomorphism-page .article-body .hm-paired{padding:14px;background:#fff;border:1px solid #e6e6e4;border-radius:6px}
-.homeomorphism-page .hm-paired{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
-.homeomorphism-page .article-body .hm-paired img{border-radius:0}
-.homeomorphism-page .article-body .hm-deformation{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;align-items:center;padding:20px 0;border-top:1px solid #e6e6e4;border-bottom:1px solid #e6e6e4}
-.homeomorphism-page .article-body .hm-deformation img{width:180px;border:0;border-radius:0;background:transparent}
-.homeomorphism-page .hm-deformation figcaption{margin:0}
-.homeomorphism-page .hm-image-credit{display:block;font-size:12px;line-height:1.65;margin-top:8px}
-
-/* Three short horizontal flows, with space reserved for each arrow. */
-.homeomorphism-page .hm-framework-row{padding:22px 0;border-top:1px solid #e6e6e4}
-.homeomorphism-page .hm-framework-row:last-of-type{border-bottom:1px solid #e6e6e4}
-.homeomorphism-page .hm-framework-row>strong{display:block;font-size:15px;color:#141414;margin-bottom:16px;font-weight:500}
-.homeomorphism-page .article-body .hm-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;padding:0;margin:0;list-style:none}
-.homeomorphism-page .hm-flow li{position:relative;display:flex;align-items:center;justify-content:center;min-height:60px;padding:8px 12px;text-align:center;font-size:15px;line-height:1.5;margin:0}
-.homeomorphism-page .hm-flow li:nth-child(2){color:#526e9b;font-weight:500;background:#eef2f7;border-radius:4px}
-.homeomorphism-page .hm-flow li:last-child{color:#2c6d77}
-.homeomorphism-page .hm-flow li+li::before{content:'→';position:absolute;left:-24px;top:50%;transform:translateY(-50%);color:#767676;font-size:20px}
-.homeomorphism-page .hm-flow sup{line-height:0;align-self:center;margin-top:-10px}
-
-/* Keep the two domains fixed while the mapping direction changes. */
-.homeomorphism-page .hm-gfm-domains,.homeomorphism-page .hm-gfm-path{display:grid;grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr);gap:18px}
-.homeomorphism-page .hm-gfm-domain-heading{padding:0 6px 14px;text-align:center;font-size:14px;font-weight:500;line-height:1.5}
-.homeomorphism-page .hm-gfm-ball-heading{grid-column:1;color:#526e9b}
-.homeomorphism-page .hm-gfm-set-heading{grid-column:3;color:#2c6d77}
-.homeomorphism-page .hm-gfm-row{padding:18px 0;border-top:1px solid #e6e6e4}
-.homeomorphism-page .hm-gfm-row:last-of-type{border-bottom:1px solid #e6e6e4}
-.homeomorphism-page .hm-gfm-row>strong{display:block;margin-bottom:12px;color:#141414;font-size:14px;font-weight:500;line-height:1.5}
-.homeomorphism-page .hm-gfm-domain{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100px;padding:14px 10px;border:1px solid;border-radius:4px;text-align:center;font-size:15px;line-height:1.5}
-.homeomorphism-page .hm-gfm-ball{border-color:#d9e0eb;background:#f4f6fa;color:#405b82}
-.homeomorphism-page .hm-gfm-set{border-color:#d3e2de;background:#f3f8f6;color:#2c6d77}
-.homeomorphism-page .hm-gfm-transfer{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;min-width:0;color:#666666}
-.homeomorphism-page .hm-gfm-map{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;line-height:1.45}
-.homeomorphism-page .hm-gfm-map>.hm-math{font-size:18px;line-height:1.3}
-.homeomorphism-page .hm-gfm-transfer svg{display:block;width:100%;height:14px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.homeomorphism-page .hm-gfm-inverse{color:#526e9b}
-.homeomorphism-page .hm-gfm-forward{color:#2c6d77}
-.homeomorphism-page .hm-gfm-local-flow{display:flex;justify-content:center;align-items:center;gap:9px}
-.homeomorphism-page .hm-gfm-local-arrow{font-size:18px;color:#7b8eac}
-.homeomorphism-page .hm-gfm-within{margin-top:6px;font-size:12px;line-height:1.5;color:#666666}
-
-.homeomorphism-page .hm-explorer{border:1px solid #e6e6e4;border-radius:6px;background:#fff;padding:20px;margin:28px 0}
-.homeomorphism-page .hm-explorer[hidden]{display:none}
-.homeomorphism-page .hm-explorer-heading{display:grid;grid-template-columns:minmax(0,1fr) 174px;gap:20px;align-items:start}
-.homeomorphism-page .hm-explorer-heading strong{font-size:16px}
-.homeomorphism-page .article-body .hm-explorer-heading p{font-size:13px;line-height:1.65;margin:5px 0 14px;color:#5c5c5c}
-.homeomorphism-page .hm-explorer-heading label{display:flex;flex-direction:column;gap:6px;font-size:12px;color:#5c5c5c}
-.homeomorphism-page .hm-explorer select{min-height:44px;padding:7px 10px;border:1px solid #d4d4d0;border-radius:6px;color:#141414;background:#fff;font:inherit;max-width:100%}
-.homeomorphism-page .hm-canvases svg{display:block;width:100%;height:auto;border:0;border-radius:0;background:transparent;cursor:crosshair;touch-action:none;user-select:none}
-.homeomorphism-page .hm-inline-diagram{display:block;width:100%;height:auto;padding:16px 14px 12px;border:1px solid #e6e6e4;border-radius:6px;background:#fff;font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-.homeomorphism-page .hm-inline-diagram .figure-symbol{font-family:KaTeX_Math,Georgia,"Times New Roman",serif;font-style:italic}
-.homeomorphism-page .article-body .hm-canvases{padding:0;border:0;background:transparent}
-.homeomorphism-page .hm-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:16px;padding-top:16px;border-top:1px solid #e6e6e4}
-.homeomorphism-page .hm-controls label{font-size:13px;display:block;color:#2f2f2f}
-.homeomorphism-page .hm-controls output{float:right;min-width:36px;padding:1px 5px;border:1px solid #d8d8d4;border-radius:4px;text-align:center;font-variant-numeric:tabular-nums;color:#1b4d89;background:#fff}
-.homeomorphism-page .hm-controls input{-webkit-appearance:none;appearance:none;display:block;width:100%;min-height:44px;padding:0;border:0;background:transparent;accent-color:#1b4d89;cursor:pointer;margin:0}
-.homeomorphism-page .hm-controls input::-webkit-slider-runnable-track{height:4px;border-radius:8px;background:#d8d8d4}
-.homeomorphism-page .hm-controls input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:17px;height:17px;margin-top:-6.5px;border:2px solid #fff;border-radius:50%;background:#1b4d89;box-shadow:0 1px 4px rgba(0,0,0,.18)}
-.homeomorphism-page .hm-controls input::-moz-range-track{height:4px;border-radius:8px;background:#d8d8d4}
-.homeomorphism-page .hm-controls input::-moz-range-thumb{width:13px;height:13px;border:2px solid #fff;border-radius:50%;background:#1b4d89}
-.homeomorphism-page .article-body .hm-status{font-size:13px;line-height:1.65;margin:12px 0;padding:9px 12px;border:1px solid #e6e6e4;border-radius:6px;background:#fafaf8;color:#141414;font-variant-numeric:tabular-nums}
-.homeomorphism-page .article-body .hm-demo-note{font-size:12.5px;color:#5c5c5c;line-height:1.65;margin:0}
-.homeomorphism-page .article-body .hm-slide-link{font-size:14px;color:#5c5c5c;margin-top:14px}
-
-@media(max-width:650px){
-.homeomorphism-page .hm-paired{grid-template-columns:minmax(0,1fr);gap:20px}
-.homeomorphism-page .hm-explorer{padding:14px}
-.homeomorphism-page .hm-explorer-heading{display:block}
-.homeomorphism-page .hm-explorer-heading label{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:12px;margin-bottom:18px}
-.homeomorphism-page .hm-controls{gap:16px}
-.homeomorphism-page .article-body .hm-flow{gap:24px}
-.homeomorphism-page .hm-flow li{font-size:13px;min-height:72px;padding:8px 4px;line-height:1.5}
-.homeomorphism-page .hm-flow li+li::before{left:-20px;font-size:17px}
-.homeomorphism-page .hm-framework-row{padding:16px 0}
-.homeomorphism-page .hm-framework-row>strong{font-size:14px;margin-bottom:10px}
-.homeomorphism-page .hm-gfm-domains,.homeomorphism-page .hm-gfm-path{grid-template-columns:minmax(0,1fr) 68px minmax(0,1fr);gap:10px}
-.homeomorphism-page .hm-gfm-domain-heading{padding:0 0 12px;font-size:13px}
-.homeomorphism-page .hm-gfm-domain{padding:12px 8px;font-size:14px}
-.homeomorphism-page .hm-gfm-local-flow{flex-direction:column;gap:2px}
-.homeomorphism-page .hm-gfm-local-arrow{transform:rotate(90deg);line-height:1.2}
-.homeomorphism-page .article-body .hm-deformation{grid-template-columns:minmax(0,1fr);gap:16px}
-.homeomorphism-page .article-body .hm-deformation img{width:150px;margin:auto}
-.homeomorphism-page .hm-deformation figcaption{max-width:440px;margin:auto}
+/* Homeomorphism article visuals: unified inside .fig-frame with semantic B (#1b4d89) and K (#1f6f6d). */
+.homeomorphism-page .hm-paired {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
 }
-@media(max-width:430px){
-.homeomorphism-page .article-body .hm-flow{grid-template-columns:minmax(0,1fr);gap:22px;max-width:300px;margin:0 auto}
-.homeomorphism-page .hm-flow li{min-height:44px;padding:8px 12px;font-size:15px;line-height:1.6}
-.homeomorphism-page .hm-flow li+li::before{content:'↓';left:50%;top:-23px;transform:translateX(-50%);font-size:18px;line-height:22px}
-.homeomorphism-page .hm-framework-row{padding:22px 0}
-.homeomorphism-page .hm-framework-row>strong{font-size:15px;margin-bottom:18px}
-.homeomorphism-page .hm-gfm-domains,.homeomorphism-page .hm-gfm-path{grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr);gap:8px}
-.homeomorphism-page .hm-gfm-domain-heading{font-size:12px}
-.homeomorphism-page .hm-gfm-row{padding:16px 0}
-.homeomorphism-page .hm-gfm-row>strong{font-size:13px}
-.homeomorphism-page .hm-gfm-domain{min-height:110px;padding:12px 6px;font-size:13px}
-.homeomorphism-page .hm-gfm-map{font-size:11px}
-.homeomorphism-page .hm-gfm-map>.hm-math{font-size:17px}
-.homeomorphism-page .hm-gfm-within{font-size:11px}
+.homeomorphism-page .hm-inline-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.homeomorphism-page .hm-inline-diagram .figure-symbol {
+  font-family: KaTeX_Math, Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+/* Compact monochrome animation toolbar shared across Figures 03, 04, and 06 */
+.homeomorphism-page .hm-anim-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  flex-wrap: nowrap;
+  min-height: 41px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e5e5e2;
+}
+.homeomorphism-page .hm-anim-status {
+  margin: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #2e2e2e;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.homeomorphism-page .hm-anim-status strong {
+  color: #141414;
+  font-weight: 600;
+}
+.homeomorphism-page .hm-anim-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  vertical-align: baseline;
+}
+.homeomorphism-page .hm-anim-tag--ok { color: #1f6f6d; background: #ebf4f3; }
+.homeomorphism-page .hm-anim-tag--out { color: #a84a32; background: #faefec; }
+.homeomorphism-page .hm-anim-tag--ball { color: #1b4d89; background: #eef3f9; }
+.homeomorphism-page .hm-anim-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.homeomorphism-page .hm-anim-btn {
+  appearance: none;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #d4d4d0;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #2e2e2e;
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.3;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+.homeomorphism-page .hm-anim-btn:hover {
+  background: #f8f8f6;
+  border-color: #141414;
+  color: #141414;
+}
+.homeomorphism-page .hm-anim-btn[aria-pressed="true"] {
+  background: #141414;
+  border-color: #141414;
+  color: #ffffff;
+}
+.homeomorphism-page .hm-anim-progress {
+  height: 2px;
+  width: 100%;
+  background: #eeeeea;
+  border-radius: 1px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.homeomorphism-page .hm-anim-progress-fill {
+  height: 100%;
+  width: 100%;
+  background: #141414;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* Compact unnumbered topology intuition note with cow animation */
+.homeomorphism-page .article-body .hm-deformation {
+  display: grid;
+  grid-template-columns: 164px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin: 28px 0;
+  padding: 18px 0;
+  border-top: 1px solid #e5e5e2;
+  border-bottom: 1px solid #e5e5e2;
+}
+.homeomorphism-page .article-body .hm-deformation img {
+  width: 164px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+}
+.homeomorphism-page .hm-deformation figcaption { margin: 0; font-size: 14px; line-height: 1.65; color: #4a4a4a; }
+.homeomorphism-page .hm-image-credit { display: block; font-size: 12px; line-height: 1.6; color: #5c5c5c; margin-top: 8px; }
+
+/* Interactive coordinate explorer inside .fig-frame: monochrome chrome */
+.homeomorphism-page .hm-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e5e2;
+}
+.homeomorphism-page .article-body .hm-toolbar-hint {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5c5c5c;
+}
+.homeomorphism-page .hm-shape-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #141414;
+  white-space: nowrap;
+}
+.homeomorphism-page .hm-shape-picker select {
+  min-height: 36px;
+  padding: 5px 10px;
+  border: 1px solid #d4d4d0;
+  border-radius: 5px;
+  color: #141414;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.homeomorphism-page .hm-shape-picker select:hover { border-color: #141414; }
+.homeomorphism-page .hm-canvases svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  background: transparent;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+}
+.homeomorphism-page .hm-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e5e2;
+}
+.homeomorphism-page .hm-controls label { font-size: 13px; display: block; color: #2e2e2e; }
+.homeomorphism-page .hm-controls output {
+  float: right;
+  min-width: 40px;
+  padding: 1px 6px;
+  border: 1px solid #d4d4d0;
+  border-radius: 4px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #141414;
+  background: #ffffff;
+}
+.homeomorphism-page .hm-controls input {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  accent-color: #141414;
+  cursor: pointer;
+  margin: 2px 0 0;
+}
+.homeomorphism-page .hm-controls input::-webkit-slider-runnable-track { height: 4px; border-radius: 8px; background: #d8d8d4; }
+.homeomorphism-page .hm-controls input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #141414;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+.homeomorphism-page .hm-controls input::-moz-range-track { height: 4px; border-radius: 8px; background: #d8d8d4; }
+.homeomorphism-page .hm-controls input::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  background: #141414;
+}
+.homeomorphism-page .article-body .hm-status {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 12px 0 0;
+  padding: 8px 12px;
+  border: 1px solid #e5e5e2;
+  border-radius: 5px;
+  background: #f8f8f6;
+  color: #141414;
+  font-variant-numeric: tabular-nums;
+}
+.homeomorphism-page .article-body .hm-slide-link { font-size: 14px; color: #5c5c5c; margin-top: 14px; }
+
+@media (max-width: 650px) {
+  .homeomorphism-page .hm-anim-bar { flex-wrap: wrap; }
+  .homeomorphism-page .hm-anim-status { white-space: normal; overflow: visible; }
+  .homeomorphism-page .hm-paired { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .homeomorphism-page .hm-controls { gap: 14px; }
+  .homeomorphism-page .article-body .hm-deformation { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .homeomorphism-page .article-body .hm-deformation img { width: 144px; margin: auto; }
+}
+@media print {
+  .homeomorphism-page .hm-anim-bar,
+  .homeomorphism-page .hm-anim-progress { display: none !important; }
 }

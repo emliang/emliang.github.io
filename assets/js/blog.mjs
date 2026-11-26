@@ -206,45 +206,25 @@ if (articleBody) {
   }
 }
 
-// Each walkthrough is a complete static figure until its controls are ready.
+// Walkthrough figures default to the complete final step; tabs let readers inspect earlier steps.
 for (const figure of document.querySelectorAll('[data-figure-walkthrough]')) {
   const controls = figure.querySelector('[data-figure-controls]');
+  if (!controls) continue;
   const tabs = [...controls.querySelectorAll('[role="tab"]')];
   const panels = [...figure.querySelectorAll('[role="tabpanel"]')];
-
-  const nav = document.createElement('div');
-  nav.className = 'figure-step-nav';
-  const counter = document.createElement('span');
-  counter.className = 'figure-step-counter';
-  const nextBtn = document.createElement('button');
-  nextBtn.type = 'button';
-  nextBtn.className = 'figure-step-next';
-  nav.append(counter, nextBtn);
-  const takeaway = figure.querySelector('.figure-takeaway');
-  if (takeaway) takeaway.before(nav);
-  else figure.querySelector('figcaption')?.append(nav);
-
-  let currentIndex = 0;
-  const tabLabel = tab => tab.textContent.replace(/^\s*\d+\s*/, '').trim();
+  if (!tabs.length || tabs.length !== panels.length) continue;
 
   function select(index, focus = false) {
-    currentIndex = index;
     figure.dataset.currentStep = String(index + 1);
     tabs.forEach((tab, i) => {
       tab.setAttribute('aria-selected', String(i === index));
       tab.tabIndex = i === index ? 0 : -1;
       panels[i].hidden = i !== index;
     });
-    counter.textContent = `Step ${index + 1} of ${tabs.length}`;
-    if (index < tabs.length - 1) {
-      nextBtn.textContent = `Next: ${tabLabel(tabs[index + 1])} →`;
-    } else {
-      nextBtn.textContent = `Restart: ${tabLabel(tabs[0])} ↻`;
-    }
-    figure.querySelector('svg').setAttribute('aria-describedby', panels[index].id);
+    const svg = figure.querySelector('svg');
+    if (svg) svg.setAttribute('aria-describedby', panels[index].id);
     if (focus) tabs[index].focus();
   }
-  nextBtn.addEventListener('click', () => select((currentIndex + 1) % tabs.length));
   tabs.forEach((tab, i) => {
     tab.addEventListener('click', () => select(i));
     tab.addEventListener('keydown', event => {
@@ -258,7 +238,7 @@ for (const figure of document.querySelectorAll('[data-figure-walkthrough]')) {
       select(next, true);
     });
   });
-  select(0);
+  select(tabs.length - 1);
   figure.classList.add('is-enhanced');
   controls.hidden = false;
 }
