@@ -395,31 +395,132 @@ html { scroll-behavior: smooth; }
 .blog-page .sketch-line { display: grid; grid-template-columns: 64px 1fr; gap: 14px; align-items: center; }
 .blog-page .method-sketch { width: 100%; height: auto; color: #2e2e2e; }
 
-/* Evaluation 2x2 grid */
-.blog-page .eval-grid {
+/* Evaluation 4-row full-width rubric (replaces narrow 2x2 prose cards) */
+.blog-page .eval-rubric {
+  margin: 20px 0 28px;
+  border-top: 1px solid #e5e5e2;
+  border-bottom: 1px solid #e5e5e2;
+}
+.blog-page .eval-row {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin: 22px 0 26px;
+  grid-template-columns: 196px minmax(0, 1fr);
+  gap: 20px;
+  padding: 15px 0;
+  border-top: 1px solid #e5e5e2;
+  align-items: start;
 }
-.blog-page .eval-card {
-  padding: 15px 16px;
-  border: 1px solid #e5e5e2;
-  border-radius: 6px;
-  background: #f8f8f6;
+.blog-page .eval-row:first-child { border-top: 0; }
+.blog-page .eval-head { min-width: 0; }
+.blog-page .eval-num {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: .06em;
+  color: #5c5c5c;
+  margin-bottom: 2px;
 }
-.blog-page .eval-card h3 {
-  font-size: 14.5px;
+.blog-page .eval-head h3 {
+  font-size: 15px;
   font-weight: 600;
   color: #141414;
-  margin: 0 0 6px;
-  line-height: 1.4;
+  margin: 0 0 3px;
+  line-height: 1.35;
 }
-.blog-page .article-body .eval-card p {
-  font-size: 14px;
-  line-height: 1.65;
-  color: #4a4a4a;
+.blog-page .eval-q {
+  display: block;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #5c5c5c;
+}
+.blog-page .article-body .eval-points {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+.blog-page .article-body .eval-points li {
+  position: relative;
+  margin: 0 0 7px;
+  padding-left: 14px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #2e2e2e;
+}
+.blog-page .article-body .eval-points li:last-child { margin-bottom: 0; }
+.blog-page .article-body .eval-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 5px;
+  height: 1.5px;
+  background: #8c8c88;
+}
+
+/* Compact 3-row paradigm strip & scannable subsection key-point lists */
+.blog-page .paradigm-list {
+  margin: 22px 0 28px;
+  border-top: 1px solid #e5e5e2;
+  border-bottom: 1px solid #e5e5e2;
+}
+.blog-page .paradigm-list dl { margin: 0; }
+.blog-page .paradigm-list dl > div {
+  display: grid;
+  grid-template-columns: 184px minmax(0, 1fr);
+  gap: 18px;
+  padding: 12px 0;
+  border-top: 1px solid #e5e5e2;
+  align-items: baseline;
+}
+.blog-page .paradigm-list dl > div:first-child { border-top: 0; }
+.blog-page .paradigm-list dt { font-size: 14.5px; font-weight: 600; color: #141414; margin: 0; line-height: 1.45; }
+.blog-page .paradigm-list dd { font-size: 14.5px; line-height: 1.6; color: #2e2e2e; margin: 0; }
+.blog-page .paradigm-tag {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #1b4d89;
+  background: #eef3f9;
+}
+.blog-page .article-body .family-notes {
+  list-style: none;
+  margin: 0 0 22px;
+  padding: 0 0 0 14px;
+  border-left: 2px solid #e5e5e2;
+}
+.blog-page .article-body .family-notes li {
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: #2e2e2e;
+}
+.blog-page .article-body .family-notes li:last-child { margin-bottom: 0; }
+
+/* 3-column inline concept strip (Accuracy / Feasibility / Utility) */
+.blog-page .concept-trio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0 24px;
+  padding: 14px 0;
+  border-top: 1px solid #e5e5e2;
+  border-bottom: 1px solid #e5e5e2;
+}
+.blog-page .concept-trio > div { min-width: 0; }
+.blog-page .concept-trio dt {
+  font-size: 14px;
+  font-weight: 600;
+  color: #141414;
+  margin: 0 0 4px;
+}
+.blog-page .concept-trio dd {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #4a4a4a;
 }
 
 /* Equations, callouts, tables, technical details, companion card */
@@ -623,9 +724,11 @@ html { scroll-behavior: smooth; }
 @media (max-width: 680px) {
   .blog-page .static-cloud-grid { grid-template-columns: minmax(0, 1fr); }
   .blog-page .method-table dl > div,
-  .blog-page .method-comparison dl > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .blog-page .method-comparison dl > div,
+  .blog-page .paradigm-list dl > div,
+  .blog-page .eval-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .blog-page .concept-trio { grid-template-columns: minmax(0, 1fr); gap: 12px; }
   .blog-page .sketch-line { grid-template-columns: 50px 1fr; gap: 10px; }
-  .blog-page .eval-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 600px) {
   .blog-page { font-size: 16.5px; line-height: 1.75; }
@@ -693,7 +796,7 @@ html { scroll-behavior: smooth; }
   .blog-page .figure-walkthrough [data-reveal] { display: initial !important; }
   .blog-page .figure-step-panel { display: block !important; }
   .blog-page figure, .blog-page .blog-equation, .blog-page .hm-equation, .blog-page .method-roadmap,
-  .blog-page .method-table, .blog-page .companion-guide, .blog-page .eval-card, .blog-page .mechanism-choice-table tr {
+  .blog-page .method-table, .blog-page .paradigm-list, .blog-page .companion-guide, .blog-page .eval-row, .blog-page .mechanism-choice-table tr {
     break-inside: avoid;
     page-break-inside: avoid;
   }

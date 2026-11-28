@@ -65,12 +65,39 @@
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.blog-page .sampler-hooks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #d4d4d0;
+}
+.blog-page .sampler-hook {
+  min-width: 0;
+  padding-left: 10px;
+  border-left: 2px solid #d4d4d0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #4a4a4a;
+}
+.blog-page .sampler-hook--state { border-left-color: #1b4d89; }
+.blog-page .sampler-hook--est { border-left-color: #a84a32; }
+.blog-page .sampler-hook--out { border-left-color: #1f6f6d; }
+.blog-page .sampler-hook strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #141414;
+  margin-bottom: 2px;
+}
 @media (max-width: 680px) {
   .blog-page .sampler-inner { padding: 4px 0 0; }
   .blog-page .native-flow { grid-template-columns: minmax(0, .82fr) 20px minmax(0, 1.6fr) 20px minmax(0, .82fr); gap: 6px; }
   .blog-page .flow-arrow { width: 20px; }
   .blog-page .flow-math { font-size: 19px; }
   .blog-page .flow-detail { font-size: 11.5px; }
+  .blog-page .sampler-hooks { grid-template-columns: minmax(0, 1fr); gap: 10px; }
 }
 @media (max-width: 380px) {
   .blog-page .native-flow { grid-template-columns: minmax(0, .8fr) 16px minmax(0, 1.55fr) 16px minmax(0, .8fr); gap: 4px; }
